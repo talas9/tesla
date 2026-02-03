@@ -919,9 +919,9 @@ http://192.168.90.100:8901/provisioning/maps/hash
 
 ## 13. Open Questions & Gaps
 
-1. **Exact USB→Staging Copy Mechanism**
-   - How does `/mnt/update` content reach `/opt/games/usr/maps/`?
-   - Automated or manual trigger?
+1. **Exact USB→Staging Copy Mechanism** - **[RESOLVED 2026-02-03]**
+   - **Answer:** usbupdate-server detects SSQ packages in `/mnt/update`, verifies RSA + NaCl signatures, creates dm-verity device `/dev/mapper/offline-package`, mounts SquashFS, copies to `/opt/games/usr/maps/`, verifies hash against Gateway endpoint (192.168.90.100:8901), activates via symlink. See [meta/RESEARCH-QUESTIONS-STATUS.md](../meta/RESEARCH-QUESTIONS-STATUS.md) Q4.
+   - Sources: docs 10, 16, 29
 
 2. **Partition Encryption Details**
    - LUKS key management for `tlc-amap.crypt`
@@ -936,9 +936,13 @@ http://192.168.90.100:8901/provisioning/maps/hash
    - Only Bank A found in code
    - Was Bank B removed? Never implemented?
 
-5. **Hash Endpoint Implementation**
-   - What service runs on `192.168.90.100:8901`?
-   - Is it Gateway's provisioning server?
+5. **Hash Endpoint Implementation** - **[RESOLVED 2026-02-03]**
+   - **Answer:** Port 8901 is MULTI-USE across vehicle network:
+     - **192.168.90.100:8901** = Gateway provisioning/hash verification (`GET /provisioning/maps/hash?bank=a&size={size}`)
+     - **192.168.90.103:8901** = APE factory mode HTTP API (bearer token auth, 10+ calibration endpoints)
+     - **192.168.90.60:8901** = Modem (Iris) provisioning API
+   - See [meta/RESEARCH-QUESTIONS-STATUS.md](../meta/RESEARCH-QUESTIONS-STATUS.md) Q3.
+   - Sources: docs 04, 29, 41, 49
 
 ---
 

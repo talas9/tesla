@@ -32,12 +32,14 @@ An **orphan car** is a Tesla vehicle whose Hermes certificate has expired while 
 |---------|-----------------|
 | **Local driving** | ✅ Unaffected |
 | **Climate control (in car)** | ✅ Works |
-| **Tesla App connectivity** | ❌ Failed |
-| **Remote start/unlock** | ❌ Failed |
-| **Supercharger billing** | ⚠️ May fail |
-| **OTA updates** | ❌ Blocked |
-| **Sentry Mode cloud upload** | ❌ Failed |
-| **Navigation traffic data** | ❌ No updates |
+| **Tesla App connectivity (Bluetooth)** | ✅ Works - BLE key pairing unaffected |
+| **Tesla App connectivity (Internet)** | ❌ Failed - cloud features unavailable |
+| **Remote start/unlock (Bluetooth)** | ✅ Works - local BLE communication |
+| **Remote start/unlock (Internet)** | ❌ Failed - requires Hermes connection |
+| **Supercharger billing** | ✅ Works - CAN bus communication only |
+| **OTA updates** | ❌ Blocked - requires Hermes authentication |
+| **Sentry Mode cloud upload** | ❌ Failed - no backend connection |
+| **Navigation traffic data** | ❌ No updates - requires cloud connectivity |
 
 ### 1.3 Root Cause
 
@@ -616,7 +618,7 @@ fi
 1. **Exact `ShouldRenew()` threshold** — Binary reverse engineering needed
 2. **Service toolbox workflow** — Requires access to Tesla Toolbox software
 3. **Provisioning endpoint authentication** — Factory credential structure unknown
-4. **TPM-protected key recovery** — How does service handle TPM keys?
+4. **TPM-protected key recovery** — **[OPEN RESEARCH]** Unknown how Tesla service handles TPM-protected keys. Requires access to service manuals + TPM unsealing logic analysis + fTPM reverse engineering. Service may have TPM master key, OR provisioning regenerates keys, OR Tesla doesn't use TPM on most vehicles. See [meta/RESEARCH-QUESTIONS-STATUS.md](../meta/RESEARCH-QUESTIONS-STATUS.md) §5.3.
 5. **Regional differences** — Do China/EU vehicles have different processes?
 
 ### 9.2 Experimental Research Needed

@@ -705,4 +705,185 @@ If you have an orphan vehicle, consider:
 
 ---
 
+## Appendix C: Hardware Photos & Schematics
+
+This appendix provides visual references for the voltage glitching attack setup. All sources are publicly available.
+
+### C.1 Primary Source: Black Hat 2023 Presentation
+
+The definitive source for attack setup images is the TU Berlin presentation slides:
+
+| Resource | Description | URL |
+|----------|-------------|-----|
+| **Black Hat PDF** | Official presentation with MCU photos, glitch diagrams, boot chain illustrations | https://i.blackhat.com/BH-US-23/Presentations/US-23-Werling-Jailbreaking-Teslas.pdf |
+| **VicOne Analysis** | High-quality images adapted from Black Hat presentation | https://vicone.com/blog/tesla-jailbreak-unlocks-features-via-firmware-patching-and-voltage-glitching |
+
+**Key Figures in Black Hat Presentation:**
+- Figure 1: Tesla IVI booting process (SPI Flash vs NVMe locations)
+- Figure 2: ROM boot loader in AMD-SP (cannot be patched)
+- Figure 3: Voltage glitch timing diagram (target comparison bypass)
+- Figure 4: Voltage glitch waveform showing drop/recovery
+
+### C.2 faulTPM / AMD Voltage Glitch Hardware Setup
+
+**GitHub Repository with Attack Code and Setup Diagram:**
+- https://github.com/PSPReverse/amd-sp-glitch
+
+**Hardware Connection Diagram (from README.md):**
+```
+┌─────────────────┐
+│ Attacker PC     │
+├─────────────────┤
+│   │             │
+│   ├──→ EM100 Flash Emulator ──→ SPI Flash Header
+│   │
+│   ├──→ Teensy 4.0 ──┬──→ Reset Button Header
+│   │                 ├──→ SPI Flash (sniff)
+│   │                 └──→ SVI2 Bus (glitch injection)
+│   │
+│   ├──→ Logic Analyzer ──┬──→ Teensy (trigger)
+│   │                     ├──→ SVI2 Bus (monitor)
+│   │                     ├──→ SPI Bus (monitor)
+│   │                     └──→ CPU Power Rails (monitor)
+│   │
+│   └──→ Serial Port (COM1) ──→ Target Debug Output
+└─────────────────┘
+```
+
+**Tom's Hardware Photo:**
+- URL: https://www.tomshardware.com/news/amd-tpm-hacked-faultpm
+- Shows: Multiple connections to power supply, BIOS SPI chip, and SVI2 bus on Lenovo test system
+- Relevance: Demonstrates actual glitch injection wiring on similar AMD platform
+
+### C.3 Tesla MCU PCB Photos
+
+**MCU2 (Intel Atom) - Detailed Photos:**
+| Source | Description | URL |
+|--------|-------------|-----|
+| lewurm GitHub | MCU board overview, front/back close-ups | https://github.com/lewurm/blog/issues/3 |
+| imgur album (front) | High-res MCU2 front PCB | https://imgur.com/a/I6FtxPq |
+| imgur album (back) | High-res MCU2 back PCB | https://imgur.com/a/NPpcdeK |
+
+**lewurm's MCU Observations:**
+- Shows J1 CAN/POWER port pinout (confirmed by testing):
+  ```
+  Pin 1: Unknown    Pin 3: Unknown    Pin 5: V12      Pin 7: Unknown
+  Pin 2: Unknown    Pin 4: GND        Pin 6: GND      Pin 8: CANLo2
+  Pin 9: CANLo1     Pin 10: CANHi2    Pin 11: CANHi1  Pin 12: Unknown
+  ```
+- LTE module (LE940B6) location identified
+- Intel SoC location marked
+- SD card with HRL files (historical record logs)
+
+**Note:** MCU2 uses Intel Atom (different from MCU3/MCU-Z with AMD Ryzen), but physical layout references are still valuable.
+
+### C.4 ChipWhisperer Setup Examples
+
+**NewAE Wiki Tutorials:**
+| Tutorial | Description | URL |
+|----------|-------------|-----|
+| VCC Glitch Attacks (V4) | Voltage glitching parameters and hardware setup | http://wiki.newae.com/V4:Tutorial_A3_VCC_Glitch_Attacks |
+| CW305 Crowbar Glitching | FPGA-based glitch injection with SMA cables | http://wiki.newae.com/Tutorial_CW305-4_Voltage_Glitching_with_Crowbars |
+| Fault101 Tutorials | Complete fault injection course with photos | https://github.com/newaetech/chipwhisperer-tutorials |
+
+**ChipWhisperer-Husky Product Page (with photos):**
+- https://www.crowdsupply.com/newae/chipwhisperer-husky
+- Shows: Complete glitching setup, cable connections, target boards
+
+### C.5 SVI2 Interface Documentation
+
+The SVI2 (Serial VID Interface 2.0) is the target for voltage manipulation:
+
+**AMD Power Management Documentation:**
+- SVI2 is a two-wire serial interface between CPU and voltage regulator
+- Allows CPU to request voltage changes dynamically
+- Attacker can inject commands to force voltage drop
+
+**Signal Connections:**
+```
+SVI2 Bus Pinout:
+┌───────────────────────┐
+│ SVC (Serial VID Clock)│ → Teensy GPIO (output)
+│ SVD (Serial VID Data) │ → Teensy GPIO (bidirectional)
+│ SVT (Serial VID Tel)  │ → Teensy GPIO (optional, telemetry)
+└───────────────────────┘
+```
+
+**Glitch Parameters (from research):**
+- Target Voltage Drop: 200-400mV below nominal
+- Glitch Duration: 50-200ns typical
+- Timing Window: During signature comparison (~microseconds after reset)
+
+### C.6 Teensy 4.0 Wiring Reference
+
+**PJRC Official Pinout:**
+- https://www.pjrc.com/teensy/pinout.html
+- https://www.pjrc.com/teensy/techspecs.html
+
+**Attack Firmware Repository:**
+- https://github.com/PSPReverse/amd-sp-glitch/tree/main/attack-code
+- Contains ready-to-use Teensy firmware for voltage glitching
+
+**Typical Wiring for AMD SP Glitch:**
+```
+Teensy 4.0 Pin Assignments:
+┌────────────────────────────────────────────┐
+│ Pin 0-1:   Serial debug output             │
+│ Pin 2:     Reset trigger to target         │
+│ Pin 3-4:   SVI2 SVC/SVD injection          │
+│ Pin 5:     SPI CLK sniff                   │
+│ Pin 6:     Glitch trigger (to logic probe) │
+│ GND:       Common ground with target       │
+└────────────────────────────────────────────┘
+```
+
+### C.7 Image Download Commands
+
+To download key reference images (where licenses permit):
+
+```bash
+# Create directory structure
+mkdir -p /root/tesla/images/{mcu-teardown,glitch-setup,schematics,black-hat}
+
+# Black Hat presentation PDF
+wget -O /root/tesla/images/black-hat/US-23-Werling-Jailbreaking-Teslas.pdf \
+  "https://i.blackhat.com/BH-US-23/Presentations/US-23-Werling-Jailbreaking-Teslas.pdf"
+
+# Note: GitHub and imgur images require manual download due to rate limits
+# Visit URLs directly and save images as needed
+```
+
+### C.8 Summary Table: Hardware Photo Sources
+
+| Image Type | Source | Description | Relevance | Status |
+|------------|--------|-------------|-----------|--------|
+| MCU boot chain diagram | Black Hat PDF (p.1) | Shows SPI Flash vs NVMe layout | Identifies target boot stages | PUBLIC |
+| ROM bootloader diagram | Black Hat PDF (p.2) | AMD-SP ROM cannot be patched | Explains why glitching needed | PUBLIC |
+| Voltage glitch waveform | Black Hat PDF (p.3-4) | Target timing for comparison skip | Attack parameter reference | PUBLIC |
+| faulTPM wiring photo | Tom's Hardware article | Lenovo motherboard with glitch wires | Real-world setup example | PUBLIC |
+| MCU2 PCB front | lewurm/blog GitHub | Intel-based MCU board overview | Physical component reference | PUBLIC |
+| MCU2 PCB back | lewurm/blog GitHub | Power/CAN connector pinout | J1 pinout confirmed | PUBLIC |
+| ChipWhisperer setup | NewAE Wiki | Professional glitch platform | Alternative to Teensy | PUBLIC |
+| Teensy 4.0 pinout | PJRC.com | Development board pinout | Wiring reference | PUBLIC |
+| SVI2 bus timing | AMD datasheets | Power management protocol | Glitch injection target | NDA (partial public) |
+
+### C.9 Notes on MCU3 (AMD Ryzen) Specific Images
+
+**Limited Public MCU3 Teardowns:**
+- Most public Tesla MCU teardowns are MCU1 (Tegra) or MCU2 (Intel Atom)
+- MCU3 (AMD Ryzen) detailed PCB photos are less commonly available
+- The TU Berlin researchers used development/salvage units
+
+**Identifying MCU Version:**
+| MCU | CPU | Introduced | Visual ID |
+|-----|-----|------------|-----------|
+| MCU1 | NVIDIA Tegra 3 | 2012 (Model S) | Smaller board, older connectors |
+| MCU2 | Intel Atom | 2018 | Intel chip visible, larger heatsink |
+| MCU3 | AMD Ryzen V1000 | 2021 (refresh S/X) | AMD branding, newer layout |
+| MCU-Z | AMD Ryzen | 2022 (Model 3/Y) | Similar to MCU3 |
+
+**Recommendation:** For MCU3/MCU-Z specific reference, contact TU Berlin researchers or check their supplementary materials.
+
+---
+
 *Document compiled from public research sources. Not affiliated with Tesla, AMD, or TU Berlin.*

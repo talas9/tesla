@@ -926,7 +926,7 @@ From [04-network-ports-firewall.md](04-network-ports-firewall.md):
 4. ✅ **Analyze bearer token format** - Reverse engineer token validation
 5. ✅ **Test sentinel file creation** - Verify file system permissions
 6. ✅ **Calibration data format** - Analyze JSON structure, signature validation
-7. ✅ **Factory mode state persistence** - How does APE remember factory mode across reboots?
+7. ✅ **Factory mode state persistence** - **[RESOLVED 2026-02-03]** APE persists factory mode via filesystem sentinel files (`/factory/.factory-mode-enabled`) + hardware fuse checks on boot. Sentinel files survive reboots. Fused vehicles require bearer token + backend auth for mode entry. AppArmor profile switches via `unload-apparmor-in-factory` script. See [meta/RESEARCH-QUESTIONS-STATUS.md](../meta/RESEARCH-QUESTIONS-STATUS.md) Q2.
 8. ✅ **UDS reset implementation** - Can resets be blocked or delayed?
 
 ### 10.2 For Tesla Security Team

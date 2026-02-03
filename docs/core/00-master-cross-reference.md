@@ -1,7 +1,7 @@
-# Tesla Security Research — Master Cross‑Reference (All Docs)
+# Tesla Security Research - Master Cross-Reference (All Docs)
 
-**Created:** 2026-02-02  
-**Last Updated:** 2026-02-03  
+**Created:** 2026-02-02
+**Last Updated:** 2026-02-03
 **Purpose:** Single place to connect *all* findings across the `/research/*.md` research corpus, resolve previously-open questions, and provide fast lookup tables (ports/CAN/configs/paths/offsets).
 
 > This is a **living** synthesis document. It prioritizes: (1) what is evidenced, (2) what is inferred, and (3) what remains unknown.
@@ -11,15 +11,15 @@
 ## Table of Contents
 
 1. [System Map (What talks to what)](#section-1-system-map-what-talks-to-what)
-2. [Service Mode Authentication (“service” code mystery)](#section-2-service-mode-authentication-service-code-mystery)
+2. [Service Mode Authentication ("service" code mystery)](#section-2-service-mode-authentication-service-code-mystery)
 3. [Factory Mode Triggers & Gating](#section-3-factory-mode-triggers--gating)
 4. [Offline / USB Update Pipeline (MCU2, ICE/CID/Zen)](#section-4-offline--usb-update-pipeline-mcu2-icecidzen)
-5. [Gateway SD‑format / CAN Flood → Port Opening & Bootloader Primitives](#section-5-gateway-sd-format--can-flood--port-opening--bootloader-primitives)
-6. [Certificate Renewal & Orphan‑Car Recovery](#section-6-certificate-renewal--orphan-car-recovery)
+5. [Gateway SD-format / CAN Flood → Port Opening & Bootloader Primitives](#section-5-gateway-sd-format--can-flood--port-opening--bootloader-primitives)
+6. [Certificate Renewal & Orphan-Car Recovery](#section-6-certificate-renewal--orphan-car-recovery)
 7. [VCSEC Key Programming (BLE/NFC/Whitelist)](#section-7-vcsec-key-programming-blenfcwhitelist)
 8. [Attack Path Decision Tree](#section-8-attack-path-decision-tree)
-9. [Binary Offsets & “Where in the binary?” Index](#section-9-binary-offsets--where-in-the-binary-index)
-10. [Quick‑Reference Lookup Tables](#section-10-quick-reference-lookup-tables)
+9. [Binary Offsets & "Where in the binary?" Index](#section-9-binary-offsets--where-in-the-binary-index)
+10. [Quick-Reference Lookup Tables](#section-10-quick-reference-lookup-tables)
 11. [Unanswered Questions (Remaining Unknowns)](#section-11-unanswered-questions-remaining-unknowns)
 12. [Document Index + Dependency Graph](#section-12-document-index--dependency-graph)
 
@@ -36,16 +36,16 @@
 | `192.168.90.100` | MCU2 ICE (infotainment) | Runs `QtCarServer`, update stack (`sx-updater`, `updater-envoy`), service UI | [04](04-network-ports-firewall.md), [10](10-usb-firmware-update-deep.md), [15](15-updater-component-inventory.md) |
 | `192.168.90.102` | Gateway ECU | CAN aggregation, update/TFTP, UDPAPI, bootloader primitives | [02](02-gateway-can-flood-exploit.md), [09](09-gateway-sdcard-log-analysis.md), [12](12-gateway-bootloader-analysis.md), [26](26-bootloader-exploit-research.md), [28](28-can-flood-refined-timing.md) |
 | `192.168.90.103` | APE / Parker (Autopilot) | HTTP `:8901` factory endpoints exist | [05](05-gap-analysis-missing-pieces.md) |
-| `192.168.90.105` | APE‑B (secondary) | Similar role to APE | [04](04-network-ports-firewall.md) |
+| `192.168.90.105` | APE-B (secondary) | Similar role to APE | [04](04-network-ports-firewall.md) |
 | `192.168.90.60` | Modem (Iris) | Can reach MCU update server `:49503`; Iris update tooling uses `:8901` to modem in some scripts | [04](04-network-ports-firewall.md), [18](18-cid-iris-update-pipeline.md) |
 | `192.168.90.30` | Tuner | Has access to some MCU ports; explicitly blocked from service-shell per firewall | [04](04-network-ports-firewall.md) |
 
 **Port reference:** see [04](04-network-ports-firewall.md).
 
-### 1.2 Major software “planes”
+### 1.2 Major software "planes"
 
 **UI / auth plane (MCU):**
-- `QtCar` + `QtCarServer` D‑Bus services and GUI DataValues.
+- `QtCar` + `QtCarServer` D-Bus services and GUI DataValues.
 - Service mode flows via DoIP / signed commands.
 
 **Update plane (MCU):**
@@ -58,21 +58,21 @@
 
 ---
 
-## Section 2: Service Mode Authentication (“service” code mystery)
+## Section 2: Service Mode Authentication ("service" code mystery)
 
 ### 2.1 What is **confirmed** now
 
-**Conclusion:** The “service” code is **not** a hardcoded plaintext code and is **not** validated by a simple local hash/CRC.
+**Conclusion:** The "service" code is **not** a hardcoded plaintext code and is **not** validated by a simple local hash/CRC.
 
 **Evidence highlights:**
-- `setServicePIN` exists as a D‑Bus method on `com.tesla.CenterDisplayDbus` (QtCar), but local “compare to hardcoded PIN” artifacts were **not found**.
+- `setServicePIN` exists as a D-Bus method on `com.tesla.CenterDisplayDbus` (QtCar), but local "compare to hardcoded PIN" artifacts were **not found**.
 - Service Mode Auth state is stored in `GUI_serviceModeAuth` and tied to **signed command infrastructure** (`optional_signed_cmd_service_mode`) and likely backend authorization.
-- DoIP integration: `doip-gateway` has D‑Bus permission to trigger the “wake + service mode popup” flow.
+- DoIP integration: `doip-gateway` has D-Bus permission to trigger the "wake + service mode popup" flow.
 
 Primary sources:
 - Deep service auth analysis: [20](20-service-mode-authentication.md)
 - Earlier gap analysis: [05](05-gap-analysis-missing-pieces.md)
-- UI decompilation offsets & D‑Bus methods: [01](01-ui-decompilation-service-factory.md)
+- UI decompilation offsets & D-Bus methods: [01](01-ui-decompilation-service-factory.md)
 
 ### 2.2 Service mode workflow (evidence-backed)
 
@@ -86,7 +86,7 @@ Tesla Toolbox / DoIP → doip-gateway user
   → GUI_serviceModeAuth updated
 ```
 
-### 2.3 Updated answer to the original “Where does ‘service’ validate?” question
+### 2.3 Updated answer to the original "Where does 'service' validate?" question
 
 **Resolved (to the extent evidence allows):**
 - Validation is *not* a local hardcoded comparison.
@@ -100,15 +100,15 @@ Tesla Toolbox / DoIP → doip-gateway user
 
 ## Section 3: Factory Mode Triggers & Gating
 
-### 3.1 D‑Bus entry point exists; “bypass bool” is **not confirmed**
+### 3.1 D-Bus entry point exists; "bypass bool" is **not confirmed**
 
-Earlier versions of this master doc treated the 2nd boolean arg of `set_factory_mode(a{sv}, b)` as a “bypass”. Updated interpretation:
+Earlier versions of this master doc treated the 2nd boolean arg of `set_factory_mode(a{sv}, b)` as a "bypass". Updated interpretation:
 
 - Evidence shows **overloads** exist (`set_factory_mode(context)` and `set_factory_mode(context, on)`), and the boolean appears to represent **on/off** rather than a proven security bypass.
 - Whether any caller can supply a context that bypasses fuse checks remains **unverified**.
 
 Primary sources:
-- D‑Bus interface + disassembly of factory mode handler: [01](01-ui-decompilation-service-factory.md)
+- D-Bus interface + disassembly of factory mode handler: [01](01-ui-decompilation-service-factory.md)
 - Odin scripts that refuse factory mode on fused cars: [05](05-gap-analysis-missing-pieces.md)
 
 ### 3.2 Odin / Toolbox entry points
@@ -181,11 +181,11 @@ New cross-links:
 
 ---
 
-## Section 5: Gateway SD‑format / CAN Flood → Port Opening & Bootloader Primitives
+## Section 5: Gateway SD-format / CAN Flood → Port Opening & Bootloader Primitives
 
 ### 5.1 What changed since the initial master doc
 
-We now have **bootloader-level** reverse engineering that explains why the CAN flood works and identifies additional primitives beyond “port opens”.
+We now have **bootloader-level** reverse engineering that explains why the CAN flood works and identifies additional primitives beyond "port opens".
 
 Primary sources:
 - Bootloader reverse engineering: [12](12-gateway-bootloader-analysis.md)
@@ -196,7 +196,7 @@ Primary sources:
 
 ### 5.2 Refined CAN timing (evidence/inference blend)
 
-**Observed improvement:** time-to-open reduced to **~8–12s** and claimed success rate ~**98%** with:
+**Observed improvement:** time-to-open reduced to **~8-12s** and claimed success rate ~**98%** with:
 - `0x622` at **28ms** interval (keeps CAN RX from yielding)
 - `0x3C2` at **0.08ms** interval (12,500 msg/sec)
 
@@ -207,7 +207,7 @@ Source: [28](28-can-flood-refined-timing.md)
 Bootloader (GW R4/R7) highlights:
 - Fixed memory map, no ASLR
 - RWX code region and executable stack (as analyzed)
-- Jump table dispatcher and “factory gate” 8-byte accumulator
+- Jump table dispatcher and "factory gate" 8-byte accumulator
 
 Primary sources:
 - Baseline bootloader analysis: [12](12-gateway-bootloader-analysis.md)
@@ -225,7 +225,7 @@ Primary source: [09](09-gateway-sdcard-log-analysis.md)
 
 ---
 
-## Section 6: Certificate Renewal & Orphan‑Car Recovery
+## Section 6: Certificate Renewal & Orphan-Car Recovery
 
 ### 6.1 What is now confirmed
 
@@ -256,7 +256,7 @@ Primary source: [03](03-certificate-recovery-orphan-cars.md)
 
 ## Section 7: VCSEC Key Programming (BLE/NFC/Whitelist)
 
-### 7.1 What is now “done” and stable
+### 7.1 What is now "done" and stable
 
 A complete VCSEC programming analysis exists, including:
 - Whitelist operations and permission model
@@ -273,7 +273,7 @@ Primary sources:
 
 ## Section 8: Attack Path Decision Tree
 
-> This section is **planning/analysis** for researchers. It does not provide operational exploit instructions beyond what’s already contained in the individual docs.
+> This section is **planning/analysis** for researchers. It does not provide operational exploit instructions beyond what's already contained in the individual docs.
 
 ```mermaid
 flowchart TD
@@ -305,7 +305,7 @@ Cross references:
 
 ---
 
-## Section 9: Binary Offsets & “Where in the binary?” Index
+## Section 9: Binary Offsets & "Where in the binary?" Index
 
 > Offsets below are as reported in the docs (some are **symbol offsets**, some are **file offsets**, and some are **string index labels** like `sx-updater:12912`). Use the originating doc for the exact extraction method.
 
@@ -343,11 +343,11 @@ Cross references:
 
 | Item | Offset | Meaning | Source |
 |------|--------|---------|--------|
-| Header | `0x00–0x3F` | Boot header fields | [12](12-gateway-bootloader-analysis.md) |
+| Header | `0x00-0x3F` | Boot header fields | [12](12-gateway-bootloader-analysis.md) |
 | Init entry | `0x40` | Early init start | [12](12-gateway-bootloader-analysis.md) |
 | Main entry | `0x0E9C` | Main after init | [12](12-gateway-bootloader-analysis.md) |
 | Factory gate function | `0x1044` | 8-byte accumulator/processor | [12](12-gateway-bootloader-analysis.md), [26](26-bootloader-exploit-research.md) |
-| Jump table region | `0x950–0xCAC` | Handler dispatch table | [12](12-gateway-bootloader-analysis.md), [26](26-bootloader-exploit-research.md) |
+| Jump table region | `0x950-0xCAC` | Handler dispatch table | [12](12-gateway-bootloader-analysis.md), [26](26-bootloader-exploit-research.md) |
 | Scheduler | `0x2410` | Context switch / scheduler | [12](12-gateway-bootloader-analysis.md), [28](28-can-flood-refined-timing.md) |
 | `udp_new()` | `0x3378` | lwIP udp_new | [12](12-gateway-bootloader-analysis.md) |
 | `udp_bind()` | `0x3E08` | lwIP udp_bind | [12](12-gateway-bootloader-analysis.md) |
@@ -355,20 +355,20 @@ Cross references:
 
 ---
 
-## Section 10: Quick‑Reference Lookup Tables
+## Section 10: Quick-Reference Lookup Tables
 
 ### 10.1 CAN IDs (Gateway / exploit context)
 
 | CAN ID | Purpose | Notes | Sources |
 |-------:|---------|-------|---------|
-| `0x3C2` | Flood / “magic” trigger | Data begins `49 65 ...` (“Ie”) | [02](02-gateway-can-flood-exploit.md), [28](28-can-flood-refined-timing.md) |
+| `0x3C2` | Flood / "magic" trigger | Data begins `49 65 ...` ("Ie") | [02](02-gateway-can-flood-exploit.md), [28](28-can-flood-refined-timing.md) |
 | `0x622` | UDS Tester Present | Interval tuning matters | [02](02-gateway-can-flood-exploit.md), [28](28-can-flood-refined-timing.md) |
 
 ### 10.2 Ports (Tesla vehicle network)
 
 | Port | Proto | Component | Purpose / risk | Sources |
 |-----:|:-----:|----------|----------------|---------|
-| `25956` | TCP | MCU/Gateway update plane | “Updater shell” exposure via CAN flood (exact host varies by doc context) | [02](02-gateway-can-flood-exploit.md), [21](21-gateway-heartbeat-failsafe.md), [04](04-network-ports-firewall.md) |
+| `25956` | TCP | MCU/Gateway update plane | "Updater shell" exposure via CAN flood (exact host varies by doc context) | [02](02-gateway-can-flood-exploit.md), [21](21-gateway-heartbeat-failsafe.md), [04](04-network-ports-firewall.md) |
 | `20564` | TCP | MCU | `sx-updater` HTTP control (`/syncterm`, status, etc) | [21](21-gateway-heartbeat-failsafe.md), [15](15-updater-component-inventory.md) |
 | `23005` | TCP | MCU (localhost) | `usbupdate-server` serves `/mnt/update` | [10](10-usb-firmware-update-deep.md), [15](15-updater-component-inventory.md) |
 | `3500` | UDP | Gateway | UDPAPI config management | [02](02-gateway-can-flood-exploit.md), [04](04-network-ports-firewall.md) |
@@ -399,24 +399,27 @@ Cross references:
 
 | Question (old) | Status | Updated answer | Sources |
 |---|---|---|---|
-| “What is the ‘service’ code validation algorithm?” | **Partially resolved** | Not a local plaintext/hash check; tied to DoIP + signed commands + likely backend entitlement | [20](20-service-mode-authentication.md), [05](05-gap-analysis-missing-pieces.md) |
+| "What is the 'service' code validation algorithm?" | **RESOLVED (2026-02-03)** | Service PIN validation occurs server-side via DoIP + signed commands + backend entitlement. No local hash/plaintext check. setServicePIN D-Bus call triggers Hermes backend validation. See [meta/RESEARCH-QUESTIONS-STATUS.md](../meta/RESEARCH-QUESTIONS-STATUS.md) Q1. | [20](20-service-mode-authentication.md), [05](05-gap-analysis-missing-pieces.md), [01](01-ui-decompilation-service-factory.md) |
+| "What configs require elevated permissions?" | **RESOLVED (2026-02-03)** | Two-tier model: UDP-accessible (no auth, port 3500), Hermes-authenticated (accessId 7-43), Gateway-only (GTW). 662 configs mapped. See [81](../gateway/81-gateway-secure-configs-CRITICAL.md). | [81](../gateway/81-gateway-secure-configs-CRITICAL.md), [82](../gateway/82-odin-routines-database-UNHASHED.md) |
+| "What is the gw-diag command set?" | **RESOLVED (2026-02-03)** | 27 commands extracted from 2,988 Odin scripts. Includes get/set_config, reset_ecu, factory mode, flash operations. Complete catalog: [84](../gateway/84-gw-diag-command-reference.md). | [84](../gateway/84-gw-diag-command-reference.md), [82](../gateway/82-odin-routines-database-UNHASHED.md) |
+| "What is the Gateway config CRC algorithm?" | **RESOLVED (2026-02-03)** | CRC-8 polynomial 0x2F, 100% verified on 662 configs. Reference implementation in scripts/gateway_crc_validator.py. | [80](../gateway/80-ryzen-gateway-flash-COMPLETE.md), [79](../gateway/79-gateway-flash-dump-JTAG.md) |
 
 ### 11.2 Still open (high priority)
 
 | # | Unknown | Why it matters | Best next step | Docs |
 |---:|--------|----------------|----------------|------|
-| 1 | Exact backend validation protocol for service mode (message format, endpoints, offline behavior) | Determines whether “offline service mode” exists and what can be replayed | Disassemble `setServicePIN` call chain + live D‑Bus capture during Toolbox session | [20](20-service-mode-authentication.md) |
-| 2 | `gwmon` timeout constants and exact emergency-session triggers on MCU side | Defines reliability window and potential mitigations | Disassemble `sx-updater` path referencing `gwmon timeout` (MCU) | [21](21-gateway-heartbeat-failsafe.md), [16](16-offline-update-format-notes.md) |
-| 3 | Full command set and permission model of the `25956` “updater shell” | Determines what can be changed from that interface | Capture interactive `help` output and map allowed commands; check AppArmor | [21](21-gateway-heartbeat-failsafe.md) |
-| 4 | Whether factory mode can be entered on fused cars via any non-Odin path | Impacts escalation and offline installs | Validate D‑Bus policy + call path permissions; verify runtime gating | [01](01-ui-decompilation-service-factory.md), [05](05-gap-analysis-missing-pieces.md) |
-| 5 | Can offline USB updates be executed on fused production cars *without* cached signatures (purely offline) | Determines feasibility of true offline update | Obtain a genuine offline package and test / log full flow | [16](16-offline-update-format-notes.md), [10](10-usb-firmware-update-deep.md), [15](15-updater-component-inventory.md) |
+| 1 | Exact backend validation protocol for service mode (message format, endpoints, offline behavior) | Determines whether "offline service mode" exists and what can be replayed | **[REQUIRES BACKEND TESTING]** Network capture during Toolbox session + D-Bus monitoring. Service validation is server-side. See [meta/RESEARCH-QUESTIONS-STATUS.md](../meta/RESEARCH-QUESTIONS-STATUS.md) §4.1. | [20](20-service-mode-authentication.md), [05](05-gap-analysis-missing-pieces.md) |
+| 2 | `gwmon` timeout constants and exact emergency-session triggers on MCU side | Defines reliability window and potential mitigations | **[ANSWERABLE WITH HARDWARE]** Disassemble `sx-updater` binary OR real-world timing test. Estimated 15-30s. See [meta/RESEARCH-QUESTIONS-STATUS.md](../meta/RESEARCH-QUESTIONS-STATUS.md) §3.1. | [21](21-gateway-heartbeat-failsafe.md), [16](16-offline-update-format-notes.md), [36](../gateway/36-gateway-sx-updater-reversing.md) |
+| 3 | Full command set and permission model of the `25956` "updater shell" | Determines what can be changed from that interface | **[ANSWERABLE WITH HARDWARE]** Connect to emergency session and send `help` command. 4 commands documented (help, set_handshake, install, status). See [meta/RESEARCH-QUESTIONS-STATUS.md](../meta/RESEARCH-QUESTIONS-STATUS.md) §3.3. | [21](21-gateway-heartbeat-failsafe.md), [36](../gateway/36-gateway-sx-updater-reversing.md) |
+| 4 | Whether factory mode can be entered on fused cars via any non-Odin path | Impacts escalation and offline installs | **[OPEN RESEARCH]** Requires D-Bus policy analysis + call path disassembly + fused vehicle testing. Likely NO but unconfirmed. See [meta/RESEARCH-QUESTIONS-STATUS.md](../meta/RESEARCH-QUESTIONS-STATUS.md) §5.1. | [01](01-ui-decompilation-service-factory.md), [05](05-gap-analysis-missing-pieces.md), [41](../ape/41-ape-factory-calibration.md) |
+| 5 | Can offline USB updates be executed on fused production cars *without* cached signatures (purely offline) | **RESOLVED (2026-02-03): NO** - Fused vehicles require Tesla-signed packages with embedded Ed25519 NaCl + RSA signatures. dm-verity keys hardcoded, cannot be bypassed without hardware exploit. See [meta/RESEARCH-QUESTIONS-STATUS.md](../meta/RESEARCH-QUESTIONS-STATUS.md) Q5. | [16](16-offline-update-format-notes.md), [10](10-usb-firmware-update-deep.md), [12](12-gateway-bootloader-analysis.md), [80](../gateway/80-ryzen-gateway-flash-COMPLETE.md) |
 
 ### 11.3 Still open (medium)
 
 | # | Unknown | Notes | Docs |
 |---:|--------|-------|------|
-| 6 | Exact `hermes_client` renewal threshold (days) | estimated 30–90d; needs disassembly | [23](23-certificate-chain-analysis.md) |
-| 7 | Port `8901` authentication requirements and what works when cert is expired | impacts “orphan” recovery hypotheses | [05](05-gap-analysis-missing-pieces.md), [18](18-cid-iris-update-pipeline.md) |
+| 6 | Exact `hermes_client` renewal threshold (days) | **[REQUIRES BACKEND TESTING]** Estimated 30–90d before expiry. Verify via binary disassembly OR live monitoring of vehicle approaching renewal. See [meta/RESEARCH-QUESTIONS-STATUS.md](../meta/RESEARCH-QUESTIONS-STATUS.md) §4.3. | [23](23-certificate-chain-analysis.md), [03](03-certificate-recovery-orphan-cars.md) |
+| 7 | Port `8901` authentication requirements and what works when cert is expired | **[REQUIRES BACKEND TESTING]** Test on orphan vehicle with expired cert. Port 8901 multi-use: Gateway (hash verify), APE (factory API, bearer token auth), Modem (provisioning). See [meta/RESEARCH-QUESTIONS-STATUS.md](../meta/RESEARCH-QUESTIONS-STATUS.md) §4.2 + Q3. | [05](05-gap-analysis-missing-pieces.md), [18](18-cid-iris-update-pipeline.md), [41](../ape/41-ape-factory-calibration.md), [04](04-network-ports-firewall.md) |
 
 ---
 
@@ -426,7 +429,7 @@ Cross references:
 
 | Doc | Title (short) | Primary contribution |
 |-----|---------------|----------------------|
-| [01](01-ui-decompilation-service-factory.md) | UI decomp: service/factory | D‑Bus methods, DataValues, factory mode handler offsets |
+| [01](01-ui-decompilation-service-factory.md) | UI decomp: service/factory | D-Bus methods, DataValues, factory mode handler offsets |
 | [02](02-gateway-can-flood-exploit.md) | CAN flood exploit | Practical procedure + UDPAPI unlock bytes |
 | [03](03-certificate-recovery-orphan-cars.md) | Orphan recovery | Recovery paths and risks |
 | [04](04-network-ports-firewall.md) | Ports/firewall | Vehicle network and port matrix |
