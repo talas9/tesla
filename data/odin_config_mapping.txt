@@ -1,0 +1,1992 @@
+# Odin Routines → Gateway Config ID Mapping
+# Generated from Ryzen Gateway flash dump + Odin database
+
+Total matches: 283
+
+UDP-accessible configs (INSECURE): 0
+GTW-only configs (HW-LOCKED): 0
+Normal configs (LIKELY SECURE): 283
+
+================================================================================
+
+Config ID: 0x0001 | accessId: packConfig | 🔒 LIKELY SECURE
+  Code Key: pack
+  Description: battery pack configuration - CAUTION
+  Matched Enum: PACK_CONFIG_S3_49 = 49
+  Data: 313638343433352d30302d45
+  Confidence: MEDIUM
+
+Config ID: 0x0003 | accessId: packConfig | 🔒 LIKELY SECURE
+  Code Key: pack
+  Description: battery pack configuration - CAUTION
+  Matched Enum: PACK_CONFIG_S3_49 = 49
+  Data: 313936303130312d31322d44
+  Confidence: MEDIUM
+
+Config ID: 0x0007 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0008 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0009 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x000A | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x000C | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x000D | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x000E | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x000F | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 3
+  Data: 03
+  Confidence: HIGH
+
+Config ID: 0x0011 | accessId: softPackConfig | 🔒 LIKELY SECURE
+  Code Key: soft_pack
+  Description: Select model-based pack config to override HW pack config. NOTE: In FW later than 2020.40 this is a secure config and can not be changed via TBX3.
+  Matched Enum: SOFT_CONFIG_HWID74_70KWH = 8
+  Data: 08
+  Confidence: HIGH
+
+Config ID: 0x0012 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0013 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0014 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0015 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0018 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0019 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x001A | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x001B | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x001C | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x001D | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 4
+  Data: 04
+  Confidence: HIGH
+
+Config ID: 0x001E | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x001F | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0020 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 2
+  Data: 02
+  Confidence: HIGH
+
+Config ID: 0x0021 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0022 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0023 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 3
+  Data: 03
+  Confidence: HIGH
+
+Config ID: 0x0024 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0029 | accessId: softPackConfig | 🔒 LIKELY SECURE
+  Code Key: soft_pack
+  Description: Select model-based pack config to override HW pack config. NOTE: In FW later than 2020.40 this is a secure config and can not be changed via TBX3.
+  Matched Enum: SOFT_CONFIG_HWID94_60KWH = 15
+  Data: 0f
+  Confidence: HIGH
+
+Config ID: 0x002B | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x002C | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 2
+  Data: 02
+  Confidence: HIGH
+
+Config ID: 0x002D | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x002E | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x002F | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0030 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 2
+  Data: 02
+  Confidence: HIGH
+
+Config ID: 0x0031 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0032 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0033 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0034 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0035 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0036 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00000000
+  Confidence: MEDIUM
+
+Config ID: 0x0037 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0038 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0039 | accessId: 17 | 🔒 LIKELY SECURE
+  Code Key: brakeHWType
+  Description: Brake caliper hardware type
+  Matched Enum: BREMBO_LARGE_P42_V2_MANDO_43MOC = 8
+  Data: 08000000000000000000000000000000
+  Confidence: MEDIUM
+
+Config ID: 0x003A | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x003B | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 4
+  Data: 04
+  Confidence: HIGH
+
+Config ID: 0x003C | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00000005
+  Confidence: MEDIUM
+
+Config ID: 0x003D | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x003E | accessId: packConfig | 🔒 LIKELY SECURE
+  Code Key: pack
+  Description: battery pack configuration - CAUTION
+  Matched Enum: PACK_CONFIG_MODELS_17 = 17
+  Data: 11
+  Confidence: HIGH
+
+Config ID: 0x003F | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0041 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0042 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0043 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 2
+  Data: 02
+  Confidence: HIGH
+
+Config ID: 0x0045 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 3
+  Data: 03
+  Confidence: HIGH
+
+Config ID: 0x0046 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 2
+  Data: 02
+  Confidence: HIGH
+
+Config ID: 0x0048 | accessId: packConfig | 🔒 LIKELY SECURE
+  Code Key: pack
+  Description: battery pack configuration - CAUTION
+  Matched Enum: PACK_CONFIG_S1_35 = 35
+  Data: 2365b77014c602d00748007016c480d007e809481379ffd035c00e7fe70039e2
+  Confidence: MEDIUM
+
+Config ID: 0x0049 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x004A | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x004B | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x004C | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x004D | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 3
+  Data: 03
+  Confidence: HIGH
+
+Config ID: 0x004E | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 2
+  Data: 02
+  Confidence: HIGH
+
+Config ID: 0x004F | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0050 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 2
+  Data: 02
+  Confidence: HIGH
+
+Config ID: 0x0051 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0053 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0054 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 4
+  Data: 04
+  Confidence: HIGH
+
+Config ID: 0x0055 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0056 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 5
+  Data: 05
+  Confidence: HIGH
+
+Config ID: 0x0059 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x005B | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x005C | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x005D | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 7
+  Data: 07
+  Confidence: HIGH
+
+Config ID: 0x005E | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x005F | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0060 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 2
+  Data: 02
+  Confidence: HIGH
+
+Config ID: 0x0061 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0062 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0063 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0064 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0065 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0066 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0067 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0068 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0069 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x006A | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 2
+  Data: 02
+  Confidence: HIGH
+
+Config ID: 0x006C | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x006D | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x006E | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 2
+  Data: 02
+  Confidence: HIGH
+
+Config ID: 0x0072 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0073 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0074 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0076 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x007D | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x007E | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x007F | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0080 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0081 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0082 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0085 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 4
+  Data: 04
+  Confidence: HIGH
+
+Config ID: 0x0087 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0088 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0089 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x008A | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x008B | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x008C | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0090 | accessId: 16 | 🔒 LIKELY SECURE
+  Code Key: restraintsHardwareType
+  Description: Used to select correct RCM calibration for vehicle
+  Matched Enum: EUROW_ECALL_MY = 33
+  Data: 21710004182106d800801b01
+  Confidence: MEDIUM
+
+Config ID: 0x0091 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 1
+  Data: 01
+  Confidence: HIGH
+
+Config ID: 0x0092 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0093 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x0095 | accessId: restraintsHardwareType | 🔒 LIKELY SECURE
+  Code Key: restraintsHardwareType
+  Description: Airbag control module type.
+  Matched Enum: MSR_NA = 11
+  Data: 0b
+  Confidence: HIGH
+
+Config ID: 0x0096 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x009C | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 3
+  Data: 03
+  Confidence: HIGH
+
+Config ID: 0x00A1 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0x03E2 | accessId: packConfig | 🔒 LIKELY SECURE
+  Code Key: pack
+  Description: battery pack configuration - CAUTION
+  Matched Enum: PACK_CONFIG_S3_60 = 60
+  Data: 3c7060e61a4824480548064807710000007120000079fff72d2a03e22e7001e0
+  Confidence: MEDIUM
+
+Config ID: 0x03E6 | accessId: exterior | 🔒 LIKELY SECURE
+  Code Key: exteriorcolor
+  Description: exterior color
+  Matched Enum: METALLIC_BLACK = 12
+  Data: 0c187f8086189e8004485579fffb9d48202a037c00009e0103c5011bc1080820
+  Confidence: MEDIUM
+
+Config ID: 0x0548 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: PEARL_WHITE = 6
+  Data: 064807710000007120000079fff97b2a037a0202a87088e0ff7065e102480548
+  Confidence: MEDIUM
+
+Config ID: 0x063C | accessId: restraintsHardwareType | 🔒 LIKELY SECURE
+  Code Key: restraintsHardwareType
+  Description: Airbag control module type.
+  Matched Enum: MSR_EU_RCM = 112
+  Data: 7044607e06c87044567ce502787e60a8387c6432787e63ab787d465b787f2a70
+  Confidence: MEDIUM
+
+Config ID: 0x0D14 | accessId: 17 | 🔒 LIKELY SECURE
+  Code Key: brakeHWType
+  Description: Brake caliper hardware type
+  Matched Enum: BREMBO_LARGE_P42_V2_MANDO_43MOC = 8
+  Data: 0800080008a78510ba2d01000100ffffffffffffff0000000000000000130d14
+  Confidence: MEDIUM
+
+Config ID: 0x1400 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 0000000023306c8f0802000500
+  Confidence: MEDIUM
+
+Config ID: 0x1401 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00010001600b57970d01000100
+  Confidence: MEDIUM
+
+Config ID: 0x1402 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00020000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1403 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00030014bb8f6b9f204f000200
+  Confidence: MEDIUM
+
+Config ID: 0x1404 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00040000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1405 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00050005f1b35ba00101000100
+  Confidence: MEDIUM
+
+Config ID: 0x1406 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00060006f1b35ba00101000100
+  Confidence: MEDIUM
+
+Config ID: 0x1407 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00070007c9175bc22f01000100
+  Confidence: MEDIUM
+
+Config ID: 0x1408 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 000800084558b0551401000100
+  Confidence: MEDIUM
+
+Config ID: 0x1409 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00090009466004a30402000200
+  Confidence: MEDIUM
+
+Config ID: 0x140A | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 000a00098d6595f30402000200
+  Confidence: MEDIUM
+
+Config ID: 0x140B | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 000b000b2b311b4b2f00000000
+  Confidence: MEDIUM
+
+Config ID: 0x140C | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 000c000c2b64ff8d0000000b00
+  Confidence: MEDIUM
+
+Config ID: 0x140D | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 000d000d8a5229b90802000500
+  Confidence: MEDIUM
+
+Config ID: 0x140E | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 000e000ed3f7e7570403000200
+  Confidence: MEDIUM
+
+Config ID: 0x140F | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 000f000e9e740e990403000200
+  Confidence: MEDIUM
+
+Config ID: 0x1410 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 0010001031cefdd62f00000000
+  Confidence: MEDIUM
+
+Config ID: 0x1411 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00110011336d11bd0401000100
+  Confidence: MEDIUM
+
+Config ID: 0x1412 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 0012001235997f310301000000
+  Confidence: MEDIUM
+
+Config ID: 0x1413 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 0013001302dd9a270602000100
+  Confidence: MEDIUM
+
+Config ID: 0x1414 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00140014fa83f7b3204f000200
+  Confidence: MEDIUM
+
+Config ID: 0x1415 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00150000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1416 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00160000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1417 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00170000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1418 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00180018a11bf3ad0501000100
+  Confidence: MEDIUM
+
+Config ID: 0x1419 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 0019001812efd76a0501000100
+  Confidence: MEDIUM
+
+Config ID: 0x141A | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 001a001a3dad8f9b2d00000000
+  Confidence: MEDIUM
+
+Config ID: 0x141B | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 001b001bc1c3b53d0301000000
+  Confidence: MEDIUM
+
+Config ID: 0x141C | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 001c001ca17fe5070301000100
+  Confidence: MEDIUM
+
+Config ID: 0x141D | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 001d0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x141E | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 001e001ebf20f09a0601000100
+  Confidence: MEDIUM
+
+Config ID: 0x141F | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 001f0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1420 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00200000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1421 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00210000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1422 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 0022001329a6ceb00602000100
+  Confidence: MEDIUM
+
+Config ID: 0x1423 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00230000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1424 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00240000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1425 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00250025d1014ae30501000100
+  Confidence: MEDIUM
+
+Config ID: 0x1426 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00260000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1427 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 0027001b7667d96a0301000000
+  Confidence: MEDIUM
+
+Config ID: 0x1428 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00280000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1429 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00290000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x142A | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 002a0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x142B | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 002b002b249ff3780302000100
+  Confidence: MEDIUM
+
+Config ID: 0x142C | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 002c002c50d526550201000100
+  Confidence: MEDIUM
+
+Config ID: 0x142D | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 002d0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x142E | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 002e001cf80f047a0301000102
+  Confidence: MEDIUM
+
+Config ID: 0x142F | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 002f002f3f133fde0501000100
+  Confidence: MEDIUM
+
+Config ID: 0x1430 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 003000303f133fde0501000100
+  Confidence: MEDIUM
+
+Config ID: 0x1431 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 003100313f133fde0501000100
+  Confidence: MEDIUM
+
+Config ID: 0x1432 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 003200323f133fde0501000100
+  Confidence: MEDIUM
+
+Config ID: 0x1433 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00330000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1434 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00340000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1435 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00350000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1436 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00360000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1437 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00370000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1438 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00380038afd07fde0101000100
+  Confidence: MEDIUM
+
+Config ID: 0x1439 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00390000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x143A | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 003a0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x143B | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 003b003be64999f72900000001
+  Confidence: MEDIUM
+
+Config ID: 0x143C | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 003c003c010902000101000000
+  Confidence: MEDIUM
+
+Config ID: 0x143D | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 003d003d04050a000000000001
+  Confidence: MEDIUM
+
+Config ID: 0x143E | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 003e0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x143F | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 003f0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1440 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00400000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1441 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00410000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1442 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00420000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1443 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00430000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1444 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00440001be0a291a0d01000100
+  Confidence: MEDIUM
+
+Config ID: 0x1445 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 0045000198fa4a870d01000100
+  Confidence: MEDIUM
+
+Config ID: 0x1446 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00460000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1447 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 0047000b9ce8f0a72f00000002
+  Confidence: MEDIUM
+
+Config ID: 0x1448 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 0048000b9ce8f0a72f00000002
+  Confidence: MEDIUM
+
+Config ID: 0x1449 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00490000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x144A | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 004a0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x144B | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 004b0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x144C | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 004c004c123b15ae0101000100
+  Confidence: MEDIUM
+
+Config ID: 0x144D | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 004d0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x144E | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 004e004ee957349b0101000100
+  Confidence: MEDIUM
+
+Config ID: 0x144F | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 004f004fe957349b0101000100
+  Confidence: MEDIUM
+
+Config ID: 0x1450 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00500000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1451 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00510051161700000000000001
+  Confidence: MEDIUM
+
+Config ID: 0x1452 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00520051000001000000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1453 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00530000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1454 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00540000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1455 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00550000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1456 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00560000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1457 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00570000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1458 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00580000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1459 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00590000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x145A | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 005a0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x145B | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 005b0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x145C | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 005c0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x145D | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 005d0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x145E | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 005e0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x145F | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 005f0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1460 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00600000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1461 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00610000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1462 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00620000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1463 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00630000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1464 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00640000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1465 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00650000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1466 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00660000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1467 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00670000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1468 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00680000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1469 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00690000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x146A | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 006a0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x146B | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 006b001aae006f262d00000002
+  Confidence: MEDIUM
+
+Config ID: 0x146C | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 006c001aae006f262d00000002
+  Confidence: MEDIUM
+
+Config ID: 0x146D | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 006d001cae006f260301000102
+  Confidence: MEDIUM
+
+Config ID: 0x146E | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 006e001cae006f260301000102
+  Confidence: MEDIUM
+
+Config ID: 0x146F | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 006f0007ae006f262f01000102
+  Confidence: MEDIUM
+
+Config ID: 0x1470 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00700007ae006f262f01000102
+  Confidence: MEDIUM
+
+Config ID: 0x1471 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00710008ae006f262d01000102
+  Confidence: MEDIUM
+
+Config ID: 0x1472 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00720008ae006f262d01000102
+  Confidence: MEDIUM
+
+Config ID: 0x1473 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00730000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1474 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00740000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1475 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00750000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1476 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00760000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1477 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00770000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1478 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00780000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x1479 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 007900796e5c245e0101000100
+  Confidence: MEDIUM
+
+Config ID: 0x147A | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 007a0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x147B | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 007b0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x147C | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 007c0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x147D | accessId: 14 | 🔒 LIKELY SECURE
+  Code Key: packEnergy
+  Description: Rated energy of the installed pack
+  Matched Enum: PACK_75_KWH = 4
+  Data: 0431147e0714707e06207044077e00f0707e2520707e0a503844037e20e4707f
+  Confidence: MEDIUM
+
+Config ID: 0x147E | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 007e0000ffffffff0000000002
+  Confidence: MEDIUM
+
+Config ID: 0x15FA | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00000000
+  Confidence: MEDIUM
+
+Config ID: 0x15FB | accessId: packConfig | 🔒 LIKELY SECURE
+  Code Key: pack
+  Description: battery pack configuration - CAUTION
+  Matched Enum: PACK_CONFIG_S2_56 = 56
+  Data: 3864636632633339626538366166336661303330636636303637383361376264
+  Confidence: MEDIUM
+
+Config ID: 0x15FE | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 0000000100020003000400050006000700080009000a000b000c000d000e000f
+  Confidence: MEDIUM
+
+Config ID: 0x15FF | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 0002030d003d
+  Confidence: MEDIUM
+
+Config ID: 0x1BC1 | accessId: 17 | 🔒 LIKELY SECURE
+  Code Key: brakeHWType
+  Description: Brake caliper hardware type
+  Matched Enum: BREMBO_P42_V2_MANDO_43MOC = 9
+  Data: 0908013fd50179ffff972a03e246800f2a30e239840f2a10e23663661bdf8034
+  Confidence: MEDIUM
+
+Config ID: 0x3001 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 001067b0e6036310d20f480618e180
+  Confidence: MEDIUM
+
+Config ID: 0x3814 | accessId: 16 | 🔒 LIKELY SECURE
+  Code Key: restraintsHardwareType
+  Description: Used to select correct RCM calibration for vehicle
+  Matched Enum: ROW_NO_ECALL_M3_OH_PED_PRO = 124
+  Data: 7c8431147c66a2787c07aa787fc370707fe094707ca5e8147c84e11444037fc0
+  Confidence: MEDIUM
+
+Config ID: 0x418C | accessId: restraintsHardwareType | 🔒 LIKELY SECURE
+  Code Key: restraintsHardwareType
+  Description: Airbag control module type.
+  Matched Enum: MSR_EU_RCM = 112
+  Data: 70e8e00b7003a0141c0741dc0403e8057068e00b1c6341a801e478000ecd70e8
+  Confidence: MEDIUM
+
+Config ID: 0x4470 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: SOLID_BLACK = 1
+  Data: 0103000474a004
+  Confidence: MEDIUM
+
+Config ID: 0x4C70 | accessId: 16 | 🔒 LIKELY SECURE
+  Code Key: restraintsHardwareType
+  Description: Used to select correct RCM calibration for vehicle
+  Matched Enum: ROW_NO_ECALL_M3_OH_PED_PRO = 124
+  Data: 7c6703787f83d2787fa0da787ce728147cc621145081007850a1007c46834690
+  Confidence: MEDIUM
+
+Config ID: 0x5007 | accessId: packConfig | 🔒 LIKELY SECURE
+  Code Key: pack
+  Description: battery pack configuration - CAUTION
+  Matched Enum: PACK_CONFIG_S2_70BB_65 = 65
+  Data: 41bc2000540741bc000470
+  Confidence: MEDIUM
+
+Config ID: 0x58E1 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00286d004470c7710c07e2de5801002a58e1002c6d004470c8710c07e2d5731f
+  Confidence: MEDIUM
+
+Config ID: 0x7484 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: DEEP_BLUE = 5
+  Data: 05ff1b84b10204f40dcd188480287f9de01e01c579ffed99c00806cd04cb04c0
+  Confidence: MEDIUM
+
+Config ID: 0x7800 | accessId: 66 | 🔒 LIKELY SECURE
+  Code Key: mapRegion
+  Description: Region specifier for navigation maps
+  Matched Enum: SE = 11
+  Data: 0b2b72df7fff7c771b797a1201b64dc378000b197c7a1b79e61656fa00307ee3
+  Confidence: MEDIUM
+
+Config ID: 0x7A12 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: SILVER_METALLIC = 2
+  Data: 02b2c33f79fff91f48f02a037a1202
+  Confidence: MEDIUM
+
+Config ID: 0x7C67 | accessId: packConfig | 🔒 LIKELY SECURE
+  Code Key: pack
+  Description: battery pack configuration - CAUTION
+  Matched Enum: PACK_CONFIG_S3_48 = 48
+  Data: 30ae7c9d30ae20067c64227844407400063f
+  Confidence: MEDIUM
+
+Config ID: 0x7CC6 | accessId: 16 | 🔒 LIKELY SECURE
+  Code Key: restraintsHardwareType
+  Description: Used to select correct RCM calibration for vehicle
+  Matched Enum: EUROW_ECALL_MY = 33
+  Data: 21147ec318387ee000387ca748147c86411470cb
+  Confidence: MEDIUM
+
+Config ID: 0x7CE7 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: SILVER_METALLIC = 2
+  Data: 02787e20c87044567e253c707c6332787e063c7044607e06c87044567ce50278
+  Confidence: MEDIUM
+
+Config ID: 0x7E1B | accessId: 16 | 🔒 LIKELY SECURE
+  Code Key: restraintsHardwareType
+  Description: Used to select correct RCM calibration for vehicle
+  Matched Enum: NA_M3_OH = 121
+  Data: 79e218c73f80032a00e6138b03740006bf960f8b0367c0e20701b448b579fff1
+  Confidence: MEDIUM
+
+Config ID: 0x7F1B | accessId: 16 | 🔒 LIKELY SECURE
+  Code Key: restraintsHardwareType
+  Description: Used to select correct RCM calibration for vehicle
+  Matched Enum: NA_M3_OH = 121
+  Data: 79e242c2010113508100681803063879fff5957c7f1b79e23730010063486f00
+  Confidence: MEDIUM
+
+Config ID: 0x7FC3 | accessId: restraintsHardwareType | 🔒 LIKELY SECURE
+  Code Key: restraintsHardwareType
+  Description: Airbag control module type.
+  Matched Enum: MSR_EU_RCM = 112
+  Data: 70707fe094707ca5d8147c84d11444037fc094707ca538147c8431147fc79070
+  Confidence: MEDIUM
+
+Config ID: 0x8038 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: RED_MULTICOAT = 0
+  Data: 00900004182106c800801b610924013f480e480b480ddf011b838024d641e802
+  Confidence: MEDIUM
+
+Config ID: 0x8180 | accessId: exterior | 🔒 LIKELY SECURE
+  Code Key: exteriorcolor
+  Description: exterior color
+  Matched Enum: METALLIC_BLACK = 12
+  Data: 0cd2311861800879ffd579c531c6016cb36d004403c4016c
+  Confidence: MEDIUM
+
+Config ID: 0x8641 | accessId: 41 | 🔒 LIKELY SECURE
+  Code Key: wheelType
+  Description: Type of wheels installed
+  Matched Enum: APOLLO_19_SILVER_CAP_KIT = 20
+  Data: 1470cee2be70fee27b70cbc57470f1c16f7ca538147c8431147c66f2787c07fa
+  Confidence: MEDIUM
+
+Config ID: 0x900D | accessId: exterior | 🔒 LIKELY SECURE
+  Code Key: exteriorcolor
+  Description: exterior color
+  Matched Enum: TITANIUM_COPPER = 13
+  Data: 0de4427308e00b7368e00b7388e00b7328e00b1f1841dc481a50fb4184c0072a
+  Confidence: MEDIUM
+
+Config ID: 0xA538 | accessId: 41 | 🔒 LIKELY SECURE
+  Code Key: wheelType
+  Description: Type of wheels installed
+  Matched Enum: APOLLO_19_SILVER_CAP_KIT = 20
+  Data: 147c8431147c66f2787c07fa787f4370707f6094707ca5c8147c84c11444037f
+  Confidence: MEDIUM
+
+Config ID: 0xA620 | accessId: restraintsHardwareType | 🔒 LIKELY SECURE
+  Code Key: restraintsHardwareType
+  Description: Airbag control module type.
+  Matched Enum: MSR_EU_RCM = 112
+  Data: 7044077ca0f0707c85207044037c80e470508102d844607c86e4707ce7027844
+  Confidence: MEDIUM
+
+Config ID: 0xC271 | accessId: 41 | 🔒 LIKELY SECURE
+  Code Key: wheelType
+  Description: Type of wheels installed
+  Matched Enum: PINWHEEL_REFRESH_18_CAP_KIT = 24
+  Data: 189f8028c75f4816813779ffe9232a03e607c231481448
+  Confidence: MEDIUM
+
+Config ID: 0xC378 | accessId: rearSeatControllerMask | 🔒 LIKELY SECURE
+  Code Key: rear_seat_controllers
+  Description: A bit mask that identifies the number and location of the rear seat controllers
+  Matched Enum: None = 0
+  Data: 00
+  Confidence: HIGH
+
+Config ID: 0xC7FF | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: SOLID_BLACK = 1
+  Data: 014ac4b3c0c321fb0d0be1034800d603c60f484d2a00e65101b97320c9ffe2
+  Confidence: MEDIUM
+
+Config ID: 0xCB71 | accessId: 41 | 🔒 LIKELY SECURE
+  Code Key: wheelType
+  Description: Type of wheels installed
+  Matched Enum: PINWHEEL_REFRESH_18_CAP_KIT = 24
+  Data: 1800d1340d07e53601f318
+  Confidence: MEDIUM
+
+Config ID: 0xCE2A | accessId: exterior | 🔒 LIKELY SECURE
+  Code Key: exteriorcolor
+  Description: exterior color
+  Matched Enum: METALLIC_BLACK = 12
+  Data: 0ce613c60e0d0c48107f9c001ee80e79fffa692203e1651803acffe665c60e01
+  Confidence: MEDIUM
+
+Config ID: 0xD065 | accessId: 7 | 🔒 LIKELY SECURE
+  Code Key: exteriorColor
+  Description: exterior vehicle color
+  Matched Enum: SOLID_BLACK = 1
+  Data: 0146e805
+  Confidence: MEDIUM
+
+Config ID: 0xE000 | accessId: 16 | 🔒 LIKELY SECURE
+  Code Key: restraintsHardwareType
+  Description: Used to select correct RCM calibration for vehicle
+  Matched Enum: ROW_NO_ECALL_M3_OH_PED_PRO = 124
+  Data: 7c06392ec0056670e6fe
+  Confidence: MEDIUM
+
+Config ID: 0xE728 | accessId: 41 | 🔒 LIKELY SECURE
+  Code Key: wheelType
+  Description: Type of wheels installed
+  Matched Enum: APOLLO_19_SILVER_CAP_KIT = 20
+  Data: 147cc62114508100d850a100dc7ec318387ee000387ea748147e86411470dce4
+  Confidence: MEDIUM
+
+Config ID: 0xE8E0 | accessId: 66 | 🔒 LIKELY SECURE
+  Code Key: mapRegion
+  Description: Region specifier for navigation maps
+  Matched Enum: SE = 11
+  Data: 0b480f5007419820005407419870e8e00b4813500741a02a00cd017c7f189e1a
+  Confidence: MEDIUM
+
+Config ID: 0xF9CC | accessId: restraintsHardwareType | 🔒 LIKELY SECURE
+  Code Key: restraintsHardwareType
+  Description: Airbag control module type.
+  Matched Enum: MSR_EU_RCM = 112
+  Data: 70e8e00c73c8e00b50e7f9cc1c1e412c7c8038502a84e609181facffe2040c07
+  Confidence: MEDIUM
+

@@ -1,0 +1,52 @@
+root:x:0:0:root:/root:/bin/sh
+daemon:x:1:1:daemon:/usr/sbin:/bin/false
+bin:x:2:2:bin:/bin:/bin/false
+sys:x:3:3:sys:/dev:/bin/false
+sync:x:4:100:sync:/bin:/bin/sync
+mail:x:8:8:mail:/var/spool/mail:/bin/false
+www-data:x:33:33:www-data:/var/www:/bin/false
+operator:x:37:37:Operator:/var:/bin/false
+nobody:x:65534:65534:nobody:/home:/bin/false
+hermes:x:800:800::/:/bin/false
+hermes-logs:x:801:800:User dedicated to running hermes log services:/:/bin/false
+shell_history:x:1033:1033:User/group dedicated to backing up shell history to syslog:/:/bin/false
+log:x:98:98:syslog:/:/bin/false
+watchdog:x:400:400::/:/bin/sh
+cantx:x:410:410::/:/bin/false
+canrx:x:420:420::/:/bin/false
+temperature_monitor:x:430:430::/:/bin/false
+visualizer:x:440:440::/:/bin/false
+cliplogger:x:450:450::/:/bin/false
+http_server:x:460:460::/:/bin/false
+metrics:x:470:470::/:/bin/false
+uiserver:x:480:480::/:/bin/false
+activesafety:x:490:490::/:/bin/false
+legacyvehicle:x:500:500::/:/bin/false
+missionplanner:x:520:520::/:/bin/false
+behavior:x:530:530::/:/bin/false
+arbiter:x:540:540::/:/bin/false
+controller:x:550:550::/:/bin/false
+statemachine:x:560:560::/:/bin/false
+perception:x:570:570::/:/bin/false
+roadestimator:x:580:580::/:/bin/false
+drivermonitor:x:590:590::/:/bin/false
+localizer:x:600:600::/:/bin/false
+inertiator:x:610:610::/:/bin/false
+gps:x:620:620::/:/bin/false
+imu:x:630:630::/:/bin/false
+dynamics:x:640:640::/:/bin/false
+imu_calibration:x:690:690::/:/bin/false
+vision:x:700:700::/:/bin/false
+rainlightsensing:x:710:710::/:/bin/false
+factorycameracalibration:x:720:720::/:/bin/false
+camera:x:730:730::/:/bin/false
+backup_camera:x:740:740::/:/bin/false
+compressor:x:750:750::/:/bin/false
+fieldcalibration:x:760:760::/:/bin/false
+dash_cam:x:770:770::/:/bin/false
+telemetry:x:810:810::/home/telemetry:/bin/false
+telemetrypackager:x:820:820::/home/telemetrypackager:/bin/sh
+hw_monitor:x:840:840::/:/bin/false
+mapmanager:x:900:900::/:/bin/false
+sshd:x:1000:1003:SSH drop priv user:/var/empty:/bin/false
+updater:x:1001:1005:User/group dedicated to running the updater:/:/bin/false
