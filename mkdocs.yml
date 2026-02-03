@@ -76,7 +76,6 @@ extra:
 nav:
   - Home: README.md
   - 'Complete Index': INDEX.md
-  - 'Deployment Guide': DEPLOYMENT.md
   - 'Core Research':
     - 'Master Cross-Reference': core/00-master-cross-reference.md
     - 'Gateway CAN Flood Exploit': core/02-gateway-can-flood-exploit.md
