@@ -5,28 +5,28 @@ Comprehensive security analysis of Tesla Model S/X/3/Y MCU2 (Infotainment Comput
 **🎯 MAJOR UPDATES (2026-02-03)** - Complete Gateway firmware extraction + 99 research documents:
 
 ### Critical Discoveries (12 key files)
-1. **Gateway Application Firmware**: Real 38KB hex file with ARM code - [76-gateway-app-firmware-REAL.md](76-gateway-app-firmware-REAL.md)
-2. **Gateway Config Database**: Live EEPROM dump showing anti-tamper detection - [77-gateway-config-database-REAL.md](77-gateway-config-database-REAL.md)
-3. **Tesla Internal Tool**: Official signature extraction script for update packages - [78-update-signature-extraction-TOOL.md](78-update-signature-extraction-TOOL.md)
-4. **Gateway Flash JTAG Dumps**: Complete flash extracted via JTAG with CRC-8 algorithm (poly=0x2F) - [79-gateway-flash-dump-JTAG.md](79-gateway-flash-dump-JTAG.md)
-5. **✅ COMPLETE GATEWAY DUMP**: 662 configs from Ryzen Gateway - [80-ryzen-gateway-flash-COMPLETE.md](80-ryzen-gateway-flash-COMPLETE.md)
-6. **🔒 CRITICAL: Secure vs Insecure Configs**: Two-tier security model revealed - [81-gateway-secure-configs-CRITICAL.md](81-gateway-secure-configs-CRITICAL.md)
-7. **🔓 ROSETTA STONE: Odin Routines Database**: Unhashed Tesla service tool config database with security flags - [82-odin-routines-database-UNHASHED.md](82-odin-routines-database-UNHASHED.md)
-8. **🛠️ Odin Config API Analysis**: Config read API without authentication (`access_id=INTEGER`) - [83-odin-config-api-analysis.md](83-odin-config-api-analysis.md)
-9. **📖 `gw-diag` Command Reference**: Complete command catalog extracted from 2,988 Odin scripts - [84-gw-diag-command-reference.md](84-gw-diag-command-reference.md)
-10. **🔧 Gateway Strings Analysis**: 38,291 strings extracted from PowerPC firmware - [88-gateway-strings-analysis.md](88-gateway-strings-analysis.md)
-11. **🗺️ Config Metadata Extraction**: Config name string table + ID index arrays in binary - [89-gateway-config-metadata-extraction.md](89-gateway-config-metadata-extraction.md)
-12. **⚙️ `gw-diag` Detailed Usage**: Complete command patterns from 27 Odin scripts with security contexts - [90-gw-diag-detailed-usage.md](90-gw-diag-detailed-usage.md)
+1. **Gateway Application Firmware**: Real 38KB hex file with ARM code - [76-gateway-app-firmware-REAL.md](gateway/76-gateway-app-firmware-REAL.md)
+2. **Gateway Config Database**: Live EEPROM dump showing anti-tamper detection - [77-gateway-config-database-REAL.md](gateway/77-gateway-config-database-REAL.md)
+3. **Tesla Internal Tool**: Official signature extraction script for update packages - [78-update-signature-extraction-TOOL.md](gateway/78-update-signature-extraction-TOOL.md)
+4. **Gateway Flash JTAG Dumps**: Complete flash extracted via JTAG with CRC-8 algorithm (poly=0x2F) - [79-gateway-flash-dump-JTAG.md](gateway/79-gateway-flash-dump-JTAG.md)
+5. **✅ COMPLETE GATEWAY DUMP**: 662 configs from Ryzen Gateway - [80-ryzen-gateway-flash-COMPLETE.md](gateway/80-ryzen-gateway-flash-COMPLETE.md)
+6. **🔒 CRITICAL: Secure vs Insecure Configs**: Two-tier security model revealed - [81-gateway-secure-configs-CRITICAL.md](gateway/81-gateway-secure-configs-CRITICAL.md)
+7. **🔓 ROSETTA STONE: Odin Routines Database**: Unhashed Tesla service tool config database with security flags - [82-odin-routines-database-UNHASHED.md](gateway/82-odin-routines-database-UNHASHED.md)
+8. **🛠️ Odin Config API Analysis**: Config read API without authentication (`access_id=INTEGER`) - [83-odin-config-api-analysis.md](gateway/83-odin-config-api-analysis.md)
+9. **📖 `gw-diag` Command Reference**: Complete command catalog extracted from 2,988 Odin scripts - [84-gw-diag-command-reference.md](gateway/84-gw-diag-command-reference.md)
+10. **🔧 Gateway Strings Analysis**: 38,291 strings extracted from PowerPC firmware - [88-gateway-strings-analysis.md](gateway/88-gateway-strings-analysis.md)
+11. **🗺️ Config Metadata Extraction**: Config name string table + ID index arrays in binary - [89-gateway-config-metadata-extraction.md](gateway/89-gateway-config-metadata-extraction.md)
+12. **⚙️ `gw-diag` Detailed Usage**: Complete command patterns from 27 Odin scripts with security contexts - [90-gw-diag-detailed-usage.md](gateway/90-gw-diag-detailed-usage.md)
 
 ### Complete Firmware Extraction (NEW - 7 files)
-13. **PowerPC Disassembly**: 1.5M line disassembly + boot vector analysis - [91-gateway-powerpc-disassembly-summary.md](91-gateway-powerpc-disassembly-summary.md)
-14. **🎯 Config Metadata Table FOUND**: 21,000+ entries at 0x403000, security flags identified - [92-config-metadata-table-FOUND.md](92-config-metadata-table-FOUND.md)
-15. **Complete String Database**: 37,702 strings (ASCII + UTF-16) - [93-gateway-ALL-STRINGS.csv](93-gateway-ALL-STRINGS.csv)
-16. **All Functions & Methods**: Function table + call graph analysis - [94-gateway-ALL-FUNCTIONS.md](94-gateway-ALL-FUNCTIONS.md)
-17. **CAN Messages COMPLETE**: 6,647 CAN/config entries fully documented - [95-gateway-CAN-MESSAGES-COMPLETE.md](95-gateway-CAN-MESSAGES-COMPLETE.md)
-18. **All Data Tables**: Boot vector, config tables, crypto constants - [96-gateway-DATA-TABLES.md](96-gateway-DATA-TABLES.md)
-19. **Memory Map**: Complete memory layout (4MB code + 2MB data) - [97-gateway-MEMORY-MAP.md](97-gateway-MEMORY-MAP.md)
-20. **Firmware Metadata**: Build info, versions, statistics - [99-gateway-FIRMWARE-METADATA.md](99-gateway-FIRMWARE-METADATA.md)
+13. **PowerPC Disassembly**: 1.5M line disassembly + boot vector analysis - [91-gateway-powerpc-disassembly-summary.md](gateway/91-gateway-powerpc-disassembly-summary.md)
+14. **🎯 Config Metadata Table FOUND**: 21,000+ entries at 0x403000, security flags identified - [92-config-metadata-table-FOUND.md](gateway/92-config-metadata-table-FOUND.md)
+15. **Complete String Database**: 37,702 strings (ASCII + UTF-16) - [93-gateway-ALL-STRINGS.csv](../data/93-gateway-ALL-STRINGS.csv)
+16. **All Functions & Methods**: Function table + call graph analysis - [94-gateway-ALL-FUNCTIONS.md](gateway/94-gateway-ALL-FUNCTIONS.md)
+17. **CAN Messages COMPLETE**: 6,647 CAN/config entries fully documented - [95-gateway-CAN-MESSAGES-COMPLETE.md](gateway/95-gateway-CAN-MESSAGES-COMPLETE.md)
+18. **All Data Tables**: Boot vector, config tables, crypto constants - [96-gateway-DATA-TABLES.md](gateway/96-gateway-DATA-TABLES.md)
+19. **Memory Map**: Complete memory layout (4MB code + 2MB data) - [97-gateway-MEMORY-MAP.md](gateway/97-gateway-MEMORY-MAP.md)
+20. **Firmware Metadata**: Build info, versions, statistics - [99-gateway-FIRMWARE-METADATA.md](gateway/99-gateway-FIRMWARE-METADATA.md)
 
 **🏆 RESEARCH COMPLETE**: Gateway configuration fully reverse-engineered. CRC algorithm verified, 662 configs extracted. **Security model exposed**: 
 - **Insecure configs** (`accessLevel: "UDP"`) - modifiable via UDP:3500 (map region, trial timers, ECU map)
@@ -39,7 +39,7 @@ Comprehensive security analysis of Tesla Model S/X/3/Y MCU2 (Infotainment Comput
 
 **This research contains a mix of verified findings and theoretical analysis.**
 
-### Evidence Quality Breakdown (See [59-EVIDENCE-AUDIT.md](59-EVIDENCE-AUDIT.md))
+### Evidence Quality Breakdown (See [59-EVIDENCE-AUDIT.md](evidence/59-EVIDENCE-AUDIT.md))
 
 - **✅ VERIFIED (25%)** - 19 documents with binary evidence, disassembly, or config files
 - **⚠️ INFERRED (37%)** - 28 documents with logical deduction from multiple sources  
@@ -58,7 +58,7 @@ Comprehensive security analysis of Tesla Model S/X/3/Y MCU2 (Infotainment Comput
 | ❌ UNTESTED | Low (<40%) | Theoretical exploits, hypotheses, speculation |
 
 **Before Using This Research:**
-1. Check [59-EVIDENCE-AUDIT.md](59-EVIDENCE-AUDIT.md) for specific document quality scores
+1. Check [59-EVIDENCE-AUDIT.md](evidence/59-EVIDENCE-AUDIT.md) for specific document quality scores
 2. Verify critical claims against actual firmware/binaries
 3. Test theoretical exploits in safe environments
 4. Cross-reference findings with multiple sources
@@ -84,10 +84,10 @@ This repository contains 50+ technical documents, tools, and analysis covering:
 **Comprehensive quality assessment completed 2026-02-03:**
 
 - **[EVIDENCE-AUDIT-SUMMARY.md](EVIDENCE-AUDIT-SUMMARY.md)** - Executive summary (start here)
-- **[59-EVIDENCE-AUDIT.md](59-EVIDENCE-AUDIT.md)** - Full audit report with quality scores
-- **[60-RE-ANALYSIS-PRIORITIES.md](60-RE-ANALYSIS-PRIORITIES.md)** - Validation roadmap
-- **[61-CORRECTION-TASKS.md](61-CORRECTION-TASKS.md)** - 47 specific fixes needed
-- **[62-TOP-10-CORRECTIONS.md](62-TOP-10-CORRECTIONS.md)** - Worst documents with line numbers
+- **[59-EVIDENCE-AUDIT.md](evidence/59-EVIDENCE-AUDIT.md)** - Full audit report with quality scores
+- **[60-RE-ANALYSIS-PRIORITIES.md](evidence/60-RE-ANALYSIS-PRIORITIES.md)** - Validation roadmap
+- **[61-CORRECTION-TASKS.md](evidence/61-CORRECTION-TASKS.md)** - 47 specific fixes needed
+- **[62-TOP-10-CORRECTIONS.md](evidence/62-TOP-10-CORRECTIONS.md)** - Worst documents with line numbers
 
 **Quality improvement tasks:** 20 hours critical, 40 hours recommended
 
@@ -96,52 +96,52 @@ This repository contains 50+ technical documents, tools, and analysis covering:
 ## Document Index
 
 ### Core Security Analysis (00-15)
-- [00-master-cross-reference.md](00-master-cross-reference.md) - Complete cross-reference index
-- [02-gateway-can-flood-exploit.md](02-gateway-can-flood-exploit.md) - CAN flood → port 25956 attack
-- [04-network-ports-firewall.md](04-network-ports-firewall.md) - Complete network topology
-- [05-gap-analysis-missing-pieces.md](05-gap-analysis-missing-pieces.md) - Unanswered questions
+- [00-master-cross-reference.md](core/00-master-cross-reference.md) - Complete cross-reference index
+- [02-gateway-can-flood-exploit.md](core/02-gateway-can-flood-exploit.md) - CAN flood → port 25956 attack
+- [04-network-ports-firewall.md](core/04-network-ports-firewall.md) - Complete network topology
+- [05-gap-analysis-missing-pieces.md](core/05-gap-analysis-missing-pieces.md) - Unanswered questions
 
 ### Gateway Deep Dive (12, 21, 36-38, 47, 50-55)
-- [12-gateway-bootloader-analysis.md](12-gateway-bootloader-analysis.md) - Bootloader vulnerabilities
-- [21-gateway-heartbeat-failsafe.md](21-gateway-heartbeat-failsafe.md) - Watchdog timing analysis
-- [36-gateway-sx-updater-reversing.md](36-gateway-sx-updater-reversing.md) - Complete sx-updater disassembly
-- [47-gateway-debug-interface.md](47-gateway-debug-interface.md) - **CRITICAL: Mini-HDMI recovery mode**
-- [50-gateway-udp-config-protocol.md](50-gateway-udp-config-protocol.md) - UDP configuration protocol
-- [52-gateway-firmware-decompile.md](52-gateway-firmware-decompile.md) - Complete command/config database
-- [54-gateway-spc-architecture.md](54-gateway-spc-architecture.md) - SPC chip architecture
-- [55-gateway-spc-chip-replacement.md](55-gateway-spc-chip-replacement.md) - **Hardware bypass via chip swap**
+- [12-gateway-bootloader-analysis.md](core/12-gateway-bootloader-analysis.md) - Bootloader vulnerabilities
+- [21-gateway-heartbeat-failsafe.md](core/21-gateway-heartbeat-failsafe.md) - Watchdog timing analysis
+- [36-gateway-sx-updater-reversing.md](core/36-gateway-sx-updater-reversing.md) - Complete sx-updater disassembly
+- [47-gateway-debug-interface.md](core/47-gateway-debug-interface.md) - **CRITICAL: Mini-HDMI recovery mode**
+- [50-gateway-udp-config-protocol.md](core/50-gateway-udp-config-protocol.md) - UDP configuration protocol
+- [52-gateway-firmware-decompile.md](core/52-gateway-firmware-decompile.md) - Complete command/config database
+- [54-gateway-spc-architecture.md](core/54-gateway-spc-architecture.md) - SPC chip architecture
+- [55-gateway-spc-chip-replacement.md](core/55-gateway-spc-chip-replacement.md) - **Hardware bypass via chip swap**
 
 ### APE (Autopilot) Analysis (40-43, 45)
-- [40-ape-firmware-extraction.md](40-ape-firmware-extraction.md) - Complete filesystem extraction
-- [41-ape-factory-calibration.md](41-ape-factory-calibration.md) - Factory mode & camera calibration
-- [43-ape-network-services.md](43-ape-network-services.md) - **CRITICAL: Unauthenticated port 8901**
+- [40-ape-firmware-extraction.md](core/40-ape-firmware-extraction.md) - Complete filesystem extraction
+- [41-ape-factory-calibration.md](core/41-ape-factory-calibration.md) - Factory mode & camera calibration
+- [43-ape-network-services.md](core/43-ape-network-services.md) - **CRITICAL: Unauthenticated port 8901**
 
 ### Authentication & Access Control (20, 23, 24, 31, 37, 39)
-- [20-service-mode-authentication.md](20-service-mode-authentication.md) - Service mode deep dive
-- [23-certificate-chain-analysis.md](23-certificate-chain-analysis.md) - Certificate lifecycle
-- [24-vcsec-key-programming.md](24-vcsec-key-programming.md) - Key programming & VCSEC
-- [31-apparmor-sandbox-security.md](31-apparmor-sandbox-security.md) - **CRITICAL: Escalator bypass**
-- [37-doip-gateway-reversing.md](37-doip-gateway-reversing.md) - DoIP Tesla Toolbox auth
-- [39-qtcarserver-security-audit.md](39-qtcarserver-security-audit.md) - QtCarServer security audit
+- [20-service-mode-authentication.md](core/20-service-mode-authentication.md) - Service mode deep dive
+- [23-certificate-chain-analysis.md](core/23-certificate-chain-analysis.md) - Certificate lifecycle
+- [24-vcsec-key-programming.md](core/24-vcsec-key-programming.md) - Key programming & VCSEC
+- [31-apparmor-sandbox-security.md](core/31-apparmor-sandbox-security.md) - **CRITICAL: Escalator bypass**
+- [37-doip-gateway-reversing.md](core/37-doip-gateway-reversing.md) - DoIP Tesla Toolbox auth
+- [39-qtcarserver-security-audit.md](core/39-qtcarserver-security-audit.md) - QtCarServer security audit
 
 ### Network Analysis (25, 32, 44-46, 48-49)
-- [25-network-attack-surface.md](25-network-attack-surface.md) - Complete attack surface
-- [32-log-exfiltration-data-mining.md](32-log-exfiltration-data-mining.md) - Hermes telemetry & PII
-- [44-mcu-networking-deep-dive.md](44-mcu-networking-deep-dive.md) - 139 ports documented
-- [48-hardware-architecture.md](48-hardware-architecture.md) - Physical board layout
-- [49-modem-iris-tillit-analysis.md](49-modem-iris-tillit-analysis.md) - LTE modem analysis
+- [25-network-attack-surface.md](core/25-network-attack-surface.md) - Complete attack surface
+- [32-log-exfiltration-data-mining.md](core/32-log-exfiltration-data-mining.md) - Hermes telemetry & PII
+- [44-mcu-networking-deep-dive.md](core/44-mcu-networking-deep-dive.md) - 139 ports documented
+- [48-hardware-architecture.md](core/48-hardware-architecture.md) - Physical board layout
+- [49-modem-iris-tillit-analysis.md](core/49-modem-iris-tillit-analysis.md) - LTE modem analysis
 
 ### Exploit Development (26-28, 33-35)
-- [26-bootloader-exploit-research.md](26-bootloader-exploit-research.md) - **7 CVEs, working exploits**
-- [28-can-flood-refined-timing.md](28-can-flood-refined-timing.md) - 98% success rate attack
-- [33-can-protocol-reverse-engineering.md](33-can-protocol-reverse-engineering.md) - Complete CAN protocol
-- [34-chromium-webkit-attack-surface.md](34-chromium-webkit-attack-surface.md) - **Active 0-day CVE-2025-4664**
-- [35-practical-exploit-guide.md](35-practical-exploit-guide.md) - **Complete attack playbook**
+- [26-bootloader-exploit-research.md](core/26-bootloader-exploit-research.md) - **7 CVEs, working exploits**
+- [28-can-flood-refined-timing.md](core/28-can-flood-refined-timing.md) - 98% success rate attack
+- [33-can-protocol-reverse-engineering.md](core/33-can-protocol-reverse-engineering.md) - Complete CAN protocol
+- [34-chromium-webkit-attack-surface.md](core/34-chromium-webkit-attack-surface.md) - **Active 0-day CVE-2025-4664**
+- [35-practical-exploit-guide.md](core/35-practical-exploit-guide.md) - **Complete attack playbook**
 
 ### Update Mechanisms (06-07, 10, 13-19, 29)
-- [10-usb-firmware-update-deep.md](10-usb-firmware-update-deep.md) - USB update deep dive
-- [13-ota-handshake-protocol.md](13-ota-handshake-protocol.md) - OTA handshake protocol
-- [16-offline-update-format-notes.md](16-offline-update-format-notes.md) - Offline update format
+- [10-usb-firmware-update-deep.md](core/10-usb-firmware-update-deep.md) - USB update deep dive
+- [13-ota-handshake-protocol.md](core/13-ota-handshake-protocol.md) - OTA handshake protocol
+- [16-offline-update-format-notes.md](core/16-offline-update-format-notes.md) - Offline update format
 
 ## Critical Findings Summary
 
@@ -261,10 +261,10 @@ This research was conducted for educational and security purposes. All analysis 
 
 ## Quick Start
 
-1. **Start here:** [00-master-cross-reference.md](00-master-cross-reference.md)
-2. **Attack guide:** [35-practical-exploit-guide.md](35-practical-exploit-guide.md)
-3. **Gateway analysis:** [50-gateway-udp-config-protocol.md](50-gateway-udp-config-protocol.md)
-4. **Network map:** [44-mcu-networking-deep-dive.md](44-mcu-networking-deep-dive.md)
+1. **Start here:** [00-master-cross-reference.md](core/00-master-cross-reference.md)
+2. **Attack guide:** [35-practical-exploit-guide.md](core/35-practical-exploit-guide.md)
+3. **Gateway analysis:** [50-gateway-udp-config-protocol.md](core/50-gateway-udp-config-protocol.md)
+4. **Network map:** [44-mcu-networking-deep-dive.md](core/44-mcu-networking-deep-dive.md)
 
 ## Contact & Attribution
 
