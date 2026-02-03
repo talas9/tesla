@@ -121,6 +121,10 @@
          <lastmod>2026-02-03</lastmod>
     </url>
     <url>
+         <loc>https://talas9.github.io/tesla-research/attacks/VOLTAGE-GLITCHING-RYZEN-MCU/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
          <loc>https://talas9.github.io/tesla-research/core/00-EVIDENCE-AUDIT-INDEX/</loc>
          <lastmod>2026-02-03</lastmod>
     </url>
@@ -442,6 +446,26 @@
     </url>
     <url>
          <loc>https://talas9.github.io/tesla-research/mcu/34-chromium-webkit-attack-surface/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://talas9.github.io/tesla-research/meta/00-AUDIT-INDEX/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://talas9.github.io/tesla-research/meta/AUDIT-SUMMARY-2026-02-03/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://talas9.github.io/tesla-research/meta/DOCUMENTATION-AUDIT-CHECKLIST/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://talas9.github.io/tesla-research/meta/DOCUMENTATION-AUDIT-REPORT-APPENDIX/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://talas9.github.io/tesla-research/meta/DOCUMENTATION-AUDIT-REPORT/</loc>
          <lastmod>2026-02-03</lastmod>
     </url>
     <url>
