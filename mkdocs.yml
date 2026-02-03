@@ -1,10 +1,10 @@
 site_name: Tesla MCU2 Security Research
 site_description: Comprehensive security analysis of Tesla Model S/X/3/Y MCU2 and Gateway
 site_author: Security Researcher
-site_url: https://YOUR_USERNAME.github.io/tesla-research/
+site_url: https://talas9.github.io/tesla-research/
 
-repo_name: YOUR_USERNAME/tesla-research
-repo_url: https://github.com/YOUR_USERNAME/tesla-research
+repo_name: talas9/tesla-research
+repo_url: https://github.com/talas9/tesla-research
 edit_uri: edit/master/docs/
 
 theme:
@@ -70,7 +70,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/YOUR_USERNAME/tesla-research
+      link: https://github.com/talas9/tesla-research
   generator: false
 
 nav:

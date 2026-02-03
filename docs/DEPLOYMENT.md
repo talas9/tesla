@@ -81,7 +81,7 @@ docsify serve docs
   <script>
     window.$docsify = {
       name: 'Tesla MCU2 Security',
-      repo: 'https://github.com/YOUR_USERNAME/tesla-research',
+      repo: 'https://github.com/talas9/tesla-research',
       loadSidebar: true,
       subMaxLevel: 3,
       search: 'auto'
@@ -192,7 +192,7 @@ git add .
 git commit -m "Initial commit: Tesla MCU2 security research"
 
 # Add remote (replace with your repo URL)
-git remote add origin https://github.com/YOUR_USERNAME/tesla-research.git
+git remote add origin https://github.com/talas9/tesla-research.git
 git branch -M main
 git push -u origin main
 ```
@@ -264,7 +264,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/YOUR_USERNAME/tesla-research
+      link: https://github.com/talas9/tesla-research
 YAML
 
 # 3. Preview locally
@@ -276,7 +276,7 @@ mkdocs gh-deploy --clean
 ```
 
 ### GitHub Pages URL
-After deployment: `https://YOUR_USERNAME.github.io/tesla-research/`
+After deployment: `https://talas9.github.io/tesla-research/`
 
 ---
 
@@ -293,7 +293,7 @@ After deployment: `https://YOUR_USERNAME.github.io/tesla-research/`
    ```
    Type: CNAME
    Name: tesla-research
-   Value: YOUR_USERNAME.github.io
+   Value: talas9.github.io
    ```
 
 3. Enable HTTPS in repo settings → Pages
