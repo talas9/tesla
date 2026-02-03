@@ -385,5 +385,5 @@ curl -v https://hermes-prd.ap.tesla.services:8443
 - [APE Services Documentation](APE-SERVICES.md)
 - [APE Firmware Extraction](APE-FIRMWARE-EXTRACTION.md)
 - [Hermes Protocol Analysis](../core/HERMES-CLIENT-ANALYSIS.md)
-- [Gateway Network Architecture](../gateway/54-gateway-network-architecture.md)
+- [Network Topology](../core/04-network-ports-firewall.md)
 - [Gateway Security Analysis](../firmware/86-gateway-security-analysis-DETAILED.md)
