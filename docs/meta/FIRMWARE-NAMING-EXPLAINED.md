@@ -89,3 +89,28 @@ The only difference is:
 ---
 
 *This document clarifies the confusing firmware naming conventions.*
+
+## Common Mistakes to Avoid
+
+❌ **WRONG:**
+- ".mcu3 packages" - This does NOT exist
+- "MCU3 firmware files" - Wrong, it's .ice or .mcu2
+- Confusing hardware generations with file extensions
+
+✅ **CORRECT:**
+- Only TWO package extensions: .ice and .mcu2
+- .ice = Model 3/Y
+- .mcu2 = Model S/X
+- No .mcu3, .mcu1, or other extensions in modern firmware
+
+## File Extension Summary
+
+| Extension | Exists? | Target Vehicles | Notes |
+|-----------|---------|-----------------|-------|
+| `.ice` | ✅ YES | Model 3/Y | Current format |
+| `.mcu2` | ✅ YES | Model S/X | Current format |
+| `.mcu3` | ❌ NO | N/A | Does not exist |
+| `.mcu1` | ⚠️ LEGACY | Very old S/X | Discontinued, pre-2018 |
+| `.mcu` | ⚠️ LEGACY | Very old S/X | Discontinued, pre-2018 |
+
+**Only .ice and .mcu2 are used in modern (2021+) firmware!**

@@ -56,7 +56,7 @@ Squashfs filesystem, little endian, version 4.0, lz4 compressed,
 - `.mcu` - MCU1 firmware  
 - `.mcu2` - MCU2 firmware  
 - `.mcu25` - MCU2.5 firmware  
-- `.mcu3` - MCU3 firmware
+- `.ice (Model 3/Y) or .mcu2 (Model S/X)` - Model 3/Y or S/X firmware
 
 **Citation:** 13-ota-handshake-protocol.md:6.1
 

@@ -344,7 +344,7 @@ curl "http://localhost:20564/reset"
 | `.mcu` | MCU1 firmware | Squashfs |
 | `.mcu2` | MCU2 firmware | Squashfs, lz4 |
 | `.mcu25` | MCU2.5 firmware | Squashfs |
-| `.mcu3` | MCU3 firmware | Squashfs |
+| `.ice (Model 3/Y) or .mcu2 (Model S/X)` | Model 3/Y or S/X firmware | Squashfs |
 | `.ape2` | Autopilot 2.x | - |
 
 ### 6.2 Package Structure
