@@ -25,6 +25,18 @@
          <lastmod>2026-02-03</lastmod>
     </url>
     <url>
+         <loc>https://talas9.github.io/tesla/_new/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://talas9.github.io/tesla/_new/GATEWAY-OVERVIEW/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://talas9.github.io/tesla/_new/QUICK-START/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
          <loc>https://talas9.github.io/tesla/ape/40-INDEX/</loc>
          <lastmod>2026-02-03</lastmod>
     </url>
@@ -138,22 +150,6 @@
     </url>
     <url>
          <loc>https://talas9.github.io/tesla/archive/TASK_COMPLETION_REPORT/</loc>
-         <lastmod>2026-02-03</lastmod>
-    </url>
-    <url>
-         <loc>https://talas9.github.io/tesla/archive/networking-research/44-mcu-networking-deep-dive/</loc>
-         <lastmod>2026-02-03</lastmod>
-    </url>
-    <url>
-         <loc>https://talas9.github.io/tesla/archive/usb-update-research/06-usb-firmware-update/</loc>
-         <lastmod>2026-02-03</lastmod>
-    </url>
-    <url>
-         <loc>https://talas9.github.io/tesla/archive/usb-update-research/10-usb-firmware-update-deep/</loc>
-         <lastmod>2026-02-03</lastmod>
-    </url>
-    <url>
-         <loc>https://talas9.github.io/tesla/archive/usb-update-research/16-offline-update-format-notes/</loc>
          <lastmod>2026-02-03</lastmod>
     </url>
     <url>
@@ -442,6 +438,18 @@
     </url>
     <url>
          <loc>https://talas9.github.io/tesla/gateway/99-gateway-FIRMWARE-METADATA/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://talas9.github.io/tesla/gateway/ANALYSIS-SUMMARY/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://talas9.github.io/tesla/gateway/GATEWAY-AUTHENTICATION-DECISION/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://talas9.github.io/tesla/gateway/GATEWAY-TASK-ARCHITECTURE/</loc>
          <lastmod>2026-02-03</lastmod>
     </url>
     <url>
