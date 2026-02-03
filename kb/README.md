@@ -1,4 +1,4 @@
-# Tesla Research Knowledge Base (KB)
+# Tesla Knowledge Base (KB)
 
 This folder is the **single source of truth** for all Tesla firmware/UI/gateway/Hermes research we’ve extracted.
 

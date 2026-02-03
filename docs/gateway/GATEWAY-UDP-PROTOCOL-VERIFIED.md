@@ -237,9 +237,9 @@ echo "0c004201" | xxd -r -p | socat - udp:192.168.90.102:3500 | hexdump -C
 ## Evidence
 
 ### Files
-- **Script:** `/root/tesla/scripts/gateway_config_tool.sh` (verified working)
-- **Firmware:** `/root/tesla/data/binaries/ryzenfromtable.bin` (6MB PowerPC)
-- **Config database:** `/root/tesla/docs/gateway/80-ryzen-gateway-flash-COMPLETE.md`
+- **Script:** `/scripts/gateway_config_tool.sh` (verified working)
+- **Firmware:** `/data/binaries/ryzenfromtable.bin` (6MB PowerPC)
+- **Config database:** `/docs/gateway/80-ryzen-gateway-flash-COMPLETE.md`
 
 ### Cross-References
 - `50-gateway-udp-config-protocol.md` - Earlier hypothesis (incorrect opcodes)
@@ -268,3 +268,94 @@ echo "0c004201" | xxd -r -p | socat - udp:192.168.90.102:3500 | hexdump -C
 **Credit:** Mohammed Talas (@talas9) for working exploit script  
 **Research:** Tesla Gateway reverse engineering project  
 **Repository:** https://github.com/talas9/tesla
+
+---
+
+## Signed Command Analysis
+
+### CRITICAL UPDATE: "Signed Commands" Are a Misnomer
+
+After comprehensive reverse engineering (see `/docs/gateway/SIGNED-COMMAND-ANALYSIS.md`), we've determined:
+
+**❌ Gateway does NOT use cryptographic signatures on UDP packets**
+
+The 0xff response does NOT mean "invalid signature" - it means **"this config requires authentication, and you don't have it"**.
+
+### Actual Security Model
+
+Gateway uses **config-based access control**, not packet-level signatures:
+
+```
+┌─────────────────────────────────────────────┐
+│    Config Classification (Embedded)         │
+├─────────────────────────────────────────────┤
+│  Insecure Configs (UDP writable):           │
+│    - 0x42 (mapRegion)                       │
+│    - 0x1e (superchargingAccess)             │
+│    - 0x30 (performancePackage)              │
+│    - ... (see table above)                  │
+│                                             │
+│  Secure Configs (Hermes auth required):     │
+│    - 0x00 (VIN)                             │
+│    - 0x06 (country)                         │
+│    - 0x0f (devSecurityLevel)                │
+│    - 0x25/0x26 (crypto keys)                │
+│    - ... (unknown full list)                │
+└─────────────────────────────────────────────┘
+```
+
+### Authentication Flow
+
+**For Insecure Configs:**
+```bash
+# Direct UDP write (no auth needed)
+echo "0c004201" | xxd -r -p | socat - udp:192.168.90.102:3500
+# Response: 0c 00 42 01 (success - echoed back)
+```
+
+**For Secure Configs:**
+```bash
+# Direct UDP write (rejected)
+echo "0c00005a454e4e5f544553545f56494e" | xxd -r -p | socat - udp:192.168.90.102:3500
+# Response: ff (rejection - no Hermes session)
+
+# Correct method:
+# 1. Establish Hermes VPN (WSS:443 to hermes-api.*.vn.cloud.tesla.com)
+# 2. Backend sends AUTH_GRANTED message
+# 3. Gateway sets session_authenticated = true
+# 4. Now SET_CONFIG works for secure configs
+# 5. After session timeout/logout → session_authenticated = false
+```
+
+### UnlockSwitch (0x18) Clarification
+
+**What it DOES:**
+- Activates factory diagnostic mode
+- Enables emergency port UDP:25956
+- Provides extended logging
+
+**What it DOES NOT do:**
+- ❌ Bypass secure config protection
+- ❌ Allow VIN writes without Hermes auth
+- ❌ Disable signature verification (there are no signatures!)
+
+**Test:**
+```bash
+# Send UnlockSwitch
+echo "18babba0ad" | xxd -r -p | socat - udp:192.168.90.102:3500
+# Response: 18 01 (acknowledged)
+
+# Try VIN write
+echo "0c00005a454e4e5f544553545f56494e" | xxd -r -p | socat - udp:192.168.90.102:3500
+# Response: ff (STILL REJECTED - VIN requires Hermes auth!)
+```
+
+### Key Findings Summary
+
+1. **No Packet Signatures**: Gateway does NOT parse signature bytes from packets
+2. **Session-Based Auth**: Authentication is session-level (Hermes), not per-command
+3. **0xff = No Permission**: Not "invalid signature", but "secure config without auth"
+4. **VIN Unchangeable via UDP**: Requires active Hermes session + gw-diag tool
+5. **Physical Bypass Exists**: JTAG flash modification bypasses ALL security
+
+**For full analysis, see:** `/docs/gateway/SIGNED-COMMAND-ANALYSIS.md`

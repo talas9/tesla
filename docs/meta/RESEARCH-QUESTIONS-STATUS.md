@@ -804,7 +804,7 @@ grep -rn "TODO\|FIXME\|XXX\|HACK"
 ```
 
 **Documents Scanned:**
-- All 111 .md files in `/root/tesla/docs/`
+- All 111 .md files in `/docs/`
 - Priority: core/, gateway/, mcu/, ape/, network/
 - Cross-referenced against: 662 Gateway configs, 2,988 Odin scripts
 

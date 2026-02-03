@@ -1,6 +1,6 @@
 # Documentation Audit Report
 **Date:** 2026-02-03  
-**Scope:** All 120 markdown files in `/root/tesla/docs/`  
+**Scope:** All 120 markdown files in `/docs/`  
 **Auditor:** Automated analysis + manual review
 
 ---

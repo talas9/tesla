@@ -553,14 +553,14 @@ http://%s:8901/provisioning/reboot/warm
 - `grep` (pattern matching for critical functions)
 
 ## 17. Deliverables
-- ✅ `/root/tesla/data/strings/hermes_client_strings.txt` (43,605 lines)
-- ✅ `/root/tesla/data/disassembly/hermes_client_dynamic_symbols.txt`
-- ✅ `/root/tesla/data/disassembly/hermes_client_all_symbols.txt`
+- ✅ `/data/strings/hermes_client_strings.txt` (43,605 lines)
+- ✅ `/data/disassembly/hermes_client_dynamic_symbols.txt`
+- ✅ `/data/disassembly/hermes_client_all_symbols.txt`
 - ✅ This analysis document
 
 ## 18. References
 - Previous research: `/root/.openclaw/workspace/tesla-hermes-research.md`
-- Related docs: `/root/tesla/docs/core/03-certificate-recovery-orphan-cars.md`
+- Related docs: `/docs/core/03-certificate-recovery-orphan-cars.md`
 - Binary location: `/root/downloads/model3y-extracted/opt/hermes/hermes_client`
 
 ---

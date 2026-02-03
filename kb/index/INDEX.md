@@ -1,4 +1,4 @@
-# Tesla Research Index
+# Tesla Index
 
 Generated from `/root/tesla`.
 
@@ -103,7 +103,7 @@ Total docs: **8**
   - File System Structure
   - Notes
 
-## Tesla Research Knowledge Base (KB)
+## Tesla Knowledge Base (KB)
 - Path: `/root/tesla/kb/README.md`
 - Sections:
   - Goals

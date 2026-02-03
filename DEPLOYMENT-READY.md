@@ -48,19 +48,19 @@ cd ~/tesla
 export GITHUB_USER="YOUR_USERNAME"
 
 # 2. Add remote (if not done)
-git remote add origin "https://github.com/$GITHUB_USER/tesla-research.git"
+git remote add origin "https://github.com/$GITHUB_USER/tesla.git"
 
 # 3. Push to GitHub
 git push -u origin master
 
 # 4. Enable GitHub Pages
-# Go to: https://github.com/$GITHUB_USER/tesla-research/settings/pages
+# Go to: https://github.com/$GITHUB_USER/tesla/settings/pages
 # Set Source: "GitHub Actions"
 
 # Done! Auto-deploys on every push
 ```
 
-**Your site:** `https://YOUR_USERNAME.github.io/tesla-research/`
+**Your site:** `https://YOUR_USERNAME.github.io/tesla/`
 
 ---
 
@@ -205,7 +205,7 @@ Your site will have:
 ### 1. Custom Domain
 Add `CNAME` file to root:
 ```bash
-echo "tesla-research.yourdomain.com" > CNAME
+echo "tesla.yourdomain.com" > CNAME
 git add CNAME && git commit -m "Add custom domain" && git push
 ```
 
@@ -240,7 +240,7 @@ Everything is configured and ready to deploy. Choose your option:
 **Auto-CD:** Push to GitHub and enable Actions
 
 **Your site will be live at:**  
-`https://YOUR_USERNAME.github.io/tesla-research/`
+`https://YOUR_USERNAME.github.io/tesla/`
 
 ---
 

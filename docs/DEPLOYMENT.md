@@ -81,7 +81,7 @@ docsify serve docs
   <script>
     window.$docsify = {
       name: 'Tesla MCU2 Security',
-      repo: 'https://github.com/talas9/tesla-research',
+      repo: 'https://github.com/talas9/tesla',
       loadSidebar: true,
       subMaxLevel: 3,
       search: 'auto'
@@ -128,31 +128,31 @@ npm run docs:build
 - **Pros:** Unlimited bandwidth, custom domain, integrated with Git
 - **Cons:** Public repos only (or pay for private)
 - **Setup:** Push to GitHub, enable Pages in repo settings
-- **URL:** `https://username.github.io/tesla-research`
+- **URL:** `https://username.github.io/tesla`
 
 ### ReadTheDocs (FREE)
 - **Pros:** Built for technical docs, auto-builds on commit
 - **Cons:** Requires Sphinx/MkDocs setup
 - **Setup:** Connect GitHub repo at https://readthedocs.org
-- **URL:** `https://tesla-research.readthedocs.io`
+- **URL:** `https://tesla.readthedocs.io`
 
 ### Netlify (FREE TIER)
 - **Pros:** Fast CDN, preview deployments, custom domain
 - **Cons:** 100GB bandwidth limit (plenty for docs)
 - **Setup:** Connect GitHub, set build command
-- **URL:** `https://tesla-research.netlify.app`
+- **URL:** `https://tesla.netlify.app`
 
 ### Vercel (FREE TIER)
 - **Pros:** Zero-config, excellent performance
 - **Cons:** Commercial use requires paid plan
 - **Setup:** Import from GitHub
-- **URL:** `https://tesla-research.vercel.app`
+- **URL:** `https://tesla.vercel.app`
 
 ### Cloudflare Pages (FREE)
 - **Pros:** Unlimited bandwidth, fast CDN, custom domain
 - **Cons:** Requires Cloudflare account
 - **Setup:** Connect GitHub repo
-- **URL:** `https://tesla-research.pages.dev`
+- **URL:** `https://tesla.pages.dev`
 
 ---
 
@@ -192,7 +192,7 @@ git add .
 git commit -m "Initial commit: Tesla MCU2 security research"
 
 # Add remote (replace with your repo URL)
-git remote add origin https://github.com/talas9/tesla-research.git
+git remote add origin https://github.com/talas9/tesla.git
 git branch -M main
 git push -u origin main
 ```
@@ -264,7 +264,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/talas9/tesla-research
+      link: https://github.com/talas9/tesla
 YAML
 
 # 3. Preview locally
@@ -276,7 +276,7 @@ mkdocs gh-deploy --clean
 ```
 
 ### GitHub Pages URL
-After deployment: `https://talas9.github.io/tesla-research/`
+After deployment: `https://talas9.github.io/tesla/`
 
 ---
 
@@ -286,13 +286,13 @@ After deployment: `https://talas9.github.io/tesla-research/`
 
 1. Add `CNAME` file to repo root:
    ```
-   tesla-research.yourdomain.com
+   tesla.yourdomain.com
    ```
 
 2. Add DNS record:
    ```
    Type: CNAME
-   Name: tesla-research
+   Name: tesla
    Value: talas9.github.io
    ```
 

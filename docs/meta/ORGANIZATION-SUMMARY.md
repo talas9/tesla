@@ -123,7 +123,7 @@ Status: Clean, ready to push
 cd ~/tesla
 
 # 1. Add remote (if not already)
-git remote add origin https://github.com/USERNAME/tesla-research.git
+git remote add origin https://github.com/USERNAME/tesla.git
 
 # 2. Push to GitHub
 git push -u origin master
@@ -136,7 +136,7 @@ pip install mkdocs mkdocs-material
 # 5. Deploy
 mkdocs gh-deploy
 
-# Done! Site live at: https://USERNAME.github.io/tesla-research/
+# Done! Site live at: https://USERNAME.github.io/tesla/
 ```
 
 ### Option 2: Deploy with Docsify (NO BUILD)
@@ -163,7 +163,7 @@ git push
 
 # 6. Enable GitHub Pages (Settings → Pages → /docs folder)
 
-# Done! Site live at: https://USERNAME.github.io/tesla-research/
+# Done! Site live at: https://USERNAME.github.io/tesla/
 ```
 
 ### Option 3: Deploy to ReadTheDocs
@@ -177,10 +177,10 @@ git push -u origin master
 # 2. Go to https://readthedocs.org
 # 3. Sign in with GitHub
 # 4. Import project
-# 5. Select tesla-research repo
+# 5. Select tesla repo
 
 # Done! Auto-builds on every commit
-# Site live at: https://tesla-research.readthedocs.io
+# Site live at: https://tesla.readthedocs.io
 ```
 
 ---

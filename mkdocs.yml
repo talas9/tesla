@@ -1,10 +1,10 @@
-site_name: Tesla MCU2 Security Research
+site_name: Tesla
 site_description: Comprehensive security analysis of Tesla Model S/X/3/Y MCU2 and Gateway
 site_author: Security Researcher
-site_url: https://talas9.github.io/tesla-research/
+site_url: https://talas9.github.io/tesla/
 
-repo_name: talas9/tesla-research
-repo_url: https://github.com/talas9/tesla-research
+repo_name: talas9/tesla
+repo_url: https://github.com/talas9/tesla
 edit_uri: edit/master/docs/
 
 theme:
@@ -70,7 +70,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/talas9/tesla-research
+      link: https://github.com/talas9/tesla
   generator: false
 
 nav:
@@ -106,6 +106,10 @@ nav:
     - 'Boot Sequence': mcu/25-mcu-boot-sequence.md
     - 'CAN Flood Timing': mcu/28-can-flood-refined-timing.md
     - 'AppArmor Sandbox': mcu/31-apparmor-sandbox-security.md
+  - 'APE (Autopilot)':
+    - 'Services Documentation': ape/APE-SERVICES.md
+    - 'Network Configuration': ape/APE-NETWORK-CONFIG.md
+    - 'Firmware Extraction': ape/APE-FIRMWARE-EXTRACTION.md
   - 'Evidence & Audit':
     - 'Evidence Audit': evidence/59-EVIDENCE-AUDIT.md
     - 'Verification Status': VERIFICATION-STATUS.md

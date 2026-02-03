@@ -102,7 +102,7 @@ bash scripts/audit-script.sh
 - **gateway_full_disassembly.txt** (100MB+) - Complete PowerPC disassembly
   - *Available on request due to size*
 
-**Download all data:** [Clone repository](https://github.com/talas9/tesla-research)
+**Download all data:** [Clone repository](https://github.com/talas9/tesla)
 
 ---
 
@@ -110,8 +110,8 @@ bash scripts/audit-script.sh
 
 ```bash
 # Clone repository
-git clone https://github.com/talas9/tesla-research.git
-cd tesla-research
+git clone https://github.com/talas9/tesla.git
+cd tesla
 
 # Install Python dependencies (if needed)
 pip install -r requirements.txt
@@ -136,7 +136,7 @@ Optional:
 
 Found a bug or want to add a feature? Open an issue or pull request!
 
-**Repository:** https://github.com/talas9/tesla-research
+**Repository:** https://github.com/talas9/tesla
 
 ---
 

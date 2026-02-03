@@ -3,9 +3,22 @@
 **Document Version:** 2.0  
 **Analysis Date:** February 3, 2026  
 **Platform:** Tesla Autopilot Hardware 2.x (HW2/HW2.5)  
-**Source:** APE firmware extraction (`/firmware/ape-extracted/`)  
+**Source:** APE firmware extraction (`/firmware/ape-extracted/`)
+
+## Document Scope
+
+**Focus:** This document covers **APE (Autopilot Drive PX2) networking services**, including:
+- APE subnet architecture (192.168.90.103/105)
+- Factory calibration HTTP API (port 8901)
+- Vision stack network communication
+- Sensor data flow
+- APE firewall rules and attack surface
+
+**For MCU2 networking architecture**, see [44-mcu-networking-enhanced.md](44-mcu-networking-enhanced.md)
+
 **Cross-reference:** 
-- MCU network analysis: [04-network-ports-firewall.md](04-network-ports-firewall.md)
+- MCU network analysis: [04-network-ports-firewall.md](../core/04-network-ports-firewall.md)
+- MCU2 networking: [44-mcu-networking-enhanced.md](44-mcu-networking-enhanced.md)
 - APE services overview: [43-ape-network-services.md](43-ape-network-services.md)
 
 ---

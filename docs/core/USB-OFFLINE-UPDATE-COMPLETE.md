@@ -6,6 +6,19 @@
 
 ---
 
+## Research History
+
+This document consolidates research from multiple sources:
+- **Document 06** ([archived](../archive/usb-update-research/06-usb-firmware-update.md)): Initial discovery of `/dev/mapper/offline-package` concept and factory USB mechanisms
+- **Document 10** ([archived](../archive/usb-update-research/10-usb-firmware-update-deep.md)): Complete `/mnt/update` mountpoint analysis and updater-envoy offline bank management
+- **Document 16** ([archived](../archive/usb-update-research/16-offline-update-format-notes.md)): Binary signature structure (0xba01ba01 magic) and dm-verity hash table format
+
+Original research documents preserved in `archive/usb-update-research/` for research history.
+
+For detailed technical implementation, see also [USB-OFFLINE-UPDATE-DEEP-DIVE.md](USB-OFFLINE-UPDATE-DEEP-DIVE.md)
+
+---
+
 ## Executive Summary
 
 The Tesla offline USB update package format has been **completely reverse-engineered**. Real update packages have been analyzed (2025.26.8.ice and 2025.32.3.1.mcu2), revealing the exact structure:

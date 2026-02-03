@@ -15,7 +15,7 @@ cd ~/tesla
 export GITHUB_USER="YOUR_USERNAME"
 
 # Initialize repo (if not done)
-git remote add origin "https://github.com/$GITHUB_USER/tesla-research.git"
+git remote add origin "https://github.com/$GITHUB_USER/tesla.git"
 
 # Push to GitHub
 git push -u origin master
@@ -23,11 +23,11 @@ git push -u origin master
 
 ### Step 2: Enable GitHub Actions
 
-1. Go to: `https://github.com/YOUR_USERNAME/tesla-research/settings/pages`
+1. Go to: `https://github.com/YOUR_USERNAME/tesla/settings/pages`
 2. Under "Source", select: **GitHub Actions**
 3. Done! Every push auto-deploys.
 
-**Your site:** `https://YOUR_USERNAME.github.io/tesla-research/`
+**Your site:** `https://YOUR_USERNAME.github.io/tesla/`
 
 ---
 
@@ -128,7 +128,7 @@ pip install -r requirements.txt
 ### Git remote already exists
 
 ```bash
-git remote set-url origin https://github.com/YOUR_USERNAME/tesla-research.git
+git remote set-url origin https://github.com/YOUR_USERNAME/tesla.git
 ```
 
 ---
@@ -137,7 +137,7 @@ git remote set-url origin https://github.com/YOUR_USERNAME/tesla-research.git
 
 1. ✅ Push to GitHub
 2. ✅ Run `./deploy.sh YOUR_USERNAME`
-3. ✅ Visit `https://YOUR_USERNAME.github.io/tesla-research/`
+3. ✅ Visit `https://YOUR_USERNAME.github.io/tesla/`
 4. 🎉 Share your research!
 
 ---

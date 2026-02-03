@@ -1,14 +1,14 @@
 #!/bin/bash
-# Tesla Research - One-Command Deployment to GitHub Pages
+# Tesla - One-Command Deployment to GitHub Pages
 # Usage: ./deploy.sh [github_username]
 
 set -e
 
 GITHUB_USERNAME="${1:-YOUR_USERNAME}"
-REPO_NAME="tesla-research"
+REPO_NAME="tesla"
 
 echo "======================================"
-echo "Tesla Research - GitHub Pages Deploy"
+echo "Tesla - GitHub Pages Deploy"
 echo "======================================"
 echo ""
 

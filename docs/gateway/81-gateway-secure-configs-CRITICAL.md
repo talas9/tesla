@@ -421,3 +421,48 @@ Tesla uses a **two-tier config security model**:
 4. Document signature validation algorithm
 
 This is a **critical security boundary** - the line between "anyone can modify" and "Tesla-only access". Understanding where this line is drawn reveals Tesla's threat model and security priorities. 🔒
+
+---
+
+## UPDATE: Validation Logic Reverse Engineering (2026-02-03)
+
+**NEW DOCUMENT CREATED:** `SET-CONFIG-VALIDATION-LOGIC.md`
+
+Complete reverse engineering analysis of Gateway validation flow:
+
+### Validated Flow
+
+```
+UDP:3500 → Parse packet → Validate CRC-8 (0x2F)
+  → Range check ID → Metadata lookup → Security level check
+    ├─ INSECURE → Write to flash (0x19000-0x30000)
+    └─ SECURE → Check Hermes auth → Validate token → Verify signature → Write
+```
+
+### Key Findings
+
+1. **Config storage:** 0x19000-0x30000 in flash (662 configs verified)
+2. **Entry format:** `[CRC][Len][ID_BE][Data]` (all CRCs validated with poly 0x2F)
+3. **Validation layers:** CRC → ID range → Security → Auth → Flash write
+4. **Bypass:** JTAG flash modification bypasses all checks (doc 55)
+
+### Assembly Status
+
+⚠️ **PARTIAL** - Handler function not yet located in disassembly:
+- Binary is stripped (no symbols)
+- Port 3500 references not found (may be in RTOS task, not main flash)
+- Metadata table at 0x403000 is CAN data, not config metadata
+- Real security level table location unknown
+
+### Pseudocode
+
+Complete validation pseudocode extracted to `validation_flow.txt`:
+- UDP handler logic
+- CRC-8 calculation (poly 0x2F)
+- Security level enforcement
+- Auth token + signature validation
+- Flash write operation
+
+**Confidence:** HIGH for overall flow, MEDIUM for implementation details
+
+**Next step:** Locate UDP handler via RTOS task analysis, extract actual PowerPC assembly

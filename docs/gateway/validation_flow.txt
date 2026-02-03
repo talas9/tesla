@@ -1,0 +1,640 @@
+===============================================================================
+GATEWAY SET_CONFIG_DATA VALIDATION FLOW - PSEUDOCODE
+===============================================================================
+
+Generated: 2026-02-03
+Source: Reverse engineering analysis of Gateway firmware
+Status: INFERRED - Not yet verified against actual assembly code
+
+===============================================================================
+1. UDP PACKET RECEPTION
+===============================================================================
+
+function handle_udp_packet(packet_data, packet_length, source_addr):
+    """
+    UDP interrupt handler for port 3500
+    Called when packet arrives from MCU (192.168.90.100)
+    """
+    
+    // Validate packet size
+    if packet_length < 5:
+        return ERROR_PACKET_TOO_SHORT
+    
+    // Parse header
+    header = parse_packet_header(packet_data)
+    
+    // Dispatch on command opcode
+    switch header.opcode:
+        case CMD_GET_CONFIG:
+            return handle_get_config(packet_data, header)
+        
+        case CMD_SET_CONFIG:
+            return handle_set_config(packet_data, header)  // THIS FUNCTION
+        
+        case CMD_LIST_CONFIGS:
+            return handle_list_configs(packet_data, header)
+        
+        default:
+            return ERROR_INVALID_OPCODE
+
+
+===============================================================================
+2. SET_CONFIG HANDLER (MAIN VALIDATION FUNCTION)
+===============================================================================
+
+function handle_set_config(packet_data, header):
+    """
+    Process SET_CONFIG_DATA request
+    This is the main security boundary!
+    """
+    
+    // Extract packet fields
+    crc_received = packet_data[0]
+    length       = packet_data[1]
+    opcode       = packet_data[2]
+    config_id    = (packet_data[3] << 8) | packet_data[4]  // Big-endian
+    data         = packet_data[5:5+length-4]  // Remaining bytes
+    
+    // -------------------------------------------------------------------------
+    // VALIDATION STEP 1: CRC-8 CHECK
+    // -------------------------------------------------------------------------
+    
+    crc_calculated = calculate_crc8(packet_data[1:], polynomial=0x2F)
+    
+    if crc_calculated != crc_received:
+        log_error("CRC mismatch", config_id, crc_received, crc_calculated)
+        return ERROR_INVALID_CRC
+    
+    // -------------------------------------------------------------------------
+    // VALIDATION STEP 2: CONFIG ID RANGE CHECK
+    // -------------------------------------------------------------------------
+    
+    if not is_valid_config_id(config_id):
+        log_error("Invalid config ID", config_id)
+        return ERROR_INVALID_ID
+    
+    // -------------------------------------------------------------------------
+    // VALIDATION STEP 3: METADATA LOOKUP
+    // -------------------------------------------------------------------------
+    
+    metadata = lookup_config_metadata(config_id)
+    
+    if metadata == NULL:
+        log_error("Unknown config ID", config_id)
+        return ERROR_UNKNOWN_CONFIG
+    
+    // -------------------------------------------------------------------------
+    // VALIDATION STEP 4: SECURITY LEVEL CHECK (CRITICAL!)
+    // -------------------------------------------------------------------------
+    
+    if metadata.security_level == SECURITY_LEVEL_SECURE:
+        // This config requires authentication!
+        
+        // Check if we have an authenticated session
+        session = get_current_hermes_session()
+        
+        if session == NULL or not session.authenticated:
+            log_security_event("Unauthorized config write attempt", 
+                               config_id, source_addr)
+            return ERROR_PERMISSION_DENIED
+        
+        // Parse authentication data from packet
+        auth_data = parse_auth_extension(packet_data, length)
+        
+        if auth_data == NULL:
+            log_security_event("Missing auth data for secure config",
+                               config_id)
+            return ERROR_AUTH_REQUIRED
+        
+        // -------------------------------------------------------------------------
+        // VALIDATION STEP 5: AUTH TOKEN VALIDATION (SECURE CONFIGS ONLY)
+        // -------------------------------------------------------------------------
+        
+        if not validate_auth_token(auth_data.token, session, config_id):
+            log_security_event("Invalid auth token", config_id)
+            return ERROR_AUTH_FAILED
+        
+        // -------------------------------------------------------------------------
+        // VALIDATION STEP 6: SIGNATURE VALIDATION (SECURE CONFIGS ONLY)
+        // -------------------------------------------------------------------------
+        
+        message = build_signed_message(config_id, data, auth_data.timestamp)
+        
+        if not verify_signature(message, auth_data.signature, 
+                                TESLA_PUBLIC_KEY):
+            log_security_event("Invalid signature", config_id)
+            return ERROR_INVALID_SIGNATURE
+        
+        // Authentication passed!
+        log_audit("Authenticated config write", config_id, session.vin, 
+                  auth_data.reason_code)
+    
+    else:
+        // Config is INSECURE - no auth required (UDP accessible)
+        log_debug("Writing insecure config", config_id)
+    
+    // -------------------------------------------------------------------------
+    // VALIDATION STEP 7: DATA LENGTH CHECK
+    // -------------------------------------------------------------------------
+    
+    data_length = length - 4  // Exclude header (CRC + Len + Opcode + ID)
+    
+    if data_length < metadata.min_length:
+        log_error("Data too short", config_id, data_length, 
+                  metadata.min_length)
+        return ERROR_DATA_TOO_SHORT
+    
+    if data_length > metadata.max_length:
+        log_error("Data too long", config_id, data_length, 
+                  metadata.max_length)
+        return ERROR_DATA_TOO_LONG
+    
+    // -------------------------------------------------------------------------
+    // VALIDATION STEP 8: FLASH WRITE OPERATION
+    // -------------------------------------------------------------------------
+    
+    result = write_config_to_flash(config_id, data, data_length)
+    
+    if result != SUCCESS:
+        log_error("Flash write failed", config_id, result)
+        return ERROR_FLASH_WRITE_FAILED
+    
+    // -------------------------------------------------------------------------
+    // SUCCESS!
+    // -------------------------------------------------------------------------
+    
+    log_info("Config written successfully", config_id, data_length)
+    
+    // Build response packet
+    response = build_set_config_response(config_id, data, data_length)
+    
+    return response
+
+
+===============================================================================
+3. HELPER FUNCTIONS
+===============================================================================
+
+// -----------------------------------------------------------------------------
+// CRC-8 Calculation (Polynomial 0x2F)
+// -----------------------------------------------------------------------------
+
+function calculate_crc8(data, polynomial):
+    """
+    CRC-8 with polynomial 0x2F (verified on 662 configs)
+    """
+    crc = 0x00
+    
+    for byte in data:
+        crc ^= byte
+        
+        for bit in range(8):
+            if crc & 0x80:  // MSB set?
+                crc = (crc << 1) ^ polynomial
+            else:
+                crc = crc << 1
+        
+        crc &= 0xFF  // Keep 8-bit
+    
+    return crc
+
+
+// -----------------------------------------------------------------------------
+// Config ID Range Validation
+// -----------------------------------------------------------------------------
+
+function is_valid_config_id(config_id):
+    """
+    Check if config ID is in a valid range
+    """
+    
+    // Standard config range (0x0000-0x00A1)
+    if config_id <= 0x00A1:
+        return true
+    
+    // CAN mailbox range (0x1400-0x147C)
+    if config_id >= 0x1400 and config_id <= 0x147C:
+        return true
+    
+    // System config range (0x1500-0x1600)
+    if config_id >= 0x1500 and config_id <= 0x1600:
+        return true
+    
+    // Special large configs
+    if config_id in [0x4000, 0x0415, 0x15FE, 0x15FB]:
+        return true
+    
+    // All others invalid
+    return false
+
+
+// -----------------------------------------------------------------------------
+// Metadata Table Lookup (LOCATION UNKNOWN - HYPOTHETICAL)
+// -----------------------------------------------------------------------------
+
+function lookup_config_metadata(config_id):
+    """
+    Look up config metadata from table
+    Location: UNKNOWN (not at 0x403000 - that's CAN data)
+    """
+    
+    // Hypothetical: Linear search through metadata table
+    metadata_base = METADATA_TABLE_ADDRESS  // Unknown address
+    
+    for i in range(NUM_CONFIGS):
+        entry = read_metadata_entry(metadata_base + i * ENTRY_SIZE)
+        
+        if entry.config_id == config_id:
+            return entry
+    
+    // Not found
+    return NULL
+    
+    // Alternative implementation: Direct indexing
+    // (if config IDs are sequential)
+    offset = config_id * ENTRY_SIZE
+    entry = read_metadata_entry(metadata_base + offset)
+    
+    if entry.config_id == config_id:
+        return entry
+    else:
+        return NULL
+
+
+// -----------------------------------------------------------------------------
+// Authentication Token Validation (SECURE CONFIGS ONLY)
+// -----------------------------------------------------------------------------
+
+function validate_auth_token(token, session, config_id):
+    """
+    Validate Hermes authentication token
+    Format: [session_id:16][timestamp:8][vehicle_vin:17][nonce:8]
+    """
+    
+    // Extract token fields
+    session_id = token[0:16]
+    timestamp  = bytes_to_uint64(token[16:24])
+    vin        = token[24:41]
+    nonce      = token[41:49]
+    
+    // Check session ID matches
+    if session_id != session.session_id:
+        return false
+    
+    // Check timestamp (replay protection)
+    current_time = get_unix_timestamp()
+    
+    if timestamp < current_time - TOKEN_VALIDITY_SECONDS:
+        return false  // Token expired
+    
+    if timestamp > current_time + TIME_TOLERANCE_SECONDS:
+        return false  // Token from future (clock skew)
+    
+    // Check VIN matches vehicle (vehicle-specific token)
+    vehicle_vin = read_config_value(CONFIG_ID_VIN)
+    
+    if vin != vehicle_vin:
+        return false  // Token for different vehicle
+    
+    // Validate nonce (prevent token reuse)
+    if is_nonce_already_used(nonce):
+        return false  // Replay attack detected
+    
+    mark_nonce_as_used(nonce)
+    
+    return true
+
+
+// -----------------------------------------------------------------------------
+// Cryptographic Signature Verification (SECURE CONFIGS ONLY)
+// -----------------------------------------------------------------------------
+
+function verify_signature(message, signature, public_key):
+    """
+    Verify RSA-2048 or ECDSA-P256 signature
+    Algorithm: UNKNOWN (likely RSA-2048-SHA256 or ECDSA-P256-SHA256)
+    """
+    
+    // Hypothetical: RSA-2048 with SHA-256
+    message_hash = sha256(message)
+    
+    // Decrypt signature with Tesla public key
+    decrypted_hash = rsa_public_decrypt(signature, public_key)
+    
+    // Compare hashes
+    if message_hash == decrypted_hash:
+        return true
+    else:
+        return false
+    
+    // Alternative: ECDSA
+    // return ecdsa_verify(message_hash, signature, public_key)
+
+
+// -----------------------------------------------------------------------------
+// Build Signed Message (for signature verification)
+// -----------------------------------------------------------------------------
+
+function build_signed_message(config_id, data, timestamp):
+    """
+    Build message that was signed by Tesla service tool
+    Format: [config_id:2][data_length:2][data:N][timestamp:8]
+    """
+    
+    message = bytes()
+    message += uint16_to_bytes_be(config_id)
+    message += uint16_to_bytes_be(len(data))
+    message += data
+    message += uint64_to_bytes_be(timestamp)
+    
+    return message
+
+
+// -----------------------------------------------------------------------------
+// Flash Write Operation
+// -----------------------------------------------------------------------------
+
+function write_config_to_flash(config_id, data, data_length):
+    """
+    Write config entry to flash storage region
+    Location: 0x19000-0x30000
+    Format: [CRC][Len][ID_BE][Data]
+    """
+    
+    // Calculate CRC for new entry
+    entry_data = bytes([data_length]) + uint16_to_bytes_be(config_id) + data
+    crc = calculate_crc8(entry_data, polynomial=0x2F)
+    
+    // Build complete entry
+    entry = bytes([crc]) + entry_data
+    
+    // Find existing entry (if any)
+    offset = find_config_offset_in_flash(config_id)
+    
+    if offset != NOT_FOUND:
+        // Update existing entry
+        
+        // Check if new entry fits in existing space
+        old_entry_length = read_flash_byte(offset + 1)
+        
+        if data_length <= old_entry_length:
+            // Overwrite in place
+            write_flash(offset, entry)
+        else:
+            // Mark old entry as deleted
+            write_flash_byte(offset, 0xFF)  // Invalid CRC = deleted
+            
+            // Append new entry at end
+            offset = find_free_flash_space(len(entry))
+            write_flash(offset, entry)
+    else:
+        // New config, append at end
+        offset = find_free_flash_space(len(entry))
+        write_flash(offset, entry)
+    
+    // Verify write success
+    verify_data = read_flash(offset, len(entry))
+    
+    if verify_data == entry:
+        return SUCCESS
+    else:
+        return ERROR_FLASH_VERIFY_FAILED
+
+
+// -----------------------------------------------------------------------------
+// Find Config Offset in Flash
+// -----------------------------------------------------------------------------
+
+function find_config_offset_in_flash(config_id):
+    """
+    Scan flash region for existing config entry
+    Region: 0x19000-0x30000
+    """
+    
+    offset = FLASH_CONFIG_BASE  // 0x19000
+    end    = FLASH_CONFIG_END   // 0x30000
+    
+    while offset < end:
+        // Read entry header
+        crc       = read_flash_byte(offset)
+        length    = read_flash_byte(offset + 1)
+        entry_id  = read_flash_uint16_be(offset + 2)
+        
+        // Check for deleted entry (invalid CRC)
+        if crc == 0xFF:
+            offset += 4 + length  // Skip deleted entry
+            continue
+        
+        // Check if this is the config we're looking for
+        if entry_id == config_id:
+            return offset  // Found!
+        
+        // Move to next entry
+        offset += 4 + length
+    
+    return NOT_FOUND
+
+
+===============================================================================
+4. DATA STRUCTURES
+===============================================================================
+
+// -----------------------------------------------------------------------------
+// Config Metadata Entry (HYPOTHETICAL - Structure not confirmed)
+// -----------------------------------------------------------------------------
+
+struct config_metadata_t {
+    uint16_t config_id;          // Config identifier (0x0000-0xFFFF)
+    uint8_t  security_level;     // 0=insecure (UDP), 1=secure (Hermes)
+    uint8_t  access_flags;       // Bitfield: UDP_READ, UDP_WRITE, etc.
+    uint8_t  data_type;          // Type: u8, u16, u32, string, blob
+    uint8_t  min_length;         // Minimum data length (bytes)
+    uint8_t  max_length;         // Maximum data length (bytes)
+    uint8_t  reserved;           // Padding / future use
+};
+
+// Size: 8 bytes per entry
+// Location: UNKNOWN (not at 0x403000)
+
+
+// -----------------------------------------------------------------------------
+// UDP Packet Format (SET_CONFIG_DATA)
+// -----------------------------------------------------------------------------
+
+struct set_config_packet_t {
+    uint8_t  crc;                // CRC-8 (polynomial 0x2F)
+    uint8_t  length;             // Total packet length
+    uint8_t  opcode;             // 0x02 = SET_CONFIG
+    uint16_t config_id;          // Big-endian config ID
+    uint8_t  data[N];            // Variable-length data
+    
+    // --- AUTH EXTENSION (secure configs only) ---
+    uint8_t  auth_token[32];     // Hermes session token
+    uint8_t  signature[64];      // RSA/ECDSA signature
+    uint32_t timestamp;          // Unix epoch
+    uint32_t reason_code;        // Audit trail
+};
+
+
+// -----------------------------------------------------------------------------
+// Flash Config Entry Format (VERIFIED)
+// -----------------------------------------------------------------------------
+
+struct flash_config_entry_t {
+    uint8_t  crc;                // CRC-8 (polynomial 0x2F)
+    uint8_t  length;             // Data length (not including 4-byte header)
+    uint16_t config_id;          // Big-endian config ID
+    uint8_t  data[length];       // Config value
+};
+
+// Location: 0x19000-0x30000 in flash
+// Total configs: 662 entries (verified)
+
+
+// -----------------------------------------------------------------------------
+// Hermes Session Context (HYPOTHETICAL)
+// -----------------------------------------------------------------------------
+
+struct hermes_session_t {
+    uint8_t  session_id[16];     // Unique session identifier
+    bool     authenticated;      // Authentication status
+    uint64_t session_start;      // Unix timestamp
+    uint64_t last_activity;      // Unix timestamp
+    uint8_t  vehicle_vin[17];    // Associated vehicle VIN
+    uint8_t  service_token[32];  // Service technician token
+};
+
+
+===============================================================================
+5. CONSTANTS
+===============================================================================
+
+// Command opcodes
+const CMD_GET_CONFIG   = 0x01
+const CMD_SET_CONFIG   = 0x02
+const CMD_LIST_CONFIGS = 0x03
+
+// Security levels
+const SECURITY_LEVEL_INSECURE = 0  // UDP-accessible (no auth)
+const SECURITY_LEVEL_SECURE   = 1  // Hermes-authenticated only
+
+// CRC polynomial
+const CRC8_POLYNOMIAL = 0x2F
+
+// Flash addresses
+const FLASH_CONFIG_BASE = 0x00019000
+const FLASH_CONFIG_END  = 0x00030000
+
+// Config ID ranges
+const CONFIG_ID_MIN_STANDARD = 0x0000
+const CONFIG_ID_MAX_STANDARD = 0x00A1
+const CONFIG_ID_MIN_CAN      = 0x1400
+const CONFIG_ID_MAX_CAN      = 0x147C
+const CONFIG_ID_VIN          = 0x0000
+const CONFIG_ID_COUNTRY      = 0x0006
+const CONFIG_ID_REGION       = 0x0020
+const CONFIG_ID_HASH1        = 0x0025
+const CONFIG_ID_HASH2        = 0x0026
+
+// Authentication
+const TOKEN_VALIDITY_SECONDS    = 300   // 5 minutes
+const TIME_TOLERANCE_SECONDS    = 60    // Clock skew tolerance
+
+// Error codes (HYPOTHETICAL - Not confirmed)
+const SUCCESS                   = 0x00
+const ERROR_PACKET_TOO_SHORT    = 0x01
+const ERROR_INVALID_CRC         = 0x02
+const ERROR_INVALID_OPCODE      = 0x03
+const ERROR_INVALID_ID          = 0x04
+const ERROR_UNKNOWN_CONFIG      = 0x05
+const ERROR_PERMISSION_DENIED   = 0x06
+const ERROR_AUTH_REQUIRED       = 0x07
+const ERROR_AUTH_FAILED         = 0x08
+const ERROR_INVALID_SIGNATURE   = 0x09
+const ERROR_DATA_TOO_SHORT      = 0x0A
+const ERROR_DATA_TOO_LONG       = 0x0B
+const ERROR_FLASH_WRITE_FAILED  = 0x0C
+const ERROR_FLASH_VERIFY_FAILED = 0x0D
+
+
+===============================================================================
+6. SECURITY DECISION TREE
+===============================================================================
+
+SET_CONFIG request received
+│
+├─ CRC valid?
+│  ├─ NO  → ERROR_INVALID_CRC
+│  └─ YES → Continue
+│
+├─ Config ID in valid range?
+│  ├─ NO  → ERROR_INVALID_ID
+│  └─ YES → Continue
+│
+├─ Config ID exists in metadata?
+│  ├─ NO  → ERROR_UNKNOWN_CONFIG
+│  └─ YES → Continue
+│
+├─ Config security level?
+│  │
+│  ├─ INSECURE (UDP-accessible)
+│  │  │
+│  │  ├─ Data length valid?
+│  │  │  ├─ NO  → ERROR_DATA_LENGTH
+│  │  │  └─ YES → Write to flash → SUCCESS
+│  │  │
+│  │  └─ (No authentication required)
+│  │
+│  └─ SECURE (Hermes-authenticated)
+│     │
+│     ├─ Hermes session active?
+│     │  ├─ NO  → ERROR_PERMISSION_DENIED
+│     │  └─ YES → Continue
+│     │
+│     ├─ Auth token present in packet?
+│     │  ├─ NO  → ERROR_AUTH_REQUIRED
+│     │  └─ YES → Continue
+│     │
+│     ├─ Auth token valid?
+│     │  │  (Check session ID, timestamp, VIN, nonce)
+│     │  │
+│     │  ├─ NO  → ERROR_AUTH_FAILED
+│     │  └─ YES → Continue
+│     │
+│     ├─ Signature present in packet?
+│     │  ├─ NO  → ERROR_INVALID_SIGNATURE
+│     │  └─ YES → Continue
+│     │
+│     ├─ Signature valid?
+│     │  │  (Verify with Tesla public key)
+│     │  │
+│     │  ├─ NO  → ERROR_INVALID_SIGNATURE
+│     │  └─ YES → Continue
+│     │
+│     ├─ Data length valid?
+│     │  ├─ NO  → ERROR_DATA_LENGTH
+│     │  └─ YES → Write to flash → SUCCESS
+│     │
+│     └─ Log audit trail (who, what, when, why)
+
+
+===============================================================================
+END OF PSEUDOCODE
+===============================================================================
+
+Note: This pseudocode is INFERRED from protocol analysis and flash dump
+examination. It has NOT been verified against actual PowerPC assembly code
+from the Gateway firmware disassembly.
+
+Key unknowns:
+- Exact location of UDP handler function
+- Metadata table structure and location (not at 0x403000)
+- Auth token format (fields, sizes, algorithm)
+- Signature algorithm (RSA-2048? ECDSA-P256?)
+- Error code values
+
+Status: HIGH-CONFIDENCE for overall flow, LOW-CONFIDENCE for specific
+implementation details.
+
+Next step: Locate handler function in disassembly, extract actual assembly
+code, confirm or refute this pseudocode.

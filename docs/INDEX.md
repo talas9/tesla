@@ -334,7 +334,7 @@ python3 scripts/match_odin_to_configs.py
 **MkDocs** (Best for technical docs)
 ```bash
 pip install mkdocs mkdocs-material
-mkdocs new tesla-research
+mkdocs new tesla
 # Copy docs/ to docs/
 mkdocs serve  # Preview
 mkdocs build  # Deploy to GitHub Pages
@@ -343,7 +343,7 @@ mkdocs build  # Deploy to GitHub Pages
 **Docsify** (No build step)
 ```bash
 npm i docsify-cli -g
-docsify init ./tesla-research
+docsify init ./tesla
 # Edit index.html
 docsify serve
 ```

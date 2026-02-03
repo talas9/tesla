@@ -244,7 +244,7 @@ This research was conducted for educational and security purposes. All analysis 
 ## Repository Structure
 
 ```
-/root/tesla/
+
 ├── README.md                          # This file
 ├── 00-master-cross-reference.md       # Complete index
 ├── RESEARCH-STATUS.md                 # Progress tracker

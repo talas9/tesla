@@ -843,10 +843,10 @@ To download key reference images (where licenses permit):
 
 ```bash
 # Create directory structure
-mkdir -p /root/tesla/images/{mcu-teardown,glitch-setup,schematics,black-hat}
+mkdir -p /images/{mcu-teardown,glitch-setup,schematics,black-hat}
 
 # Black Hat presentation PDF
-wget -O /root/tesla/images/black-hat/US-23-Werling-Jailbreaking-Teslas.pdf \
+wget -O /images/black-hat/US-23-Werling-Jailbreaking-Teslas.pdf \
   "https://i.blackhat.com/BH-US-23/Presentations/US-23-Werling-Jailbreaking-Teslas.pdf"
 
 # Note: GitHub and imgur images require manual download due to rate limits

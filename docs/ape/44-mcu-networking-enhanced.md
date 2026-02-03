@@ -1,5 +1,22 @@
 # MCU2 Network Security - Enhanced Analysis
 
+## Document Scope
+
+**Focus:** This document covers **MCU2 (Tegra/Ryzen) internal networking architecture**, including:
+- Service-to-binary mapping for MCU2 processes
+- Port bindings and network namespaces
+- MCU-to-Gateway communication
+- MCU-to-APE communication
+- Security sandboxing analysis
+
+**For APE-specific networking** (Drive PX2 Autopilot Computer), see [45-ape-networking-deep-dive.md](45-ape-networking-deep-dive.md)
+
+**Related Documents:**
+- [04-network-ports-firewall.md](../core/04-network-ports-firewall.md) - Complete network topology
+- [45-ape-networking-deep-dive.md](45-ape-networking-deep-dive.md) - APE networking details
+
+---
+
 ## Service → Binary → Port Mapping
 
 | Service | Binary | User | Ports | Bind Addr | Sandboxed | NetNS |

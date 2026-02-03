@@ -30,3 +30,6 @@ desktop.ini
 
 # Build outputs (if using MkDocs)
 site/
+# Large disassembly files excluded from git (>100MB)
+data/disassembly/ghidra-vle-working.asm
+data/disassembly/ghidra-vle-full.asm

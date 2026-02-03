@@ -1,0 +1,3 @@
+ERROR: No instructions disassembled
+Architecture: PowerPC/big/32/PowerISA-VLE-64-32addr
+Binary size: 6225920 bytes
