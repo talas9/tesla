@@ -352,7 +352,7 @@
 <a id=__codelineno-21-4 name=__codelineno-21-4 href=#__codelineno-21-4></a>- Power on Gateway
 <a id=__codelineno-21-5 name=__codelineno-21-5 href=#__codelineno-21-5></a>- Boot mode = 0x03 → Recovery
 </code></pre></div> <p><strong>Attack Vector 2: Memory Corruption via CAN Flood</strong></p> <p>From <code>26-bootloader-exploit-research.md</code>:</p> <div class=highlight><pre><span></span><code><a id=__codelineno-22-1 name=__codelineno-22-1 href=#__codelineno-22-1></a><span class=c1># Overwrite boot mode register via buffer overflow</span>
-<a id=__codelineno-22-2 name=__codelineno-22-2 href=#__codelineno-22-2></a><span class=k>def</span> <span class=nf>corrupt_boot_mode_register</span><span class=p>(</span><span class=n>bus</span><span class=p>):</span>
+<a id=__codelineno-22-2 name=__codelineno-22-2 href=#__codelineno-22-2></a><span class=k>def</span><span class=w> </span><span class=nf>corrupt_boot_mode_register</span><span class=p>(</span><span class=n>bus</span><span class=p>):</span>
 <a id=__codelineno-22-3 name=__codelineno-22-3 href=#__codelineno-22-3></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-22-4 name=__codelineno-22-4 href=#__codelineno-22-4></a><span class=sd>    Exploit CAN handler buffer overflow to overwrite boot_mode</span>
 <a id=__codelineno-22-5 name=__codelineno-22-5 href=#__codelineno-22-5></a><span class=sd>    &quot;&quot;&quot;</span>

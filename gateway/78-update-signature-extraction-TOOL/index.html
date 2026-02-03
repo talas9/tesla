@@ -109,10 +109,10 @@
 </code></pre></div> <h3 id=3-check-ape-compatibility>3. Check APE Compatibility</h3> <div class=highlight><pre><span></span><code><a id=__codelineno-14-1 name=__codelineno-14-1 href=#__codelineno-14-1></a><span class=c1># Verify update contains signature for your APE hardware</span>
 <a id=__codelineno-14-2 name=__codelineno-14-2 href=#__codelineno-14-2></a>./read_signatures.sh<span class=w> </span>update.img<span class=w> </span><span class=p>|</span><span class=w> </span>grep<span class=w> </span><span class=s2>&quot;ape3 sig&quot;</span>
 <a id=__codelineno-14-3 name=__codelineno-14-3 href=#__codelineno-14-3></a><span class=c1># If present: HW3.0 firmware included</span>
-</code></pre></div> <h3 id=4-build-custom-validation-tool>4. Build Custom Validation Tool</h3> <div class=highlight><pre><span></span><code><a id=__codelineno-15-1 name=__codelineno-15-1 href=#__codelineno-15-1></a><span class=kn>import</span> <span class=nn>struct</span>
-<a id=__codelineno-15-2 name=__codelineno-15-2 href=#__codelineno-15-2></a><span class=kn>import</span> <span class=nn>base64</span>
+</code></pre></div> <h3 id=4-build-custom-validation-tool>4. Build Custom Validation Tool</h3> <div class=highlight><pre><span></span><code><a id=__codelineno-15-1 name=__codelineno-15-1 href=#__codelineno-15-1></a><span class=kn>import</span><span class=w> </span><span class=nn>struct</span>
+<a id=__codelineno-15-2 name=__codelineno-15-2 href=#__codelineno-15-2></a><span class=kn>import</span><span class=w> </span><span class=nn>base64</span>
 <a id=__codelineno-15-3 name=__codelineno-15-3 href=#__codelineno-15-3></a>
-<a id=__codelineno-15-4 name=__codelineno-15-4 href=#__codelineno-15-4></a><span class=k>def</span> <span class=nf>extract_signatures</span><span class=p>(</span><span class=n>update_path</span><span class=p>):</span>
+<a id=__codelineno-15-4 name=__codelineno-15-4 href=#__codelineno-15-4></a><span class=k>def</span><span class=w> </span><span class=nf>extract_signatures</span><span class=p>(</span><span class=n>update_path</span><span class=p>):</span>
 <a id=__codelineno-15-5 name=__codelineno-15-5 href=#__codelineno-15-5></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;Extract all signatures from Tesla update package&quot;&quot;&quot;</span>
 <a id=__codelineno-15-6 name=__codelineno-15-6 href=#__codelineno-15-6></a>
 <a id=__codelineno-15-7 name=__codelineno-15-7 href=#__codelineno-15-7></a>    <span class=c1># Read main package signature</span>
@@ -121,7 +121,7 @@
 <a id=__codelineno-15-10 name=__codelineno-15-10 href=#__codelineno-15-10></a>        <span class=n>main_sig</span> <span class=o>=</span> <span class=n>f</span><span class=o>.</span><span class=n>read</span><span class=p>(</span><span class=mi>64</span><span class=p>)</span>
 <a id=__codelineno-15-11 name=__codelineno-15-11 href=#__codelineno-15-11></a>
 <a id=__codelineno-15-12 name=__codelineno-15-12 href=#__codelineno-15-12></a>    <span class=c1># Mount package (requires root)</span>
-<a id=__codelineno-15-13 name=__codelineno-15-13 href=#__codelineno-15-13></a>    <span class=kn>import</span> <span class=nn>subprocess</span>
+<a id=__codelineno-15-13 name=__codelineno-15-13 href=#__codelineno-15-13></a>    <span class=kn>import</span><span class=w> </span><span class=nn>subprocess</span>
 <a id=__codelineno-15-14 name=__codelineno-15-14 href=#__codelineno-15-14></a>    <span class=n>subprocess</span><span class=o>.</span><span class=n>run</span><span class=p>([</span><span class=s1>&#39;mount&#39;</span><span class=p>,</span> <span class=s1>&#39;-o&#39;</span><span class=p>,</span> <span class=s1>&#39;loop&#39;</span><span class=p>,</span> <span class=n>update_path</span><span class=p>,</span> <span class=s1>&#39;/tmp/mcu&#39;</span><span class=p>])</span>
 <a id=__codelineno-15-15 name=__codelineno-15-15 href=#__codelineno-15-15></a>
 <a id=__codelineno-15-16 name=__codelineno-15-16 href=#__codelineno-15-16></a>    <span class=c1># Read APE signatures</span>

@@ -95,7 +95,7 @@
 <a id=__codelineno-6-32 name=__codelineno-6-32 href=#__codelineno-6-32></a><span class=w>    </span><span class=p>}</span>
 <a id=__codelineno-6-33 name=__codelineno-6-33 href=#__codelineno-6-33></a><span class=p>}</span>
 </code></pre></div></p> <p><strong>Known Command:</strong> - Magic bytes: <code>49 65 00 00 00 00 00 00</code> (ASCII "Ie" + 6 nulls) - Enables emergency mode (port 25956 opens on x86_64 host)</p> <p><strong>Exploitation:</strong> <div class=highlight><pre><span></span><code><a id=__codelineno-7-1 name=__codelineno-7-1 href=#__codelineno-7-1></a><span class=c1># CAN flood to trigger factory gate</span>
-<a id=__codelineno-7-2 name=__codelineno-7-2 href=#__codelineno-7-2></a><span class=kn>import</span> <span class=nn>can</span>
+<a id=__codelineno-7-2 name=__codelineno-7-2 href=#__codelineno-7-2></a><span class=kn>import</span><span class=w> </span><span class=nn>can</span>
 <a id=__codelineno-7-3 name=__codelineno-7-3 href=#__codelineno-7-3></a>
 <a id=__codelineno-7-4 name=__codelineno-7-4 href=#__codelineno-7-4></a><span class=n>bus</span> <span class=o>=</span> <span class=n>can</span><span class=o>.</span><span class=n>interface</span><span class=o>.</span><span class=n>Bus</span><span class=p>(</span><span class=n>channel</span><span class=o>=</span><span class=s1>&#39;can0&#39;</span><span class=p>,</span> <span class=n>bustype</span><span class=o>=</span><span class=s1>&#39;socketcan&#39;</span><span class=p>)</span>
 <a id=__codelineno-7-5 name=__codelineno-7-5 href=#__codelineno-7-5></a>
