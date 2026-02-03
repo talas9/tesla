@@ -114,3 +114,47 @@ The only difference is:
 | `.mcu` | ⚠️ LEGACY | Very old S/X | Discontinued, pre-2018 |
 
 **Only .ice and .mcu2 are used in modern (2021+) firmware!**
+
+## Additional Firmware Package Types
+
+Beyond the main MCU firmware, Tesla uses other package extensions:
+
+| Extension | Purpose | Target | Notes |
+|-----------|---------|--------|-------|
+| `.ice` | MCU firmware | Model 3/Y | Main computer firmware |
+| `.mcu2` | MCU firmware | Model S/X | Main computer firmware |
+| `.APExx` | Autopilot firmware | All vehicles | APE = Autopilot ECU (e.g., .APE1, .APE2) |
+| `.ssq` | Map data | All vehicles | Navigation/map packages (SquashFS format) |
+
+**APE Firmware:**
+- APE = Autopilot Processing Engine
+- Different generations: .APE1, .APE2, etc.
+- Separate computer for FSD/Autopilot processing
+- Independent update packages from main MCU
+
+**Map Files:**
+- .ssq = SquashFS format (same as .ice/.mcu2)
+- Contains navigation map data
+- Updates separately from main firmware
+- Can be very large (multi-GB)
+
+## Complete Package Type Reference
+
+```
+Vehicle Computer (MCU):
+├── .ice  → Model 3/Y MCU firmware
+└── .mcu2 → Model S/X MCU firmware
+
+Autopilot Computer (APE):
+└── .APExx → FSD/Autopilot firmware (all vehicles)
+
+Navigation:
+└── .ssq → Map data packages (all vehicles)
+
+Legacy (discontinued):
+├── .mcu1 → Very old Model S/X (pre-2018)
+└── .mcu  → Very old Model S/X (pre-2018)
+```
+
+**Installation:**
+All package types can be installed via USB using the same offline update mechanism documented in USB-OFFLINE-UPDATE-COMPLETE.md.
