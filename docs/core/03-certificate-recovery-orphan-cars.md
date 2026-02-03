@@ -272,6 +272,27 @@ openssl rsa -in /var/lib/car_creds/car.key -noout -modulus | md5sum
 
 ## 6. Theoretical Recovery Procedures
 
+**⚠️ UPDATE:** Binary analysis of `hermes_client` (see [HERMES-CLIENT-ANALYSIS.md](HERMES-CLIENT-ANALYSIS.md)) revealed key details on renewal mechanism and orphan recovery.
+
+### 6.0 Key Findings from Binary Analysis
+
+**Critical Functions Identified:**
+- `ShouldRenew()` - Checks if certificate renewal needed
+- `SafeToMigrate()` - Validates vehicle state before migration
+- `newPhoneHomeSession()` - Establishes WebSocket connection to Tesla backend
+- `createCSR()` - Generates certificate signing request with VIN
+- `validate_and_save_certificate()` - Verifies and installs new certificate
+
+**Bypass Flags:**
+```bash
+--bypass_delivered_check  # Skips safety checks (Park, driver absent)
+--enable-phone-home       # Enables renewal connection
+```
+
+**VIN Validation:** Certificate contains VIN in subject. Backend likely enforces VIN match during CSR validation. `bypass_delivered_check` does NOT bypass VIN validation.
+
+## 6. Theoretical Recovery Procedures
+
 > ⚠️ **WARNING:** These procedures are for educational purposes. Unauthorized modifications may:
 > - Void warranty
 > - Violate terms of service
