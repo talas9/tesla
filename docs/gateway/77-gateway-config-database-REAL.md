@@ -9,7 +9,7 @@
 - **File**: `file_19---48abc6a6-99d9-4835-8b1d-d06f3caec35a.txt`
 - **Tool**: `gateway_database_query.py` (our tool from document 52)
 - **Command**: `read` (dumps all config IDs)
-- **Source**: Tesla Ukraine Telegram channel (2023-12-30)
+- **Source**: internal Tesla community (2023-12-30)
 - **Vehicle**: Model Y Dual Motor AWD (VIN 7SAYGDEEXPA052466)
 
 ## Configuration Map

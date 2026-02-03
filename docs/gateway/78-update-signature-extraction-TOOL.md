@@ -8,7 +8,7 @@
 
 - **File**: `file_20---e2fb56bc-ac13-4a91-a830-246936c6d53c`
 - **Type**: Shell script (Bash/sh)
-- **Source**: Tesla Ukraine Telegram channel (2023-06-08)
+- **Source**: internal Tesla community (2023-06-08)
 - **Purpose**: Extract and display signatures from MCU update files
 - **Likely user**: Tesla service technicians or internal QA
 

@@ -8,7 +8,7 @@
 
 ## Source
 
-- **Mohammed Talas** (2026-02-03)
+- **internal source** (2026-02-03)
 - **Context**: Analysis of Ryzen Gateway flash dump (ryzenfromtable.bin)
 - **Confirmed**: Tesla engineers use `gw-diag` tool with "extra params or extra hex" to modify protected configs
 

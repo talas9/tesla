@@ -494,5 +494,5 @@ flowchart LR
 |------|--------|
 | 2026-02-02 | v1.0 initial master cross-reference created |
 | 2026-02-03 | Major update: service auth resolved (signed commands/DoIP), offline package format (SquashFS+NaCl+verity), bootloader primitives + refined timing, certificate chain deep links, VCSEC completion, added decision tree + offset index + dependency graph |
-| 2026-02-03 | **CRITICAL**: Acquired real Gateway application firmware (38KB hex) from Tesla Ukraine channel - see [76-gateway-app-firmware-REAL.md](76-gateway-app-firmware-REAL.md) |
+| 2026-02-03 | **CRITICAL**: Acquired real Gateway application firmware (38KB hex) from Tesla internal source - see [76-gateway-app-firmware-REAL.md](76-gateway-app-firmware-REAL.md) |
 | 2026-02-03 | **MAJOR**: Acquired unhashed Odin routines database mapping config IDs to access levels and security flags (`accessLevel: "UDP"` = insecure, `accessLevel: "GTW"` = hardware-locked) - see [82-odin-routines-database-UNHASHED.md](82-odin-routines-database-UNHASHED.md) |

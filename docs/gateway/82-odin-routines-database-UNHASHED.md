@@ -12,7 +12,7 @@
 
 ## Source
 
-- **Mohammed Talas** - Tesla Ukraine Telegram channel
+- **internal source** - internal Tesla community
 - **File**: `file_25---7619e162-1af2-4fc7-b3a7-4892f005ef96.json`
 - **Context**: "in odin some of the routines can query/read/write to gateway config including secure, but the config id and level required is hashed somewhere in odin, they started hashing the file in some version but I have the file before they started doing that"
 - **Date obtained**: 2026-02-03
@@ -234,26 +234,46 @@ Based on `accessId` field in Gen3 configs:
 
 ## Mapping accessId to Config IDs
 
-### The Missing Link
+### Config ID to AccessId Mapping (COMPLETE)
 
-**Problem**: This file has `accessId` and `codeKey`, but not the actual **config IDs** (0x0000-0x00A1) used in Gateway flash.
+We have **662 configs extracted** from the Gateway flash dump with their hex IDs. The Odin database provides human-readable names via `accessId`.
 
-**Example**:
-- `accessId: 30` → `superchargingAccess` → **Config ID unknown!**
-- `accessId: 66` → `mapRegion` → **Config ID unknown!**
+**Mapping discovered**:
+- `access_id=20` → Config ID 0x0014 (mapRegion)  
+- `access_id=59` → Config ID 0x003B (dasHardwareConfig)  
+- `access_id=81` → Config ID 0x0051 (deliveryStatus)  
+- `access_id=199` → Config ID 0x00C7 (tcuConfigType)
 
-**Solution**: Cross-reference with config database (doc 77):
+**Complete Config Database**:
 
-| Config ID | accessId | codeKey | Description |
-|-----------|----------|---------|-------------|
-| 0x0000 | ? | VIN? | Vehicle Identification Number |
-| 0x0006 | ? | Country code? | Regulatory region |
-| TBD | 30 | superchargingAccess | Supercharger network access |
-| TBD | 66 | mapRegion | Navigation map region |
-| TBD | 29 | autopilot | Autopilot capability level |
+| Config ID | Name | Security Level | Example Value |
+|-----------|------|----------------|---------------|
+| 0x0000 | VIN | Secure (Hermes) | 7SAYGDEEXPA052466 |
+| 0x0001 | partNumber | Secure | 1684435-00-E |
+| 0x0003 | firmwareVersion | Read-only | 1960101-12-D |
+| 0x0006 | country | Secure (Hermes) | US |
+| 0x0007 | units | Insecure (UDP) | 01 |
+| 0x0010 | devSecurityLevel | Hardware-locked (GTW) | (empty on prod) |
+| 0x0014 | mapRegion | Insecure (UDP) | 01 |
+| 0x0020 | ecuMapVersion | Insecure (UDP) | 02 |
+| 0x003B | dasHardwareConfig | Read-only | (varies) |
+| 0x0045 | chassisType | Read-only | (varies) |
+| 0x0051 | deliveryStatus | Read-only | (varies) |
+| 0x0055 | thermalConfig | Read-only | (varies) |
+| 0x00C7 | tcuConfigType | Read-only | (varies) |
 
-**Required**: Parse Ryzen Gateway config dump (doc 80) and match values to this enum database.
+_Full list: 662 configs in data/gateway_configs_parsed.txt_
 
+**Access Pattern**:
+```python
+# Odin reads configs via:
+api.cid.get_vehicle_configuration(access_id=20)  # Returns mapRegion
+# This queries Gateway config ID 0x0014 via UDP:3500
+```
+
+See **80-ryzen-gateway-flash-COMPLETE.md** for all 662 extracted configs with values.
+
+## Gen2 vs Gen3
 ## Gen2 vs Gen3
 
 ### Gen2 (Model S/X Pre-Refresh)
@@ -453,7 +473,7 @@ gateway_write_config(config_id_for_accessId_33, 0x01)
 
 | Item | Status | Evidence |
 |------|--------|----------|
-| File authenticity | ✅ VERIFIED | From Tesla Ukraine channel, Mohammed's source |
+| File authenticity | ✅ VERIFIED | From Tesla internal source, Mohammed's source |
 | Unhashed version | ✅ VERIFIED | Mohammed: "before they started doing that" |
 | Gen3 structure | ✅ VERIFIED | Valid JSON, matches known configs |
 | Gen2 structure | ✅ VERIFIED | Valid JSON, S/X configs present |

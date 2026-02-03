@@ -102,15 +102,15 @@ nav:
     - 'Firmware Metadata': gateway/99-gateway-FIRMWARE-METADATA.md
     - 'SPC Chip Replacement': gateway/55-gateway-spc-chip-replacement.md
   - 'MCU Research':
-    - 'MCU Architecture': mcu/24-mcu-architecture.md
+    - 'VCSEC Key Programming': mcu/24-vcsec-key-programming.md
     - 'Boot Sequence': mcu/25-mcu-boot-sequence.md
-    - 'QtCarServer Security': mcu/28-mcu-qtcarserver.md
-    - 'Chromium Security': mcu/31-mcu-chromium-security.md
+    - 'CAN Flood Timing': mcu/28-can-flood-refined-timing.md
+    - 'AppArmor Sandbox': mcu/31-apparmor-sandbox-security.md
   - 'Evidence & Audit':
     - 'Evidence Audit': evidence/59-EVIDENCE-AUDIT.md
     - 'Verification Status': VERIFICATION-STATUS.md
   - 'Tools & Scripts':
-    - 'Gateway CRC Validator': tools/56-tools-gateway-database-query.md
+    - 'Gateway Factory Gate': tools/56-gateway-factory-gate-REAL.md
     - 'Download Scripts': SCRIPTS.md
 
 extra_css:

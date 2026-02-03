@@ -7,7 +7,7 @@
 ## Source
 
 - **File**: `ryzenfromtable.bin` (6,225,920 bytes / 6.0 MB)
-- **Source**: Mohammed Talas via Google Drive
+- **Source**: internal source via Google Drive
 - **Hardware**: Ryzen-based MCU Gateway
 - **Method**: JTAG flash extraction from production vehicle
 - **Date**: 2026-02-03

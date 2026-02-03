@@ -2,13 +2,13 @@
 
 ## Executive Summary
 
-**VERIFIED**: Obtained actual Gateway application firmware hex file (38KB) from Tesla Ukraine channel.
+**VERIFIED**: Obtained actual Gateway application firmware hex file (38KB) from Tesla internal source.
 
 ## Source
 
 - **File**: `file_17---7ee43414-7cd1-4892-a428-16723e3855df`
 - **Format**: Intel HEX format
-- **Source**: Forwarded from Tesla Ukraine Telegram channel (2025-08-09)
+- **Source**: Forwarded from internal Tesla community (2025-08-09)
 - **Model**: MCU2 Gateway (5YJ3F7EB0LF610940 - Model 3/Y)
 
 ## Binary Details
@@ -151,7 +151,7 @@ To fully reverse-engineer factory gate:
 
 ### 1. Extract Bootloader
 
-Ask Tesla Ukraine channel for:
+Ask Tesla internal source for:
 - Gateway bootloader hex file (models-GW_boot_*.hex)
 - Or full flash dump including bootloader region
 

@@ -11,7 +11,7 @@
 - **File 3**: `file_23---f67b5d9e-df0f-4de7-9268-2c4834c58110.jpg` - Additional view
 - **Extraction Method**: JTAG hardware interface
 - **Hardware**: Gateway from Ryzen-based MCU (newer hardware revision)
-- **Source**: Tesla Ukraine Telegram channel (2023-06-08)
+- **Source**: internal Tesla community (2023-06-08)
 
 ## Flash Dump Details
 
@@ -200,7 +200,7 @@ From the images, we should have:
 #!/usr/bin/env python3
 """
 Tesla Gateway Config CRC Validator
-Based on parameters from Mohammed Talas
+Based on parameters from internal source
 """
 
 def crc8_0x2f(data, init=0xFF, xor_out=0x00):
