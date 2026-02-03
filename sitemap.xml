@@ -217,6 +217,10 @@
          <lastmod>2026-02-03</lastmod>
     </url>
     <url>
+         <loc>https://talas9.github.io/tesla-research/core/USB-OFFLINE-UPDATE-DEEP-DIVE/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
          <loc>https://talas9.github.io/tesla-research/evidence/59-EVIDENCE-AUDIT/</loc>
          <lastmod>2026-02-03</lastmod>
     </url>
@@ -242,6 +246,10 @@
     </url>
     <url>
          <loc>https://talas9.github.io/tesla-research/firmware/87-SUMMARY-gateway-firmware-analysis/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://talas9.github.io/tesla-research/firmware/KERNEL-GPIO-HARDWARE-DEBUG/</loc>
          <lastmod>2026-02-03</lastmod>
     </url>
     <url>
@@ -466,6 +474,10 @@
     </url>
     <url>
          <loc>https://talas9.github.io/tesla-research/tools/58-gateway-udp-REAL-FORMAT/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://talas9.github.io/tesla-research/tools/HIDDEN-SERVICE-CODES/</loc>
          <lastmod>2026-02-03</lastmod>
     </url>
 </urlset>
