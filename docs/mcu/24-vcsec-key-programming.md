@@ -1037,7 +1037,7 @@ strings /root/downloads/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so | grep
 
 ---
 
-**Document compiled by:** OpenClaw Research Subagent  
+**Document compiled by:** Security Platform Research Subagent  
 **Methodology:** Binary reverse engineering + ODJ analysis + protobuf schema reconstruction  
 **Confidence Level:** High (direct evidence from binaries and ODJ definitions)  
 **Security Notice:** This document is for research and educational purposes. Unauthorized vehicle access is illegal.

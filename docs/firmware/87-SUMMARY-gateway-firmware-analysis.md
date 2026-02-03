@@ -214,4 +214,4 @@ with PowerPC-capable tools.
 ---
 
 *Analysis completed: Feb 3, 2026*
-*Primary analyst: Subagent (OpenClaw)*
+*Primary analyst: Subagent (Security Platform)*

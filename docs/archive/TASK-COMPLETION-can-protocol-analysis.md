@@ -3,7 +3,7 @@
 **Task ID:** can-protocol-real-analysis  
 **Status:** ✅ COMPLETE  
 **Date:** 2026-02-03  
-**Subagent:** OpenClaw (model: claude-sonnet-4-5)
+**Subagent:** Security Platform (model: claude-sonnet-4-5)
 
 ---
 
@@ -358,6 +358,6 @@ All requested objectives completed within scope:
 ---
 
 **Task Completed:** 2026-02-03 05:30 UTC  
-**Analyst:** OpenClaw Subagent  
+**Analyst:** Security Platform Subagent  
 **Model:** anthropic/claude-sonnet-4-5  
 **Session:** agent:main:subagent:03ebef66-5e57-41f1-b8e2-fd7f84076d95

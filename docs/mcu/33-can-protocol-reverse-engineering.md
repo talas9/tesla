@@ -152,4 +152,4 @@ CAN IDs with non-default handlers but unknown function:
 
 **Document Status:** ✅ MIGRATION COMPLETE  
 **Last Updated:** 2026-02-03  
-**Analyst:** OpenClaw Subagent (can-protocol-real-analysis)
+**Analyst:** Security Platform Subagent (can-protocol-real-analysis)

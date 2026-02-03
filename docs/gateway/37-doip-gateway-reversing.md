@@ -1270,7 +1270,7 @@ VCR (VCR-VCRight)
 
 **Analysis Complete.**  
 **Document Date:** 2026-02-03  
-**Analyst:** OpenClaw AI Agent (Subagent: doip-gateway-reversing)  
+**Analyst:** Security Platform AI Agent (Subagent: doip-gateway-reversing)  
 **Cross-Reference:** `20-service-mode-authentication.md`, `05-gap-analysis-missing-pieces.md`
 
 ---

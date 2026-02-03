@@ -532,4 +532,4 @@ This document represents the **maximum verifiable CAN protocol information** ext
 
 **Document Status:** ✅ COMPLETE (within scope)  
 **Last Updated:** 2026-02-03  
-**Analyst:** OpenClaw Subagent (can-protocol-real-analysis)
+**Analyst:** Security Platform Subagent (can-protocol-real-analysis)

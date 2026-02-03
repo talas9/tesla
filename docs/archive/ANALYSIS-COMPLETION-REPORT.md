@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-Successfully completed comprehensive network attack surface analysis of OpenClaw Gateway server (c.wgg.co) and documented ALL listening services, firewall rules, security boundaries, and attack vectors.
+Successfully completed comprehensive network attack surface analysis of Security Platform Gateway server (c.wgg.co) and documented ALL listening services, firewall rules, security boundaries, and attack vectors.
 
 ### Deliverables
 
@@ -22,7 +22,7 @@ Successfully completed comprehensive network attack surface analysis of OpenClaw
 
 ### ✅ 1. Update 04-network-ports-firewall.md with additional ports found
 
-**Completed:** Added Appendix B comparing OpenClaw Gateway vs Tesla MCU2 network architecture
+**Completed:** Added Appendix B comparing Security Platform Gateway vs Tesla MCU2 network architecture
 
 **Additional ports documented:**
 - Port 53 (TCP/UDP) - systemd-resolved DNS (localhost)
@@ -214,7 +214,7 @@ Successfully completed comprehensive network attack surface analysis of OpenClaw
 **Analysis performed:**
 - Searched for Chromium processes (none found)
 - Tested Python webserver for WebSocket upgrade (not supported)
-- Tested OpenClaw gateway for WebSocket (HTTP only, no upgrade)
+- Tested Security Platform gateway for WebSocket (HTTP only, no upgrade)
 - Reviewed mDNS service (UDP 5353 - service discovery, not WebSocket)
 
 **Tesla Chromium adapter research:**
@@ -393,7 +393,7 @@ TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY')
    - 10 sections + 3 appendices
 
 2. **Updated:** `/root/tesla/04-network-ports-firewall.md`
-   - Added Appendix B (OpenClaw vs Tesla comparison)
+   - Added Appendix B (Security Platform vs Tesla comparison)
    - 60 new lines (810-868)
    - Version bumped to 1.1
 

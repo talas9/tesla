@@ -889,5 +889,5 @@ Tesla Toolbox (DoIP) --> doip-gateway
 ---
 
 *Analysis Date: 2026-02-03*
-*Analyst: OpenClaw AI Agent*
+*Analyst: Security Platform AI Agent*
 *Method: Static binary analysis, string extraction, symbol table analysis*

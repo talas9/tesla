@@ -1103,6 +1103,6 @@ date -d @$(cat /root/downloads/ape-extracted/etc/build-date)
 ---
 
 **Document Created:** 2026-02-03  
-**Analyst:** OpenClaw Subagent (ape-firmware-extraction)  
+**Analyst:** Security Platform Subagent (ape-firmware-extraction)  
 **Source Material:** APE Firmware 2024.8.9.ice.ape25  
 **Extraction Location:** `/root/downloads/ape-extracted/`

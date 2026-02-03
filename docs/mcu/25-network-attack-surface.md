@@ -1,8 +1,8 @@
-# Network Attack Surface Analysis - OpenClaw Gateway Server
+# Network Attack Surface Analysis - Security Platform Gateway Server
 
 **Document Version:** 1.0  
 **Analysis Date:** February 3, 2026, 04:00 UTC  
-**Server:** c.wgg.co (OpenClaw Gateway)  
+**Server:** c.wgg.co (Security Platform Gateway)  
 **Platform:** Ubuntu Linux 6.8.0-94-generic (x64)  
 **Purpose:** Comprehensive network security audit and attack surface mapping
 
@@ -10,7 +10,7 @@
 
 ## Executive Summary
 
-This analysis maps the complete network attack surface of the OpenClaw Gateway server, documenting all listening services, firewall rules, security boundaries, and potential attack vectors. The server operates with **UFW firewall** enabled in **default-deny mode**, exposing only essential services to the public internet while maintaining strict internal service isolation.
+This analysis maps the complete network attack surface of the Security Platform Gateway server, documenting all listening services, firewall rules, security boundaries, and potential attack vectors. The server operates with **UFW firewall** enabled in **default-deny mode**, exposing only essential services to the public internet while maintaining strict internal service isolation.
 
 ### Critical Findings
 
@@ -71,7 +71,7 @@ This analysis maps the complete network attack surface of the OpenClaw Gateway s
         ┌──────────────────────┼──────────────────────┬───────────────┐
         │                      │                      │               │
   ┌─────▼──────┐      ┌───────▼──────┐      ┌────────▼────┐  ┌──────▼─────┐
-  │ OpenClaw   │      │ CLI Proxy    │      │  systemd   │  │  D-Bus     │
+  │ Security Platform   │      │ CLI Proxy    │      │  systemd   │  │  D-Bus     │
   │ Gateway    │      │ API          │      │  Resolve   │  │  System    │
   │ :18789     │      │  :8317       │      │  :53       │  │  Bus       │
   │ :18792     │      │              │      │  DNS       │  │  (Unix)    │
@@ -133,9 +133,9 @@ This analysis maps the complete network attack surface of the OpenClaw Gateway s
 |------|----------|---------|---------|---------|----------|
 | **53** | TCP | DNS | systemd-resolved | System DNS (127.0.0.53) | ❌ No (local only) |
 | **53** | TCP | DNS | systemd-resolved | Stub resolver (127.0.0.54) | ❌ No (local only) |
-| **8317** | TCP | API | cli-proxy-api | OpenClaw CLI proxy | ❌ No (local only) |
-| **18789** | TCP | Gateway | openclaw-gateway | OpenClaw main API | ❌ No (local only) |
-| **18792** | TCP | Gateway | openclaw-gateway | OpenClaw secondary | ❌ No (local only) |
+| **8317** | TCP | API | cli-proxy-api | Security Platform CLI proxy | ❌ No (local only) |
+| **18789** | TCP | Gateway | openclaw-gateway | Security Platform main API | ❌ No (local only) |
+| **18792** | TCP | Gateway | openclaw-gateway | Security Platform secondary | ❌ No (local only) |
 
 ### UDP Services
 
@@ -412,7 +412,7 @@ Local Process
 [Loopback interface - NO FIREWALL]
     ↓
 Direct access to:
-├─ OpenClaw Gateway (:18789, :18792)
+├─ Security Platform Gateway (:18789, :18792)
 ├─ CLI Proxy API (:8317)
 ├─ systemd-resolved (:53)
 └─ D-Bus (Unix socket)
@@ -420,7 +420,7 @@ Direct access to:
 
 ### Network Isolation Matrix
 
-| Source | SSH (22) | HTTPS (443) | Dashboard (8888) | CUPS (631) | OpenClaw (18789) |
+| Source | SSH (22) | HTTPS (443) | Dashboard (8888) | CUPS (631) | Security Platform (18789) |
 |--------|----------|-------------|------------------|------------|------------------|
 | **Internet** | ✅ Allowed | ✅ Allowed | ✅ Allowed | ✅ Allowed | ❌ Blocked (127.0.0.1) |
 | **Tailscale VPN** | ✅ Allowed | ✅ Allowed | ✅ Allowed | ✅ Allowed | ❌ Blocked (127.0.0.1) |
@@ -575,7 +575,7 @@ $ ps aux | grep -i chromium
 
 **Conclusion:** This is a gateway/monitoring server, not a Tesla MCU. No Chromium adapter or WebSocket IPC present.
 
-### OpenClaw Gateway WebSocket Potential
+### Security Platform Gateway WebSocket Potential
 
 **Service:** `openclaw-gateway` (PID 152097)  
 **Listening:** 127.0.0.1:18789, 127.0.0.1:18792, [::1]:18789
@@ -603,7 +603,7 @@ udp 0.0.0.0:5353 openclaw-gateway (3 instances)
 | Service | WebSocket? | Security | Risk |
 |---------|------------|----------|------|
 | **Python Webserver :8888** | ❌ No | N/A | N/A |
-| **OpenClaw Gateway :18789** | ❌ No | Localhost-only | 🟢 LOW |
+| **Security Platform Gateway :18789** | ❌ No | Localhost-only | 🟢 LOW |
 | **NGINX :443** | ❌ No | TLS only | 🟢 LOW |
 
 **Overall WebSocket Risk:** 🟢 **NONE** (no WebSocket services present)
@@ -745,7 +745,7 @@ Attacker (Internet) → Port 631 (CUPS) → Malicious PPD file → RCE
 
 **Impact:**
 - Full system compromise (runs as root)
-- Lateral movement to OpenClaw services
+- Lateral movement to Security Platform services
 - Data exfiltration from monitoring system
 
 **Mitigation:**
@@ -1066,7 +1066,7 @@ tailscale status
 /root/.openclaw/workspace/memory/monitoring/.jwt_secret - JWT signing key
 ```
 
-### OpenClaw Service Architecture
+### Security Platform Service Architecture
 
 ```
 /root/.openclaw/
@@ -1131,5 +1131,5 @@ sudo ufw status verbose > /root/tesla/ufw-status-$(date +%Y%m%d).txt
 ---
 
 **Analysis Completed:** February 3, 2026, 04:00 UTC  
-**Analyst:** OpenClaw Subagent (network-attack-surface)  
+**Analyst:** Security Platform Subagent (network-attack-surface)  
 **Next Review:** February 10, 2026

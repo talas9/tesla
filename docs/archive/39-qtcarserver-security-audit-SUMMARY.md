@@ -366,6 +366,6 @@ logSecurityEvent("SERVICE_MODE_ATTEMPT", {
 
 ---
 
-*Analysis by: OpenClaw AI Agent*  
+*Analysis by: Security Platform AI Agent*  
 *Date: 2026-02-03*  
 *Method: Static binary analysis, symbol extraction, pattern matching*

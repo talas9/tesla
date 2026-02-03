@@ -345,6 +345,6 @@ This decompilation represents the **authoritative source** for Gateway internals
 ---
 
 **Document:** 52a-decompile-summary.md  
-**Author:** OpenClaw Subagent (gateway-firmware-decompile)  
+**Author:** Security Platform Subagent (gateway-firmware-decompile)  
 **Date:** 2026-02-03  
 **Completion:** 100%

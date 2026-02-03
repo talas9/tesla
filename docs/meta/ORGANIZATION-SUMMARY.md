@@ -358,5 +358,5 @@ git add .gitattributes
 
 ---
 
-*Organized by: OpenClaw Assistant*  
+*Organized by: Security Research Team*  
 *Date: 2026-02-03 07:45 UTC*

@@ -830,18 +830,18 @@ MCU2 (Model S/X 2024.x)           Model 3/Y (2024.x)
 
 ---
 
-## Appendix B: OpenClaw Gateway Server Comparison
+## Appendix B: Security Platform Gateway Server Comparison
 
 ### Purpose
-This section compares the Tesla MCU2 vehicle network architecture with the OpenClaw Gateway monitoring server (c.wgg.co) to highlight different security models.
+This section compares the Tesla MCU2 vehicle network architecture with the Security Platform Gateway monitoring server (c.wgg.co) to highlight different security models.
 
-### OpenClaw Gateway Network (c.wgg.co)
+### Security Platform Gateway Network (c.wgg.co)
 
 **Server Type:** Cloud-based monitoring/gateway (Ubuntu Linux)  
 **Environment:** DigitalOcean VPS (public internet)  
 **Security Model:** Default-deny firewall with selective service exposure
 
-#### Network Interfaces (OpenClaw)
+#### Network Interfaces (Security Platform)
 ```
 eth0:        178.128.115.127/20 (Public Internet)
 eth0:        10.15.0.5/16 (DigitalOcean anchor)
@@ -850,16 +850,16 @@ tailscale0:  100.127.14.89/32 (VPN mesh)
 lo:          127.0.0.1/8 (Localhost)
 ```
 
-#### Port Matrix (OpenClaw vs Tesla MCU2)
+#### Port Matrix (Security Platform vs Tesla MCU2)
 
-| Port | Service | OpenClaw Status | Tesla MCU2 Status | Security Comparison |
+| Port | Service | Security Platform Status | Tesla MCU2 Status | Security Comparison |
 |------|---------|----------------|-------------------|---------------------|
-| **22** | SSH | ✅ Public (key-auth) | ⚠️ Internal only | OpenClaw: Remote access required |
+| **22** | SSH | ✅ Public (key-auth) | ⚠️ Internal only | Security Platform: Remote access required |
 | **80** | HTTP | ✅ Public (allowed) | ⚠️ UNRESTRICTED | Both: Need source filtering |
 | **443** | HTTPS | ✅ Public (NGINX) | ⚠️ UNRESTRICTED | Both: TLS + auth needed |
-| **631** | CUPS/IPP | 🔴 Public (CRITICAL) | ❌ Not present | OpenClaw: Should disable |
-| **8888** | Dashboard | 🟡 Public (JWT+Turnstile) | ❌ Not present | OpenClaw: Monitoring UI |
-| **18789** | OpenClaw API | ✅ Localhost only | ❌ Not present | Good: Internal isolation |
+| **631** | CUPS/IPP | 🔴 Public (CRITICAL) | ❌ Not present | Security Platform: Should disable |
+| **8888** | Dashboard | 🟡 Public (JWT+Turnstile) | ❌ Not present | Security Platform: Monitoring UI |
+| **18789** | Security Platform API | ✅ Localhost only | ❌ Not present | Good: Internal isolation |
 | **25956** | Updater Shell | ❌ Not present | 🔴 Internal (exploit) | Tesla: High-risk diagnostic |
 | **49503** | Update Server | ❌ Not present | 🔴 Modem→MCU (critical) | Tesla: Firmware update path |
 | **4030-7654** | Toolbox API | ❌ Not present | 🔴 APE→MCU (removed 3/Y) | Tesla: Removed in newer models |
@@ -867,7 +867,7 @@ lo:          127.0.0.1/8 (Localhost)
 
 #### Firewall Comparison
 
-**OpenClaw Gateway (UFW/iptables):**
+**Security Platform Gateway (UFW/iptables):**
 ```
 Default Policy: DROP (20,419 packets blocked)
 Allowed Services: 22, 80, 443, 8888 (explicit whitelist)
@@ -883,7 +883,7 @@ Network Segments: 192.168.90.0/24 (internal only)
 
 #### Key Differences
 
-| Aspect | OpenClaw Gateway | Tesla MCU2 |
+| Aspect | Security Platform Gateway | Tesla MCU2 |
 |--------|------------------|------------|
 | **Threat Model** | Internet-exposed, public attacks | Internal vehicle network, physical proximity |
 | **Authentication** | JWT, SSH keys, VPN | Mostly none (network segmentation) |
@@ -893,24 +893,24 @@ Network Segments: 192.168.90.0/24 (internal only)
 
 #### Security Lessons
 
-**From Tesla MCU2 → OpenClaw:**
-1. ✅ **Network segmentation** - OpenClaw uses localhost isolation effectively
-2. ✅ **Service authentication** - OpenClaw requires JWT (Tesla often doesn't)
-3. ⚠️ **CUPS exposure** - OpenClaw repeats Tesla's HTTP/HTTPS unrestricted mistake
+**From Tesla MCU2 → Security Platform:**
+1. ✅ **Network segmentation** - Security Platform uses localhost isolation effectively
+2. ✅ **Service authentication** - Security Platform requires JWT (Tesla often doesn't)
+3. ⚠️ **CUPS exposure** - Security Platform repeats Tesla's HTTP/HTTPS unrestricted mistake
 
-**From OpenClaw → Tesla MCU2:**
+**From Security Platform → Tesla MCU2:**
 1. ✅ **Strong authentication** - Tesla could benefit from API token systems
 2. ✅ **VPN access model** - Tailscale-like secure diagnostics access
-3. ✅ **Rate limiting** - OpenClaw implements DDoS protection (Tesla should too)
+3. ✅ **Rate limiting** - Security Platform implements DDoS protection (Tesla should too)
 
-#### Additional Ports Found (OpenClaw-Specific)
+#### Additional Ports Found (Security Platform-Specific)
 
 | Port | Protocol | Service | Version | Risk | Notes |
 |------|----------|---------|---------|------|-------|
 | **53** | TCP/UDP | systemd-resolved | Ubuntu systemd | 🟢 Low | Localhost DNS only (127.0.0.53, 127.0.0.54) |
 | **5353** | UDP | mDNS | openclaw-gateway | 🟢 Low | Service discovery (3 instances) |
-| **8317** | TCP | cli-proxy-api | OpenClaw | 🟢 Low | Localhost-only CLI proxy |
-| **18792** | TCP | openclaw-gateway | OpenClaw | 🟢 Low | Secondary API endpoint (localhost) |
+| **8317** | TCP | cli-proxy-api | Security Platform | 🟢 Low | Localhost-only CLI proxy |
+| **18792** | TCP | openclaw-gateway | Security Platform | 🟢 Low | Secondary API endpoint (localhost) |
 | **45729** | TCP | tailscaled | Tailscale 1.94.1 | 🟢 Low | VPN control (100.127.14.89) |
 | **57654** | TCP | tailscaled (IPv6) | Tailscale 1.94.1 | 🟢 Low | VPN control (fd7a:115c:a1e0::e01:e8d) |
 | **41641** | UDP | tailscaled | Tailscale 1.94.1 | 🟢 Low | DERP relay (encrypted NAT traversal) |
@@ -923,8 +923,8 @@ Network Segments: 192.168.90.0/24 (internal only)
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
-| 1.0 | 2026-02-02 | Initial comprehensive documentation | OpenClaw Security Analysis |
-| 1.1 | 2026-02-03 | Added OpenClaw Gateway comparison (Appendix B) | OpenClaw Network Analysis Subagent |
+| 1.0 | 2026-02-02 | Initial comprehensive documentation | Security Platform Security Analysis |
+| 1.1 | 2026-02-03 | Added Security Platform Gateway comparison (Appendix B) | Security Platform Network Analysis Subagent |
 
 ---
 
@@ -937,6 +937,6 @@ Network Segments: 192.168.90.0/24 (internal only)
 
 ---
 
-**Document prepared by:** OpenClaw Tesla Security Research  
+**Document prepared by:** Security Platform Tesla Security Research  
 **Classification:** Internal Technical Documentation  
 **Last Updated:** February 2, 2026, 20:51 UTC

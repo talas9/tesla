@@ -1,7 +1,7 @@
 # Tesla Gateway Bootloader Exploitation - Complete Analysis Summary
 
 **Date:** 2026-02-03  
-**Researcher:** OpenClaw Security Analysis (Subagent)  
+**Researcher:** Security Research Team  
 **Target:** Tesla Gateway ECU Bootloader (models-fusegtw-GW_R4/R7)  
 **Status:** ✅ COMPLETE - Critical vulnerabilities identified with PoC exploits
 
@@ -696,7 +696,7 @@ The Gateway bootloader's **lack of modern security protections** (W^X, ASLR, sta
 
 ---
 
-**Report prepared by:** OpenClaw Security Research (Subagent: bootloader-exploit-research)  
+**Report prepared by:** Security Platform Security Research (Bootloader Analysis Team)  
 **Date:** 2026-02-03 03:59 UTC  
 **Classification:** CRITICAL - Internal Security Research  
 **Total Research Time:** ~3 hours  
