@@ -22,7 +22,7 @@ python3 scripts/gateway_crc_validator.py --config-id 0x0020 --data "01"
 - Batch validation mode
 - 100% validation rate on 662 configs
 
-**Download:** [gateway_crc_validator.py](https://github.com/talas9/tesla-research/raw/master/scripts/gateway_crc_validator.py)
+**Download:** [gateway_crc_validator.py](https://github.com/talas9/tesla/raw/master/scripts/gateway_crc_validator.py)
 
 ---
 
@@ -49,7 +49,7 @@ python3 scripts/gateway_database_query.py --list
 - Export to JSON/CSV
 - Access level detection
 
-**Download:** [gateway_database_query.py](https://github.com/talas9/tesla-research/raw/master/scripts/gateway_database_query.py)
+**Download:** [gateway_database_query.py](https://github.com/talas9/tesla/raw/master/scripts/gateway_database_query.py)
 
 ---
 
@@ -68,7 +68,7 @@ python3 scripts/match_odin_to_configs.py
 - Identifies security flags
 - Exports mapping table
 
-**Download:** [match_odin_to_configs.py](https://github.com/talas9/tesla-research/raw/master/scripts/match_odin_to_configs.py)
+**Download:** [match_odin_to_configs.py](https://github.com/talas9/tesla/raw/master/scripts/match_odin_to_configs.py)
 
 ---
 
@@ -84,7 +84,7 @@ python3 scripts/match_odin_to_configs.py
 bash scripts/audit-script.sh
 ```
 
-**Download:** [audit-script.sh](https://github.com/talas9/tesla-research/raw/master/scripts/audit-script.sh)
+**Download:** [audit-script.sh](https://github.com/talas9/tesla/raw/master/scripts/audit-script.sh)
 
 ---
 

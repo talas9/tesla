@@ -112,7 +112,7 @@ nav:
     - 'Verification Status': VERIFICATION-STATUS.md
   - 'Tools & Scripts':
     - 'Gateway CRC Validator': tools/56-tools-gateway-database-query.md
-    - 'Download Scripts': '#scripts'
+    - 'Download Scripts': SCRIPTS.md
 
 extra_css:
   - stylesheets/extra.css
