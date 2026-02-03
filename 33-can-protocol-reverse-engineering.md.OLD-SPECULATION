@@ -1,0 +1,300 @@
+# Tesla CAN Protocol Reverse Engineering (Gateway-centric)
+
+**Scope:** Consolidate all CAN/diagnostic identifiers and protocol behavior evidenced in the current `/root/tesla` research corpus and extracted firmware artifacts.
+
+**Primary sources in this repo:**
+- `/root/tesla/02-gateway-can-flood-exploit.md`
+- `/root/tesla/12-gateway-bootloader-analysis.md`
+- `/root/tesla/21-gateway-heartbeat-failsafe.md`
+- `/root/tesla/26-bootloader-exploit-research.md`
+- `/root/tesla/27-bootloader-analysis-summary.md`
+- `/root/downloads/mcu2-extracted/sbin/firewall` (DoIP/UDS NAT rules)
+- `/root/downloads/seed-extracted/gtw/**/models-fusegtw-GW_R4.img`, `...GW_R7.img` (bootloader images)
+
+> **Important constraints:** Many binaries used for this research are **stripped**, and some conclusions are based on disassembly/pseudocode rather than symbol-rich source. Items are labeled **CONFIRMED** (direct evidence) vs **INFERRED** (best interpretation).
+
+---
+
+## 0) Environment / Bus Topology (what we’re reversing)
+
+**Vehicle internal Ethernet subnet:** `192.168.90.0/24`
+- MCU2 (infotainment): `192.168.90.100`
+- Gateway ECU: `192.168.90.102`
+- APE (Autopilot): `192.168.90.103` (and `...105`)
+
+**Key services relevant to CAN/diagnostic bridging:**
+- Gateway UDP configuration API: `:3500/udp` (**documented elsewhere**)  
+- Emergency updater shell: `:25956/tcp` (opens under specific fault/update conditions)
+- MCU updater control: `:20564/tcp` (local HTTP on MCU; also reachable from some internal ECUs depending on firewall)
+
+---
+
+## 1) Inventory: ALL CAN IDs currently evidenced in binaries/docs
+
+This section lists every identifier that appears as a **CAN arbitration ID** (11-bit standard) in the current analysis set.
+
+### 1.1 CAN IDs used in the “gateway stress / emergency mode” behavior
+
+| CAN ID | Dec | DLC | Payload (hex) | Meaning (current) | Evidence |
+|---:|---:|---:|---|---|---|
+| `0x3C2` | 962 | 8 | `49 65 00 00 00 00 00 00` | “Diagnostic trigger” / stress signal used to induce gateway failure state | **CONFIRMED** (`02-gateway-can-flood-exploit.md`, `21-gateway-heartbeat-failsafe.md`) |
+| `0x622` | 1570 | 8 | `02 11 01 00 00 00 00 00` | UDS **TesterPresent** keepalive (used to keep a diagnostic session alive) | **CONFIRMED** (`02-gateway-can-flood-exploit.md`, `21-gateway-heartbeat-failsafe.md`) |
+
+**Notes:**
+- The payload for `0x3C2` begins with ASCII-ish bytes `0x49 0x65` ("Ie"); this looks like a magic constant in the current corpus.
+- `0x622` payload is consistent with a single-frame UDS TesterPresent request (length `0x02`, SID `0x11`, subfunction `0x01`) as described in the corpus.
+
+### 1.2 CAN IDs present in the Gateway bootloader dispatch jump-table
+
+Bootloader images analyzed are located at:
+- `/root/downloads/seed-extracted/gtw/14/models-fusegtw-GW_R4.img`
+- `/root/downloads/seed-extracted/gtw/114/models-fusegtw-GW_R7.img`
+
+The bootloader implements a **jump table** dispatcher indexed by **CAN ID** (see `26-bootloader-exploit-research.md`). The following CAN IDs have named handler roles in that writeup:
+
+| CAN ID | Table offset | Handler addr (bootloader VA) | Role / description (from analysis) | Status |
+|---:|---:|---:|---|---|
+| `0x00` | `0x800` | `0x4000150C` | Init/Boot handler | **CONFIRMED** (from `26-bootloader-exploit-research.md` table) |
+| `0x87` | `0x8A0` | `0x40005400` | Diagnostic mode entry | **CONFIRMED** |
+| `0x8A` | `0x8A8` | `0x40005408` | Extended diagnostic | **CONFIRMED** |
+| `0x95` | `0x8D4` | `0x400051E8` | “UDS session control” (bootloader-specific) | **CONFIRMED** |
+| `0xA5` | `0x914` | `0x400054B4` | Factory gate trigger | **CONFIRMED** |
+| `0xA8` | `0x920` | `0x400054BC` | Factory gate data accumulator | **CONFIRMED** |
+| `0xBA` | `0x968` | `0x40005568` | Security access request | **CONFIRMED** |
+| `0xBD` | `0x974` | `0x40005570` | Security access response | **CONFIRMED** |
+| `0xCF` | `0x9BC` | `0x4000561C` | ECU reset request | **CONFIRMED** |
+| `0xD2` | `0x9C8` | `0x40005624` | Session control (2nd entry; bootloader-specific) | **CONFIRMED** |
+| `0xE4` | `0xA10` | `0x400056D0` | Read data by identifier | **CONFIRMED** |
+| `0xE7` | `0xA1C` | `0x400056D8` | Write data by identifier | **CONFIRMED** |
+| `0xF9` | `0xA64` | `0x40005784` | Download firmware (bootloader mode) | **CONFIRMED** |
+| `0xFC` | `0xA70` | `0x4000578C` | Transfer data (firmware chunks) | **CONFIRMED** |
+
+**Dispatch vulnerability note (security-relevant):** The corpus asserts an out-of-bounds condition for IDs `> 0x12B` in the bootloader dispatcher (`27-bootloader-analysis-summary.md`). That is a *validation* issue with safety impact (see §5).
+
+---
+
+## 2) Message formats and field meanings (what we can currently say)
+
+### 2.1 `0x3C2` (stress/trigger)
+
+**Observed format:**
+- Standard 11-bit ID: `0x3C2`
+- DLC: 8
+- Payload: `49 65 00 00 00 00 00 00`
+
+**Likely interpretation (INFERRED):**
+- Bytes `[0:2]` contain a magic constant gating some internal condition (service/diagnostic pathway).
+- Remaining bytes unused/ignored in the versions described.
+
+**Open questions:**
+- Does the Gateway application (not just bootloader) decode this ID, or does it stress a lower-level task path?
+- Is the constant stable across GW generations (R4/R7/etc)?
+
+### 2.2 `0x622` (UDS tester present)
+
+**Observed format:**
+- Standard 11-bit ID: `0x622`
+- DLC: 8
+- Payload: `02 11 01 00 00 00 00 00`
+
+**Interpretation (CONFIRMED in corpus / standard UDS semantics):**
+- Byte0: `0x02` = length
+- Byte1: `0x11` = TesterPresent SID (per corpus)
+- Byte2: `0x01` = subfunction
+
+**Open questions:**
+- What is the response CAN ID(s) on this bus segment? (not extracted in current corpus)
+- Is ISO-TP used for multi-frame UDS on this segment (likely) vs single-frame only?
+
+### 2.3 Bootloader “factory gate” CAN IDs (`0xA5`, `0xA8`)
+
+**Current understanding (based on `26-bootloader-exploit-research.md`):**
+- `0xA8` acts as a **byte accumulator** into a buffer (“factory gate buffer”).
+- `0xA5` acts as a **trigger** that causes the bootloader to interpret accumulated bytes as a command.
+
+**Format (INFERRED):**
+- Both IDs likely use 8-byte frames; analysis code suggests using the **first payload byte** as the effective “data byte” for accumulation.
+
+**Open questions:**
+- True command grammar / opcodes for the “factory gate” (only success/fail strings are clearly present in bootloader strings).
+
+---
+
+## 3) Gateway CAN filtering / routing rules (gateway ↔ diagnostic paths)
+
+### 3.1 Evidence: DoIP/UDS redirection on the MCU firewall
+
+From `/root/downloads/mcu2-extracted/sbin/firewall`:
+
+```sh
+# nat rules for re-directing UDS traffic between doip-gateway and GTW
+-A PREROUTING -i eth0 -s gw -p tcp --sport 10001 -d 192.168.90.100 -j DNAT --to-destination 192.168.93.82
+-A POSTROUTING -s 192.168.93.82 -p tcp -o eth0 -d gw --dport 10001 -j SNAT --to-source 192.168.90.100
+```
+
+**Interpretation:**
+- There is a dedicated TCP port `10001` used for UDS traffic in a DoIP workflow.
+- Traffic appears to be NAT’d between an internal host (`192.168.93.82`, likely a container/namespace veth) and the gateway host (`gw`).
+
+**What we can conclude (CONFIRMED/INFERRED):**
+- **UDS-over-IP (DoIP) is present** in the MCU environment.
+- There is deliberate traffic steering between a DoIP gateway process and the rest of the internal network.
+
+### 3.2 What we *cannot* yet conclude
+
+- The precise mapping of DoIP entities to specific CAN buses and which arbitration IDs are allowed/blocked.
+- Whether Gateway enforces additional CAN-layer filtering beyond the MCU firewall routing.
+
+---
+
+## 4) Diagnostic CAN / UDS implementation (what’s implemented where)
+
+### 4.1 Bootloader diagnostic surface (Gateway bootloader)
+
+The bootloader jump-table indicates a set of diagnostic-like handlers:
+- Session control: `0x95`, `0xD2`
+- Security access: `0xBA`, `0xBD`
+- Read/Write by identifier: `0xE4`, `0xE7`
+- Firmware download/transfer: `0xF9`, `0xFC`
+- ECU reset: `0xCF`
+
+**Interpretation (INFERRED):**
+- These map conceptually to UDS services (session/security/data identifiers/download/reset), but the IDs here are **CAN arbitration IDs**, not the canonical UDS SIDs.
+- This suggests a **bootloader-specific diagnostic framing** where the *CAN ID selects the service handler*.
+
+### 4.2 Higher-level UDS via DoIP (MCU / doip-gateway)
+
+The service-mode authentication research (`20-service-mode-authentication.md`) and firewall NAT rules strongly indicate a DoIP diagnostic plane.
+
+**Key point:** Service-mode authentication is mediated through signed commands and backend entitlement, not a simple local PIN compare.
+
+---
+
+## 5) Safety-critical message validation and hardening gaps
+
+### 5.1 Bootloader CAN dispatcher validation gaps
+
+The corpus asserts:
+- The bootloader uses CAN ID as an **array index** into a jump table.
+- IDs above the implemented range can cause out-of-bounds behavior (see `27-bootloader-analysis-summary.md`).
+
+**Security implication:**
+- This is a safety-relevant validation failure: malformed / unexpected CAN IDs should be rejected early and logged, not used as unchecked indices.
+
+### 5.2 Factory gate buffer handling (bootloader)
+
+The analysis describes a “factory gate buffer” design where buffer pointer/state handling is unsafe.
+
+**Security implication:**
+- Unsafe buffer management in diagnostic pathways is particularly dangerous because diagnostic endpoints often remain reachable in service scenarios.
+
+---
+
+## 6) Replay attack vulnerabilities (CAN and update plane)
+
+### 6.1 CAN-level replay (vehicle control plane)
+
+**What we have evidence for:**
+- Certain service/diagnostic effects can be induced by repeating specific frames (`0x3C2`, `0x622`) at high rate (see `02-...`, `21-...`).
+
+**What we do *not* have yet:**
+- Concrete counter/nonce fields on CAN frames that would prevent replay for these specific IDs.
+
+### 6.2 Update/signature replay (update plane)
+
+From `13-ota-handshake-protocol.md` and related docs:
+- Signature resolution (`sigres`) uses a query-by-signature mechanism.
+- A large static database of signatures exists in this repo context (`/root/tesla/scripts/signatures.json`).
+
+**Security implication (high level):**
+- If the system accepts cached/previously valid signatures without freshness/anti-rollback constraints, an attacker could potentially reintroduce older vulnerable firmware (rollback).
+
+---
+
+## 7) CAN → D-Bus bridges (current evidence)
+
+**Direct CAN→D-Bus bridge mapping is NOT fully extracted** in the current corpus.
+
+What we *do* have:
+- D-Bus interfaces that control service/factory state (MCU side): `com.tesla.CarAPI` / `set_factory_mode(...)` (`01-ui-decompilation-service-factory.md`).
+- DoIP gateway has privileged D-Bus permission to initiate service-mode workflows (`20-service-mode-authentication.md`).
+
+**Hypothesis (INFERRED):**
+- The Gateway/DoIP diagnostic plane likely feeds state into MCU components that expose D-Bus control surfaces.
+
+**TODO for future extraction:**
+- Trace DoIP gateway codepath → CAN interface → D-Bus calls (requires binaries for `doip-gateway` and/or CAN routing daemons; not yet extracted here).
+
+---
+
+## 8) CAN Message Dictionary (current snapshot)
+
+This is a dictionary-style summary intended for scripting / logging.
+
+### 8.1 “Observed on-bus” frames (payload known)
+
+- **`0x3C2`**
+  - DLC: 8
+  - Payload: `49 65 00 00 00 00 00 00`
+  - Label: `GW_DIAG_TRIGGER_MAGIC`
+  - Notes: Stress/trigger behavior (exact semantics unknown)
+
+- **`0x622`**
+  - DLC: 8
+  - Payload: `02 11 01 00 00 00 00 00`
+  - Label: `UDS_TESTER_PRESENT`
+  - Notes: Keepalive behavior
+
+### 8.2 Bootloader diagnostic/service dispatch IDs (payload semantics partial)
+
+- **`0xA8`**: `FACTORY_GATE_DATA_ACCUMULATOR` (first byte likely used as stream byte)
+- **`0xA5`**: `FACTORY_GATE_TRIGGER`
+- **`0xBA` / `0xBD`**: `SECURITY_ACCESS_REQ/RESP` (bootloader-specific)
+- **`0xE4` / `0xE7`**: `READ/WRITE_DATA_BY_IDENTIFIER` (bootloader-specific)
+- **`0xF9` / `0xFC`**: `DOWNLOAD / TRANSFER_DATA` (bootloader-specific)
+- **`0xCF`**: `ECU_RESET_REQUEST` (bootloader-specific)
+- **`0x87` / `0x8A` / `0x95` / `0xD2`**: diagnostic/session entry/control (bootloader-specific)
+
+---
+
+## 9) Where to go next (to complete the remaining gaps)
+
+### 9.1 Extract CAN IDs from *actual* gateway application firmware
+
+Current CAN-ID set is strong for the bootloader but thin for the gateway application.
+
+**Next steps (analysis-oriented):**
+1. Locate GW application images (e.g., `gwapp.img`) in extracted firmware sets.
+2. Disassemble/search for CAN ID constants, ISO-TP/UDS stacks, acceptance filters.
+3. Correlate with firewall/DoIP behavior.
+
+### 9.2 Build a real message ID corpus from binaries
+
+The bootloader has few human-readable strings; rely on:
+- jump table pattern detection
+- switch/case ID extraction
+- ISO-TP addressing tuples (rx/tx IDs)
+
+### 9.3 Confirm response IDs and multi-frame behavior
+
+For `0x622` and other diagnostic flows, identify:
+- response arbitration IDs
+- whether ISO-TP is used and how addressing is encoded
+
+---
+
+## Appendix A — Firmware locations discovered (so you can RE deeper)
+
+Gateway bootloader images:
+- `GW_R4`: `/root/downloads/seed-extracted/gtw/14/models-fusegtw-GW_R4.img`
+- `GW_R7`: `/root/downloads/seed-extracted/gtw/114/models-fusegtw-GW_R7.img`
+
+Related gateway update artifacts (examples):
+- `/root/downloads/seed-extracted/gtw/108/models-update-GW_R7.img`
+- `/root/downloads/seed-extracted/gtw/15/models-update-fuser-GW_R4.img`
+
+---
+
+## Appendix B — Non-CAN diagnostic identifiers (UDS Routine IDs in VCSEC docs)
+
+The VCSEC ODJ analysis (`11-vcsec-keycard-routines.md`) includes IDs like `0x701`, `0x809`, etc. These appear to be **UDS routine IDs or OEM routine identifiers**, not CAN arbitration IDs. They are relevant to **diagnostic services** but should not be mixed into the CAN-ID dictionary unless the underlying transport addressing is known.

@@ -1,0 +1,185 @@
+═══════════════════════════════════════════════════════════════
+  APE FIRMWARE EXTRACTION - TASK COMPLETE ✅
+═══════════════════════════════════════════════════════════════
+
+FIRMWARE: 2024.8.9.ice.ape25 (534MB SquashFS)
+EXTRACTED: 2,988 files (962MB uncompressed)
+DATE: 2026-02-03 04:52 UTC
+
+───────────────────────────────────────────────────────────────
+DELIVERABLES (11 Documents)
+───────────────────────────────────────────────────────────────
+
+📖 PRIMARY DOCUMENTATION:
+   • 40-INDEX.md (13KB)
+     → Master index - START HERE!
+   
+   • 40-ape-extraction-summary.md (11KB)
+     → Quick reference guide
+   
+   • 40-ape-firmware-extraction.md (33KB)
+     → Comprehensive deep-dive analysis
+
+📋 REFERENCE LISTS:
+   • 40-ape-binaries-list.txt (45 autopilot binaries)
+   • 40-ape-binary-types.txt (file type analysis)
+   • 40-ape-services-list.txt (62 runit services)
+   • 40-ape-suid-sgid-binaries.txt (5 privilege escalation targets)
+   • 40-ape-certificates.txt (28 Tesla CA certificates)
+   • 40-ape-users.txt (52 user accounts)
+   • 40-ape-groups.txt (85 group definitions)
+   • 40-ape-filesystem-tree.txt (directory structure)
+
+───────────────────────────────────────────────────────────────
+KEY FINDINGS
+───────────────────────────────────────────────────────────────
+
+🚨 CRITICAL SECURITY ISSUES:
+
+1. PORT 8901 - Factory Calibration HTTP Server
+   ✓ Binary: factory_camera_calibration (3.1MB)
+   ✓ Active during SD card format
+   ✓ Likely no authentication in factory mode
+   ✓ Endpoint found: /board_info/cameras_init_done_for_apb
+   → PRIMARY ATTACK VECTOR
+
+2. FACTORY MODE SECURITY BYPASS
+   ✓ AppArmor disabled: /sbin/unload-apparmor-in-factory
+   ✓ Rate limiting disabled on service_api
+   ✓ Complete security profile removal
+   → FULL SYSTEM ACCESS IF TRIGGERED
+
+3. REMOTE FACTORY MODE TRIGGERING
+   ✓ Service API can clear calibration files
+   ✓ String: "successfully cleared calibration files"
+   ✓ Reboot triggers factory calibration mode
+   → REMOTE SECURITY BYPASS POSSIBLE
+
+4. SUID ROOT TPM ACCESS
+   ✓ Binary: /opt/autopilot/bin/read_device_key (52KB)
+   ✓ Runs as root, accesses TPM
+   → PRIVILEGE ESCALATION VECTOR
+
+5. REMOTE COMMAND EXECUTION
+   ✓ Binary: hermes_teleforce (9.6MB)
+   ✓ Tesla backend remote control
+   → REQUIRES FURTHER ANALYSIS
+
+───────────────────────────────────────────────────────────────
+NETWORK SERVICES MAPPED
+───────────────────────────────────────────────────────────────
+
+Port 8081  → service-api-tls (mTLS, client cert required)
+Port 8901  → factory-camera-calibration (HTTP, likely no auth)
+Port 8902  → apeb-file-server (internal network only)
+UDP 27694  → canrx (CAN bus from Longboard)
+UDP 28205  → Aurix data logging
+
+Internal Network:
+  192.168.90.103 - APE-A (this system)
+  192.168.90.104 - Longboard/Aurix
+  192.168.90.105 - APE-B (redundant processor)
+
+───────────────────────────────────────────────────────────────
+TOP PRIORITY BINARIES FOR REVERSE ENGINEERING
+───────────────────────────────────────────────────────────────
+
+1. factory_camera_calibration (3.1MB)
+   → Port 8901 server, SD format attack vector
+
+2. vision (389MB)
+   → Neural network engine, likely has embedded models
+
+3. service_api (6.9MB, Go binary)
+   → Port 8081 API, calibration clearing capability
+
+4. read_device_key (52KB, SUID root)
+   → TPM access, privilege escalation
+
+5. hermes_teleforce (9.6MB)
+   → Remote command execution
+
+───────────────────────────────────────────────────────────────
+BUILD METADATA
+───────────────────────────────────────────────────────────────
+
+Version:      2024.8.9.ice.ape25
+Git Commit:   0cac3042b6cd3c716601e6ed6d3d0be65ab47d74
+Build Date:   1712350968 (April 6, 2024 21:42:48 UTC)
+Product:      ap (Autopilot Processor)
+Platform:     parker (NVIDIA Tegra)
+Architecture: ARM aarch64
+Timezone:     America/Los_Angeles
+
+───────────────────────────────────────────────────────────────
+PHASES COMPLETED
+───────────────────────────────────────────────────────────────
+
+✅ PHASE 1 - EXTRACTION:
+   [✓] Extract SquashFS to /root/downloads/ape-extracted/
+   [✓] Create file inventory with sizes and types
+   [✓] Identify key binaries
+   [✓] Find configuration files
+   [✓] Extract version info and build metadata
+
+✅ PHASE 2 - INITIAL ANALYSIS:
+   [✓] Document filesystem structure
+   [✓] Identify autopilot-specific services (62 found)
+   [✓] Find factory calibration endpoints (port 8901)
+   [✓] Locate certificate stores (Tesla CA hierarchy)
+   [✓] Map update mechanisms (ape-updater, gadget-updater)
+   [✓] Find debugging/diagnostic interfaces (SSH, console, Aurix)
+   [✓] Catalog all binaries by purpose (45 binaries classified)
+
+───────────────────────────────────────────────────────────────
+NEXT PHASE
+───────────────────────────────────────────────────────────────
+
+PHASE 3 - BINARY REVERSE ENGINEERING:
+   [ ] Load factory_camera_calibration in Ghidra
+   [ ] Enumerate all HTTP endpoints
+   [ ] Test port 8901 authentication
+   [ ] Analyze service_api (Go binary)
+   [ ] Extract vision neural network models
+   [ ] Set up QEMU ARM emulation
+   [ ] Develop port 8901 exploit
+
+───────────────────────────────────────────────────────────────
+EXTRACTED FILESYSTEM LOCATION
+───────────────────────────────────────────────────────────────
+
+Source:    /root/downloads/ape-firmware/2024.8.9.ice.ape25
+Extracted: /root/downloads/ape-extracted/
+Docs:      /root/tesla/40-*.md, 40-*.txt
+
+Total:     962 MB uncompressed
+Files:     2,988
+Dirs:      379
+Symlinks:  984
+
+───────────────────────────────────────────────────────────────
+ATTACK CHAIN SUMMARY
+───────────────────────────────────────────────────────────────
+
+1. Trigger service mode SD format
+   ↓
+2. Port 8901 becomes accessible during format
+   ↓
+3. Exploit factory_camera_calibration HTTP API
+   ↓
+4. Upload malicious calibration OR trigger factory mode
+   ↓
+5. Factory mode = AppArmor disabled = full access
+   ↓
+6. Escalate privileges via read_device_key (SUID)
+   ↓
+7. Full APE system compromise
+
+───────────────────────────────────────────────────────────────
+
+✅ EXTRACTION TASK: COMPLETE
+📊 DOCUMENTATION: 11 files, 60KB total
+🎯 NEXT TASK: Binary reverse engineering (Phase 3)
+🚨 PRIMARY TARGET: factory_camera_calibration (port 8901)
+
+═══════════════════════════════════════════════════════════════

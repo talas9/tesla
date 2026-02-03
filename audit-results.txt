@@ -1,0 +1,8 @@
+=== EVIDENCE QUALITY AUDIT ===
+Generated: Tue Feb  3 05:30:54 UTC 2026
+
+=== SUMMARY ===
+Total files scanned: 1
+Files with uncertain language: 0
+Files with evidence markers: 0
+Confidence rate: 0%

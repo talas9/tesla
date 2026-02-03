@@ -1,0 +1,5 @@
+./opt/autopilot/bin/package_signer
+./opt/autopilot/bin/read_device_key
+./bin/busybox
+./bin/traceroute6
+./bin/ping

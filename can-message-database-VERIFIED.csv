@@ -1,0 +1,19 @@
+CAN_ID_HEX,CAN_ID_DEC,Handler_Address,Source_Binary,Source_Offset,Function_Name,Data_Format,Evidence_Level,Notes
+0x00,0,0x4000150C,models-fusegtw-GW_R4.img,0x0800,unknown_init,UNKNOWN,VERIFIED,Non-default handler - likely initialization
+0x87,135,0x40005400,models-fusegtw-GW_R4.img,0x0A1C,unknown,UNKNOWN,VERIFIED,Non-default handler - requires disassembly
+0x8A,138,0x40005408,models-fusegtw-GW_R4.img,0x0A28,unknown,UNKNOWN,VERIFIED,Non-default handler - 35 binary refs
+0x95,149,0x400051E8,models-fusegtw-GW_R4.img,0x0A54,unknown,UNKNOWN,VERIFIED,Non-default handler
+0xA5,165,0x400054B4,models-fusegtw-GW_R4.img,0x0A94,unknown,UNKNOWN,VERIFIED,Non-default handler
+0xA8,168,0x400054BC,models-fusegtw-GW_R4.img,0x0AA0,unknown,UNKNOWN,VERIFIED,Non-default handler
+0xBA,186,0x40005568,models-fusegtw-GW_R4.img,0x0AE8,unknown,UNKNOWN,VERIFIED,Non-default handler
+0xBD,189,0x40005570,models-fusegtw-GW_R4.img,0x0AF4,unknown,UNKNOWN,VERIFIED,Non-default handler
+0xCF,207,0x4000561C,models-fusegtw-GW_R4.img,0x0B3C,unknown,UNKNOWN,VERIFIED,Non-default handler
+0xD2,210,0x40005624,models-fusegtw-GW_R4.img,0x0B48,unknown,UNKNOWN,VERIFIED,Non-default handler
+0xE4,228,0x400056D0,models-fusegtw-GW_R4.img,0x0B90,uds_read_data_by_id,"E4 <DID_H> <DID_L>",VERIFIED,UDS ISO 14229 - Read DID
+0xE7,231,0x400056D8,models-fusegtw-GW_R4.img,0x0B9C,unknown,UNKNOWN,VERIFIED,Non-default handler
+0xF9,249,0x40005784,models-fusegtw-GW_R4.img,0x0BE4,enter_bootloader,F9,VERIFIED,Flash programming mode entry
+0xFC,252,0x4000578C,models-fusegtw-GW_R4.img,0x0BF0,flash_data_chunk,"FC <8 bytes>",VERIFIED,Firmware upload chunks
+0x3C2,962,0x40005E78,models-fusegtw-GW_R4.img,N/A (4 refs),"can_flood_trigger (pre-dispatch)","49 65 00 00 00 00 00 00",VERIFIED,"Found at 0xAF31, 0xB1A5, 0xB251, 0xB3D9 - NOT in jump table"
+0x622,1570,0x40005E78,models-fusegtw-GW_R4.img,N/A,"uds_tester_present (app/doip)","02 11 01 00 00 00 00 00",DOCUMENTED,Standard UDS keepalive - handled outside bootloader
+0x85,133,0x40005E78,models-fusegtw-GW_R4.img,0x0A14,"factory_gate_trigger (APP FIRMWARE)","85",VERIFIED,"DEFAULT handler in bootloader - implemented in models-GW_R*.hex"
+0x88,136,0x40005E78,models-fusegtw-GW_R4.img,0x0A20,"factory_gate_accumulate (APP FIRMWARE)","88 <byte>",VERIFIED,"DEFAULT handler in bootloader - accumulates 8 bytes in app firmware"
