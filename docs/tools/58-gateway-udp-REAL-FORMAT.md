@@ -1,6 +1,6 @@
 # Gateway UDP Protocol - ACTUAL FORMAT (Extracted from gwxfer Binary)
 
-**Source:** Disassembly of `/root/downloads/mcu2-extracted/usr/local/bin/gwxfer`  
+**Source:** Disassembly of `/firmware/mcu2-extracted/usr/local/bin/gwxfer`  
 **Method:** radare2 complete binary analysis  
 **Status:** ✅ CODE-VERIFIED - All structures extracted from actual compiled code
 
@@ -478,7 +478,7 @@ Example for READ: `length = 1 (cmd) + strlen(path) + 1 (NULL) = strlen(path) + 2
 
 ## VERIFICATION
 
-**Binary:** `/root/downloads/mcu2-extracted/usr/local/bin/gwxfer`  
+**Binary:** `/firmware/mcu2-extracted/usr/local/bin/gwxfer`  
 **SHA1:** `d4fe0d759c8dca65ba8a480c0e85c425b1e75bdf` (from ELF BuildID)  
 **Size:** 31KB (31,744 bytes)  
 **Analysis Tool:** radare2 4.x with `aaa` (full analysis)  

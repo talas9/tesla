@@ -20,7 +20,7 @@ Re-analyze CAN protocol with REAL evidence. REPLACE speculation with verified fi
    - ⚠️ Extract field offsets from disassembly (PARTIAL - need full disassembly)
 
 2. **Extract from MCU Binaries:**
-   - ⚠️ Analyze CAN libraries in /root/downloads/mcu2-extracted/ (PARTIAL - no .dbc found)
+   - ⚠️ Analyze CAN libraries in /firmware/mcu2-extracted/ (PARTIAL - no .dbc found)
    - ❌ Find CAN database files (.dbc, .json, or embedded) (NOT FOUND)
    - ⚠️ Extract message definitions from actual code (LIMITED - need QtCar analysis)
 
@@ -46,7 +46,7 @@ Re-analyze CAN protocol with REAL evidence. REPLACE speculation with verified fi
 ## Deliverables
 
 ### 1. Primary Document
-**File:** `/root/tesla/57-can-protocol-VERIFIED.md` (18.5 KB)
+**File:** `/research/57-can-protocol-VERIFIED.md` (18.5 KB)
 
 **Contents:**
 - Jump table extraction (0x800-0xCAC verified)
@@ -58,7 +58,7 @@ Re-analyze CAN protocol with REAL evidence. REPLACE speculation with verified fi
 - Gaps clearly marked
 
 ### 2. Message Database
-**File:** `/root/tesla/can-message-database-VERIFIED.csv` (2.3 KB)
+**File:** `/research/can-message-database-VERIFIED.csv` (2.3 KB)
 
 **Contents:**
 - 18 CAN IDs documented
@@ -67,7 +67,7 @@ Re-analyze CAN protocol with REAL evidence. REPLACE speculation with verified fi
 - Source binary and offset information
 
 ### 3. Migration Document
-**File:** `/root/tesla/33-can-protocol-reverse-engineering.md` (REPLACED)
+**File:** `/research/33-can-protocol-reverse-engineering.md` (REPLACED)
 
 **Actions:**
 - Old speculative version backed up to `.OLD-SPECULATION`
@@ -156,8 +156,8 @@ CAN ID 0x88 @ offset 0x0A20 → 0x40005E78 (DEFAULT HANDLER)
 ### 1. Application Firmware (HIGH PRIORITY)
 
 **Files:**
-- `/root/downloads/seed-extracted/gtw/1/models-GW_R4.hex` (3.3 MB)
-- `/root/downloads/seed-extracted/gtw/101/models-GW_R7.hex` (3.3 MB)
+- `/firmware/seed-extracted/gtw/1/models-GW_R4.hex` (3.3 MB)
+- `/firmware/seed-extracted/gtw/101/models-GW_R7.hex` (3.3 MB)
 
 **Contains:**
 - Factory gate implementation (0x85, 0x88)
@@ -267,15 +267,15 @@ r2 -a ppc -b 32 -q -c 's 0x800; pd 200' models-fusegtw-GW_R4.img
 ## Files Modified/Created
 
 ### Created
-1. `/root/tesla/57-can-protocol-VERIFIED.md` (18.5 KB)
-2. `/root/tesla/can-message-database-VERIFIED.csv` (2.3 KB)
-3. `/root/tesla/TASK-COMPLETION-can-protocol-analysis.md` (this file)
+1. `/research/57-can-protocol-VERIFIED.md` (18.5 KB)
+2. `/research/can-message-database-VERIFIED.csv` (2.3 KB)
+3. `/research/TASK-COMPLETION-can-protocol-analysis.md` (this file)
 
 ### Modified
-1. `/root/tesla/33-can-protocol-reverse-engineering.md` (REPLACED with redirect)
+1. `/research/33-can-protocol-reverse-engineering.md` (REPLACED with redirect)
 
 ### Backed Up
-1. `/root/tesla/33-can-protocol-reverse-engineering.md.OLD-SPECULATION`
+1. `/research/33-can-protocol-reverse-engineering.md.OLD-SPECULATION`
 
 ---
 

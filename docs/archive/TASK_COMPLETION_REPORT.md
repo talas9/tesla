@@ -2,9 +2,9 @@
 
 ## ✅ Task Status: COMPLETE
 
-**Assigned Task:** Complete MCU networking deep dive in /root/tesla/44-mcu-networking-deep-dive.md
+**Assigned Task:** Complete MCU networking deep dive in /research/44-mcu-networking-deep-dive.md
 
-**Source Data:** /root/downloads/mcu2-extracted/
+**Source Data:** /firmware/mcu2-extracted/
 
 ---
 

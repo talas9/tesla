@@ -103,7 +103,7 @@ tesla/
 ## Git Status
 
 ```bash
-Repository: ~/tesla/.git
+Repository: /research/.git
 Branch: master
 Commits: 2
   1. Initial commit (previous)

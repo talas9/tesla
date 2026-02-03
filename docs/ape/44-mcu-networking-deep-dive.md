@@ -1,6 +1,6 @@
 # MCU2 Network Security Deep Dive
 **Complete networking analysis of Tesla MCU2 firmware**
-**Source:** `/root/downloads/mcu2-extracted`
+**Source:** `/firmware/mcu2-extracted`
 **Analysis Date:** 2025-02-03
 
 ---
@@ -1673,7 +1673,7 @@ while True:
 ---
 
 *Analysis complete. Document generated: 2025-02-03 04:51 UTC*
-*Source: Tesla MCU2 firmware extraction from /root/downloads/mcu2-extracted/*
+*Source: Tesla MCU2 firmware extraction from /firmware/mcu2-extracted/*
 
 ---
 

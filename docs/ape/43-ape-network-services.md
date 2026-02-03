@@ -3,7 +3,7 @@
 **Document Version:** 1.0  
 **Analysis Date:** February 3, 2026  
 **Platform:** Tesla Autopilot Hardware 2.x (HW2/HW2.5)  
-**Source:** APE firmware extraction (`/root/downloads/ape-extracted/`)  
+**Source:** APE firmware extraction (`/firmware/ape-extracted/`)  
 **Cross-reference:** MCU2 network analysis ([25-network-attack-surface.md](25-network-attack-surface.md))
 
 ---
@@ -99,7 +99,7 @@ APE (.103/.105) ────────────┤
 
 ### APE-A (192.168.90.103) Interfaces
 
-**Configuration:** `/root/downloads/ape-extracted/etc/network/interfaces`
+**Configuration:** `/firmware/ape-extracted/etc/network/interfaces`
 
 ```bash
 auto lo
@@ -1195,5 +1195,5 @@ The Tesla APE network attack surface is **well-designed for production use** wit
 
 **Analysis Completed:** February 3, 2026, 04:46 UTC  
 **Analyst:** Security Platform Subagent (ape-network-services)  
-**Firmware Source:** `/root/downloads/ape-extracted/` (HW2 APE firmware)  
+**Firmware Source:** `/firmware/ape-extracted/` (HW2 APE firmware)  
 **Next Steps:** Deep binary reverse engineering of service_api and ui_server for additional endpoint discovery

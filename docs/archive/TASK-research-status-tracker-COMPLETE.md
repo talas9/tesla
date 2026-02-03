@@ -28,7 +28,7 @@ This is the master tracker.
 
 ## Deliverable
 
-**Document Created:** `/root/tesla/RESEARCH-STATUS.md`
+**Document Created:** `/research/RESEARCH-STATUS.md`
 
 **Size:** 41 KB (1,013 lines)
 

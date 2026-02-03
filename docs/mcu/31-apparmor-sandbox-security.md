@@ -34,7 +34,7 @@ Tesla's MCU2 firmware implements **defense-in-depth** using:
 - escalator/*: Privilege escalation paths (exec, rwfile, cgroup, sv, base)
 ```
 
-**Source:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/`
+**Source:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/`
 
 ### 1.2 Compiled Profiles (Sample)
 
@@ -49,7 +49,7 @@ Critical binaries under AppArmor enforcement:
 | `audiod` | `usr.bin.audiod` | Audio daemon |
 | `dnsmasq` | `usr.sbin.dnsmasq` | DNS/DHCP server |
 
-**Citation:** `ls /root/downloads/mcu2-extracted/etc/apparmor.compiled/` (215 profiles)
+**Citation:** `ls /firmware/mcu2-extracted/etc/apparmor.compiled/` (215 profiles)
 
 ---
 
@@ -90,7 +90,7 @@ signal (send) peer=/usr/bin/service-shell-*,
 /run/service-shell/{,**} rw,
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/service-shell` [Lines 1-45]
+**Citation:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/service-shell` [Lines 1-45]
 
 **🚨 CRITICAL VULNERABILITIES:**
 
@@ -128,7 +128,7 @@ signal (send) peer=/usr/bin/service-shell-*,
 /sbin/reboot Cx,                      # System restart
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/service-shell-service-engineering` [Lines 1-65]
+**Citation:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/service-shell-service-engineering` [Lines 1-65]
 
 **Sub-Profiles with Dangerous Capabilities:**
 
@@ -157,7 +157,7 @@ capability fowner,
 /var/spool/*-updater/{,**} rw,        # Can corrupt update queue
 /opt/games/usr/** rw,                 # Gaming partition access
 ```
-**Citation:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/service-shell-service-engineering` [Lines 162-200]
+**Citation:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/service-shell-service-engineering` [Lines 162-200]
 
 **🚨 CRITICAL:** Service-shell can **delete updater spool files** via `rm`, potentially corrupting OTA updates in progress.
 
@@ -182,7 +182,7 @@ profile /bin/ping flags=(attach_disconnected) {
 }
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/service-shell-tcp-common` [Lines 68-85]
+**Citation:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/service-shell-tcp-common` [Lines 68-85]
 
 **🚨 CRITICAL:** `CAP_NET_ADMIN` allows:
 - Network interface manipulation
@@ -215,7 +215,7 @@ profile /bin/ping flags=(attach_disconnected) {
 /ss/{,**} rw,                         # Unrestricted temp workspace
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/service-shell-allowed-files` [Lines 1-44]
+**Citation:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/service-shell-allowed-files` [Lines 1-44]
 
 ---
 
@@ -233,7 +233,7 @@ audit deny /var/lib/*_creds/*.key rw,             # Private keys (read-only ok)
 audit deny /home/tesla-wmpf/AuthToken rw,         # WMPF auth token
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/service-shell-blocked-files`
+**Citation:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/service-shell-blocked-files`
 
 **Note:** Certificates (`.crt`) are **readable**, only `.key` files are write-protected.
 
@@ -253,7 +253,7 @@ ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked
 interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 5.4.255, stripped
 ```
 
-**Citation:** `file /root/downloads/mcu2-extracted/usr/bin/escalator`
+**Citation:** `file /firmware/mcu2-extracted/usr/bin/escalator`
 
 **Purpose:** Controlled privilege escalation for service-shell commands.
 
@@ -269,7 +269,7 @@ ptrace (read) peer=/usr/bin/escalator,
 ptrace (read) peer=/usr/bin/escalator//**,
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/escalator/base`
+**Citation:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/escalator/base`
 
 ---
 
@@ -326,7 +326,7 @@ ptrace (read) peer=/usr/bin/escalator//**,
 /usr/local/bin/reboot-gateway PUx,                # Gateway reboot
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/escalator/exec` [Lines 27-100]
+**Citation:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/escalator/exec` [Lines 27-100]
 
 **🚨 CRITICAL:** 60+ scripts can run **unconfined** (PUx) via escalator. If service-shell is compromised, attacker can:
 1. Execute arbitrary Python via `odin-trigger-trampoline`
@@ -374,7 +374,7 @@ capability dac_override,                          # Bypass file permissions
 /tmp/odin.sock rw,
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/escalator/rwfile` [Lines 1-41]
+**Citation:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/escalator/rwfile` [Lines 1-41]
 
 **🚨 CRITICAL:** Escalator rwfile allows:
 - Direct write to `/opt/games/usr/*` (gaming partition)
@@ -399,7 +399,7 @@ StopSandbox   # Cleanup
 RunSandbox /path/to/binary --args
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/sandbox/sandbox.bash` [Lines 1-25]
+**Citation:** `/firmware/mcu2-extracted/etc/sandbox/sandbox.bash` [Lines 1-25]
 
 ---
 
@@ -436,7 +436,7 @@ RunSandbox () {
 }
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/sandbox/sandbox.bash` [Lines 221-360]
+**Citation:** `/firmware/mcu2-extracted/etc/sandbox/sandbox.bash` [Lines 221-360]
 
 ---
 
@@ -453,7 +453,7 @@ CreateChrootSkeleton () {
 }
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/sandbox/sandbox.bash` [Lines 126-132]
+**Citation:** `/firmware/mcu2-extracted/etc/sandbox/sandbox.bash` [Lines 126-132]
 
 **🚨 VULNERABILITY:** `rm -rf "$CHROOT"` without validation could be exploited if `$CHROOT_DIR` is attacker-controlled.
 
@@ -494,7 +494,7 @@ EOF
 fi
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/sandbox/sandbox.bash` [Lines 274-315]
+**Citation:** `/firmware/mcu2-extracted/etc/sandbox/sandbox.bash` [Lines 274-315]
 
 **Network Isolation Details:**
 - Each sandbox gets a `/30` network (`192.168.93.X/30`)
@@ -521,7 +521,7 @@ else
 fi
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/sandbox/sandbox.bash` [Lines 150-157]
+**Citation:** `/firmware/mcu2-extracted/etc/sandbox/sandbox.bash` [Lines 150-157]
 
 **🚨 SECURITY WEAKNESS:** On **unfused** (development) units, JSON profiles can override compiled configs. If attacker can write to `/etc/sandbox.d/json/*.json`, they can weaken sandboxes.
 
@@ -538,7 +538,7 @@ fi;
 exec $CGEXEC $PREAMBLE $MINIJAIL $MINIJAIL_ARGS -- "$@";
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/sandbox/sandbox.bash` [Lines 349-356]
+**Citation:** `/firmware/mcu2-extracted/etc/sandbox/sandbox.bash` [Lines 349-356]
 
 **Note:** Warning is logged but execution continues even if no AppArmor profile exists!
 
@@ -576,7 +576,7 @@ PIDNAMESPACE='true'
 KAFEL='/etc/kafel/updater-envoy.kafel'
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/sandbox.d/vars/updater-envoy.vars`
+**Citation:** `/firmware/mcu2-extracted/etc/sandbox.d/vars/updater-envoy.vars`
 
 **Restrictions:**
 - Chroot to `/run/chroot/updater-envoy`
@@ -599,7 +599,7 @@ NET_NS_NAT='true'
 NET_NS_IPTABLES='INTERNET'            # Firewall chain name
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/sandbox.d/vars/chromium.vars`
+**Citation:** `/firmware/mcu2-extracted/etc/sandbox.d/vars/chromium.vars`
 
 **Isolation:**
 - Dedicated network namespace `chromium`
@@ -633,7 +633,7 @@ POLICY updater_envoyPolicy {
 USE updater_envoyPolicy DEFAULT ERRNO_LOG(13)  # Log denied syscalls
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/kafel/updater-envoy.kafel`
+**Citation:** `/firmware/mcu2-extracted/etc/kafel/updater-envoy.kafel`
 
 **Base Policy (Common Syscalls):**
 - File operations: `open`, `read`, `write`, `close`, `stat`
@@ -662,7 +662,7 @@ USE updater_envoyPolicy DEFAULT ERRNO_LOG(13)  # Log denied syscalls
 | `CAP_SETUID` | escalator/exec | Change UID/GID | User impersonation |
 | `CAP_SETGID` | escalator/exec | Change GID | Group impersonation |
 
-**Citation:** Aggregated from `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/`
+**Citation:** Aggregated from `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/`
 
 ---
 
@@ -850,7 +850,7 @@ audit deny /opt/games/var/** r,       # Gaming save data
 audit deny /opt/tesla/var/** r,       # Tesla private data
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/service-shell-allowed-files` [Lines 2-38]
+**Citation:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/service-shell-allowed-files` [Lines 2-38]
 
 ---
 
@@ -899,8 +899,8 @@ audit deny /var/lib/*_creds/*.key rw,  # Cannot overwrite keys
 audit deny /var/etc/ssh/ssh_host_*_key rw,
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/service-shell` [Line 21-22]  
-`/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/service-shell-blocked-files` [Line 5]
+**Citation:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/service-shell` [Line 21-22]  
+`/firmware/mcu2-extracted/etc/apparmor.d/abstractions/service-shell-blocked-files` [Line 5]
 
 **🚨 FINDING:** Service-shell can **read private keys** but cannot modify them. Keys can be exfiltrated via Hermes upload or service-mode.
 
@@ -919,7 +919,7 @@ audit deny /var/etc/ssh/ssh_host_*_key rw,
 /etc/apparmor.compiled/usr.bin.service-shell-* r,
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/service-shell` [Line 34-35]
+**Citation:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/service-shell` [Line 34-35]
 
 **Profile Compilation:**
 
@@ -1015,7 +1015,7 @@ Y
 $ aa-status | grep complain
 ```
 
-**Citation:** `/root/downloads/mcu2-extracted/etc/sandbox/sandbox.bash` [Lines 349-351]
+**Citation:** `/firmware/mcu2-extracted/etc/sandbox/sandbox.bash` [Lines 349-351]
 
 **Sandbox.bash Behavior:**
 - Logs warning if no profile found
@@ -1493,7 +1493,7 @@ Tesla's MCU2 sandbox architecture provides **strong isolation for untrusted code
 
 ### Appendix A: AppArmor Profile Index
 
-**All 241 profiles extracted from:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/`
+**All 241 profiles extracted from:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/`
 
 **Key Categories:**
 
@@ -1509,7 +1509,7 @@ Full list: 241 files in `/etc/apparmor.d/abstractions/`
 
 ### Appendix B: Sandbox.d Var Files
 
-**All 151 sandbox configurations extracted from:** `/root/downloads/mcu2-extracted/etc/sandbox.d/vars/`
+**All 151 sandbox configurations extracted from:** `/firmware/mcu2-extracted/etc/sandbox.d/vars/`
 
 **Sample Configurations:**
 
@@ -1572,8 +1572,8 @@ Full list: 151 files in `/etc/sandbox.d/vars/`
 7. ✅ Documented sandbox.bash implementation (full function breakdown)
 
 **Files Referenced:**
-- `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/*` (241 files)
-- `/root/downloads/mcu2-extracted/etc/sandbox/sandbox.bash`
-- `/root/downloads/mcu2-extracted/etc/sandbox.d/vars/*` (151 files)
-- `/root/downloads/mcu2-extracted/etc/kafel/*.kafel`
-- `/root/downloads/mcu2-extracted/usr/bin/escalator`
+- `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/*` (241 files)
+- `/firmware/mcu2-extracted/etc/sandbox/sandbox.bash`
+- `/firmware/mcu2-extracted/etc/sandbox.d/vars/*` (151 files)
+- `/firmware/mcu2-extracted/etc/kafel/*.kafel`
+- `/firmware/mcu2-extracted/usr/bin/escalator`

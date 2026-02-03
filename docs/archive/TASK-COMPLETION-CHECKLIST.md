@@ -377,25 +377,25 @@ To verify the analysis, run these commands:
 
 ```bash
 # Check document exists and size
-ls -lh /root/tesla/24-vcsec-key-programming.md
+ls -lh /research/24-vcsec-key-programming.md
 
 # Count lines
-wc -l /root/tesla/24-vcsec-key-programming.md
+wc -l /research/24-vcsec-key-programming.md
 
 # Count binary evidence citations
-grep -c "Binary Evidence" /root/tesla/24-vcsec-key-programming.md
+grep -c "Binary Evidence" /research/24-vcsec-key-programming.md
 
 # Count symbol references
-grep -c "Symbol:" /root/tesla/24-vcsec-key-programming.md
+grep -c "Symbol:" /research/24-vcsec-key-programming.md
 
 # Verify WhitelistOperation symbols exist in binary
-objdump -T /root/downloads/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so | grep "WhitelistOperation"
+objdump -T /firmware/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so | grep "WhitelistOperation"
 
 # Verify permission enum strings
-strings /root/downloads/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so | grep "WHITELISTKEYPERMISSION"
+strings /firmware/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so | grep "WHITELISTKEYPERMISSION"
 
 # Check ODJ routine definitions
-cat /root/downloads/tesla_odj/Model\ 3/VCSEC.odj.json | grep -A5 "GET_WHITELIST_ENTRY"
+cat /firmware/tesla_odj/Model\ 3/VCSEC.odj.json | grep -A5 "GET_WHITELIST_ENTRY"
 ```
 
 ---

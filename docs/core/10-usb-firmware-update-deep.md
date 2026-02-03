@@ -2,7 +2,7 @@
 
 Scope: determine whether MCU2 firmware can be installed “offline/from USB” via an intended (non-exploit) mechanism, and document concrete evidence of: mount points, expected file naming, gating checks (factory/fusing), and offline signature verification.
 
-All statements below are backed by strings or logic found in the extracted MCU2 filesystem under `/root/downloads/mcu2-extracted`.
+All statements below are backed by strings or logic found in the extracted MCU2 filesystem under `/firmware/mcu2-extracted`.
 
 ---
 
@@ -115,7 +115,7 @@ The updater ecosystem uses a dedicated internal partition mounted at `/mnt/mmcbl
 
 ### 3.2 `sx-updater` hardcodes ias staging filenames on `/mnt/mmcblk0p1`
 
-`/root/downloads/mcu2-extracted/deploy/sx-updater` contains literal strings indicating it expects these items on `/mnt/mmcblk0p1`:
+`/firmware/mcu2-extracted/deploy/sx-updater` contains literal strings indicating it expects these items on `/mnt/mmcblk0p1`:
 
 * ias images:
   * `/mnt/mmcblk0p1/iasImage`

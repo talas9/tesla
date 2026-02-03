@@ -238,19 +238,19 @@ logSecurityEvent("SERVICE_MODE_ATTEMPT", {
 ## 📁 Related Files
 
 ```
-/root/tesla/39-qtcarserver-security-audit.md (42KB)
+/research/39-qtcarserver-security-audit.md (42KB)
   → Full technical analysis (1552 lines)
   
-/root/tesla/39-qtcarserver-security-audit-SUMMARY.md (11KB)
+/research/39-qtcarserver-security-audit-SUMMARY.md (11KB)
   → Executive summary with all findings
   
-/root/tesla/39-QUICK-REF-security-findings.md (THIS FILE)
+/research/39-QUICK-REF-security-findings.md (THIS FILE)
   → Quick reference card for critical info
   
-/root/tesla/20-service-mode-authentication.md
+/research/20-service-mode-authentication.md
   → Initial symbol analysis and authentication flow
   
-/root/downloads/mcu2-extracted/usr/tesla/UI/bin/QtCarServer
+/firmware/mcu2-extracted/usr/tesla/UI/bin/QtCarServer
   → Target binary (27MB, stripped ELF)
 ```
 

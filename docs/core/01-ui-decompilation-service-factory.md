@@ -1,7 +1,7 @@
 # Tesla MCU2 UI Decompilation: Service Code & Factory Mode Triggers
 
 **Analysis Date:** 2026-02-02  
-**Source:** `/root/downloads/mcu2-extracted/usr/tesla/UI/`  
+**Source:** `/firmware/mcu2-extracted/usr/tesla/UI/`  
 **Binaries:** QtCarServer (27.7MB), libQtCarGUI.so (56.8MB), libQtCarVAPI.so (17.9MB)  
 **Note:** All binaries are stripped - analysis based on string references and PLT symbols
 

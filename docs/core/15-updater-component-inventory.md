@@ -93,9 +93,9 @@
 
 ## Appendix – Commands & outputs
 
-1. `cd /root/.openclaw/workspace && ls` – list workspace root. (No output recorded; standard). 
+1. `cd /workspace/workspace && ls` – list workspace root. (No output recorded; standard). 
 2. `ls /root/tesla` etc. (List of files). 
-3. `cd /root/downloads/mcu2-extracted && find ...` – enumerated updater components. (Command/hit). 
+3. `cd /firmware/mcu2-extracted && find ...` – enumerated updater components. (Command/hit). 
 4. `file ...` for each component. (Outputs recorded). 
 5. `cat /etc/sv/.../run`, `cat .../log/run`, `cat .../vars`. (Outputs). 
 6. `strings -n 8 ...` commands capturing offline/verity strings. (Outputs). 

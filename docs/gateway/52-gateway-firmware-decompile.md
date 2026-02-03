@@ -685,9 +685,9 @@ This firmware decompilation has revealed:
 - Enable secure boot on production builds (devSecurityLevel=3 enforced)
 
 **Tools for Further Analysis:**
-- Ghidra project: `/root/tesla/ghidra/gateway_r7.gpr`
-- radare2 scripts: `/root/tesla/scripts/r2_analyze_gateway.sh`
-- IDA Pro database: `/root/tesla/ida/gateway_r7.idb` (if available)
+- Ghidra project: `/research/ghidra/gateway_r7.gpr`
+- radare2 scripts: `/research/scripts/r2_analyze_gateway.sh`
+- IDA Pro database: `/research/ida/gateway_r7.idb` (if available)
 
 **Cross-References:**
 - [12-gateway-bootloader-analysis.md](12-gateway-bootloader-analysis.md) - Bootloader deep dive

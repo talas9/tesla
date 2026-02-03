@@ -25,8 +25,8 @@ This is a complete Linux-based autopilot computer running Tesla's Full Self-Driv
 
 ### Extraction Details
 ```bash
-Source: /root/downloads/ape-firmware/2024.8.9.ice.ape25 (534MB)
-Destination: /root/downloads/ape-extracted/
+Source: /firmware/ape-firmware/2024.8.9.ice.ape25 (534MB)
+Destination: /firmware/ape-extracted/
 Method: unsquashfs -d ape-extracted ape-firmware/2024.8.9.ice.ape25
 
 Created:
@@ -1071,33 +1071,33 @@ Largest File: vision (389 MB)
 
 ### Re-extract firmware:
 ```bash
-unsquashfs -d /root/downloads/ape-extracted /root/downloads/ape-firmware/2024.8.9.ice.ape25
+unsquashfs -d /firmware/ape-extracted /firmware/ape-firmware/2024.8.9.ice.ape25
 ```
 
 ### List all services:
 ```bash
-ls -1 /root/downloads/ape-extracted/etc/sv/
+ls -1 /firmware/ape-extracted/etc/sv/
 ```
 
 ### Find SUID binaries:
 ```bash
-find /root/downloads/ape-extracted -perm -4000 -ls
+find /firmware/ape-extracted -perm -4000 -ls
 ```
 
 ### Search for strings:
 ```bash
-strings /root/downloads/ape-extracted/opt/autopilot/bin/factory_camera_calibration | grep -i port
+strings /firmware/ape-extracted/opt/autopilot/bin/factory_camera_calibration | grep -i port
 ```
 
 ### Check binary architecture:
 ```bash
-file /root/downloads/ape-extracted/usr/bin/service_api
+file /firmware/ape-extracted/usr/bin/service_api
 ```
 
 ### Extract build date:
 ```bash
-cat /root/downloads/ape-extracted/etc/build-date
-date -d @$(cat /root/downloads/ape-extracted/etc/build-date)
+cat /firmware/ape-extracted/etc/build-date
+date -d @$(cat /firmware/ape-extracted/etc/build-date)
 ```
 
 ---
@@ -1105,4 +1105,4 @@ date -d @$(cat /root/downloads/ape-extracted/etc/build-date)
 **Document Created:** 2026-02-03  
 **Analyst:** Security Platform Subagent (ape-firmware-extraction)  
 **Source Material:** APE Firmware 2024.8.9.ice.ape25  
-**Extraction Location:** `/root/downloads/ape-extracted/`
+**Extraction Location:** `/firmware/ape-extracted/`

@@ -3,7 +3,7 @@
 **Document:** 36-gateway-sx-updater-reversing.md  
 **Created:** 2026-02-03  
 **Purpose:** Complete reverse engineering analysis of Tesla Gateway sx-updater binary  
-**Target Binary:** `/root/downloads/mcu2-extracted/deploy/sx-updater` (5.8MB x86-64)  
+**Target Binary:** `/firmware/mcu2-extracted/deploy/sx-updater` (5.8MB x86-64)  
 **Cross-References:** 21-gateway-heartbeat-failsafe.md, 26-bootloader-exploit-research.md, 02-gateway-can-flood-exploit.md
 
 ---
@@ -52,7 +52,7 @@ This document provides comprehensive reverse engineering analysis of Tesla's Gat
 ### ELF Header
 
 ```
-File: /root/downloads/mcu2-extracted/deploy/sx-updater
+File: /firmware/mcu2-extracted/deploy/sx-updater
 Type: ELF 64-bit LSB pie executable (Position-Independent Executable)
 Architecture: x86-64 (AMD x86-64 architecture)
 Version: 1 (SYSV)
@@ -1334,7 +1334,7 @@ r2 -e bin.cache=true -q -c 'aaa; afl' sx-updater
 ### Related Research Documents
 
 ```
-/root/tesla/
+/research/
 ├── 00-master-cross-reference.md       # System overview
 ├── 02-gateway-can-flood-exploit.md    # CAN flood attack
 ├── 05-gap-analysis-missing-pieces.md  # Research gaps
@@ -1347,7 +1347,7 @@ r2 -e bin.cache=true -q -c 'aaa; afl' sx-updater
 ### Source Files
 
 ```
-/root/downloads/mcu2-extracted/
+/firmware/mcu2-extracted/
 ├── bin/sx-updater                     # Target binary (5.8 MB)
 ├── etc/firewall.d/qtcar.iptables      # Port 25956 firewall rule
 ├── etc/sysctl.conf                    # Watchdog timeout config
@@ -1357,7 +1357,7 @@ r2 -e bin.cache=true -q -c 'aaa; afl' sx-updater
 ### Attack Scripts
 
 ```
-/root/tesla/scripts/
+/research/scripts/
 ├── openportlanpluscan.py              # CAN flood tool
 ├── gw.sh                              # Gateway UDPAPI utility
 └── handshake/server.js                # Firmware handshake server

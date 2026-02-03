@@ -1,6 +1,6 @@
 # Gateway SD-Card Log Analysis - EXPANDED
 
-**Source log:** `/root/tesla/_docx_1711.txt`  
+**Source log:** `/research/_docx_1711.txt`  
 **Status:** Comprehensive Analysis with Logging Infrastructure Mapping  
 **Related:** See `32-log-exfiltration-data-mining.md` for complete MCU logging analysis  
 **Date:** February 3, 2026
@@ -172,7 +172,7 @@ These logs capture cryptographic key updates during OTA, which could reveal:
 
 ### Local Parsing Opportunities
 
-**Parser Script:** `/root/tesla/scripts/parse_gateway_sd_log.py`
+**Parser Script:** `/research/scripts/parse_gateway_sd_log.py`
 
 **Extractable Data:**
 

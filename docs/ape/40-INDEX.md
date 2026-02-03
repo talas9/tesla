@@ -110,7 +110,7 @@ Directory structure (2 levels deep)
 
 ### Source Firmware
 ```
-Path: /root/downloads/ape-firmware/2024.8.9.ice.ape25
+Path: /firmware/ape-firmware/2024.8.9.ice.ape25
 Size: 534 MB (SquashFS compressed)
 Type: Linux filesystem image
 Format: SquashFS
@@ -118,7 +118,7 @@ Format: SquashFS
 
 ### Extracted Filesystem
 ```
-Path: /root/downloads/ape-extracted/
+Path: /firmware/ape-extracted/
 Size: 962 MB (uncompressed)
 Files: 2,988
 Directories: 379
@@ -127,7 +127,7 @@ Symlinks: 984
 
 ### Documentation Output
 ```
-Path: /root/tesla/40-ape-*.md, 40-ape-*.txt
+Path: /research/40-ape-*.md, 40-ape-*.txt
 Files: 10 documents
 Total Size: ~60KB
 ```
@@ -138,41 +138,41 @@ Total Size: ~60KB
 
 ### Re-extract firmware
 ```bash
-unsquashfs -d /root/downloads/ape-extracted /root/downloads/ape-firmware/2024.8.9.ice.ape25
+unsquashfs -d /firmware/ape-extracted /firmware/ape-firmware/2024.8.9.ice.ape25
 ```
 
 ### Browse extracted filesystem
 ```bash
-cd /root/downloads/ape-extracted
+cd /firmware/ape-extracted
 ls -la
 ```
 
 ### Find specific binaries
 ```bash
-find /root/downloads/ape-extracted/opt/autopilot/bin -name "*calibration*"
+find /firmware/ape-extracted/opt/autopilot/bin -name "*calibration*"
 ```
 
 ### List all services
 ```bash
-ls -1 /root/downloads/ape-extracted/etc/sv/
+ls -1 /firmware/ape-extracted/etc/sv/
 ```
 
 ### Check SUID binaries
 ```bash
-find /root/downloads/ape-extracted -perm -4000 -ls
+find /firmware/ape-extracted -perm -4000 -ls
 ```
 
 ### View build metadata
 ```bash
-cat /root/downloads/ape-extracted/etc/build-info
-cat /root/downloads/ape-extracted/etc/commit
-date -d @$(cat /root/downloads/ape-extracted/etc/build-date)
+cat /firmware/ape-extracted/etc/build-info
+cat /firmware/ape-extracted/etc/commit
+date -d @$(cat /firmware/ape-extracted/etc/build-date)
 ```
 
 ### Analyze binary
 ```bash
-file /root/downloads/ape-extracted/opt/autopilot/bin/factory_camera_calibration
-strings /root/downloads/ape-extracted/opt/autopilot/bin/factory_camera_calibration | less
+file /firmware/ape-extracted/opt/autopilot/bin/factory_camera_calibration
+strings /firmware/ape-extracted/opt/autopilot/bin/factory_camera_calibration | less
 ```
 
 ---
@@ -307,12 +307,12 @@ Tasks:
 
 2. **Chroot Environment**
    ```bash
-   sudo chroot /root/downloads/ape-extracted /bin/sh
+   sudo chroot /firmware/ape-extracted /bin/sh
    ```
 
 3. **GDB Debugging**
    ```bash
-   gdb-multiarch /root/downloads/ape-extracted/opt/autopilot/bin/factory_camera_calibration
+   gdb-multiarch /firmware/ape-extracted/opt/autopilot/bin/factory_camera_calibration
    ```
 
 #### Testing Scenarios

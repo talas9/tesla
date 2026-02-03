@@ -2,7 +2,7 @@
 
 **Task:** Comprehensive VCSEC key programming and authentication analysis  
 **Status:** ✅ COMPLETE  
-**Output Document:** `/root/tesla/24-vcsec-key-programming.md` (1043 lines, 36KB)  
+**Output Document:** `/research/24-vcsec-key-programming.md` (1043 lines, 36KB)  
 **Date:** 2026-02-03
 
 ---
@@ -280,20 +280,20 @@ VCSEC::WhitelistOperation::_Internal::addPublicKeyToWhitelist(VCSEC::WhitelistOp
 ## Files Generated
 
 ### Primary Output
-- `/root/tesla/24-vcsec-key-programming.md` (36KB, 1043 lines)
+- `/research/24-vcsec-key-programming.md` (36KB, 1043 lines)
   - 12 main sections
   - 3 appendices
   - 200+ binary references
   - 50+ code examples
 
 ### Supporting Documents (Already Existed)
-- `/root/tesla/08-key-programming-vcsec.md` (expanded upon)
-- `/root/tesla/11-vcsec-keycard-routines.md` (ODJ routines)
+- `/research/08-key-programming-vcsec.md` (expanded upon)
+- `/research/11-vcsec-keycard-routines.md` (ODJ routines)
 
 ### Source Materials Used
-- `/root/downloads/tesla_odj/Model 3/VCSEC.odj.json`
-- `/root/downloads/mcu2-extracted/usr/tesla/UI/bin/QtCarServer`
-- `/root/downloads/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so`
+- `/firmware/tesla_odj/Model 3/VCSEC.odj.json`
+- `/firmware/mcu2-extracted/usr/tesla/UI/bin/QtCarServer`
+- `/firmware/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so`
 
 ---
 

@@ -1,4 +1,4 @@
-# Tesla MCU2 Security Research
+# Tesla Infotainment Security Research
 
 Comprehensive security analysis of Tesla Model S/X/3/Y MCU2 (Infotainment Computer) and related systems.
 

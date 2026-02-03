@@ -135,8 +135,8 @@
 
 ## Files Generated
 
-1. `/root/tesla/34-chromium-webkit-attack-surface.md` - Main analysis (35KB)
-2. `/root/tesla/34-chromium-analysis-checklist.md` - This checklist
+1. `/research/34-chromium-webkit-attack-surface.md` - Main analysis (35KB)
+2. `/research/34-chromium-analysis-checklist.md` - This checklist
 
 ## Analysis Completeness: 100%
 

@@ -3,7 +3,7 @@
 **Document Version:** 1.0  
 **Last Updated:** February 2, 2026  
 **Vehicle Platform:** Model S/X MCU2 (2024.x firmware)  
-**Source Analysis:** `/root/downloads/firewall-analysis-report.md`
+**Source Analysis:** `/firmware/firewall-analysis-report.md`
 
 ---
 
@@ -915,7 +915,7 @@ Network Segments: 192.168.90.0/24 (internal only)
 | **57654** | TCP | tailscaled (IPv6) | Tailscale 1.94.1 | 🟢 Low | VPN control (fd7a:115c:a1e0::e01:e8d) |
 | **41641** | UDP | tailscaled | Tailscale 1.94.1 | 🟢 Low | DERP relay (encrypted NAT traversal) |
 
-**Detailed Analysis:** See `/root/tesla/25-network-attack-surface.md`
+**Detailed Analysis:** See `/research/25-network-attack-surface.md`
 
 ---
 
@@ -930,7 +930,7 @@ Network Segments: 192.168.90.0/24 (internal only)
 
 ## References
 
-- **Source Report:** `/root/downloads/firewall-analysis-report.md`
+- **Source Report:** `/firmware/firewall-analysis-report.md`
 - **Firewall Rules:** `/etc/firewall.d/` (84 rule files analyzed)
 - **Service Definitions:** `/etc/sv/` directory structure
 - **Previous Analysis:** `01-exploit-chain-summary.md`, `02-vulnerability-deep-dive.md`, `03-firmware-update-analysis.md`

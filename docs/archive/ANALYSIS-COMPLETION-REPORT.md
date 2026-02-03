@@ -13,8 +13,8 @@ Successfully completed comprehensive network attack surface analysis of Security
 
 ### Deliverables
 
-1. ✅ **Primary Document:** `/root/tesla/25-network-attack-surface.md` (34.8 KB, 852 lines)
-2. ✅ **Updated Reference:** `/root/tesla/04-network-ports-firewall.md` (Appendix B added)
+1. ✅ **Primary Document:** `/research/25-network-attack-surface.md` (34.8 KB, 852 lines)
+2. ✅ **Updated Reference:** `/research/04-network-ports-firewall.md` (Appendix B added)
 
 ---
 
@@ -34,7 +34,7 @@ Successfully completed comprehensive network attack surface analysis of Security
 - Port 45729/57654 (TCP) - Tailscale VPN control
 - Port 41641 (UDP) - Tailscale DERP relay
 
-**Location:** `/root/tesla/04-network-ports-firewall.md` lines 810-868
+**Location:** `/research/04-network-ports-firewall.md` lines 810-868
 
 ---
 
@@ -61,7 +61,7 @@ Successfully completed comprehensive network attack surface analysis of Security
 - NGINX: `Server: nginx/1.24.0`
 - Python: `Server: BaseHTTP/0.6 Python/3.12.3`
 
-**Location:** `/root/tesla/25-network-attack-surface.md` Section 3
+**Location:** `/research/25-network-attack-surface.md` Section 3
 
 ---
 
@@ -88,7 +88,7 @@ Successfully completed comprehensive network attack surface analysis of Security
 2. ⚠️ Port 8888 - info disclosure (Python version in banner)
 3. ⚠️ NGINX 501 response - unused service running
 
-**Location:** `/root/tesla/25-network-attack-surface.md` Section 4
+**Location:** `/research/25-network-attack-surface.md` Section 4
 
 ---
 
@@ -112,7 +112,7 @@ Successfully completed comprehensive network attack surface analysis of Security
 
 **Network isolation matrix created** (6x5 table showing access control)
 
-**Location:** `/root/tesla/25-network-attack-surface.md` Section 5
+**Location:** `/research/25-network-attack-surface.md` Section 5
 
 ---
 
@@ -136,7 +136,7 @@ Successfully completed comprehensive network attack surface analysis of Security
 - Port 8901 - APE Factory Mode API
 - Ports 4030-7654 - Toolbox API
 
-**Location:** `/root/tesla/25-network-attack-surface.md` Appendix A
+**Location:** `/research/25-network-attack-surface.md` Appendix A
 
 ---
 
@@ -165,7 +165,7 @@ Successfully completed comprehensive network attack surface analysis of Security
 - Expiry: 24 hours (7 days with remember-me)
 - DDoS protection: Rate limiting + account lockout
 
-**Location:** `/root/tesla/25-network-attack-surface.md` Section 8
+**Location:** `/research/25-network-attack-surface.md` Section 8
 
 ---
 
@@ -201,7 +201,7 @@ Successfully completed comprehensive network attack surface analysis of Security
 
 **Protection:** PolicyKit authorization required for all dangerous operations
 
-**Location:** `/root/tesla/25-network-attack-surface.md` Section 6
+**Location:** `/research/25-network-attack-surface.md` Section 6
 
 ---
 
@@ -224,7 +224,7 @@ Successfully completed comprehensive network attack surface analysis of Security
 
 **WebSocket security assessment:** N/A (service not present)
 
-**Location:** `/root/tesla/25-network-attack-surface.md` Section 7
+**Location:** `/research/25-network-attack-surface.md` Section 7
 
 ---
 
@@ -257,7 +257,7 @@ sudo systemctl disable cups
 
 **Issue:** Cloudflare Turnstile secret key hardcoded in source code
 
-**Location:** `/root/.openclaw/workspace/memory/monitoring/webserver.py`
+**Location:** `/workspace/workspace/memory/monitoring/webserver.py`
 
 **Secret:** `0x4AAAAAACW11wpuJ9aUXE8270_x7Ep2msc`
 
@@ -317,7 +317,7 @@ TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY')
 13. ⏳ Implement HSTS headers
 14. ⏳ Regular security audits
 
-**Full recommendations:** `/root/tesla/25-network-attack-surface.md` Section 10
+**Full recommendations:** `/research/25-network-attack-surface.md` Section 10
 
 ---
 
@@ -387,17 +387,17 @@ TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY')
 
 ## Files Modified
 
-1. **Created:** `/root/tesla/25-network-attack-surface.md` (NEW)
+1. **Created:** `/research/25-network-attack-surface.md` (NEW)
    - 852 lines
    - Complete attack surface analysis
    - 10 sections + 3 appendices
 
-2. **Updated:** `/root/tesla/04-network-ports-firewall.md`
+2. **Updated:** `/research/04-network-ports-firewall.md`
    - Added Appendix B (Security Platform vs Tesla comparison)
    - 60 new lines (810-868)
    - Version bumped to 1.1
 
-3. **Created:** `/root/tesla/ANALYSIS-COMPLETION-REPORT.md` (THIS FILE)
+3. **Created:** `/research/ANALYSIS-COMPLETION-REPORT.md` (THIS FILE)
    - Task completion summary
    - Requirements traceability matrix
 

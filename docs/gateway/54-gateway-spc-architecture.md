@@ -16,7 +16,7 @@
 ## 1) What we can identify from `models-fusegtw-GW_R7.img`
 
 ### 1.1 Firmware header (Tesla-specific)
-From `/root/downloads/seed-extracted/gtw/114/models-fusegtw-GW_R7.img` (see `12-gateway-bootloader-analysis.md` and `52-gateway-firmware-decompile.md`):
+From `/firmware/seed-extracted/gtw/114/models-fusegtw-GW_R7.img` (see `12-gateway-bootloader-analysis.md` and `52-gateway-firmware-decompile.md`):
 
 - Entry instruction at offset 0: `0x48000040` (branch to init)
 - Version string: `"GW R7"`

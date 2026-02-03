@@ -4,10 +4,10 @@
 **Created:** 2026-02-03  
 **Status:** ✅ VERIFIED - All data extracted from actual binaries  
 **Source Binaries:**
-- Gateway Bootloader: `/root/downloads/seed-extracted/gtw/14/models-fusegtw-GW_R4.img`
-- Gateway Bootloader R7: `/root/downloads/seed-extracted/gtw/114/models-fusegtw-GW_R7.img`
-- sx-updater: `/root/downloads/mcu2-extracted/deploy/sx-updater`
-- doip-gateway: `/root/downloads/mcu2-extracted/usr/bin/doip-gateway`
+- Gateway Bootloader: `/firmware/seed-extracted/gtw/14/models-fusegtw-GW_R4.img`
+- Gateway Bootloader R7: `/firmware/seed-extracted/gtw/114/models-fusegtw-GW_R7.img`
+- sx-updater: `/firmware/mcu2-extracted/deploy/sx-updater`
+- doip-gateway: `/firmware/mcu2-extracted/usr/bin/doip-gateway`
 
 ---
 
@@ -264,7 +264,7 @@ r2 -a ppc -b 32 -q -c 's 0x5400; pdf @ 0x40005400' models-fusegtw-GW_R4.img
 
 ### Binary Analysis
 
-**File:** `/root/downloads/mcu2-extracted/deploy/sx-updater` (5.8 MB x86-64)
+**File:** `/firmware/mcu2-extracted/deploy/sx-updater` (5.8 MB x86-64)
 
 **CAN-Related Strings Found:**
 ```
@@ -295,7 +295,7 @@ Found at offset `0x153374`: `0x6564` (25956 in hex)
 
 ### Binary Analysis
 
-**File:** `/root/downloads/mcu2-extracted/usr/bin/doip-gateway` (72 KB x86-64)
+**File:** `/firmware/mcu2-extracted/usr/bin/doip-gateway` (72 KB x86-64)
 
 **Function:** Bridges DoIP (Diagnostics over IP) to CAN bus
 
@@ -313,7 +313,7 @@ Found at offset `0x153374`: `0x6564` (25956 in hex)
 
 ## 8. CAN Message Database (CSV Format)
 
-**File:** `/root/tesla/can-message-database-VERIFIED.csv`
+**File:** `/research/can-message-database-VERIFIED.csv`
 
 ```csv
 CAN_ID_HEX,CAN_ID_DEC,Handler_Address,Source_Binary,Source_Offset,Function_Name,Data_Format,Evidence_Level,Notes
@@ -347,7 +347,7 @@ CAN_ID_HEX,CAN_ID_DEC,Handler_Address,Source_Binary,Source_Offset,Function_Name,
 - PCAN USB adapter
 - OBD-II or direct CAN bus access
 
-**Attack Script:** `/root/tesla/scripts/openportlanpluscan.py`
+**Attack Script:** `/research/scripts/openportlanpluscan.py`
 
 ```python
 import can
@@ -480,17 +480,17 @@ echo "0b003b" | xxd -r -p | socat - udp:192.168.90.102:3500
 - [52-gateway-firmware-decompile.md](52-gateway-firmware-decompile.md) - Factory gate details
 
 **Scripts:**
-- `/root/tesla/scripts/openportlanpluscan.py` - CAN flood attack
-- `/root/tesla/scripts/gw.sh` - UDPAPI config tool
-- `/root/tesla/scripts/gateway_database_query.py` - Config ID database
+- `/research/scripts/openportlanpluscan.py` - CAN flood attack
+- `/research/scripts/gw.sh` - UDPAPI config tool
+- `/research/scripts/gateway_database_query.py` - Config ID database
 
 **Binaries:**
-- `/root/downloads/seed-extracted/gtw/14/models-fusegtw-GW_R4.img` - Bootloader R4
-- `/root/downloads/seed-extracted/gtw/114/models-fusegtw-GW_R7.img` - Bootloader R7
-- `/root/downloads/seed-extracted/gtw/1/models-GW_R4.hex` - Application R4
-- `/root/downloads/seed-extracted/gtw/101/models-GW_R7.hex` - Application R7
-- `/root/downloads/mcu2-extracted/deploy/sx-updater` - Update daemon
-- `/root/downloads/mcu2-extracted/usr/bin/doip-gateway` - DoIP bridge
+- `/firmware/seed-extracted/gtw/14/models-fusegtw-GW_R4.img` - Bootloader R4
+- `/firmware/seed-extracted/gtw/114/models-fusegtw-GW_R7.img` - Bootloader R7
+- `/firmware/seed-extracted/gtw/1/models-GW_R4.hex` - Application R4
+- `/firmware/seed-extracted/gtw/101/models-GW_R7.hex` - Application R7
+- `/firmware/mcu2-extracted/deploy/sx-updater` - Update daemon
+- `/firmware/mcu2-extracted/usr/bin/doip-gateway` - DoIP bridge
 
 ---
 

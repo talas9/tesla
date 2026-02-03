@@ -2,7 +2,7 @@
 
 ## Document Purpose
 
-This document provides an evidence-based deep dive into Tesla's USB navigation map installation system for MCU2 (Model S/X). All findings are extracted from `/root/downloads/mcu2-extracted` firmware and cite specific file paths.
+This document provides an evidence-based deep dive into Tesla's USB navigation map installation system for MCU2 (Model S/X). All findings are extracted from `/firmware/mcu2-extracted` firmware and cite specific file paths.
 
 **Related Documents:**
 - **07-usb-map-installation.md** - High-level overview
@@ -28,7 +28,7 @@ PKG=/opt/games/usr/$NAME.ssq
     "${PUBLIC_KEYS[@]}" \
     load
 ```
-【/root/downloads/mcu2-extracted/usr/bin/game-loader†L19-L32】
+【/firmware/mcu2-extracted/usr/bin/game-loader†L19-L32】
 
 ### 1.2 SSQ Package Structure
 
@@ -93,7 +93,7 @@ Once mounted, a map SSQ contains:
   }
 }
 ```
-【/root/downloads/mcu2-extracted/usr/tesla/UI/assets/tesla_maps/valhalla.json†L3-L9】
+【/firmware/mcu2-extracted/usr/tesla/UI/assets/tesla_maps/valhalla.json†L3-L9】
 
 ---
 
@@ -110,7 +110,7 @@ ltv_verity_remove    // Remove dm-verity device
 ltv_verity_check     // Verify signature
 ltv_strerror         // Error messages
 ```
-【/root/downloads/mcu2-extracted/usr/bin/verity-loader†strings】
+【/firmware/mcu2-extracted/usr/bin/verity-loader†strings】
 
 **Error Messages:**
 ```
@@ -121,7 +121,7 @@ EMDBADHDR      - Invalid metadata header
 EBADSIG        - Invalid verity table signature
 ESQTOOBIG      - SquashFS size too large
 ```
-【/root/downloads/mcu2-extracted/usr/lib/libtesla-verity.so†strings】
+【/firmware/mcu2-extracted/usr/lib/libtesla-verity.so†strings】
 
 ### 2.2 Signature Verification Library (`libtesla-verity.so`)
 
@@ -141,7 +141,7 @@ EVP_get_digestbyname    // Get digest algorithm
 5. Check metadata header validity
 6. Create dm-verity device mapping
 
-【/root/downloads/mcu2-extracted/usr/lib/libtesla-verity.so†strings†L1-L40】
+【/firmware/mcu2-extracted/usr/lib/libtesla-verity.so†strings†L1-L40】
 
 ### 2.3 Public Keys for Map Packages
 
@@ -164,7 +164,7 @@ if [ $? -eq 1 ]; then
     PUBLIC_KEYS+=("/opt/games/keys/verity-games-dev.pub")
 fi
 ```
-【/root/downloads/mcu2-extracted/usr/bin/game-loader†L10-L17】
+【/firmware/mcu2-extracted/usr/bin/game-loader†L10-L17】
 
 **Public Key Format:**
 ```
@@ -173,7 +173,7 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsCGOT/ZamB4MrRYHogLQ
 w4y+h9/NzWK3AsgOJhtxcX1ms8tMivJZEJ9+jmQpdkA/gVjPTYprehzVL7d2WyYY
 ...
 ```
-【/root/downloads/mcu2-extracted/opt/games/keys/verity-games-prod.pub†L1-L5】
+【/firmware/mcu2-extracted/opt/games/keys/verity-games-prod.pub†L1-L5】
 
 ### 2.4 SSQ Utility (`ssq-util`)
 
@@ -190,7 +190,7 @@ ltv_strerror         // Error handling
 - `libtesla-verity.so` - Tesla's verity wrapper
 - `libheci.so` - Intel HECI interface (for secure boot)
 
-【/root/downloads/mcu2-extracted/usr/bin/ssq-util†strings†L35-L60】
+【/firmware/mcu2-extracted/usr/bin/ssq-util†strings†L35-L60】
 
 ---
 
@@ -212,7 +212,7 @@ The complete installation workflow is defined in the Odin service task.
                          'odin-manufacturing-individual']
 }
 ```
-【/root/downloads/mcu2-extracted/opt/odin/odin_bundle/odin_bundle/networks/Common/tasks/PROC_ICE_X_INSTALL-NAVIGATION-MAP.py†metadata】
+【/firmware/mcu2-extracted/opt/odin/odin_bundle/odin_bundle/networks/Common/tasks/PROC_ICE_X_INSTALL-NAVIGATION-MAP.py†metadata】
 
 ### 3.2 Installation State Machine
 
@@ -339,7 +339,7 @@ MAP_LINK         = "/var/etc/maps"
 MAP_STORAGE_DIR  = "/opt/games/usr/maps"
 MAP_HASH_URL     = "http://192.168.90.100:8901/provisioning/maps/hash"
 ```
-【/root/downloads/mcu2-extracted/opt/odin/odin_bundle/odin_bundle/networks/Common/scripts/PROC_ICE_X_INSTALL-NAVIGATION-MAP.py†L19-L25】
+【/firmware/mcu2-extracted/opt/odin/odin_bundle/odin_bundle/networks/Common/scripts/PROC_ICE_X_INSTALL-NAVIGATION-MAP.py†L19-L25】
 
 ### 3.4 Region Prefix Mapping
 
@@ -354,7 +354,7 @@ elif map_region == "HK" or map_region == "MO":
 elif map_region == "NONE":
     FAIL("Invalid map region")
 ```
-【/root/downloads/mcu2-extracted/opt/odin/odin_bundle/odin_bundle/networks/Common/scripts/PROC_ICE_X_INSTALL-NAVIGATION-MAP.py†L46-L54】
+【/firmware/mcu2-extracted/opt/odin/odin_bundle/odin_bundle/networks/Common/scripts/PROC_ICE_X_INSTALL-NAVIGATION-MAP.py†L46-L54】
 
 ---
 
@@ -381,7 +381,7 @@ sv %s usbupdate-server failed!
 chmod 755 /service/usbupdate-server/{,log/}supervise/
 chown mounterd /service/usbupdate-server/{,log/}supervise/{ok,control,status}
 ```
-【/root/downloads/mcu2-extracted/etc/sv/mounterd/run†L20-L24】
+【/firmware/mcu2-extracted/etc/sv/mounterd/run†L20-L24】
 
 ### 4.2 USB Update Server
 
@@ -402,7 +402,7 @@ else
     logger -t usbupdate-server "$MOUNTPOINT not found; usbupdate-server shutting down"
 fi
 ```
-【/root/downloads/mcu2-extracted/etc/sv/usbupdate-server/run†L3-L13】
+【/firmware/mcu2-extracted/etc/sv/usbupdate-server/run†L3-L13】
 
 **Flow:**
 1. USB device inserted
@@ -445,7 +445,7 @@ Tesla uses **Valhalla** (open-source routing engine) for navigation.
   }
 }
 ```
-【/root/downloads/mcu2-extracted/usr/tesla/UI/assets/tesla_maps/valhalla.json†L2-L13】
+【/firmware/mcu2-extracted/usr/tesla/UI/assets/tesla_maps/valhalla.json†L2-L13】
 
 ### 5.2 Map Tile Structure
 
@@ -491,7 +491,7 @@ MAPVERSIONFILE="$(egrep -i '^mapsVersionFile *=' $SETTINGSCONF | sed 's/=/ /' | 
 
 logger -t valhalla "map version: $([ -r "$MAPVERSIONFILE" ] && cat "$MAPVERSIONFILE" || echo unknown)"
 ```
-【/root/downloads/mcu2-extracted/etc/sv/valhalla/run†L14-L21】
+【/firmware/mcu2-extracted/etc/sv/valhalla/run†L14-L21】
 
 ---
 
@@ -522,7 +522,7 @@ vehicle[map_signature]     - Current map signature
 vehicle[map_country]       - Country code
 vehicle[map_region]        - Map region
 ```
-【/root/tesla/13-ota-handshake-protocol.md†L60-L62】
+【/research/13-ota-handshake-protocol.md†L60-L62】
 
 **Handshake includes map signatures** but no evidence of:
 - Delta/patch generation for maps
@@ -557,7 +557,7 @@ TM_mapRelease               - Current installed map version
 VAPI_navigationMapRegion    - Configured map region (US, EU, CN, etc)
 VAPI_countryCode            - Vehicle country code
 ```
-【/root/downloads/mcu2-extracted/opt/odin/core/engine/assets/whitelist/service-ldvs-whitelist†L950-L951】
+【/firmware/mcu2-extracted/opt/odin/core/engine/assets/whitelist/service-ldvs-whitelist†L950-L951】
 
 **Filesystem:**
 ```
@@ -604,7 +604,7 @@ From Odin network artifact:
     'us': ['NA-2020.48-12628']
 }
 ```
-【/root/downloads/mcu2-extracted/opt/odin/odin_bundle/odin_bundle/networks/ModelSX/lib/MAP_VERSION.py†mapversion2】
+【/firmware/mcu2-extracted/opt/odin/odin_bundle/odin_bundle/networks/ModelSX/lib/MAP_VERSION.py†mapversion2】
 
 ---
 
@@ -697,7 +697,7 @@ PROC_ICE_X_CLEAR-UNUSED-MAPS
 # Removes all files from /opt/games/usr/maps/
 # Deletes directory if empty
 ```
-【/root/downloads/mcu2-extracted/opt/odin/odin_bundle/odin_bundle/networks/Common/scripts/PROC_ICE_X_CLEAR-UNUSED-MAPS.py】
+【/firmware/mcu2-extracted/opt/odin/odin_bundle/odin_bundle/networks/Common/scripts/PROC_ICE_X_CLEAR-UNUSED-MAPS.py】
 
 ### 8.4 Corruption Scenarios
 
@@ -973,9 +973,9 @@ http://192.168.90.100:8901/provisioning/maps/hash
 ---
 
 **Document Sources:**
-- `/root/downloads/mcu2-extracted/` - MCU2 firmware filesystem
-- `/root/tesla/07-usb-map-installation.md` - High-level overview
-- `/root/tesla/10-usb-firmware-update-deep.md` - USB update mechanisms
-- `/root/tesla/13-ota-handshake-protocol.md` - OTA handshake details
+- `/firmware/mcu2-extracted/` - MCU2 firmware filesystem
+- `/research/07-usb-map-installation.md` - High-level overview
+- `/research/10-usb-firmware-update-deep.md` - USB update mechanisms
+- `/research/13-ota-handshake-protocol.md` - OTA handshake details
 
 All findings evidence-based with source citations.

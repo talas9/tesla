@@ -258,17 +258,17 @@ for b in b'Ie\x00\x00\x00\x00\x00\x00':
 
 **Find handler for CAN ID:**
 ```bash
-grep "0x85" /root/tesla/52-gateway-firmware-decompile.md
+grep "0x85" /research/52-gateway-firmware-decompile.md
 ```
 
 **Find config by name:**
 ```bash
-grep -i "devSecurityLevel" /root/tesla/52-gateway-firmware-decompile.md
+grep -i "devSecurityLevel" /research/52-gateway-firmware-decompile.md
 ```
 
 **Extract all secure configs:**
 ```bash
-grep "secure.*True" /root/tesla/scripts/gateway_database_query.py
+grep "secure.*True" /research/scripts/gateway_database_query.py
 ```
 
 ---

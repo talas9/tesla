@@ -62,12 +62,12 @@ Layer 4: Emergency Failsafe
 
 ### Configuration
 
-**Source:** `/root/downloads/mcu2-extracted/etc/sysctl.conf`
+**Source:** `/firmware/mcu2-extracted/etc/sysctl.conf`
 ```bash
 kernel.watchdog_thresh=4
 ```
 
-**Source:** `/root/downloads/mcu2-extracted/etc/sv/watchdog/run`
+**Source:** `/firmware/mcu2-extracted/etc/sv/watchdog/run`
 ```bash
 #!/bin/bash
 exec 2>&1
@@ -129,7 +129,7 @@ The `gwmon` (Gateway Monitor) process tracks Gateway ECU responsiveness and trig
 
 ### String Evidence
 
-**Source:** `/root/downloads/mcu2-extracted/bin/sx-updater` strings
+**Source:** `/firmware/mcu2-extracted/bin/sx-updater` strings
 ```
 read_gwmon
 GWMON
@@ -225,7 +225,7 @@ request_gateway_reboot_for_update sid=%llu status=failure reason=%s
 
 ### D-Bus Interface
 
-**Source:** `/root/downloads/mcu2-extracted/usr/tesla/UI/bin/QtCarServer` symbols
+**Source:** `/firmware/mcu2-extracted/usr/tesla/UI/bin/QtCarServer` symbols
 
 **Methods:**
 ```cpp
@@ -926,7 +926,7 @@ THEN
 ### Source Binaries
 
 ```
-/root/downloads/mcu2-extracted/
+/firmware/mcu2-extracted/
 ├── bin/sx-updater                      # Main updater, gwmon logic
 ├── usr/tesla/UI/bin/QtCarServer        # Heartbeat coordination
 ├── usr/tesla/UI/bin/QtCarVehicle       # Emergency Lane Keep
@@ -937,7 +937,7 @@ THEN
 ### Configuration Files
 
 ```
-/root/downloads/mcu2-extracted/
+/firmware/mcu2-extracted/
 ├── etc/sysctl.conf                     # kernel.watchdog_thresh=4
 ├── etc/firewall.d/qtcar.iptables       # Port 25956 rule
 └── etc/sv/sx-updater/run               # Updater service config
@@ -946,7 +946,7 @@ THEN
 ### Research Documents
 
 ```
-/root/tesla/
+/research/
 ├── 02-gateway-can-flood-exploit.md     # CAN attack details
 ├── 00-master-cross-reference.md        # System overview
 ├── 05-gap-analysis-missing-pieces.md   # Heartbeat discovery
@@ -956,7 +956,7 @@ THEN
 ### Attack Scripts
 
 ```
-/root/tesla/scripts/
+/research/scripts/
 ├── openportlanpluscan.py               # CAN flooding
 ├── gw.sh                               # Gateway UDPAPI tool
 └── handshake/server.js                 # Firmware handshake server
@@ -1026,8 +1026,8 @@ THEN
 - 09-gateway-sdcard-log-analysis.md - TFTP timing data
 
 **Sources:**
-- `/root/downloads/mcu2-extracted/` - MCU2 firmware extraction
-- `/root/tesla/_docx_1711.txt` - Gateway SD-card log
+- `/firmware/mcu2-extracted/` - MCU2 firmware extraction
+- `/research/_docx_1711.txt` - Gateway SD-card log
 - Binary strings analysis (sx-updater, QtCarServer, QtCarVehicle)
 - Attack script analysis (openportlanpluscan.py)
 

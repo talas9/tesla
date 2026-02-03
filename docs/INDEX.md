@@ -365,7 +365,7 @@ npx vitepress init
 
 ## 📝 Git Structure
 
-Current repo: `/root/tesla/`
+Current repo: `/research/`
 
 **Recommended .gitignore:**
 ```

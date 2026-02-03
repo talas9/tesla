@@ -36,5 +36,5 @@ From `sx-updater` strings (MCU2 / S-X firmware):
    - provisioning endpoints that might coordinate offline update.
 
 ## References
-- Firmware extraction: `/root/downloads/mcu2-extracted`
-- Related handshake notes (network install path): see `/root/tesla/02-gateway-can-flood-exploit.md`
+- Firmware extraction: `/firmware/mcu2-extracted`
+- Related handshake notes (network install path): see `/research/02-gateway-can-flood-exploit.md`

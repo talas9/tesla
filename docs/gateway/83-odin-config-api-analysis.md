@@ -16,7 +16,7 @@ Extracted complete Odin service bundle from Model 3/Y firmware. Discovered that 
 
 ### 1. Config Read API Pattern (VERIFIED)
 
-**Location**: `~/downloads/model3y-extracted/opt/odin/odin_bundle/odin_bundle/networks/`
+**Location**: `/firmware/model3y-extracted/opt/odin/odin_bundle/odin_bundle/networks/`
 
 **API Call Structure**:
 ```python
@@ -111,7 +111,7 @@ gw-diag OTA_KEEP_AWAKE 0  # Disable keep-awake
 
 ### 3. Hashed Config File Analysis
 
-**File**: `~/downloads/model3y-extracted/opt/odin/data/Model3/config-options.json`
+**File**: `/firmware/model3y-extracted/opt/odin/data/Model3/config-options.json`
 
 **Structure**:
 ```json
@@ -149,7 +149,7 @@ hashlib.md5((salt + key).encode()).hexdigest()     # MD5 salt+key
 ### 4. Odin Service Script Locations
 
 **Total Files**: 2,988 Python service scripts extracted  
-**Base Path**: `~/downloads/model3y-extracted/opt/odin/odin_bundle/odin_bundle/networks/`
+**Base Path**: `/firmware/model3y-extracted/opt/odin/odin_bundle/odin_bundle/networks/`
 
 **Key Directories**:
 - `Gen3/` → Model 3/Y/Cybertruck routines (168 config operations, integer accessId)
@@ -256,7 +256,7 @@ await reboot_cid(delay=2)
 
 ## Critical Context
 
-- **Research Repository**: `/root/tesla/` (82 markdown documents, 10+ scripts)
+- **Research Repository**: `/research/` (82 markdown documents, 10+ scripts)
 - **Total Configs Extracted**: 662 configs from Ryzen Gateway flash dump
 - **CRC Algorithm**: CRC-8/0x2F (init=0xFF, xor_out=0x00) - 100% validation rate
 - **Config Format**: `[CRC:1][Length:1][Config_ID:2_BE][Data:N]`

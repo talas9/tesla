@@ -19,10 +19,10 @@ This document provides comprehensive analysis of the Tesla Gateway ECU firmware,
 
 | Component | Architecture | Location | Status |
 |-----------|--------------|----------|--------|
-| **Bootloader R4** | PowerPC e500 | `/root/downloads/seed-extracted/gtw/14/` | ✅ **EXTRACTED & ANALYZED** |
-| **Bootloader R7** | PowerPC e500 | `/root/downloads/seed-extracted/gtw/114/` | ✅ **EXTRACTED & ANALYZED** |
-| **Runtime Application** | x86_64 Linux | `/root/downloads/mcu2-extracted/usr/bin/doip-gateway` | ✅ **EXTRACTED & ANALYZED** |
-| **Configuration Files** | - | `/root/downloads/mcu2-extracted/etc/` | ✅ **AVAILABLE** |
+| **Bootloader R4** | PowerPC e500 | `/firmware/seed-extracted/gtw/14/` | ✅ **EXTRACTED & ANALYZED** |
+| **Bootloader R7** | PowerPC e500 | `/firmware/seed-extracted/gtw/114/` | ✅ **EXTRACTED & ANALYZED** |
+| **Runtime Application** | x86_64 Linux | `/firmware/mcu2-extracted/usr/bin/doip-gateway` | ✅ **EXTRACTED & ANALYZED** |
+| **Configuration Files** | - | `/firmware/mcu2-extracted/etc/` | ✅ **AVAILABLE** |
 
 **Key Discoveries:**
 - ✅ Gateway bootloader uses **FreeRTOS + lwIP** network stack
@@ -117,7 +117,7 @@ The Tesla Gateway ECU uses a **hybrid architecture**:
 
 | Property | GW R4 | GW R7 |
 |----------|-------|-------|
-| **Path** | `/root/downloads/seed-extracted/gtw/14/models-fusegtw-GW_R4.img` | `/root/downloads/seed-extracted/gtw/114/models-fusegtw-GW_R7.img` |
+| **Path** | `/firmware/seed-extracted/gtw/14/models-fusegtw-GW_R4.img` | `/firmware/seed-extracted/gtw/114/models-fusegtw-GW_R7.img` |
 | **Size** | 90,340 bytes (88.2 KB) | 94,436 bytes (92.2 KB) |
 | **Architecture** | PowerPC e500v2 (Book E) | PowerPC e500v2 (Book E) |
 | **Endianness** | Big-endian | Big-endian |
@@ -284,7 +284,7 @@ void execute_factory_command(uint8_t cmd[8]) {
 
 | Property | Value |
 |----------|-------|
-| **Path** | `/root/downloads/mcu2-extracted/usr/bin/doip-gateway` |
+| **Path** | `/firmware/mcu2-extracted/usr/bin/doip-gateway` |
 | **Architecture** | x86_64 (Intel/AMD 64-bit) |
 | **Type** | ELF 64-bit LSB PIE executable |
 | **Size** | ~72 KB |
@@ -296,7 +296,7 @@ void execute_factory_command(uint8_t cmd[8]) {
 ### Configuration Files
 
 ```
-/root/downloads/mcu2-extracted/
+/firmware/mcu2-extracted/
 ├── etc/
 │   ├── sv/doip-gateway/              # runit service directory
 │   ├── firewall.d/doip-gateway.iptables  # Firewall rules
@@ -384,7 +384,7 @@ From strings analysis:
 
 ### Sandbox Configuration
 
-From `/root/downloads/mcu2-extracted/etc/kafel/doip-gateway.kafel`:
+From `/firmware/mcu2-extracted/etc/kafel/doip-gateway.kafel`:
 
 ```
 # Seccomp-BPF syscall filtering (limits which syscalls doip-gateway can use)
@@ -401,7 +401,7 @@ POLICY doip_gateway {
 }
 ```
 
-**AppArmor Profile:** `/root/downloads/mcu2-extracted/etc/apparmor.compiled/usr.bin.doip-gateway`
+**AppArmor Profile:** `/firmware/mcu2-extracted/etc/apparmor.compiled/usr.bin.doip-gateway`
 - Restricts file system access
 - Prevents network access outside allowed ports
 - Limits capabilities (e.g., no CAP_SYS_ADMIN)
@@ -657,7 +657,7 @@ void watchdog_task(void *params) {
 # Common values: 5000ms, 10000ms
 import struct
 
-with open('/root/downloads/seed-extracted/gtw/14/models-fusegtw-GW_R4.img', 'rb') as f:
+with open('/firmware/seed-extracted/gtw/14/models-fusegtw-GW_R4.img', 'rb') as f:
     data = f.read()
 
 # Search for 5000 (0x1388) and 10000 (0x2710) in various formats
@@ -962,7 +962,7 @@ void process_can_data(uint8_t *data, uint8_t len) {
 
 | Finding | This Document | 12-gateway-bootloader-analysis.md |
 |---------|---------------|-----------------------------------|
-| **Bootloader files** | ✅ `/root/downloads/seed-extracted/gtw/{14,114}/` | ✅ Same files analyzed |
+| **Bootloader files** | ✅ `/firmware/seed-extracted/gtw/{14,114}/` | ✅ Same files analyzed |
 | **Architecture** | PowerPC e500 | ✅ Confirmed |
 | **Jump table** | 0x800-0xCAC, 14 handlers | ✅ Matches exactly |
 | **Factory gate** | 0x1044, 8-byte command | ✅ Confirmed |
@@ -1032,12 +1032,12 @@ void process_can_data(uint8_t *data, uint8_t len) {
 
 ```bash
 # Search extracted MCU2 filesystem
-find /root/downloads/mcu2-extracted -type f -executable | while read f; do
+find /firmware/mcu2-extracted -type f -executable | while read f; do
     strings "$f" | grep -q "25956\|6564\|udpapi" && echo "$f"
 done
 
 # Search for port in all binaries
-grep -r $'\x65\x64' /root/downloads/mcu2-extracted/usr/{bin,sbin}/ 2>/dev/null
+grep -r $'\x65\x64' /firmware/mcu2-extracted/usr/{bin,sbin}/ 2>/dev/null
 
 # Search update packages
 find /var/spool/sx-updater -name "*.upd" -o -name "*.tar.gz"
@@ -1160,12 +1160,12 @@ afl-fuzz -i testcases -o findings -- ./udpapi_fuzzer 192.168.90.102:25956
 **Compare R4 vs R7 bootloaders:**
 
 ```bash
-radare2 -A /root/downloads/seed-extracted/gtw/14/models-fusegtw-GW_R4.img
-radare2 -A /root/downloads/seed-extracted/gtw/114/models-fusegtw-GW_R7.img
+radare2 -A /firmware/seed-extracted/gtw/14/models-fusegtw-GW_R4.img
+radare2 -A /firmware/seed-extracted/gtw/114/models-fusegtw-GW_R7.img
 
 # Find differences
-r2 -c "cmp /root/downloads/seed-extracted/gtw/114/models-fusegtw-GW_R7.img" \
-   /root/downloads/seed-extracted/gtw/14/models-fusegtw-GW_R4.img
+r2 -c "cmp /firmware/seed-extracted/gtw/114/models-fusegtw-GW_R7.img" \
+   /firmware/seed-extracted/gtw/14/models-fusegtw-GW_R4.img
 ```
 
 **Identify patched vulnerabilities:**
@@ -1178,11 +1178,11 @@ r2 -c "cmp /root/downloads/seed-extracted/gtw/114/models-fusegtw-GW_R7.img" \
 
 | Component | Path | Size | Notes |
 |-----------|------|------|-------|
-| **Bootloader R4** | `/root/downloads/seed-extracted/gtw/14/models-fusegtw-GW_R4.img` | 90,340 bytes | PowerPC e500 |
-| **Bootloader R7** | `/root/downloads/seed-extracted/gtw/114/models-fusegtw-GW_R7.img` | 94,436 bytes | PowerPC e500 |
-| **Runtime DoIP** | `/root/downloads/mcu2-extracted/usr/bin/doip-gateway` | 72 KB | x86_64 ELF |
-| **Diagnostic Tool** | `/root/downloads/mcu2-extracted/usr/sbin/gw-diag` | ~200 KB | x86_64 ELF |
-| **Config Files** | `/root/downloads/mcu2-extracted/etc/` | Various | Firewall, sandbox, AppArmor |
+| **Bootloader R4** | `/firmware/seed-extracted/gtw/14/models-fusegtw-GW_R4.img` | 90,340 bytes | PowerPC e500 |
+| **Bootloader R7** | `/firmware/seed-extracted/gtw/114/models-fusegtw-GW_R7.img` | 94,436 bytes | PowerPC e500 |
+| **Runtime DoIP** | `/firmware/mcu2-extracted/usr/bin/doip-gateway` | 72 KB | x86_64 ELF |
+| **Diagnostic Tool** | `/firmware/mcu2-extracted/usr/sbin/gw-diag` | ~200 KB | x86_64 ELF |
+| **Config Files** | `/firmware/mcu2-extracted/etc/` | Various | Firewall, sandbox, AppArmor |
 
 ---
 

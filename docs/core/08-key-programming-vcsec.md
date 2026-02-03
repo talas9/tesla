@@ -18,8 +18,8 @@ Examples observed in the task catalog (Model X / BCCEN world, shown as evidence 
 - `PROC_BCCEN_X_PROVISIONING` (VIN learning / provisioning)
 
 For Model 3/Y, the analogous workflows are expected under **VCSEC** routines in:
-- `/root/downloads/tesla_odj/Model 3/VCSEC.odj.json`
-- `/root/downloads/tesla_odj/Model Y/VCSEC.odj.json`
+- `/firmware/tesla_odj/Model 3/VCSEC.odj.json`
+- `/firmware/tesla_odj/Model Y/VCSEC.odj.json`
 
 ## Open questions (to resolve next)
 1. Identify the **exact VCSEC routines** that correspond to:
@@ -36,5 +36,5 @@ For Model 3/Y, the analogous workflows are expected under **VCSEC** routines in:
 - Cross-reference with Odin Python tasks for any key-related “service security operations” principal usage.
 
 ## References
-- ODJ repository cloned: `/root/downloads/tesla_odj/`
-- Prior doc: `/root/tesla/00-master-cross-reference.md`
+- ODJ repository cloned: `/firmware/tesla_odj/`
+- Prior doc: `/research/00-master-cross-reference.md`

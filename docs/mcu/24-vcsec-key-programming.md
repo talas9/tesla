@@ -4,9 +4,9 @@
 **Date:** 2026-02-03  
 **Analysis Target:** Tesla Model 3/Y VCSEC (Vehicle Security Controller)  
 **Source Binaries:**  
-- `/root/downloads/mcu2-extracted/usr/tesla/UI/bin/QtCarServer`
-- `/root/downloads/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so`
-- Tesla ODJ definitions: `/root/downloads/tesla_odj/Model 3/VCSEC.odj.json`
+- `/firmware/mcu2-extracted/usr/tesla/UI/bin/QtCarServer`
+- `/firmware/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so`
+- Tesla ODJ definitions: `/firmware/tesla_odj/Model 3/VCSEC.odj.json`
 
 ---
 
@@ -729,7 +729,7 @@ descriptor_table_keys_2eproto           - General key management messages
 
 **Example extraction command:**
 ```bash
-objdump -T /root/downloads/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so | grep "descriptor_table"
+objdump -T /firmware/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so | grep "descriptor_table"
 ```
 
 ### 9.3 ODJ Routine Cross-Reference
@@ -750,7 +750,7 @@ objdump -T /root/downloads/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so | g
 | 0x809 | ENABLE_NFC_READER | 0 | Enable/disable NFC reader |
 | 0x810 | GET_CARD_ON_READER | 0 | Detect NFC keycards |
 
-**Full ODJ definitions:** `/root/downloads/tesla_odj/Model 3/VCSEC.odj.json`
+**Full ODJ definitions:** `/firmware/tesla_odj/Model 3/VCSEC.odj.json`
 
 ### 9.4 Error Code Strings
 
@@ -884,7 +884,7 @@ STATUS_CODE_PERMISSION_DENIED_EXPIRED_TOKEN
 
 ## Appendix A: ODJ Routine Definitions (Full Listing)
 
-*See `/root/tesla/11-vcsec-keycard-routines.md` for complete ODJ routine documentation.*
+*See `/research/11-vcsec-keycard-routines.md` for complete ODJ routine documentation.*
 
 **Key Routines:**
 
@@ -993,41 +993,41 @@ message SignedMessage {
 
 **Extract strings from QtCarServer:**
 ```bash
-strings /root/downloads/mcu2-extracted/usr/tesla/UI/bin/QtCarServer | grep -i "vcsec\|whitelist\|keycard"
+strings /firmware/mcu2-extracted/usr/tesla/UI/bin/QtCarServer | grep -i "vcsec\|whitelist\|keycard"
 ```
 
 **List exported symbols in libSharedProto.so:**
 ```bash
-objdump -T /root/downloads/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so | grep "VCSEC"
+objdump -T /firmware/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so | grep "VCSEC"
 ```
 
 **Disassemble specific function:**
 ```bash
-objdump -d /root/downloads/mcu2-extracted/usr/tesla/UI/bin/QtCarServer | grep -A20 "WhitelistOperation"
+objdump -d /firmware/mcu2-extracted/usr/tesla/UI/bin/QtCarServer | grep -A20 "WhitelistOperation"
 ```
 
 **Search for protobuf descriptors:**
 ```bash
-strings /root/downloads/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so | grep "descriptor_table"
+strings /firmware/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so | grep "descriptor_table"
 ```
 
 **Extract error strings:**
 ```bash
-strings /root/downloads/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so | grep "WHITELISTOPERATION"
+strings /firmware/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so | grep "WHITELISTOPERATION"
 ```
 
 ---
 
 ## References
 
-1. **Tesla ODJ Repository:** `/root/downloads/tesla_odj/`
+1. **Tesla ODJ Repository:** `/firmware/tesla_odj/`
 2. **Prior Research Documents:**
-   - `/root/tesla/00-master-cross-reference.md`
-   - `/root/tesla/08-key-programming-vcsec.md`
-   - `/root/tesla/11-vcsec-keycard-routines.md`
+   - `/research/00-master-cross-reference.md`
+   - `/research/08-key-programming-vcsec.md`
+   - `/research/11-vcsec-keycard-routines.md`
 3. **Binary Artifacts:**
    - MCU2 Firmware: `2025.32.3.1.mcu2`
-   - Extracted Path: `/root/downloads/mcu2-extracted/`
+   - Extracted Path: `/firmware/mcu2-extracted/`
 4. **ISO Standards:**
    - ISO 7816-4: NFC/Smart Card APDU Commands
    - ISO 14229 (UDS): Unified Diagnostic Services (for Security Level access)

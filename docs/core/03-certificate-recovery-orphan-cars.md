@@ -821,6 +821,6 @@ chmod +x cert_timeline.sh
 
 ---
 
-**Compiled from:** `/root/.openclaw/workspace/tesla-hermes-research.md`  
+**Compiled from:** `/workspace/workspace/tesla-hermes-research.md`  
 **License:** Educational use only — no warranty expressed or implied  
 **Contact:** Security researchers should use responsible disclosure channels

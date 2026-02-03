@@ -548,7 +548,7 @@ if is_fused['is_fused'] and factory_mode:
 
 ## 15. Cross-Reference: Gap Analysis Findings
 
-### From `/root/tesla/05-gap-analysis-missing-pieces.md`
+### From `/research/05-gap-analysis-missing-pieces.md`
 
 **Confirmed:**
 1. ✅ Service mode uses signed command infrastructure

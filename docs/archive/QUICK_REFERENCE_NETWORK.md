@@ -95,6 +95,6 @@ tcpdump -i eth0 'dst net 224.0.0.0/4'
 
 ---
 
-**Full Analysis:** `/root/tesla/44-mcu-networking-deep-dive.md` (1916 lines)
+**Full Analysis:** `/research/44-mcu-networking-deep-dive.md` (1916 lines)
 
-**Summary:** `/root/tesla/NETWORK_ANALYSIS_SUMMARY.txt`
+**Summary:** `/research/NETWORK_ANALYSIS_SUMMARY.txt`

@@ -854,7 +854,7 @@ done
 **Transport:** WebSocket Secure (WSS) over cellular (eth0.2)
 
 **Details:**
-- See `/root/tesla/hermes-research.md` for full Hermes analysis
+- See `/research/hermes-research.md` for full Hermes analysis
 - Modem provides IP connectivity layer
 - MCU handles TLS/WSS and authentication
 
@@ -946,7 +946,7 @@ Likely handled by:
 **Not in MCU rootfs extraction.**
 
 **Found in:**
-- **Model3Y extraction:** `/root/downloads/model3y-extracted/deploy/iris-*.sig`
+- **Model3Y extraction:** `/firmware/model3y-extracted/deploy/iris-*.sig`
   - `iris-AG525RGL.sig` (64 bytes)
   - `iris-AG521RCN.sig` (64 bytes)
 
@@ -967,27 +967,27 @@ Likely handled by:
 ### Related Research Documents
 
 1. **Hermes Backend Connectivity:**
-   - `/root/tesla/hermes-research.md`
-   - `/root/tesla/03-certificate-recovery-orphan-cars.md`
+   - `/research/hermes-research.md`
+   - `/research/03-certificate-recovery-orphan-cars.md`
    - Modem provides cellular link, Hermes handles authentication
 
 2. **Network Architecture:**
-   - `/root/tesla/04-network-ports-firewall.md`
-   - `/root/tesla/25-network-attack-surface.md`
+   - `/research/04-network-ports-firewall.md`
+   - `/research/25-network-attack-surface.md`
    - Modem firewall rules analyzed here
 
 3. **OTA Update System:**
-   - `/root/tesla/18-cid-iris-update-pipeline.md`
-   - `/root/tesla/10-usb-firmware-update-deep.md`
+   - `/research/18-cid-iris-update-pipeline.md`
+   - `/research/10-usb-firmware-update-deep.md`
    - Modem firmware part of main OTA flow
 
 4. **Gateway Communication:**
-   - `/root/tesla/02-gateway-can-flood-exploit.md`
-   - `/root/tesla/09-gateway-sdcard-log-analysis.md`
+   - `/research/02-gateway-can-flood-exploit.md`
+   - `/research/09-gateway-sdcard-log-analysis.md`
    - Modem isolated from CAN bus (no direct gateway link)
 
 5. **Security Sandboxing:**
-   - `/root/tesla/31-apparmor-sandbox-security.md`
+   - `/research/31-apparmor-sandbox-security.md`
    - Modem services sandboxed via AppArmor
 
 ---

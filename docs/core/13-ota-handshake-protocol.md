@@ -394,7 +394,7 @@ GET /jobs/:id/statuses
 
 ### 7.2 Implementation Guide
 
-**Reference: `/root/downloads/gtw-backdoor/Open port/handshake/server.js`**
+**Reference: `/firmware/gtw-backdoor/Open port/handshake/server.js`**
 
 ```javascript
 const express = require("express");
@@ -582,10 +582,10 @@ curl http://192.168.90.102:20564/status
 
 | Document | Path | Description |
 |----------|------|-------------|
-| CAN Flood Exploit | `/root/tesla/02-gateway-can-flood-exploit.md` | Port 25956 opening procedure |
-| Hermes Research | `/root/tesla/tesla-hermes-research.md` | Vehicle-cloud communication |
-| Reference Server | `/root/downloads/gtw-backdoor/Open port/handshake/server.js` | Working implementation |
-| Signatures DB | `/root/downloads/gtw-backdoor/Open port/signatures.json` | 481 firmware signatures |
+| CAN Flood Exploit | `/research/02-gateway-can-flood-exploit.md` | Port 25956 opening procedure |
+| Hermes Research | `/research/tesla-hermes-research.md` | Vehicle-cloud communication |
+| Reference Server | `/firmware/gtw-backdoor/Open port/handshake/server.js` | Working implementation |
+| Signatures DB | `/firmware/gtw-backdoor/Open port/signatures.json` | 481 firmware signatures |
 
 ---
 

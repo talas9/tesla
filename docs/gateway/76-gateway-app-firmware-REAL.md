@@ -221,8 +221,8 @@ Likely command flow:
 ## Files Created
 
 ```
-/root/tesla/gateway-app-firmware.bin     38 KB application binary
-/root/tesla/76-gateway-app-firmware-REAL.md    This analysis
+/research/gateway-app-firmware.bin     38 KB application binary
+/research/76-gateway-app-firmware-REAL.md    This analysis
 ```
 
 ## Conclusion

@@ -212,7 +212,7 @@ Total documents analyzed: 75
 **Sample Evidence:**
 - Line 8: > - **Evidence** items are backed by paths/strings/scripts in the extracted filesystem or by prior d
 - Line 205: - MCU software parses Gateway update logs (`parse_gateway_update_log` strings referenced in `/root/t
-- Line 222: - `ofono` configuration exists at `/root/downloads/mcu2-extracted/etc/ofono/iris.conf`.
+- Line 222: - `ofono` configuration exists at `/firmware/mcu2-extracted/etc/ofono/iris.conf`.
 
 
 ### 55-gateway-spc-chip-replacement.md
@@ -445,7 +445,7 @@ Total documents analyzed: 75
 - Line 785: **Exploitability:** If service-api-tls supports HTTP/2, it may be vulnerable to DoS attacks.
 
 **Sample Evidence:**
-- Line 6: **Source:** APE firmware extraction (`/root/downloads/ape-extracted/`)
+- Line 6: **Source:** APE firmware extraction (`/firmware/ape-extracted/`)
 - Line 7: **Cross-reference:** MCU2 network analysis ([25-network-attack-surface.md](25-network-attack-surface
 - Line 158: | **111** | TCP/UDP | portmapper/rpc.bind | NFS RPC | 🟠 HIGH |
 
@@ -470,7 +470,7 @@ Total documents analyzed: 75
 - Line 1465: - Likely allows status queries, maybe command injection
 
 **Sample Evidence:**
-- Line 3: **Source:** `/root/downloads/mcu2-extracted`
+- Line 3: **Source:** `/firmware/mcu2-extracted`
 - Line 1024: - Source: 192.168.90.103/105
 - Line 1230: CGROUP_QTCAR=0x10001
 
@@ -488,7 +488,7 @@ Total documents analyzed: 75
 - Code blocks: 3
 
 **Sample Evidence:**
-- Line 17: 2. ✅ **Updated Reference:** `/root/tesla/04-network-ports-firewall.md` (Appendix B added)
+- Line 17: 2. ✅ **Updated Reference:** `/research/04-network-ports-firewall.md` (Appendix B added)
 - Line 221: - Reference: `ChromiumAdapterWebSocketImpl` in Tesla MCU2
 - Line 249: # Listen 127.0.0.1:631 in /etc/cups/cupsd.conf
 
@@ -594,7 +594,7 @@ Total documents analyzed: 75
 - Line 360: - No visible authentication in D-Bus interface (auth may be at lower level)
 
 **Sample Evidence:**
-- Line 4: **Source:** `/root/downloads/mcu2-extracted/usr/tesla/UI/`
+- Line 4: **Source:** `/firmware/mcu2-extracted/usr/tesla/UI/`
 - Line 15: ```cpp
 - Line 29: ```cpp
 
@@ -716,9 +716,9 @@ Total documents analyzed: 75
 - Line 319: 2. **Action:** Likely triggers vehicle safe mode
 
 **Sample Evidence:**
-- Line 65: **Source:** `/root/downloads/mcu2-extracted/etc/sysctl.conf`
-- Line 65: **Source:** `/root/downloads/mcu2-extracted/etc/sysctl.conf`
-- Line 70: **Source:** `/root/downloads/mcu2-extracted/etc/sv/watchdog/run`
+- Line 65: **Source:** `/firmware/mcu2-extracted/etc/sysctl.conf`
+- Line 65: **Source:** `/firmware/mcu2-extracted/etc/sysctl.conf`
+- Line 70: **Source:** `/firmware/mcu2-extracted/etc/sv/watchdog/run`
 
 
 ### 24-vcsec-key-programming-summary.md
@@ -766,7 +766,7 @@ Total documents analyzed: 75
 - Line 630: **Inferred from error messages:** Tesla's backend systems can remotely invalidate keys, but this req
 
 **Sample Evidence:**
-- Line 8: - `/root/downloads/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so`
+- Line 8: - `/firmware/mcu2-extracted/usr/tesla/UI/lib/libSharedProto.so`
 - Line 56: ```cpp
 - Line 126: ```cpp
 
@@ -789,7 +789,7 @@ Total documents analyzed: 75
 - Line 1023: - Process runs with whatever profile kernel assigns (may be none!)
 
 **Sample Evidence:**
-- Line 37: **Source:** `/root/downloads/mcu2-extracted/etc/apparmor.d/abstractions/`
+- Line 37: **Source:** `/firmware/mcu2-extracted/etc/apparmor.d/abstractions/`
 - Line 374: /tmp/odin.sock rw,
 - Line 919: /etc/apparmor.compiled/usr.bin.service-shell-* r,
 
@@ -985,7 +985,7 @@ Total documents analyzed: 75
 - Line 401: **Note:** "unsigned" in filename suggests this is pre-signing build artifact
 
 **Sample Evidence:**
-- Line 175: strings /root/downloads/ape-extracted/opt/autopilot/bin/factory_camera_calibration | less
+- Line 175: strings /firmware/ape-extracted/opt/autopilot/bin/factory_camera_calibration | less
 - Line 258: - [ ] Load in Ghidra/IDA Pro
 - Line 288: - [ ] Identify TensorRT engine files (binwalk)
 
@@ -1034,7 +1034,7 @@ Total documents analyzed: 75
 - Line 738: - Likely contains TensorRT/CUDA inference code
 
 **Sample Evidence:**
-- Line 28: Source: /root/downloads/ape-firmware/2024.8.9.ice.ape25 (534MB)
+- Line 28: Source: /firmware/ape-firmware/2024.8.9.ice.ape25 (534MB)
 - Line 545: /etc/resolv.conf        - DNS configuration
 - Line 546: /etc/nsswitch.conf      - Name service switch
 
@@ -1313,7 +1313,7 @@ Total documents analyzed: 75
 - Line 748: - Signature replay may be blocked by freshness checks in newer versions
 
 **Sample Evidence:**
-- Line 6: > **Source:** `/root/downloads/mcu2-extracted/`
+- Line 6: > **Source:** `/firmware/mcu2-extracted/`
 - Line 37: strings -n 6 deploy/sx-updater | grep -n "update\.upd"
 - Line 67: ```c
 
@@ -1464,7 +1464,7 @@ Total documents analyzed: 75
 - Line 779: **Note:** Partition name `tlc-amap.crypt` suggests **encrypted** storage, but details not fully docu
 
 **Sample Evidence:**
-- Line 96: 【/root/downloads/mcu2-extracted/usr/tesla/UI/assets/tesla_maps/valhalla.json†L3-L9】
+- Line 96: 【/firmware/mcu2-extracted/usr/tesla/UI/assets/tesla_maps/valhalla.json†L3-L9】
 - Line 106: **Key Functions (strings analysis):**
 - Line 107: ```c
 
@@ -1552,9 +1552,9 @@ Total documents analyzed: 75
 - Line 854: **In production:** AppArmor profiles (if any) are loaded, but unclear which services are confined.
 
 **Sample Evidence:**
-- Line 6: **Source:** APE firmware extraction (`/root/downloads/ape-extracted/`)
+- Line 6: **Source:** APE firmware extraction (`/firmware/ape-extracted/`)
 - Line 7: **Cross-reference:**
-- Line 111: **Source:** `/root/downloads/ape-extracted/etc/network/interfaces`
+- Line 111: **Source:** `/firmware/ape-extracted/etc/network/interfaces`
 
 
 ### 47-gateway-debug-interface.md

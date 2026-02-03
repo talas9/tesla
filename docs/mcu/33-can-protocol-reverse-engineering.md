@@ -121,8 +121,8 @@ CAN IDs with non-default handlers but unknown function:
 - [52-gateway-firmware-decompile.md](52-gateway-firmware-decompile.md) - Config database
 
 **Scripts:**
-- `/root/tesla/scripts/openportlanpluscan.py` - CAN flood
-- `/root/tesla/scripts/gw.sh` - UDPAPI config
+- `/research/scripts/openportlanpluscan.py` - CAN flood
+- `/research/scripts/gw.sh` - UDPAPI config
 
 ---
 

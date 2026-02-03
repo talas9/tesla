@@ -2,7 +2,7 @@
 
 **Firmware:** 2024.8.9.ice.ape25  
 **Extracted:** 2026-02-03  
-**Location:** `/root/downloads/ape-extracted/`
+**Location:** `/firmware/ape-extracted/`
 
 ## Extraction Statistics
 

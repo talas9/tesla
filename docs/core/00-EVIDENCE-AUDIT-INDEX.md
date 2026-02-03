@@ -211,34 +211,34 @@ Based on audit findings, these are the most important fixes:
 
 **Verified (High Confidence):**
 ```bash
-grep "✅ VERIFIED" /root/tesla/59-EVIDENCE-AUDIT.md | grep "###"
+grep "✅ VERIFIED" /research/59-EVIDENCE-AUDIT.md | grep "###"
 ```
 
 **Untested (High Risk):**
 ```bash
-grep "❌ UNTESTED" /root/tesla/59-EVIDENCE-AUDIT.md | grep "###"
+grep "❌ UNTESTED" /research/59-EVIDENCE-AUDIT.md | grep "###"
 ```
 
 **Needs Re-Analysis:**
 ```bash
-grep "🔍 NEEDS RE-ANALYSIS" /root/tesla/59-EVIDENCE-AUDIT.md | grep "###"
+grep "🔍 NEEDS RE-ANALYSIS" /research/59-EVIDENCE-AUDIT.md | grep "###"
 ```
 
 ### Find Specific Issues
 
 **Documents with most uncertain language:**
 ```bash
-grep "Uncertain phrases:" /root/tesla/59-EVIDENCE-AUDIT.md | sort -t: -k2 -nr | head -10
+grep "Uncertain phrases:" /research/59-EVIDENCE-AUDIT.md | sort -t: -k2 -nr | head -10
 ```
 
 **Documents with most evidence:**
 ```bash
-grep "Evidence markers:" /root/tesla/59-EVIDENCE-AUDIT.md | sort -t: -k2 -nr | head -10
+grep "Evidence markers:" /research/59-EVIDENCE-AUDIT.md | sort -t: -k2 -nr | head -10
 ```
 
 **Documents with memory addresses:**
 ```bash
-grep "Memory addresses:" /root/tesla/59-EVIDENCE-AUDIT.md | grep -v "0$" | sort -t: -k2 -nr
+grep "Memory addresses:" /research/59-EVIDENCE-AUDIT.md | grep -v "0$" | sort -t: -k2 -nr
 ```
 
 ---
@@ -248,7 +248,7 @@ grep "Memory addresses:" /root/tesla/59-EVIDENCE-AUDIT.md | grep -v "0$" | sort 
 ### About the Audit
 - **Generated:** 2026-02-03
 - **Method:** Automated Python scan + manual analysis
-- **Scope:** All 75 markdown files in /root/tesla/
+- **Scope:** All 75 markdown files in /research/
 - **Confidence:** High (comprehensive scan performed)
 
 ### About the Research

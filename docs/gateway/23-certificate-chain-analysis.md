@@ -66,7 +66,7 @@
 
 ### 2.1 Extracted Certificate Authorities
 
-From MCU2 filesystem (`/root/downloads/mcu2-extracted/usr/share/tesla-certificates/`):
+From MCU2 filesystem (`/firmware/mcu2-extracted/usr/share/tesla-certificates/`):
 
 #### Current CAs (`/current/`)
 
@@ -1337,7 +1337,7 @@ http://pki.tesla.com/product/pki/Tesla_Product_Root_CA-01.crl
 | `03-certificate-recovery-orphan-cars.md` | Orphan car recovery procedures |
 | `04-network-ports-firewall.md` | Hermes connectivity ports (443, 8901) |
 | `02-gateway-can-flood-exploit.md` | Alternative recovery via Gateway exploit |
-| `/root/.openclaw/workspace/tesla-hermes-research.md` | Original Hermes research compilation |
+| `/workspace/workspace/tesla-hermes-research.md` | Original Hermes research compilation |
 
 ### 12.2 External References
 
@@ -1516,9 +1516,9 @@ echo "Current Time:   $(date "+%Y-%m-%d %H:%M:%S %Z")"
 | 1.0 | 2026-02-03 | Initial comprehensive analysis |
 
 **Compiled from:**
-- MCU2 filesystem extraction (`/root/downloads/mcu2-extracted/`)
+- MCU2 filesystem extraction (`/firmware/mcu2-extracted/`)
 - Binary analysis (`/opt/hermes/hermes_client`)
-- Previous research documents (`/root/tesla/*.md`)
+- Previous research documents (`/research/*.md`)
 - User reports and field observations
 
 **Author:** Security Research Subagent  

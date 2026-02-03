@@ -8,8 +8,8 @@
 
 ## Part 1: Original Binary Analysis Findings
 
-### 1. /root/downloads/mcu2-extracted/sbin/abl_update_dispatch
-- `file` output: `ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[...] for GNU/Linux 5.4.255, stripped` (`file /root/downloads/mcu2-extracted/sbin/abl_update_dispatch`).
+### 1. /firmware/mcu2-extracted/sbin/abl_update_dispatch
+- `file` output: `ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[...] for GNU/Linux 5.4.255, stripped` (`file /firmware/mcu2-extracted/sbin/abl_update_dispatch`).
 - Selected `strings -n 6` hits (hex offsets shown) reveal the updater's dependencies and CLI hints:
   - `0x06c0 heci_ifwi_update_clear`
   - `0x06a5 heci_ifwi_update_stage`
@@ -21,11 +21,11 @@
   - `0x2019 invalid device and partition`
   - `0x2033 invalid path`
   - `0x204d device: %d`
-  (`strings -n 6 -td /root/downloads/mcu2-extracted/sbin/abl_update_dispatch | head -n 30`).
-- No `/etc/sv/*/run` entry references `abl_update_dispatch` in the extracted tree (see `find /root/downloads/mcu2-extracted/etc/sv -name run -exec grep...` attempts that returned no matches with exit code 1). The binary therefore appears to be an updater utility without explicit runit wiring in the extracted system.
+  (`strings -n 6 -td /firmware/mcu2-extracted/sbin/abl_update_dispatch | head -n 30`).
+- No `/etc/sv/*/run` entry references `abl_update_dispatch` in the extracted tree (see `find /firmware/mcu2-extracted/etc/sv -name run -exec grep...` attempts that returned no matches with exit code 1). The binary therefore appears to be an updater utility without explicit runit wiring in the extracted system.
 
-### 2. /root/downloads/model3y-extracted/deploy/ice-updater
-- `file` output: `ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), static-pie linked, stripped` (`file /root/downloads/model3y-extracted/deploy/ice-updater`).
+### 2. /firmware/model3y-extracted/deploy/ice-updater
+- `file` output: `ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), static-pie linked, stripped` (`file /firmware/model3y-extracted/deploy/ice-updater`).
 - **Size**: 6,004,624 bytes (5.7 MB)
 - **Entry Point**: 0x671bd
 - Key `strings -n 6` hits around handshake/service control (offsets from command output):
@@ -44,7 +44,7 @@
   13. `0x2355 gostaged`: various status strings
   14. `0x25d5 remote_set_handshake`
   15. `0x294f /service.upd`
-- Service wiring: `/root/downloads/model3y-extracted/etc/sv/ice-updater/run` starts by creating a CPU cgroup, resets spool backups, and executes `/bin/ice-updater`, confirming runit launches this binary as the `ice-updater` service:
+- Service wiring: `/firmware/model3y-extracted/etc/sv/ice-updater/run` starts by creating a CPU cgroup, resets spool backups, and executes `/bin/ice-updater`, confirming runit launches this binary as the `ice-updater` service:
   ```sh
   . /etc/cgroup.vars
   CreateCpuCgroup updater
@@ -53,30 +53,30 @@
   rm -rf /var/spool/*-updater-backup-*
   exec /bin/ice-updater
   ```
-  (`cat /root/downloads/model3y-extracted/etc/sv/ice-updater/run`).
+  (`cat /firmware/model3y-extracted/etc/sv/ice-updater/run`).
 - Additional references tie `ice-updater` to handshake orchestration: the ELF's strings include `gostaged`, multiple handshake status messages, and paths such as `/var/spool/zen-updater/handshake-response`, indicating it coordinates both staging and Zen handshake metadata.
 
 ### 3. Zen-related orchestration scripts
-- `/root/downloads/model3y-extracted/opt/odin/odin_bundle/odin_bundle/networks/Common/scripts/PROC_ICE_X_FORCE-INSTALL-UPDATE.py` mentions `zen-updater`, `cid-updater`, `ice-updater`, `sx-updater` as mapped updater processes, showing this routine can target Zen-specific services.
-- `/root/downloads/model3y-extracted/opt/odin/odin_bundle/odin_bundle/networks/Gen3/scripts/UPDATE_MODULE.py` encodes paths such as `/var/spool/zen-updater/handshake-response`, `smashclicker` usage, and HTTP endpoints to Tesla's provisioning server (`firmware.vn.teslamotors.com`), demonstrating the automation of Zen handshake jobs.
+- `/firmware/model3y-extracted/opt/odin/odin_bundle/odin_bundle/networks/Common/scripts/PROC_ICE_X_FORCE-INSTALL-UPDATE.py` mentions `zen-updater`, `cid-updater`, `ice-updater`, `sx-updater` as mapped updater processes, showing this routine can target Zen-specific services.
+- `/firmware/model3y-extracted/opt/odin/odin_bundle/odin_bundle/networks/Gen3/scripts/UPDATE_MODULE.py` encodes paths such as `/var/spool/zen-updater/handshake-response`, `smashclicker` usage, and HTTP endpoints to Tesla's provisioning server (`firmware.vn.teslamotors.com`), demonstrating the automation of Zen handshake jobs.
   (`grep -R -n "zen-updater" ...` captured the relevant blocks). These scripts rely on the handshake responses produced by Zen/CID updater infrastructure.
 
 ### 4. Iris/SSQ helper scripts in MCU2
-1. `/root/downloads/mcu2-extracted/usr/local/bin/iris-fw-ssq-load.sh`
+1. `/firmware/mcu2-extracted/usr/local/bin/iris-fw-ssq-load.sh`
    - `file`: Bourne-Again shell script. (`file .../iris-fw-ssq-load.sh`).
    - Strings highlight SSQ handling, device mapper names, DM-verity keys, load/unload flags, and `ssq-util --load`/`--unload` commands for `/home/cid-updater/iris-*.ssq`. (`strings -n 6 ... | head`).
-2. `/root/downloads/mcu2-extracted/usr/local/bin/iris-fw-upgrade.sh`
+2. `/firmware/mcu2-extracted/usr/local/bin/iris-fw-upgrade.sh`
    - `file`: Bourne-Again shell script. It sources `/usr/local/bin/modem-common`, defines SSQ paths, configures modem IP/port (`192.168.90.60:8901`), and provides CLI helpers for `--attempts`, `--timeout`, `--force`, `--debug`. Strings show logging functions and verification steps for modem firmware.
-3. `/root/downloads/mcu2-extracted/usr/local/bin/iris-fw-services.sh`
+3. `/firmware/mcu2-extracted/usr/local/bin/iris-fw-services.sh`
    - `file`: Bash script. It wraps `sv` commands to stop/start services (`qtcar-vehicle`, `qtcar-connman`, `ofono`) and kill modem power helpers before running updates, indicating runtime orchestration around the Iris modem stack.
-4. `/root/downloads/mcu2-extracted/usr/local/bin/iris-fw-sideload.sh` and `/root/downloads/mcu2-extracted/usr/local/bin/iris-sim-apn-cfg.sh` share the same namespace, reinforcing the presence of Iris-specific update tooling.
-- `/root/downloads/mcu2-extracted/usr/local/bin/irislogs` and `/usr/local/bin/iris-fw-services.sh` are referenced by `/etc/sv/hermes-grablogs/run` (the allowed path `/home/tesla/irislogs`) and `/etc/sv/qtcar-startup/run` (preserving an `irislogs` directory), showing service-level awareness.
+4. `/firmware/mcu2-extracted/usr/local/bin/iris-fw-sideload.sh` and `/firmware/mcu2-extracted/usr/local/bin/iris-sim-apn-cfg.sh` share the same namespace, reinforcing the presence of Iris-specific update tooling.
+- `/firmware/mcu2-extracted/usr/local/bin/irislogs` and `/usr/local/bin/iris-fw-services.sh` are referenced by `/etc/sv/hermes-grablogs/run` (the allowed path `/home/tesla/irislogs`) and `/etc/sv/qtcar-startup/run` (preserving an `irislogs` directory), showing service-level awareness.
 
 ### 5. Deployment cleanup hints for CID/ICE packages
-- `/root/downloads/mcu2-extracted/deploy/common-post-install-fixups.sh` and `/root/downloads/model3y-extracted/deploy/common-post-install-fixups.sh` remove `/home/cid-updater/ape.ssq`, `/home/cid-updater/ice.ssq`, and perform ownership resets under UID 6887, indicating how CID staging areas are managed post-install. (`grep` outputs quoted earlier). These scripts confirm the presence of offline `*.ssq` packages that the Iris helpers mount.
+- `/firmware/mcu2-extracted/deploy/common-post-install-fixups.sh` and `/firmware/model3y-extracted/deploy/common-post-install-fixups.sh` remove `/home/cid-updater/ape.ssq`, `/home/cid-updater/ice.ssq`, and perform ownership resets under UID 6887, indicating how CID staging areas are managed post-install. (`grep` outputs quoted earlier). These scripts confirm the presence of offline `*.ssq` packages that the Iris helpers mount.
 
 ### 6. Service logs relevant to Zen/CID
-- `/root/downloads/model3y-extracted/etc/hermes-eventlogs/monitor/var.log.ice-updater.current` and `/etc/hermes-historylogs.vars` explicitly include `/var/log/ice-updater` and conditionally include `/var/log/zen-updater` in their monitoring arrays, demonstrating that telemetry/alerting captures updater output streams when present.
+- `/firmware/model3y-extracted/etc/hermes-eventlogs/monitor/var.log.ice-updater.current` and `/etc/hermes-historylogs.vars` explicitly include `/var/log/ice-updater` and conditionally include `/var/log/zen-updater` in their monitoring arrays, demonstrating that telemetry/alerting captures updater output streams when present.
 
 ---
 
@@ -84,7 +84,7 @@
 
 ### 7. SX-Updater Binary (MCU2 Transition)
 
-**File**: `/root/downloads/mcu2-extracted/deploy/sx-updater`
+**File**: `/firmware/mcu2-extracted/deploy/sx-updater`
 
 ```
 Type: ELF 64-bit LSB pie executable, x86-64
@@ -135,13 +135,13 @@ EXAMPLE_UPDATER == personality
 **Evidence**:
 1. **No binary found**:
    ```bash
-   find /root/downloads/model3y-extracted -name "zen-updater" -type f
+   find /firmware/model3y-extracted -name "zen-updater" -type f
    # (no output)
    ```
 
 2. **No service directory**:
    ```bash
-   ls /root/downloads/model3y-extracted/etc/sv/ | grep updater
+   ls /firmware/model3y-extracted/etc/sv/ | grep updater
    # gadget-updater
    # ice-updater
    # touch-updater

@@ -20,7 +20,7 @@ Platform Mapping (from Odin scripts):
 
 ### 1.1 ICE-Updater Binary Structure
 
-**File**: `/root/downloads/model3y-extracted/deploy/ice-updater`
+**File**: `/firmware/model3y-extracted/deploy/ice-updater`
 
 ```
 Type: ELF 64-bit LSB pie executable, x86-64
@@ -60,7 +60,7 @@ EXAMPLE_UPDATER == personality
 
 ### 1.2 SX-Updater Binary (MCU2 Transition)
 
-**File**: `/root/downloads/mcu2-extracted/deploy/sx-updater`
+**File**: `/firmware/mcu2-extracted/deploy/sx-updater`
 
 ```
 Type: ELF 64-bit LSB pie executable, x86-64

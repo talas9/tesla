@@ -2,10 +2,10 @@
 
 **Document:** `48-hardware-architecture.md`  
 **Date:** 2026-02-03  
-**Scope:** Physical + logical architecture of a Tesla MCU2 system **as described by the user** and cross‑checked against the extracted MCU2 filesystem (`/root/downloads/mcu2-extracted`) and existing research docs in `/root/tesla/`.
+**Scope:** Physical + logical architecture of a Tesla MCU2 system **as described by the user** and cross‑checked against the extracted MCU2 filesystem (`/firmware/mcu2-extracted`) and existing research docs in `/research/`.
 
 > **Evidence vs inference:**
-> - **Evidence** items are backed by paths/strings/scripts in the extracted filesystem or by prior docs in `/root/tesla/`.
+> - **Evidence** items are backed by paths/strings/scripts in the extracted filesystem or by prior docs in `/research/`.
 > - **Inference** items are architectural hypotheses consistent with evidence but not directly proven.
 
 ---
@@ -108,7 +108,7 @@ Power domains ───┼─▶│ MCU2 (x86-64)  │<─────▶│ Gat
 
 Existing research consistently uses **192.168.90.0/24** for the internal ECU LAN.
 
-From `/root/tesla/00-master-cross-reference.md` and `/root/tesla/44-mcu-networking-deep-dive.md`:
+From `/research/00-master-cross-reference.md` and `/research/44-mcu-networking-deep-dive.md`:
 
 | IP | Component | Notes |
 |---:|-----------|------|
@@ -162,13 +162,13 @@ This section maps the **primary communication channels** and their security prop
 
 **Evidence:**
 - Firewall rules explicitly allow MCU processes to send UDP to Gateway on **port 3500**:
-  - `/root/downloads/mcu2-extracted/etc/firewall.d/hermes-livestream.iptables` includes `--dports 1666,1667,3500` to `192.168.90.102`.
-  - `/root/downloads/mcu2-extracted/etc/firewall.d/qtcar-connman.iptables` allows UDP dports `3500,31415` to `192.168.90.102`.
+  - `/firmware/mcu2-extracted/etc/firewall.d/hermes-livestream.iptables` includes `--dports 1666,1667,3500` to `192.168.90.102`.
+  - `/firmware/mcu2-extracted/etc/firewall.d/qtcar-connman.iptables` allows UDP dports `3500,31415` to `192.168.90.102`.
 - Multiple MCU scripts send UDP to `gw:3500` via `socat`:
-  - `/root/downloads/mcu2-extracted/usr/local/bin/restart-updater`
-  - `/root/downloads/mcu2-extracted/usr/local/bin/reboot-gateway`
-  - `/root/downloads/mcu2-extracted/usr/local/bin/request-gateway-switch-dump`
-  - `/root/downloads/mcu2-extracted/sbin/autofuser.sh`
+  - `/firmware/mcu2-extracted/usr/local/bin/restart-updater`
+  - `/firmware/mcu2-extracted/usr/local/bin/reboot-gateway`
+  - `/firmware/mcu2-extracted/usr/local/bin/request-gateway-switch-dump`
+  - `/firmware/mcu2-extracted/sbin/autofuser.sh`
 
 **Interpretation:**
 - `gw` is a hostname resolving to the Gateway ECU (likely `192.168.90.102`).
@@ -185,9 +185,9 @@ This section maps the **primary communication channels** and their security prop
 ### 3.2 MCU ↔ APE (100BASE‑T1, IP)
 
 **Evidence:**
-- APE IPs: `192.168.90.103` and `192.168.90.105` appear across firewall and network analysis (`/root/tesla/44-mcu-networking-deep-dive.md`).
+- APE IPs: `192.168.90.103` and `192.168.90.105` appear across firewall and network analysis (`/research/44-mcu-networking-deep-dive.md`).
 - Many firewall chains explicitly gate “APE_INPUT” traffic.
-- `updaterctl` can target APE updater at `HOST=ape` port `28496` (evidence: `/root/downloads/mcu2-extracted/usr/bin/updaterctl`).
+- `updaterctl` can target APE updater at `HOST=ape` port `28496` (evidence: `/firmware/mcu2-extracted/usr/bin/updaterctl`).
 
 **Interpretation:**
 - The logical interface on MCU is `eth0` for “APE network” in some docs; physically, that Ethernet is **100BASE‑T1** to the APE board.
@@ -201,8 +201,8 @@ This section maps the **primary communication channels** and their security prop
 **User-provided fact:** SD is physically connected to Gateway only.
 
 **Evidence (indirect):**
-- Gateway SD logs are a major artifact source (`/root/tesla/09-gateway-sdcard-log-analysis.md`).
-- MCU software parses Gateway update logs (`parse_gateway_update_log` strings referenced in `/root/tesla/21-gateway-heartbeat-failsafe.md`).
+- Gateway SD logs are a major artifact source (`/research/09-gateway-sdcard-log-analysis.md`).
+- MCU software parses Gateway update logs (`parse_gateway_update_log` strings referenced in `/research/21-gateway-heartbeat-failsafe.md`).
 
 **Interpretation (inference):**
 - Gateway likely uses SD for:
@@ -214,12 +214,12 @@ This section maps the **primary communication channels** and their security prop
 ### 3.4 Modem ↔ MCU
 
 **Evidence:**
-- Modem update server port: `49503/tcp` (modem → MCU) discussed in `/root/tesla/04-network-ports-firewall.md`.
-- Modem firmware update pipeline uses `/usr/local/bin/iris-fw-upgrade.sh` and SSQ loading via `/usr/local/bin/iris-fw-ssq-load.sh` (see `/root/tesla/18-cid-iris-update-pipeline.md`).
+- Modem update server port: `49503/tcp` (modem → MCU) discussed in `/research/04-network-ports-firewall.md`.
+- Modem firmware update pipeline uses `/usr/local/bin/iris-fw-upgrade.sh` and SSQ loading via `/usr/local/bin/iris-fw-ssq-load.sh` (see `/research/18-cid-iris-update-pipeline.md`).
 - dm‑verity pubkeys exist:
-  - `/root/downloads/mcu2-extracted/etc/verity-modem-dev.pub`
-  - `/root/downloads/mcu2-extracted/etc/verity-modem-prod.pub`
-- `ofono` configuration exists at `/root/downloads/mcu2-extracted/etc/ofono/iris.conf`.
+  - `/firmware/mcu2-extracted/etc/verity-modem-dev.pub`
+  - `/firmware/mcu2-extracted/etc/verity-modem-prod.pub`
+- `ofono` configuration exists at `/firmware/mcu2-extracted/etc/ofono/iris.conf`.
 
 **Interpretation:**
 - The modem has a dedicated update/flash toolchain (QFirehose), and the MCU enforces a signed/verity-verified SSQ bundle pipeline for modem artifacts.
@@ -229,7 +229,7 @@ This section maps the **primary communication channels** and their security prop
 **User-provided fact:** The mini‑HDMI debug connector is a network diagnostic port; most ports blocked; recovery boots into updater with a limited terminal supporting at least: `gostaged`, `set_handshake`, `start_update`.
 
 **Evidence (adjacent):**
-- The updater stack provides an HTTP control plane on MCU (default `localhost:20564`) via `sx-updater` (`/root/tesla/15-updater-component-inventory.md`, `/root/tesla/16-offline-update-format-notes.md`).
+- The updater stack provides an HTTP control plane on MCU (default `localhost:20564`) via `sx-updater` (`/research/15-updater-component-inventory.md`, `/research/16-offline-update-format-notes.md`).
 - `updaterctl` exposes commands including `gostaged` and targets MCU/APE.
 
 **Interpretation (inference):**
@@ -281,7 +281,7 @@ From the scripts, the UDPAPI behaves like a **command byte(s) + simple ACK** pro
 
 ### 4.3 Config unlock and config write (research corpus)
 
-**From `/root/tesla/02-gateway-can-flood-exploit.md` (research, not directly from MCU filesystem):**
+**From `/research/02-gateway-can-flood-exploit.md` (research, not directly from MCU filesystem):**
 
 - A “config unlock” magic payload is described:
   - `18 BA BB A0 AD` (hex)
@@ -336,7 +336,7 @@ On the normal running MCU:
   - **MCU:** `localhost:20564`
   - **APE:** `ape:28496` or `ape-b:28496`
 
-Evidence: `/root/downloads/mcu2-extracted/usr/bin/updaterctl`.
+Evidence: `/firmware/mcu2-extracted/usr/bin/updaterctl`.
 
 **Interpretation (inference):** Recovery/updater terminal likely provides a restricted command interface to the same underlying state machine (staging, handshake selection, start/install actions).
 
@@ -395,8 +395,8 @@ Plausible reasons Tesla attaches SD to the Gateway rather than the MCU:
 Because the MCU lacks the physical SD interface, it likely consumes SD-backed artifacts via:
 
 - Gateway-exported logs/events via network protocol,
-- update logs parsed by MCU (`parse_gateway_update_log` string evidence from `/root/tesla/21-gateway-heartbeat-failsafe.md`),
-- staged update artifacts delivered through the Gateway update pipeline (TFTP flows described in `/root/tesla/09-gateway-sdcard-log-analysis.md`).
+- update logs parsed by MCU (`parse_gateway_update_log` string evidence from `/research/21-gateway-heartbeat-failsafe.md`),
+- staged update artifacts delivered through the Gateway update pipeline (TFTP flows described in `/research/09-gateway-sdcard-log-analysis.md`).
 
 ### 7.3 Security implications
 
@@ -409,7 +409,7 @@ Because the MCU lacks the physical SD interface, it likely consumes SD-backed ar
 
 ### 8.1 Firmware artifacts and verification (evidence)
 
-From `/root/tesla/18-cid-iris-update-pipeline.md` and extracted filesystem:
+From `/research/18-cid-iris-update-pipeline.md` and extracted filesystem:
 
 - Modem SSQ loader uses dm‑verity keys:
   - `/etc/verity-modem-prod.pub`
@@ -500,23 +500,23 @@ These documents contain deeper detail that should be kept consistent with this h
 ## Appendix A — Evidence snippets (paths)
 
 - UDP/3500 clients:
-  - `/root/downloads/mcu2-extracted/usr/local/bin/restart-updater`
-  - `/root/downloads/mcu2-extracted/usr/local/bin/reboot-gateway`
-  - `/root/downloads/mcu2-extracted/usr/local/bin/request-gateway-switch-dump`
-  - `/root/downloads/mcu2-extracted/sbin/autofuser.sh`
+  - `/firmware/mcu2-extracted/usr/local/bin/restart-updater`
+  - `/firmware/mcu2-extracted/usr/local/bin/reboot-gateway`
+  - `/firmware/mcu2-extracted/usr/local/bin/request-gateway-switch-dump`
+  - `/firmware/mcu2-extracted/sbin/autofuser.sh`
 
 - Firewall allowance to Gateway UDP/3500:
-  - `/root/downloads/mcu2-extracted/etc/firewall.d/hermes-livestream.iptables`
-  - `/root/downloads/mcu2-extracted/etc/firewall.d/qtcar-connman.iptables`
+  - `/firmware/mcu2-extracted/etc/firewall.d/hermes-livestream.iptables`
+  - `/firmware/mcu2-extracted/etc/firewall.d/qtcar-connman.iptables`
 
 - Modem verity keys:
-  - `/root/downloads/mcu2-extracted/etc/verity-modem-prod.pub`
-  - `/root/downloads/mcu2-extracted/etc/verity-modem-dev.pub`
+  - `/firmware/mcu2-extracted/etc/verity-modem-prod.pub`
+  - `/firmware/mcu2-extracted/etc/verity-modem-dev.pub`
 
 - Iris updater scripts:
-  - `/root/downloads/mcu2-extracted/usr/local/bin/iris-fw-upgrade.sh`
-  - `/root/downloads/mcu2-extracted/usr/local/bin/iris-fw-ssq-load.sh`
+  - `/firmware/mcu2-extracted/usr/local/bin/iris-fw-upgrade.sh`
+  - `/firmware/mcu2-extracted/usr/local/bin/iris-fw-ssq-load.sh`
 
 - Updater client:
-  - `/root/downloads/mcu2-extracted/usr/bin/updaterctl`
+  - `/firmware/mcu2-extracted/usr/bin/updaterctl`
 

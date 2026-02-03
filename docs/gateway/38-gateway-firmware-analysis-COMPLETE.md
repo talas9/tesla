@@ -27,21 +27,21 @@
 ### 1. Complete Firmware Archive Located
 
 **PowerPC Bootloaders (Boot/Init firmware):**
-- ✅ `/root/downloads/seed-extracted/gtw/14/models-fusegtw-GW_R4.img` - 90,340 bytes
-- ✅ `/root/downloads/seed-extracted/gtw/114/models-fusegtw-GW_R7.img` - 94,436 bytes
+- ✅ `/firmware/seed-extracted/gtw/14/models-fusegtw-GW_R4.img` - 90,340 bytes
+- ✅ `/firmware/seed-extracted/gtw/114/models-fusegtw-GW_R7.img` - 94,436 bytes
 
 **PowerPC Application Firmware (Main CAN gateway logic):**
-- ✅ `/root/downloads/seed-extracted/gtw/1/models-GW_R4.hex` - 3.3 MB (Intel HEX format)
-- ✅ `/root/downloads/seed-extracted/gtw/101/models-GW_R7.hex` - 3.3 MB
+- ✅ `/firmware/seed-extracted/gtw/1/models-GW_R4.hex` - 3.3 MB (Intel HEX format)
+- ✅ `/firmware/seed-extracted/gtw/101/models-GW_R7.hex` - 3.3 MB
 - ✅ Converted to binary: `/tmp/gw_r4_app.bin` - 1.2 MB PowerPC code
 
 **PowerPC Update Images:**
-- ✅ `/root/downloads/seed-extracted/gtw/108/models-update-GW_R7.img` - 351 KB
-- ✅ `/root/downloads/seed-extracted/gtw/115/models-update-fuser-GW_R7.img` - 351 KB
+- ✅ `/firmware/seed-extracted/gtw/108/models-update-GW_R7.img` - 351 KB
+- ✅ `/firmware/seed-extracted/gtw/115/models-update-fuser-GW_R7.img` - 351 KB
 
 **x86_64 Runtime (Linux host, DoIP gateway):**
-- ✅ `/root/downloads/mcu2-extracted/usr/bin/doip-gateway` - 72 KB
-- ✅ `/root/downloads/mcu2-extracted/usr/sbin/gw-diag` - ~200 KB
+- ✅ `/firmware/mcu2-extracted/usr/bin/doip-gateway` - 72 KB
+- ✅ `/firmware/mcu2-extracted/usr/sbin/gw-diag` - ~200 KB
 
 ### 2. Architecture Discovery - Hybrid System
 
@@ -104,7 +104,7 @@ Tesla Gateway ECU uses a **complex multi-processor architecture**:
 0x5E40: "tcpip_thread"
 ```
 
-**See:** Full analysis in `/root/tesla/12-gateway-bootloader-analysis.md`
+**See:** Full analysis in `/research/12-gateway-bootloader-analysis.md`
 
 ### Finding #2: Gateway Application Firmware (PowerPC)
 
@@ -307,7 +307,7 @@ for (int i = 0; i < 8200; i++) {  // Exceed 8KB
 // - Can overwrite jump table, function pointers, etc.
 ```
 
-**Exploitation:** See `/root/tesla/26-bootloader-exploit-research.md` Section 3
+**Exploitation:** See `/research/26-bootloader-exploit-research.md` Section 3
 
 **Target #2: Jump Table Overflow**
 
@@ -381,19 +381,19 @@ grep -r "25956\|0x6564\|udpapi" /var/spool/sx-updater/
 
 2. **Systemd services:**
 ```bash
-grep -r "25956\|emergency\|udpapi" /root/downloads/mcu2-extracted/etc/sv/
+grep -r "25956\|emergency\|udpapi" /firmware/mcu2-extracted/etc/sv/
 ```
 
 3. **Embedded in other binaries:**
 ```bash
-find /root/downloads/mcu2-extracted/usr/{bin,sbin} -type f -executable | while read f; do
+find /firmware/mcu2-extracted/usr/{bin,sbin} -type f -executable | while read f; do
     strings "$f" | grep -q "25956" && echo "$f"
 done
 ```
 
 4. **Shared libraries:**
 ```bash
-find /root/downloads/mcu2-extracted/usr/lib -name "*.so*" -exec strings {} \; | grep -i udpapi
+find /firmware/mcu2-extracted/usr/lib -name "*.so*" -exec strings {} \; | grep -i udpapi
 ```
 
 ### ⚠️ Partial: Watchdog Timeout Value
@@ -480,36 +480,36 @@ An attacker with **CAN bus access** can:
 ### PowerPC Bootloaders
 | File | Size | Path |
 |------|------|------|
-| GW_R4 bootloader | 90,340 bytes | `/root/downloads/seed-extracted/gtw/14/models-fusegtw-GW_R4.img` |
-| GW_R7 bootloader | 94,436 bytes | `/root/downloads/seed-extracted/gtw/114/models-fusegtw-GW_R7.img` |
+| GW_R4 bootloader | 90,340 bytes | `/firmware/seed-extracted/gtw/14/models-fusegtw-GW_R4.img` |
+| GW_R7 bootloader | 94,436 bytes | `/firmware/seed-extracted/gtw/114/models-fusegtw-GW_R7.img` |
 
 ### PowerPC Application Firmware
 | File | Size | Path |
 |------|------|------|
-| GW_R4 app (HEX) | 3.3 MB | `/root/downloads/seed-extracted/gtw/1/models-GW_R4.hex` |
+| GW_R4 app (HEX) | 3.3 MB | `/firmware/seed-extracted/gtw/1/models-GW_R4.hex` |
 | GW_R4 app (binary) | 1.2 MB | `/tmp/gw_r4_app.bin` (converted) |
-| GW_R7 app (HEX) | 3.3 MB | `/root/downloads/seed-extracted/gtw/101/models-GW_R7.hex` |
+| GW_R7 app (HEX) | 3.3 MB | `/firmware/seed-extracted/gtw/101/models-GW_R7.hex` |
 
 ### PowerPC Update Images
 | File | Size | Path |
 |------|------|------|
-| GW_R7 update | 351 KB | `/root/downloads/seed-extracted/gtw/108/models-update-GW_R7.img` |
-| GW_R7 fuser update | 351 KB | `/root/downloads/seed-extracted/gtw/115/models-update-fuser-GW_R7.img` |
-| GW_R4 fuser update | 361 KB | `/root/downloads/seed-extracted/gtw/15/models-update-fuser-GW_R4.img` |
+| GW_R7 update | 351 KB | `/firmware/seed-extracted/gtw/108/models-update-GW_R7.img` |
+| GW_R7 fuser update | 351 KB | `/firmware/seed-extracted/gtw/115/models-update-fuser-GW_R7.img` |
+| GW_R4 fuser update | 361 KB | `/firmware/seed-extracted/gtw/15/models-update-fuser-GW_R4.img` |
 
 ### x86_64 Runtime Binaries
 | File | Size | Path |
 |------|------|------|
-| DoIP gateway | 72 KB | `/root/downloads/mcu2-extracted/usr/bin/doip-gateway` |
-| Gateway diagnostics | ~200 KB | `/root/downloads/mcu2-extracted/usr/sbin/gw-diag` |
+| DoIP gateway | 72 KB | `/firmware/mcu2-extracted/usr/bin/doip-gateway` |
+| Gateway diagnostics | ~200 KB | `/firmware/mcu2-extracted/usr/sbin/gw-diag` |
 
 ### Configuration Files
 | File | Path |
 |------|------|
-| Firewall rules | `/root/downloads/mcu2-extracted/etc/firewall.d/doip-gateway.iptables` |
-| Seccomp policy | `/root/downloads/mcu2-extracted/etc/kafel/doip-gateway.kafel` |
-| AppArmor profile | `/root/downloads/mcu2-extracted/etc/apparmor.compiled/usr.bin.doip-gateway` |
-| DLT config | `/root/downloads/mcu2-extracted/etc/dlt_gateway.conf` |
+| Firewall rules | `/firmware/mcu2-extracted/etc/firewall.d/doip-gateway.iptables` |
+| Seccomp policy | `/firmware/mcu2-extracted/etc/kafel/doip-gateway.kafel` |
+| AppArmor profile | `/firmware/mcu2-extracted/etc/apparmor.compiled/usr.bin.doip-gateway` |
+| DLT config | `/firmware/mcu2-extracted/etc/dlt_gateway.conf` |
 
 ---
 

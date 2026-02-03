@@ -1,8 +1,8 @@
 # VCSEC keycard / key programming-related routines (Tesla ODJ)
 
 Source files:
-- `/root/downloads/tesla_odj/Model 3/VCSEC.odj.json`
-- `/root/downloads/tesla_odj/Model Y/VCSEC.odj.json`
+- `/firmware/tesla_odj/Model 3/VCSEC.odj.json`
+- `/firmware/tesla_odj/Model Y/VCSEC.odj.json`
 
 Models compared: Model 3, Model Y
 Routines identical across models: **true**

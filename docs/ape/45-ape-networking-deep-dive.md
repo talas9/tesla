@@ -3,7 +3,7 @@
 **Document Version:** 2.0  
 **Analysis Date:** February 3, 2026  
 **Platform:** Tesla Autopilot Hardware 2.x (HW2/HW2.5)  
-**Source:** APE firmware extraction (`/root/downloads/ape-extracted/`)  
+**Source:** APE firmware extraction (`/firmware/ape-extracted/`)  
 **Cross-reference:** 
 - MCU network analysis: [04-network-ports-firewall.md](04-network-ports-firewall.md)
 - APE services overview: [43-ape-network-services.md](43-ape-network-services.md)
@@ -108,7 +108,7 @@ This document provides a **comprehensive network security analysis** of Tesla's 
 
 ### 1.2 Network Interfaces
 
-**Source:** `/root/downloads/ape-extracted/etc/network/interfaces`
+**Source:** `/firmware/ape-extracted/etc/network/interfaces`
 
 ```bash
 auto lo
@@ -151,7 +151,7 @@ nameserver 192.168.90.100
 
 ### 2.1 Firewall Architecture
 
-**Master Script:** `/root/downloads/ape-extracted/sbin/firewall`
+**Master Script:** `/firmware/ape-extracted/sbin/firewall`
 
 ```bash
 #!/bin/sh
@@ -228,7 +228,7 @@ EOF
 
 ### 2.2 Production Firewall Rules
 
-**Source:** `/root/downloads/ape-extracted/etc/firewall`
+**Source:** `/firmware/ape-extracted/etc/firewall`
 
 ```bash
 # Ensure nobody can send canrx traffic except LB.
@@ -248,7 +248,7 @@ printf "%s\n" "-A INPUT -i eth0 -p tcp --dport 8081 -j ACCEPT"
 
 ### 2.3 Development/Factory Firewall Rules
 
-**Source:** `/root/downloads/ape-extracted/etc/firewall_dev`
+**Source:** `/firmware/ape-extracted/etc/firewall_dev`
 
 **⚠️ WARNING:** These rules are applied on **unfused ECUs** (development or factory mode vehicles).
 
@@ -350,7 +350,7 @@ printf "%s\n" "-A INPUT -i eth0 -p tcp --dport 8081 -j ACCEPT"
 
 **Purpose:** Forces all DNS resolution through `libnss_autopilot` (custom NSS plugin)
 
-**Source:** `/root/downloads/ape-extracted/etc/autopilot_hosts` (local DNS database)
+**Source:** `/firmware/ape-extracted/etc/autopilot_hosts` (local DNS database)
 
 **Security Implication:**
 - ✅ Prevents DNS hijacking

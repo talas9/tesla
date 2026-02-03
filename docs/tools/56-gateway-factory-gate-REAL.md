@@ -399,7 +399,7 @@ Software-only analysis has reached its limit without runtime data.
 
 - `models-fusegtw-GW_R7.img` - Main firmware analyzed
 - `models-fusegtw-GW_R4.img` - Comparison firmware
-- Previous research: `/root/tesla/12-gateway-bootloader-analysis.md`
+- Previous research: `/research/12-gateway-bootloader-analysis.md`
 - SPC5x Architecture: Freescale/NXP PowerPC Book-E
 
 **END OF ANALYSIS**

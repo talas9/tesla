@@ -2,7 +2,7 @@
 
 **Created:** 2026-02-02  
 **Last Updated:** 2026-02-03  
-**Purpose:** Single place to connect *all* findings across the `/root/tesla/*.md` research corpus, resolve previously-open questions, and provide fast lookup tables (ports/CAN/configs/paths/offsets).
+**Purpose:** Single place to connect *all* findings across the `/research/*.md` research corpus, resolve previously-open questions, and provide fast lookup tables (ports/CAN/configs/paths/offsets).
 
 > This is a **living** synthesis document. It prioritizes: (1) what is evidenced, (2) what is inferred, and (3) what remains unknown.
 

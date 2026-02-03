@@ -240,9 +240,9 @@ def add_can_filter(flash_dump, can_id):
 ## Files Created
 
 ```
-/root/tesla/ryzenfromtable.bin              6.0 MB - Raw flash dump
-/root/tesla/gateway_configs_parsed.txt       42 KB - Parsed config list
-/root/tesla/80-ryzen-gateway-flash-COMPLETE.md  This analysis
+/research/ryzenfromtable.bin              6.0 MB - Raw flash dump
+/research/gateway_configs_parsed.txt       42 KB - Parsed config list
+/research/80-ryzen-gateway-flash-COMPLETE.md  This analysis
 ```
 
 ## Cross-References

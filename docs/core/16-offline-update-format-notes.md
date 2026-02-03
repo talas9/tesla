@@ -3,7 +3,7 @@
 > **Reverse Engineering Analysis**  
 > Comprehensive documentation of Tesla offline update package structure and signature verification mechanisms based on binary string extraction and analysis.  
 > **Binaries Analyzed:** `sx-updater`, `updater-envoy`, `updaterctl`  
-> **Source:** `/root/downloads/mcu2-extracted/`  
+> **Source:** `/firmware/mcu2-extracted/`  
 > **Date:** 2026-02-03
 
 ---
@@ -809,7 +809,7 @@ sx-updater:8437: /service.upd
 
 ```bash
 # Extract all strings from binaries
-cd /root/downloads/mcu2-extracted
+cd /firmware/mcu2-extracted
 strings -n 6 deploy/sx-updater > /tmp/sx-updater-strings.txt       # 19,727 lines
 strings -n 6 usr/bin/updater-envoy > /tmp/updater-envoy-strings.txt # 38,987 lines
 cat usr/bin/updaterctl > /tmp/updaterctl-script.txt                 # 108 lines

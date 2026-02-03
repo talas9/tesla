@@ -976,7 +976,7 @@ Example:
 
 ### 7.3 Parsing Scripts
 
-**Gateway Log Parser:** `/root/tesla/scripts/parse_gateway_sd_log.py`
+**Gateway Log Parser:** `/research/scripts/parse_gateway_sd_log.py`
 
 Example usage in `09-gateway-sdcard-log-analysis.md`:
 
@@ -1491,9 +1491,9 @@ hermesenv
 
 ## References
 
-1. Firmware dumps: `/root/downloads/model3y-extracted/`, `/root/downloads/mcu2-extracted/`
-2. Gateway log analysis: `/root/tesla/09-gateway-sdcard-log-analysis.md`
-3. Hermes research: `/root/.openclaw/workspace/tesla-hermes-research.md`
+1. Firmware dumps: `/firmware/model3y-extracted/`, `/firmware/mcu2-extracted/`
+2. Gateway log analysis: `/research/09-gateway-sdcard-log-analysis.md`
+3. Hermes research: `/workspace/workspace/tesla-hermes-research.md`
 4. Configuration files:
    - `/etc/hermes-eventlogs.vars`
    - `/etc/hermes-historylogs.vars`

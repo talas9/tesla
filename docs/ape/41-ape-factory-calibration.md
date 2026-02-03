@@ -1027,20 +1027,20 @@ Content-Type: application/json
 
 ```bash
 # Extract factory-related strings
-strings /root/downloads/ape-extracted/opt/autopilot/bin/factory_camera_calibration | grep -i factory
+strings /firmware/ape-extracted/opt/autopilot/bin/factory_camera_calibration | grep -i factory
 
 # Extract HTTP server strings
-strings /root/downloads/ape-extracted/opt/autopilot/bin/ui_server | grep -E "http|8901"
+strings /firmware/ape-extracted/opt/autopilot/bin/ui_server | grep -E "http|8901"
 
 # Extract calibration endpoint strings
-strings /root/downloads/ape-extracted/opt/autopilot/bin/factory_camera_calibration | grep "/factory"
+strings /firmware/ape-extracted/opt/autopilot/bin/factory_camera_calibration | grep "/factory"
 ```
 
 ### B.2 Radare2 Analysis (Pending)
 
 ```bash
 # Load binary
-r2 /root/downloads/ape-extracted/opt/autopilot/bin/ui_server
+r2 /firmware/ape-extracted/opt/autopilot/bin/ui_server
 
 # Analyze all functions
 aaa
@@ -1059,10 +1059,10 @@ pdf @main
 
 ```bash
 # List all symbols (even in stripped binary, some may remain)
-readelf -s /root/downloads/ape-extracted/opt/autopilot/bin/ui_server | grep -i http
+readelf -s /firmware/ape-extracted/opt/autopilot/bin/ui_server | grep -i http
 
 # Check for exported functions
-nm -D /root/downloads/ape-extracted/opt/autopilot/bin/ui_server
+nm -D /firmware/ape-extracted/opt/autopilot/bin/ui_server
 ```
 
 ---
@@ -1079,8 +1079,8 @@ nm -D /root/downloads/ape-extracted/opt/autopilot/bin/ui_server
 
 **External references:**
 - Tesla Odin bundle: `/opt/odin/odin_bundle/odin_bundle/networks/Common/lib/`
-- APE firmware: `/root/downloads/ape-extracted/`
-- APE binaries: `/root/downloads/ape-extracted/opt/autopilot/bin/`
+- APE firmware: `/firmware/ape-extracted/`
+- APE binaries: `/firmware/ape-extracted/opt/autopilot/bin/`
 
 ---
 

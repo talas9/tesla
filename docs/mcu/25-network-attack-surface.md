@@ -193,7 +193,7 @@ Permissions-Policy: geolocation=(), microphone=(), camera=()
 ```
 
 **Authentication Stack:**
-- **JWT Secret**: 64-byte hex token (stored in `/root/.openclaw/workspace/memory/monitoring/.jwt_secret`)
+- **JWT Secret**: 64-byte hex token (stored in `/workspace/workspace/memory/monitoring/.jwt_secret`)
 - **Password Hash**: bcrypt with salt (ADMIN_PASSWORD_HASH in code)
 - **Turnstile**: Cloudflare CAPTCHA verification (secret key: 0x4AAAAAACW11wpuJ9aUXE8270_x7Ep2msc)
 - **DDoS Protection**: Rate limiting, IP throttling, account lockout
@@ -536,7 +536,7 @@ com.ubuntu.SoftwareProperties.conf
 **Finding:** ⚠️ **WebSocket code present but not actively used**
 
 ```python
-# From /root/.openclaw/workspace/memory/monitoring/webserver.py
+# From /workspace/workspace/memory/monitoring/webserver.py
 # Lines reference WebSocket handshake handling
 ```
 
@@ -774,7 +774,7 @@ $ ss -tuln | grep 631
 **Attack Vectors:**
 
 **A. JWT Secret Extraction**
-- Secret stored in `/root/.openclaw/workspace/memory/monitoring/.jwt_secret`
+- Secret stored in `/workspace/workspace/memory/monitoring/.jwt_secret`
 - If attacker gains file read (LFI, directory traversal) → full authentication bypass
 
 **Mitigation:**
@@ -929,9 +929,9 @@ tailscale status
 3. **Rotate JWT secret**
    ```bash
    # Generate new secret
-   python3 -c "import secrets; print(secrets.token_hex(32))" > /root/.openclaw/workspace/memory/monitoring/.jwt_secret
+   python3 -c "import secrets; print(secrets.token_hex(32))" > /workspace/workspace/memory/monitoring/.jwt_secret
    # Restart webserver
-   pkill -f webserver.py && python3 /root/.openclaw/workspace/memory/monitoring/webserver.py &
+   pkill -f webserver.py && python3 /workspace/workspace/memory/monitoring/webserver.py &
    ```
 
 ---
@@ -1005,7 +1005,7 @@ tailscale status
     ProtectSystem=strict
     ProtectHome=true
     ReadOnlyPaths=/
-    ReadWritePaths=/root/.openclaw/workspace
+    ReadWritePaths=/workspace/workspace
     ```
 
 13. **Implement certificate pinning for NGINX**
@@ -1026,7 +1026,7 @@ tailscale status
 
 ### APE Communication Channels (192.168.90.x)
 
-**Note:** This server does NOT have Tesla MCU2 network interfaces. The following is reference documentation from the Tesla research project in `/root/tesla/`.
+**Note:** This server does NOT have Tesla MCU2 network interfaces. The following is reference documentation from the Tesla research project in `/research/`.
 
 #### Tesla Internal Network Map
 
@@ -1047,9 +1047,9 @@ tailscale status
 4. **Toolbox API** - Ports 4030, 4035, 4050, 4060, 4090, 4094, 7654
 
 **Reference Documents:**
-- `/root/tesla/02-gateway-can-flood-exploit.md`
-- `/root/tesla/04-network-ports-firewall.md`
-- `/root/tesla/05-gap-analysis-missing-pieces.md`
+- `/research/02-gateway-can-flood-exploit.md`
+- `/research/04-network-ports-firewall.md`
+- `/research/05-gap-analysis-missing-pieces.md`
 
 ---
 
@@ -1062,14 +1062,14 @@ tailscale status
 /etc/cups/cupsd.conf - CUPS print service
 /etc/ssh/sshd_config - SSH daemon config
 /etc/dbus-1/system.d/ - D-Bus policies
-/root/.openclaw/workspace/memory/monitoring/webserver.py - Dashboard service
-/root/.openclaw/workspace/memory/monitoring/.jwt_secret - JWT signing key
+/workspace/workspace/memory/monitoring/webserver.py - Dashboard service
+/workspace/workspace/memory/monitoring/.jwt_secret - JWT signing key
 ```
 
 ### Security Platform Service Architecture
 
 ```
-/root/.openclaw/
+/workspace/
 ├── workspace/
 │   └── memory/
 │       └── monitoring/
@@ -1089,16 +1089,16 @@ tailscale status
 
 ```bash
 # Export current ruleset
-sudo iptables-save > /root/tesla/iptables-backup-$(date +%Y%m%d).rules
+sudo iptables-save > /research/iptables-backup-$(date +%Y%m%d).rules
 
 # Restore from backup
-sudo iptables-restore < /root/tesla/iptables-backup-YYYYMMDD.rules
+sudo iptables-restore < /research/iptables-backup-YYYYMMDD.rules
 ```
 
 ### UFW Status Export
 
 ```bash
-sudo ufw status verbose > /root/tesla/ufw-status-$(date +%Y%m%d).txt
+sudo ufw status verbose > /research/ufw-status-$(date +%Y%m%d).txt
 ```
 
 ---
