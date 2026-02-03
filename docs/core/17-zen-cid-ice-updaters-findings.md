@@ -292,7 +292,7 @@ ICE (Intel):
   Device: /dev/mapper/ivg-var.crypt
   Logs: /var/log/ice-updater/current
 
-MCU2 (Tegra):
+Model S/X firmware (.mcu2 packages):
   Spool: /var/spool/cid-updater/
   Device: /dev/var-partition
   Logs: /var/log/cid-updater/current
@@ -430,7 +430,7 @@ map_verify_override_delay
 /dev/ivg/bmap                     // B-slot mapping
 ```
 
-**MCU2 (Tegra)**:
+**Model S/X firmware (.mcu2 packages)**:
 ```
 /dev/var-partition                // Direct partition
 /dev/mmcblk0p1                    // Boot partition

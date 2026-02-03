@@ -2,7 +2,7 @@
 
 **Date:** 2026-02-03  
 **Status:** ✅ VERIFIED - Missing Link FOUND  
-**Firmware Types:** MCU2 (Model S/X, Tegra) and ICE (Model 3/Y, Ryzen)
+**Firmware Types:** Firmware package format for Model S/X (file extension: .mcu2) and Firmware package format for Model 3/Y (file extension: .ice)
 
 ---
 
@@ -32,7 +32,7 @@ The Tesla offline USB update package format has been **completely reverse-engine
 | SquashFS_end | ~2 KB | Padding | Zero-filled alignment to 4K boundary |
 | Sig_start | ~35 MB | Signature region | NaCl signature + dm-verity table + metadata |
 
-### Example: 2025.26.8.ice (ICE/Ryzen firmware)
+### Example: 2025.26.8.ice (Model 3/Y firmware (.ice packages) firmware)
 
 ```
 Total file size:     2,241,335,360 bytes (2.09 GB)
@@ -190,7 +190,7 @@ This explains the 33 MB signature region size!
 | `updater-envoy` | `/usr/bin/updater-envoy` | Main update orchestrator (Go binary) |
 | `updaterctl` | `/usr/bin/updaterctl` | CLI tool for update commands |
 | `sx-updater` | `/deploy/sx-updater` | MCU2-specific updater |
-| `ice-updater` | `/usr/bin/ice-updater` | ICE/Ryzen-specific updater |
+| `ice-updater` | `/usr/bin/ice-updater` | Model 3/Y firmware (.ice packages)-specific updater |
 
 ### Extracted Symbols from `updater-envoy`
 
@@ -311,14 +311,14 @@ InstallFirmware("/mnt/offline")
 
 ## Public Key Locations
 
-### MCU2 (Tegra)
+### Model S/X firmware (.mcu2 packages)
 ```
 /etc/verity-prod.pub         (production key - fused)
 /etc/verity-dev.pub          (development key - unfused units)
 /etc/verity-breakout-prod.pub (breakout packages)
 ```
 
-### ICE (Ryzen)
+### Model 3/Y firmware (.ice packages))
 ```
 /etc/verity-modem-prod.pub   (modem firmware)
 /etc/verity-modem-dev.pub    (development modem firmware)
@@ -777,8 +777,8 @@ The format is now fully understood. Creating a working offline update requires e
 The downloaded firmware packages **ARE valid Tesla-signed USB update packages**:
 
 ```bash
-2025.26.8.ice    - Model 3/Y (ICE/Ryzen) - 2.09 GB
-2025.32.3.1.mcu2 - Model S/X (MCU2/Tegra) - 1.8 GB
+2025.26.8.ice    - Model 3/Y (Model 3/Y firmware (.ice packages)) - 2.09 GB
+2025.32.3.1.mcu2 - Model S/X (Model S/X (.mcu2)) - 1.8 GB
 ```
 
 **Verification:**

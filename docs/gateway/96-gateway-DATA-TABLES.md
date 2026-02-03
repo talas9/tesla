@@ -263,7 +263,7 @@ struct config_entry {
 | URL | Purpose |
 |-----|---------|
 | http://192.168.90.100:20564/ice-wc-redeploy | ICE (MCU) OTA trigger |
-| http://192.168.90.100:20564/ice-wc3-redeploy | ICE3 (Ryzen) OTA trigger |
+| http://192.168.90.100:20564/ice-wc3-redeploy | Model 3/Y firmware (.ice packages)) OTA trigger |
 | http://192.168.90.100:20564/ice-umc-redeploy | UMC (Charger) OTA trigger |
 | http://modem:28496/secondary_nand_prod_signed | TCU secondary NAND check |
 

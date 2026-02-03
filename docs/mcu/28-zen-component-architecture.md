@@ -84,7 +84,7 @@ Entry Point: 0x671bd
 
 | Platform | Service Name | Binary Path | Service Directory | Spool Directory |
 |----------|-------------|-------------|-------------------|-----------------|
-| MCU2 (Tegra) | `cid-updater` | (legacy) | `/etc/sv/cid-updater` | `/var/spool/cid-updater/` |
+| Model S/X firmware (.mcu2 packages) | `cid-updater` | (legacy) | `/etc/sv/cid-updater` | `/var/spool/cid-updater/` |
 | MCU2 Transition | `sx-updater` | `/bin/sx-updater` | `/etc/sv/sx-updater/` | `/var/spool/sx-updater/` |
 | Model 3/Y (ICE) | `ice-updater` | `/bin/ice-updater` | `/etc/sv/ice-updater/` | `/var/spool/ice-updater/` |
 | **InfoZ (Zen)** | **`zen-updater`** | **`/bin/ice-updater`** | **N/A (runtime)** | **`/var/spool/zen-updater/`** |
@@ -358,7 +358,7 @@ InfoZ (Snapdragon):
 ICE (Intel):
   /dev/mapper/ivg-var.crypt    (IVG volume group)
   
-MCU2 (Tegra):
+Model S/X firmware (.mcu2 packages):
   /dev/var-partition           (direct partition)
 ```
 
@@ -808,7 +808,7 @@ if match:
 
 **Document Version**: 1.0  
 **Last Updated**: 2026-02-03  
-**Analysis Scope**: Model 3/Y (ICE), MCU2 (Tegra), InfoZ (Zen)  
+**Analysis Scope**: Model 3/Y (ICE), Model S/X firmware (.mcu2 packages), InfoZ (Zen)  
 **Binary Versions Analyzed**:
 - `ice-updater`: 6,004,624 bytes
 - `sx-updater`: 6,008,720 bytes

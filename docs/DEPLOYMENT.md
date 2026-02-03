@@ -227,7 +227,7 @@ pip install mkdocs mkdocs-material mkdocs-awesome-pages-plugin
 cd ~/tesla
 cat > mkdocs.yml << 'YAML'
 site_name: Tesla MCU2 Security Research
-site_description: Comprehensive security analysis of Tesla Model S/X (MCU2) and Model 3/Y (ICE/Ryzen)
+site_description: Comprehensive security analysis of Tesla Model S/X (MCU2) and Model 3/Y (Model 3/Y firmware (.ice packages))
 site_author: Security Researcher
 
 theme:
