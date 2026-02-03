@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-Mohammed identified critical config metadata structures at the end of the Gateway binary that we had not yet analyzed. This document tracks the extraction of:
+internal researcher. This document tracks the extraction of:
 
 1. **Config name string table** (0x401150-0x401800)
 2. **Config ID index array** (0x402400+)
@@ -354,7 +354,7 @@ powerpc-linux-gnu-objdump -D -m powerpc -b binary \
 
 ## Contributor Notes
 
-**Mohammed's guidance:**
+**internal researcher
 > "the same binary contains more indexing about config at near the end of it if you check it"  
 > "this binary is machine code and not encrypted and can be desassembled back into methods and other very valuable information!!!"
 

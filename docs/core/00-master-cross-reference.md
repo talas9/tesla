@@ -447,7 +447,7 @@ Cross references:
 | [24-summary](24-vcsec-key-programming-summary.md) | VCSEC summary | High-level completion summary |
 | [26](26-bootloader-exploit-research.md) | Bootloader exploit | Identified vulnerability classes + primitives |
 | [28](28-can-flood-refined-timing.md) | Timing refine | Scheduler-driven timing improvements |
-| [76](76-gateway-app-firmware-REAL.md) | Gateway firmware hex | Real 38KB Intel HEX firmware from Tesla Ukraine |
+| [76](76-gateway-app-firmware-REAL.md) | Gateway firmware hex | Real 38KB Intel HEX firmware from Tesla internal source |
 | [77](77-gateway-config-database-REAL.md) | Gateway config dump | Live EEPROM dump from Model Y VIN 7SAYGDEEXPA052466 |
 | [78](78-update-signature-extraction-TOOL.md) | Tesla signature tool | Official internal script for extracting update signatures |
 | [79](79-gateway-flash-dump-JTAG.md) | JTAG flash extraction | Complete Gateway flash dumps with CRC-8/0x2F algorithm |

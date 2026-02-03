@@ -60,7 +60,7 @@ Confirmed secure configs:
 
 ### How Gateway Enforces This
 
-**Hypothesis** (based on Mohammed's intel):
+**Hypothesis** (based on internal researcher
 
 ```c
 // Pseudocode for Gateway config write handler
@@ -107,7 +107,7 @@ Tesla → Hermes (WSS:443) → Gateway:
 
 ### Known Secure Configs
 
-Based on Mohammed's statement:
+Based on internal researcher
 
 | Config ID | Description | Why Secure |
 |-----------|-------------|------------|
@@ -391,10 +391,10 @@ Tesla's security layers:
 
 | Item | Status | Evidence |
 |------|--------|----------|
-| Two-tier system exists | ✅ VERIFIED | Mohammed's direct statement |
-| VIN is secure | ✅ VERIFIED | Confirmed by Mohammed |
-| Country is secure | ✅ VERIFIED | Confirmed by Mohammed |
-| Supercharger is secure | ✅ VERIFIED | Confirmed by Mohammed |
+| Two-tier system exists | ✅ VERIFIED | internal researcher
+| VIN is secure | ✅ VERIFIED | Confirmed by internal researcher
+| Country is secure | ✅ VERIFIED | Confirmed by internal researcher
+| Supercharger is secure | ✅ VERIFIED | Confirmed by internal researcher
 | gw-diag tool exists | ✅ VERIFIED | Used by Tesla service |
 | Auth tokens required | ✅ VERIFIED | "Extra params" mentioned |
 | Specific secure config list | ❌ UNKNOWN | Need to test each |

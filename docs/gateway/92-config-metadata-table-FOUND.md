@@ -1,14 +1,14 @@
 # Config Metadata Table - LOCATION CONFIRMED
 
 **Date:** 2026-02-03  
-**Discovered by:** Mohammed's guidance ("there is definitely a meta table for the configs somewhere else in the flash")  
+**Discovered by:** internal researcher
 **Status:** LOCATED - Structure partially identified, full parsing pending
 
 ---
 
 ## Executive Summary
 
-Mohammed was **absolutely correct** - there IS a comprehensive config metadata table in the Gateway flash dump. Located massive structured data regions at **0x403000-0x410000** containing 127+ config-related entries per 0x100-byte block.
+internal researcher. Located massive structured data regions at **0x403000-0x410000** containing 127+ config-related entries per 0x100-byte block.
 
 **Total metadata regions found:** 169 distinct tables  
 **Estimated total entries:** 21,000+ config metadata structures  
@@ -222,12 +222,12 @@ Based on prefix distribution and Odin database knowledge:
 
 ## Contributor Notes
 
-**Mohammed's exact words:**
+**internal researcher
 > "there is definintly a meta table for the configs somewhere else in the flash of gateway I've seen it before, I'm suspecting that one that has the actual definition of secure-nonsecure data"
 
 **Status:** ✅ **CONFIRMED AND LOCATED**
 
-The metadata table exists at **0x403000-0x410000** with 21,000+ structured entries. The prefix byte (0x03/0x05/0x07.../0x13/0x15) likely encodes the secure/nonsecure flags Mohammed mentioned.
+The metadata table exists at **0x403000-0x410000** with 21,000+ structured entries. The prefix byte (0x03/0x05/0x07.../0x13/0x15) likely encodes the secure/nonsecure flags internal researcher.
 
 **Next action:** Parse the actual config metadata (IDs 0x0000-0x01FF) separately from CAN mailbox data (IDs 0x4000+), then map prefix values to access levels using PowerPC disassembly of permission-checking code.
 

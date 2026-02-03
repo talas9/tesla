@@ -17,7 +17,7 @@
 
 ### Configuration CRC Algorithm (✅ VERIFIED & WORKING)
 
-Mohammed provided the **exact CRC parameters** and format:
+internal researcher
 
 ```
 Algorithm:    CRC-8
@@ -30,7 +30,7 @@ Format:       [CRC:1][Length:1][Config_ID:2_BE][Data:N]
 CRC Input:    [Length:1] + [Config_ID:2_BE] + [Data:N]
 ```
 
-**Example** (from Mohammed):
+**Example** (from internal source
 ```
 Hex: E1 0C 00 01 31 37 37 36 30 30 30 2D 30 32 2D 43
      ^^ ^^ ^^^^^ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -51,7 +51,7 @@ def calculate_config_crc(data):
     """
     Calculate CRC-8 for Gateway config entry
     
-    Parameters from Mohammed:
+    Parameters from internal source
     - width=8
     - polynomial=0x2f
     - init_value=0xff
@@ -409,9 +409,9 @@ To directly modify config in flash (bypassing Gateway UDP protocol):
 
 | Item | Status | Evidence |
 |------|--------|----------|
-| Flash dumps obtained | ✅ VERIFIED | From Tesla Ukraine source |
-| JTAG extraction | ✅ VERIFIED | Mohammed confirmed method |
-| CRC algorithm | ✅ VERIFIED | Parameters provided by Mohammed |
+| Flash dumps obtained | ✅ VERIFIED | From Tesla internal source |
+| JTAG extraction | ✅ VERIFIED | internal researcher
+| CRC algorithm | ✅ VERIFIED | Parameters provided by internal researcher
 | Config format | ⚠️ INFERRED | Based on CRC requirement + doc 77 |
 | Flash layout | ⚠️ INFERRED | Typical MPC55xx structure |
 | Polynomial 0x2F | ✅ VERIFIED | Provided explicitly |
@@ -420,7 +420,7 @@ To directly modify config in flash (bypassing Gateway UDP protocol):
 
 ### Immediate Actions
 
-1. **Request binary files** from Mohammed/Tesla Ukraine
+1. **Request binary files** from internal source
    - If images show hex editor, extract the actual binary dumps
    - Need: bootloader.bin, application.bin, config.bin
 

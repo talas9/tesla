@@ -266,7 +266,7 @@ Each entry is 16 bytes, points to exception handler code.
 
 ## Contributor Notes
 
-**Mohammed's requirement:**
+**internal researcher
 > "this binary is machine code and not encrypted and can be desassembled back into methods and other very valuable information!!!"
 
 **Status:** ✅ Disassembly generated, but requires manual section identification and function boundary detection.

@@ -175,7 +175,7 @@ Based on `accessId` field in Gen3 configs:
 }
 ```
 
-**Status**: Mohammed confirmed this is a **secure config** (Tesla-only access).
+**Status**: internal researcher.
 
 **Note**: No `accessLevel: "UDP"` flag, confirming it requires authentication!
 
@@ -228,7 +228,7 @@ Based on `accessId` field in Gen3 configs:
 }
 ```
 
-**Status**: Mohammed confirmed this is **insecure** (can change via UDP:3500).
+**Status**: internal researcher.
 
 **Note**: No special `accessLevel` flag, but empirically modifiable!
 
@@ -322,7 +322,7 @@ Configs with `accessLevel: "UDP"`:
 - `autopilotTrialExpireTime` (54)
 - `bmpWatchdogDisabled` (61)
 
-**Plus**: Empirically confirmed by Mohammed:
+**Plus**: Empirically confirmed by internal researcher
 - `mapRegion` (66)
 - Display units
 - User preferences
@@ -336,7 +336,7 @@ Configs **without** `accessLevel: "UDP"` that control:
 - Hardware limits (pack energy, motor type)
 
 **Examples**:
-- `superchargingAccess` (30) - confirmed by Mohammed
+- `superchargingAccess` (30) - confirmed by internal researcher
 - `autopilot` (29) - controls paid feature
 - `packEnergy` (14) - battery capacity
 - `devSecurityLevel` (15) - hardware fuses
@@ -473,11 +473,11 @@ gateway_write_config(config_id_for_accessId_33, 0x01)
 
 | Item | Status | Evidence |
 |------|--------|----------|
-| File authenticity | ✅ VERIFIED | From Tesla internal source, Mohammed's source |
-| Unhashed version | ✅ VERIFIED | Mohammed: "before they started doing that" |
+| File authenticity | ✅ VERIFIED | From Tesla internal source, internal researcher
+| Unhashed version | ✅ VERIFIED | internal researcher
 | Gen3 structure | ✅ VERIFIED | Valid JSON, matches known configs |
 | Gen2 structure | ✅ VERIFIED | Valid JSON, S/X configs present |
-| UDP flag meaning | ⚠️ INFERRED | Matches Mohammed's "easy to change" statement |
+| UDP flag meaning | ⚠️ INFERRED | Matches internal researcher
 | GTW flag meaning | ⚠️ INFERRED | Matches devSecurityLevel description |
 | accessId→config_id map | ❌ MISSING | Need to reverse-engineer |
 
@@ -494,7 +494,7 @@ This unhashed Odin routines file is a **CRITICAL SECURITY DOCUMENT** that reveal
 - 3 configs have `accessLevel: "UDP"` → Definitely insecure
 - 1 config has `accessLevel: "GTW"` → Hardware-locked (fuses)
 - No `accessLevel` flag on paid features → Likely secure (require auth)
-- Mohammed's statement matches: Map region is insecure, VIN/country/supercharger are secure
+- internal researcher, VIN/country/supercharger are secure
 
 **Security impact**:
 - ✅ Enables targeted attacks (know valid values)
