@@ -1,0 +1,25 @@
+/* Custom styles for Tesla research docs */
+
+/* Script download section */
+.script-download {
+  background: #1e1e1e;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.script-download code {
+  color: #4FC3F7;
+}
+
+/* Highlight critical documents */
+h1:has(🔒), h2:has(🔒) {
+  color: #f44336 !important;
+}
+
+/* Make config IDs stand out */
+code {
+  background: #263238;
+  padding: 2px 6px;
+  border-radius: 3px;
+}

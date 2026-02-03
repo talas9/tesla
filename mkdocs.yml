@@ -1,0 +1,118 @@
+site_name: Tesla MCU2 Security Research
+site_description: Comprehensive security analysis of Tesla Model S/X/3/Y MCU2 and Gateway
+site_author: Security Researcher
+site_url: https://YOUR_USERNAME.github.io/tesla-research/
+
+repo_name: YOUR_USERNAME/tesla-research
+repo_url: https://github.com/YOUR_USERNAME/tesla-research
+edit_uri: edit/master/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: red
+      accent: red
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: red
+      accent: red
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.follow
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - admonition
+  - tables
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/YOUR_USERNAME/tesla-research
+  generator: false
+
+nav:
+  - Home: README.md
+  - 'Complete Index': INDEX.md
+  - 'Deployment Guide': DEPLOYMENT.md
+  - 'Core Research':
+    - 'Master Cross-Reference': core/00-master-cross-reference.md
+    - 'Gateway CAN Flood Exploit': core/02-gateway-can-flood-exploit.md
+    - 'Certificate Recovery': core/03-certificate-recovery-orphan-cars.md
+    - 'Network Topology': core/04-network-ports-firewall.md
+    - 'USB Firmware Update': core/06-usb-firmware-update.md
+    - 'USB Map Installation': core/07-usb-map-installation.md
+    - 'Key Programming': core/08-key-programming-vcsec.md
+    - 'OTA Protocol': core/13-ota-handshake-protocol.md
+  - 'Gateway Security':
+    - '🔒 CRITICAL: Secure Configs': gateway/81-gateway-secure-configs-CRITICAL.md
+    - '✅ Complete Flash Dump': gateway/80-ryzen-gateway-flash-COMPLETE.md
+    - '🔓 Odin Database': gateway/82-odin-routines-database-UNHASHED.md
+    - '🎯 Config Metadata Table': gateway/92-config-metadata-table-FOUND.md
+    - 'Odin Config API': gateway/83-odin-config-api-analysis.md
+    - 'gw-diag Commands': gateway/84-gw-diag-command-reference.md
+    - 'Gateway Strings': gateway/88-gateway-strings-analysis.md
+    - 'PowerPC Disassembly': gateway/91-gateway-powerpc-disassembly-summary.md
+    - 'All Functions': gateway/94-gateway-ALL-FUNCTIONS.md
+    - 'CAN Messages Complete': gateway/95-gateway-CAN-MESSAGES-COMPLETE.md
+    - 'All Data Tables': gateway/96-gateway-DATA-TABLES.md
+    - 'Memory Map': gateway/97-gateway-MEMORY-MAP.md
+    - 'SHA-256 Usage': gateway/98-SHA-256-USAGE-ANALYSIS.md
+    - 'Firmware Metadata': gateway/99-gateway-FIRMWARE-METADATA.md
+    - 'SPC Chip Replacement': gateway/55-gateway-spc-chip-replacement.md
+  - 'MCU Research':
+    - 'MCU Architecture': mcu/24-mcu-architecture.md
+    - 'Boot Sequence': mcu/25-mcu-boot-sequence.md
+    - 'QtCarServer Security': mcu/28-mcu-qtcarserver.md
+    - 'Chromium Security': mcu/31-mcu-chromium-security.md
+  - 'Evidence & Audit':
+    - 'Evidence Audit': evidence/59-EVIDENCE-AUDIT.md
+    - 'Verification Status': VERIFICATION-STATUS.md
+  - 'Tools & Scripts':
+    - 'Gateway CRC Validator': tools/56-tools-gateway-database-query.md
+    - 'Download Scripts': '#scripts'
+
+extra_css:
+  - stylesheets/extra.css
