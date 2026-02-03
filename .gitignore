@@ -1,0 +1,32 @@
+# Large binaries (use Git LFS or exclude)
+*.bin
+data/binaries/
+
+# Large disassembly files (>100MB)
+data/disassembly/gateway_full_disassembly.txt
+
+# Python
+*.pyc
+__pycache__/
+.venv/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.log
+.cache/
+
+# Build outputs (if using MkDocs)
+site/
