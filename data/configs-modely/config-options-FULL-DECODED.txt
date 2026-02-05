@@ -2,10 +2,10 @@
 TESLA GATEWAY CONFIGURATION OPTIONS - FULLY DECODED
 ================================================================================
 
-Source: /root/downloads/model3y-extracted/opt/odin/data/Model3/config-options.json
-Salt: gj55iz2tgghun9nyw2sa8s5oxsykmfwo
-Decoded: 82 keys
-Unknown: 74 keys
+Source: /root/downloads/model3y-extracted/opt/odin/data/ModelY/config-options.json
+Salt: 2xz83kgreak7h956dgb3mdmd260c6cun
+Decoded: 84 keys
+Unknown: 76 keys
 Reference DB: 166 configs
 
 ================================================================================
@@ -78,7 +78,7 @@ Current Values (4 decoded, 1 unknown):
   ✓ HIGHWAY                        = 1      // Highway
   ✓ ENHANCED                       = 2      // Enhanced
   ✓ SELF_DRIVING                   = 3      // Self Driving
-  ✗ [UNKNOWN: e496576ceb502348...]
+  ✗ [UNKNOWN: 9588933fe1850e1e...]
 
 All Possible Values (4):
   NONE                           = 0      // None
@@ -95,7 +95,7 @@ Access Level:
 
 Current Values (1 decoded, 1 unknown):
   ✓ RCCB_CAMERAS                   = 2      // RCCB Cameras
-  ✗ [UNKNOWN: 68e93c4588626270...]
+  ✗ [UNKNOWN: 1dc0d80174d2fa3d...]
 
 All Possible Values (3):
   UNKNOWN                        = 0    
@@ -463,9 +463,12 @@ CONFIG: epasType
 Description: Type of steering actuator hardware installed
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (1 decoded, 1 unknown):
+Current Values (1 decoded, 4 unknown):
   ✓ MANDO_VGR69_GEN3               = 0    
-  ✗ [UNKNOWN: 0b07c901a09c7a02...]
+  ✗ [UNKNOWN: af2930ee27349b14...]
+  ✗ [UNKNOWN: 6f49b7d02059ffac...]
+  ✗ [UNKNOWN: dbf04781ae35955b...]
+  ✗ [UNKNOWN: 4ff6eb519ad77e01...]
 
 ================================================================================
 CONFIG: ethernetTunerType
@@ -492,7 +495,7 @@ CONFIG: exteriorColor
 Description: Exterior vehicle color
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (9 decoded, 0 unknown):
+Current Values (9 decoded, 2 unknown):
   ✓ RED_MULTICOAT                  = 0    
   ✓ SOLID_BLACK                    = 1    
   ✓ SILVER_METALLIC                = 2    
@@ -502,6 +505,8 @@ Current Values (9 decoded, 0 unknown):
   ✓ MIDNIGHT_CHERRY_RED            = None   // Midnight Cherry Red
   ✓ ABYSS_BLUE                     = None   // Abyss Blue (Deep Blue Metallic)
   ✓ QUICKSILVER                    = None   // Quicksilver
+  ✗ [UNKNOWN: 84dae6a39605fa5e...]
+  ✗ [UNKNOWN: 4611ffecb9b5e2d9...]
 
 ================================================================================
 CONFIG: forwardRadarHw
@@ -694,6 +699,21 @@ All Possible Values (2):
   CONVERGENT_V1                  = 1      // Convergent vanes for improved airflow distribution
 
 ================================================================================
+CONFIG: intakeAirFilterType
+================================================================================
+Access ID: 111
+Description: Type of air filter installed
+Access Level: RepairAndMaintenance
+
+Current Values (2 decoded, 0 unknown):
+  ✓ STANDARD                       = 0      // Standard fresh/recirc cabin air filter
+  ✓ HEPA                           = 1      // HEPA fresh air intake filter
+
+All Possible Values (2):
+  STANDARD                       = 0      // Standard fresh/recirc cabin air filter
+  HEPA                           = 1      // HEPA fresh air intake filter
+
+================================================================================
 CONFIG: interiorCamFanType
 ================================================================================
 Access ID: 136
@@ -851,6 +871,26 @@ Current Values (3 decoded, 0 unknown):
   ✓ HVIL_NODES_3                   = 3    
 
 ================================================================================
+CONFIG: occupancyClassificationFeatureType
+================================================================================
+Description: Type of sensor used for occupancy classification features
+Access Level: RepairAndMaintenanceReadOnly
+
+Current Values (0 decoded, 2 unknown):
+  ✗ [UNKNOWN: 6a9b6293e2f9b4ce...]
+  ✗ [UNKNOWN: a94d9b3d81d11021...]
+
+================================================================================
+CONFIG: occupancyDetectionSourceRequest
+================================================================================
+Description: Type of sensor requested for use in occupancy detection features. Downstream components will apply additional conditions to qualify the data source
+Access Level: RepairAndMaintenanceReadOnly
+
+Current Values (0 decoded, 2 unknown):
+  ✗ [UNKNOWN: a15e5126f65e578d...]
+  ✗ [UNKNOWN: 8ca6cb75798e207a...]
+
+================================================================================
 CONFIG: packEnergy
 ================================================================================
 Access ID: 14
@@ -947,9 +987,9 @@ Access Level:
 Current Values (3 decoded, 2 unknown):
   ✓ BASE                           = 0      // Base performance package for given hardware
   ✓ PERFORMANCE                    = 1      // Supports Performance package for AWD Long Range Model 3
-  ✗ [UNKNOWN: 36327cf4e74d7255...]
+  ✗ [UNKNOWN: fb59dfeca6ee980f...]
   ✓ BASE_PLUS                      = 3      // Supports Standard Plus package for RWD Standard Plus Model 3
-  ✗ [UNKNOWN: 9213aa5a93fbfe7f...]
+  ✗ [UNKNOWN: a61c6bc3dcbf1b94...]
 
 All Possible Values (3):
   BASE                           = 0      // Base performance package for given hardware
@@ -980,15 +1020,13 @@ Access ID: 99
 Description: Type of power liftgate hardware installed
 Access Level: RepairAndMaintenance
 
-Current Values (3 decoded, 0 unknown):
+Current Values (2 decoded, 0 unknown):
   ✓ NOT_INSTALLED                  = 0      // Manual liftgate installed
   ✓ TESLA_REV1                     = 1      // Powered liftgate installed
-  ✓ HUADE_REV1                     = 2      // Discrete Huade power liftgate ECU retrofitted
 
-All Possible Values (3):
+All Possible Values (2):
   NOT_INSTALLED                  = 0      // Manual liftgate installed
   TESLA_REV1                     = 1      // Powered liftgate installed
-  HUADE_REV1                     = 2      // Discrete Huade power liftgate ECU retrofitted
 
 ================================================================================
 CONFIG: powerSteeringColumn
@@ -1006,25 +1044,6 @@ All Possible Values (2):
   TK                             = 1    
 
 ================================================================================
-CONFIG: ptcControlMode
-================================================================================
-Access ID: 130
-Description: Control mode for PTC heater to address temperature differences between front and rear ducts
-Access Level: RepairAndMaintenance
-
-Current Values (4 decoded, 0 unknown):
-  ✓ BASELINE                       = 0      // Baseline
-  ✓ SEQ_ROD                        = 1      // Sequential rod
-  ✓ MESH_INSTALLED                 = 2      // Service mesh retrofit
-  ✓ SEQ_ROD_LIMITED                = 3      // Sequential rod limited mode
-
-All Possible Values (4):
-  BASELINE                       = 0      // Baseline
-  SEQ_ROD                        = 1      // Sequential rod
-  MESH_INSTALLED                 = 2      // Service mesh retrofit
-  SEQ_ROD_LIMITED                = 3      // Sequential rod limited mode
-
-================================================================================
 CONFIG: radarHeaterType
 ================================================================================
 Access ID: 97
@@ -1033,7 +1052,7 @@ Access Level:
 
 Current Values (1 decoded, 1 unknown):
   ✓ NONE                           = 0      // No radar heater installed
-  ✗ [UNKNOWN: 37fb6b9fd770bf7b...]
+  ✗ [UNKNOWN: 693f943691866c5a...]
 
 All Possible Values (4):
   NONE                           = 0      // No radar heater installed
@@ -1048,8 +1067,8 @@ Description: Type of rear drive unit cable installed
 Access Level: RepairAndMaintenanceReadOnly
 
 Current Values (0 decoded, 2 unknown):
-  ✗ [UNKNOWN: 9a5c8a6e767f3751...]
-  ✗ [UNKNOWN: 0c0e7fca5f37989a...]
+  ✗ [UNKNOWN: 469569ce62383680...]
+  ✗ [UNKNOWN: e757c5b0a00ff53a...]
 
 ================================================================================
 CONFIG: rearFogLamps
@@ -1134,29 +1153,47 @@ Access ID: 16
 Description: Used to select correct RCM calibration for vehicle
 Access Level: RepairAndMaintenance
 
-Current Values (10 decoded, 0 unknown):
+Current Values (19 decoded, 0 unknown):
   ✓ NA_M3                          = 21     // Model 3 North American calibration
   ✓ EUROW_ECALL_M3                 = 22     // Model 3 EU/Rest of World ECALL calibration
   ✓ EUROW_NO_ECALL_M3              = 23     // Model 3 EU/Rest of World non-ECall calibration
   ✓ NA_MY                          = 32     // Model Y North American calibration
   ✓ EUROW_ECALL_MY                 = 33     // Model Y EU/Rest of World ECALL calibration
   ✓ EUROW_NO_ECALL_MY              = 34     // Model Y EU/Rest of World Non-ECALL calibration
+  ✓ NA_SP_MY                       = 35     // North American structural pack restraints calibration and configuration
+  ✓ EUROW_SP_ECALL_MY              = 36     // European structural pack restraints calibration and configuration
+  ✓ EUROW_NO_ECALL_1_STG_DAB_MY    = 37     // Rest of World with driver airbag with only a single stage inflator restraints configuration
+  ✓ EUROW_ECALL_FSAB_1_STG_DAB_MY  = 38     // Model Y EU/Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration
+  ✓ EUROW_ECALL_1_STG_DAB_MY       = 39     // Model Y EU/Rest of World ECALL calibration with only a single stage inflator restraints configuration
   ✓ NA_M3_OH                       = 121    // Model 3 Hydroxide North American calibration
   ✓ EUROW_ECALL_M3_OH              = 122    // Model 3 Hydroxide EUROW with ECALL calibration
   ✓ ROW_NO_ECALL_M3_OH             = 123    // Model 3 Hydroxide ROW no ECALL calibration
   ✓ ROW_NO_ECALL_M3_OH_PED_PRO     = 124    // Model 3 Hydroxide ROW no ECALL calibration with PedPro support
+  ✓ NA_FSAB_MY                     = 131    // Model Y North American FSAB calibration
+  ✓ NA_SP_FSAB_MY                  = 132    // North American structural pack restraints calibration and configuration
+  ✓ EUROW_NO_ECALL_FSAB_1_STAG_DAB_MY = 133    // Model Y Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration
+  ✓ EUROW_SP_NO_ECALL_FSAB_1_STAG_DAB_MY = 134    // Rest of World structural pack ECALL calibration with farside airbag and only a single stage inflator restraints configuration
 
-All Possible Values (10):
+All Possible Values (19):
   NA_M3                          = 21     // Model 3 North American calibration
   EUROW_ECALL_M3                 = 22     // Model 3 EU/Rest of World ECALL calibration
   EUROW_NO_ECALL_M3              = 23     // Model 3 EU/Rest of World non-ECall calibration
   NA_MY                          = 32     // Model Y North American calibration
   EUROW_ECALL_MY                 = 33     // Model Y EU/Rest of World ECALL calibration
   EUROW_NO_ECALL_MY              = 34     // Model Y EU/Rest of World Non-ECALL calibration
+  NA_SP_MY                       = 35     // North American structural pack restraints calibration and configuration
+  EUROW_SP_ECALL_MY              = 36     // European structural pack restraints calibration and configuration
+  EUROW_NO_ECALL_1_STG_DAB_MY    = 37     // Rest of World with driver airbag with only a single stage inflator restraints configuration
+  EUROW_ECALL_FSAB_1_STG_DAB_MY  = 38     // Model Y EU/Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration
+  EUROW_ECALL_1_STG_DAB_MY       = 39     // Model Y EU/Rest of World ECALL calibration with only a single stage inflator restraints configuration
   NA_M3_OH                       = 121    // Model 3 Hydroxide North American calibration
   EUROW_ECALL_M3_OH              = 122    // Model 3 Hydroxide EUROW with ECALL calibration
   ROW_NO_ECALL_M3_OH             = 123    // Model 3 Hydroxide ROW no ECALL calibration
   ROW_NO_ECALL_M3_OH_PED_PRO     = 124    // Model 3 Hydroxide ROW no ECALL calibration with PedPro support
+  NA_FSAB_MY                     = 131    // Model Y North American FSAB calibration
+  NA_SP_FSAB_MY                  = 132    // North American structural pack restraints calibration and configuration
+  EUROW_NO_ECALL_FSAB_1_STAG_DAB_MY = 133    // Model Y Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration
+  EUROW_SP_NO_ECALL_FSAB_1_STAG_DAB_MY = 134    // Rest of World structural pack ECALL calibration with farside airbag and only a single stage inflator restraints configuration
 
 ================================================================================
 CONFIG: rgbInteriorLightingEnabled
@@ -1164,8 +1201,9 @@ CONFIG: rgbInteriorLightingEnabled
 Description: Controls whether RGB lighting functionality is available for use
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (0 decoded, 1 unknown):
-  ✗ [UNKNOWN: bcff7539ccbb2311...]
+Current Values (0 decoded, 2 unknown):
+  ✗ [UNKNOWN: d6aecc7daf88c76d...]
+  ✗ [UNKNOWN: ce497a2fa14427e2...]
 
 ================================================================================
 CONFIG: rightHandDrive
@@ -1388,12 +1426,10 @@ Access ID: 76
 Description: Type of Tire Pressure Monitoring System (TPMS)
 Access Level: RepairAndMaintenance
 
-Current Values (2 decoded, 0 unknown):
-  ✓ CONTI_2                        = 0      // Discrete TPMS ECU from Continental is installed
+Current Values (1 decoded, 0 unknown):
   ✓ TESLA_BLE                      = 1      // Tesla BLE transponders provide TPMS functionality
 
-All Possible Values (2):
-  CONTI_2                        = 0      // Discrete TPMS ECU from Continental is installed
+All Possible Values (1):
   TESLA_BLE                      = 1      // Tesla BLE transponders provide TPMS functionality
 
 ================================================================================
@@ -1450,37 +1486,19 @@ Access ID: 41
 Description: Type of wheels installed
 Access Level: Customer
 
-Current Values (14 decoded, 0 unknown):
-  ✓ PINWHEEL_18                    = 0      // Pinwheel 18 inch wheels
-  ✓ STILETTO_19                    = 1      // Stiletto 19 inch wheels, square config
-  ✓ STILETTO_20                    = 2      // Stiletto 20 inch wheels, square config
-  ✓ STILETTO_20_DARK_STAGGERED     = 3      // Stiletto 20 inch dark/Gunpowder wheels, staggered config
-  ✓ GEMINI_19_SQUARE               = 4      // Gemini 19 inch wheels, square config
-  ✓ GEMINI_19_STAGGERED            = 5      // Gemini 19 inch wheels, staggered config
-  ✓ STILETTO_20_DARK_SQUARE        = 14     // Stiletto Dark/Gunpowder 20 inch square fitment
-  ✓ PINWHEEL_18_CAP_KIT            = 18     // Pinwheel 18 inch wheels with wheel cap kit/aero cover removed
-  ✓ ZEROG_20_GUNPOWDER             = 19     // Zero-G 20 inch Gunpowder wheels
-  ✓ STILETTO_REFRESH_19            = 21     // Stiletto Refresh 19in wheels for Hydroxide
-  ✓ PINWHEEL_REFRESH_18            = 22     // Pinwheel Refresh 18in wheels for Hydroxide
-  ✓ UBERTURBINE_20_GUNPOWDER       = 23     // Uberturbine 20in wheels for Hydroxide
-  ✓ PINWHEEL_REFRESH_18_CAP_KIT    = 24     // Pinwheel Refresh with cap kit/no aero cover 18in wheels for Hydroxide
-  ✓ ZEROG_19_GUNPOWDER             = 27     // Zero-G 19in Gunpowder for Model 3
+Current Values (5 decoded, 0 unknown):
+  ✓ INDUCTION_20_BLACK             = 15     // Induction 20in Armor Black
+  ✓ UBERTURBINE_21_BLACK           = 16     // Uber Turbine 21in Armor Black
+  ✓ APOLLO_19_SILVER               = 17     // Apollo 19in Sonic Silver, AKA MY Gemini wheels
+  ✓ APOLLO_19_SILVER_CAP_KIT       = 20     // Apollo 19 inch wheels with wheel cap kit/aero cover removed. AKA MY Gemini wheels
+  ✓ APOLLO_19_METALLIC_SHADOW      = 37     // Apollo 19 inch wheels in metallic shadow color
 
-All Possible Values (14):
-  PINWHEEL_18                    = 0      // Pinwheel 18 inch wheels
-  STILETTO_19                    = 1      // Stiletto 19 inch wheels, square config
-  STILETTO_20                    = 2      // Stiletto 20 inch wheels, square config
-  STILETTO_20_DARK_STAGGERED     = 3      // Stiletto 20 inch dark/Gunpowder wheels, staggered config
-  GEMINI_19_SQUARE               = 4      // Gemini 19 inch wheels, square config
-  GEMINI_19_STAGGERED            = 5      // Gemini 19 inch wheels, staggered config
-  STILETTO_20_DARK_SQUARE        = 14     // Stiletto Dark/Gunpowder 20 inch square fitment
-  PINWHEEL_18_CAP_KIT            = 18     // Pinwheel 18 inch wheels with wheel cap kit/aero cover removed
-  ZEROG_20_GUNPOWDER             = 19     // Zero-G 20 inch Gunpowder wheels
-  STILETTO_REFRESH_19            = 21     // Stiletto Refresh 19in wheels for Hydroxide
-  PINWHEEL_REFRESH_18            = 22     // Pinwheel Refresh 18in wheels for Hydroxide
-  UBERTURBINE_20_GUNPOWDER       = 23     // Uberturbine 20in wheels for Hydroxide
-  PINWHEEL_REFRESH_18_CAP_KIT    = 24     // Pinwheel Refresh with cap kit/no aero cover 18in wheels for Hydroxide
-  ZEROG_19_GUNPOWDER             = 27     // Zero-G 19in Gunpowder for Model 3
+All Possible Values (5):
+  INDUCTION_20_BLACK             = 15     // Induction 20in Armor Black
+  UBERTURBINE_21_BLACK           = 16     // Uber Turbine 21in Armor Black
+  APOLLO_19_SILVER               = 17     // Apollo 19in Sonic Silver, AKA MY Gemini wheels
+  APOLLO_19_SILVER_CAP_KIT       = 20     // Apollo 19 inch wheels with wheel cap kit/aero cover removed. AKA MY Gemini wheels
+  APOLLO_19_METALLIC_SHADOW      = 37     // Apollo 19 inch wheels in metallic shadow color
 
 ================================================================================
 CONFIG: wiperMotorType

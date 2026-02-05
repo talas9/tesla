@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "source": "/root/downloads/model3y-extracted/opt/odin/data/Model3/config-options.json",
-    "salt": "gj55iz2tgghun9nyw2sa8s5oxsykmfwo",
-    "total_hashed_keys": 156,
-    "total_public_keys": 62,
+    "source": "/root/downloads/model3y-extracted/opt/odin/data/ModelY/config-options.json",
+    "salt": "2xz83kgreak7h956dgb3mdmd260c6cun",
+    "total_hashed_keys": 160,
+    "total_public_keys": 64,
     "reference_configs": 166,
-    "decoded_keys": 82,
-    "unknown_keys": 74
+    "decoded_keys": 84,
+    "unknown_keys": 76
   },
   "configs": {
     "country": {
@@ -360,6 +360,14 @@
           "value": null,
           "description": "Quicksilver",
           "decoded": true
+        },
+        {
+          "hash": "84dae6a39605fa5ecdaeb08b4c6cb8a33104d5b929cef49a5b80b2f8a50c1d2e",
+          "decoded": false
+        },
+        {
+          "hash": "4611ffecb9b5e2d990a2905adc1fa4e3b095302ef5209cc4ea998f75c0fd2ae0",
+          "decoded": false
         }
       ],
       "allEnums": []
@@ -410,7 +418,19 @@
           "decoded": true
         },
         {
-          "hash": "0b07c901a09c7a02aeee29183792501ad4707ad2d57c39274f2de2cea9375bc0",
+          "hash": "af2930ee27349b144a3a4c1243e84f892943aa5ebdd692b5b9d842f118492876",
+          "decoded": false
+        },
+        {
+          "hash": "6f49b7d02059ffac172c17279794377938f8380ffeba9ceba222821c3f0d080a",
+          "decoded": false
+        },
+        {
+          "hash": "dbf04781ae35955b45ba77ff532db29510d4472bb3afbc69dbd3645793ff3847",
+          "decoded": false
+        },
+        {
+          "hash": "4ff6eb519ad77e01093b8d07b4ffcce12b11dbf79a9a912712cbe53b96713a76",
           "decoded": false
         }
       ],
@@ -582,6 +602,36 @@
           "decoded": true
         },
         {
+          "codeKey": "NA_SP_MY",
+          "value": 35,
+          "description": "North American structural pack restraints calibration and configuration",
+          "decoded": true
+        },
+        {
+          "codeKey": "EUROW_SP_ECALL_MY",
+          "value": 36,
+          "description": "European structural pack restraints calibration and configuration",
+          "decoded": true
+        },
+        {
+          "codeKey": "EUROW_NO_ECALL_1_STG_DAB_MY",
+          "value": 37,
+          "description": "Rest of World with driver airbag with only a single stage inflator restraints configuration",
+          "decoded": true
+        },
+        {
+          "codeKey": "EUROW_ECALL_FSAB_1_STG_DAB_MY",
+          "value": 38,
+          "description": "Model Y EU/Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration",
+          "decoded": true
+        },
+        {
+          "codeKey": "EUROW_ECALL_1_STG_DAB_MY",
+          "value": 39,
+          "description": "Model Y EU/Rest of World ECALL calibration with only a single stage inflator restraints configuration",
+          "decoded": true
+        },
+        {
           "codeKey": "NA_M3_OH",
           "value": 121,
           "description": "Model 3 Hydroxide North American calibration",
@@ -603,6 +653,30 @@
           "codeKey": "ROW_NO_ECALL_M3_OH_PED_PRO",
           "value": 124,
           "description": "Model 3 Hydroxide ROW no ECALL calibration with PedPro support",
+          "decoded": true
+        },
+        {
+          "codeKey": "NA_FSAB_MY",
+          "value": 131,
+          "description": "Model Y North American FSAB calibration",
+          "decoded": true
+        },
+        {
+          "codeKey": "NA_SP_FSAB_MY",
+          "value": 132,
+          "description": "North American structural pack restraints calibration and configuration",
+          "decoded": true
+        },
+        {
+          "codeKey": "EUROW_NO_ECALL_FSAB_1_STAG_DAB_MY",
+          "value": 133,
+          "description": "Model Y Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration",
+          "decoded": true
+        },
+        {
+          "codeKey": "EUROW_SP_NO_ECALL_FSAB_1_STAG_DAB_MY",
+          "value": 134,
+          "description": "Rest of World structural pack ECALL calibration with farside airbag and only a single stage inflator restraints configuration",
           "decoded": true
         }
       ],
@@ -638,6 +712,31 @@
           "value": 34
         },
         {
+          "codeKey": "NA_SP_MY",
+          "description": "North American structural pack restraints calibration and configuration",
+          "value": 35
+        },
+        {
+          "codeKey": "EUROW_SP_ECALL_MY",
+          "description": "European structural pack restraints calibration and configuration",
+          "value": 36
+        },
+        {
+          "codeKey": "EUROW_NO_ECALL_1_STG_DAB_MY",
+          "description": "Rest of World with driver airbag with only a single stage inflator restraints configuration",
+          "value": 37
+        },
+        {
+          "codeKey": "EUROW_ECALL_FSAB_1_STG_DAB_MY",
+          "description": "Model Y EU/Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration",
+          "value": 38
+        },
+        {
+          "codeKey": "EUROW_ECALL_1_STG_DAB_MY",
+          "description": "Model Y EU/Rest of World ECALL calibration with only a single stage inflator restraints configuration",
+          "value": 39
+        },
+        {
           "codeKey": "NA_M3_OH",
           "description": "Model 3 Hydroxide North American calibration",
           "value": 121
@@ -656,6 +755,26 @@
           "codeKey": "ROW_NO_ECALL_M3_OH_PED_PRO",
           "description": "Model 3 Hydroxide ROW no ECALL calibration with PedPro support",
           "value": 124
+        },
+        {
+          "codeKey": "NA_FSAB_MY",
+          "description": "Model Y North American FSAB calibration",
+          "value": 131
+        },
+        {
+          "codeKey": "NA_SP_FSAB_MY",
+          "description": "North American structural pack restraints calibration and configuration",
+          "value": 132
+        },
+        {
+          "codeKey": "EUROW_NO_ECALL_FSAB_1_STAG_DAB_MY",
+          "description": "Model Y Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration",
+          "value": 133
+        },
+        {
+          "codeKey": "EUROW_SP_NO_ECALL_FSAB_1_STAG_DAB_MY",
+          "description": "Rest of World structural pack ECALL calibration with farside airbag and only a single stage inflator restraints configuration",
+          "value": 134
         }
       ]
     },
@@ -1163,7 +1282,7 @@
           "decoded": true
         },
         {
-          "hash": "e496576ceb502348b206d6a088d0a0fe09d40bc222b515c6183f7ea258c3504c",
+          "hash": "9588933fe1850e1e7c435e2fb9f796a0a80dc81d7ab0034192f75b7479ae4619",
           "decoded": false
         }
       ],
@@ -1559,160 +1678,61 @@
       "odinReadWriteAccess": "Customer",
       "values": [
         {
-          "codeKey": "PINWHEEL_18",
-          "value": 0,
-          "description": "Pinwheel 18 inch wheels",
+          "codeKey": "INDUCTION_20_BLACK",
+          "value": 15,
+          "description": "Induction 20in Armor Black",
           "decoded": true
         },
         {
-          "codeKey": "STILETTO_19",
-          "value": 1,
-          "description": "Stiletto 19 inch wheels, square config",
+          "codeKey": "UBERTURBINE_21_BLACK",
+          "value": 16,
+          "description": "Uber Turbine 21in Armor Black",
           "decoded": true
         },
         {
-          "codeKey": "STILETTO_20",
-          "value": 2,
-          "description": "Stiletto 20 inch wheels, square config",
+          "codeKey": "APOLLO_19_SILVER",
+          "value": 17,
+          "description": "Apollo 19in Sonic Silver, AKA MY Gemini wheels",
           "decoded": true
         },
         {
-          "codeKey": "STILETTO_20_DARK_STAGGERED",
-          "value": 3,
-          "description": "Stiletto 20 inch dark/Gunpowder wheels, staggered config",
+          "codeKey": "APOLLO_19_SILVER_CAP_KIT",
+          "value": 20,
+          "description": "Apollo 19 inch wheels with wheel cap kit/aero cover removed. AKA MY Gemini wheels",
           "decoded": true
         },
         {
-          "codeKey": "GEMINI_19_SQUARE",
-          "value": 4,
-          "description": "Gemini 19 inch wheels, square config",
-          "decoded": true
-        },
-        {
-          "codeKey": "GEMINI_19_STAGGERED",
-          "value": 5,
-          "description": "Gemini 19 inch wheels, staggered config",
-          "decoded": true
-        },
-        {
-          "codeKey": "STILETTO_20_DARK_SQUARE",
-          "value": 14,
-          "description": "Stiletto Dark/Gunpowder 20 inch square fitment",
-          "decoded": true
-        },
-        {
-          "codeKey": "PINWHEEL_18_CAP_KIT",
-          "value": 18,
-          "description": "Pinwheel 18 inch wheels with wheel cap kit/aero cover removed",
-          "decoded": true
-        },
-        {
-          "codeKey": "ZEROG_20_GUNPOWDER",
-          "value": 19,
-          "description": "Zero-G 20 inch Gunpowder wheels",
-          "decoded": true
-        },
-        {
-          "codeKey": "STILETTO_REFRESH_19",
-          "value": 21,
-          "description": "Stiletto Refresh 19in wheels for Hydroxide",
-          "decoded": true
-        },
-        {
-          "codeKey": "PINWHEEL_REFRESH_18",
-          "value": 22,
-          "description": "Pinwheel Refresh 18in wheels for Hydroxide",
-          "decoded": true
-        },
-        {
-          "codeKey": "UBERTURBINE_20_GUNPOWDER",
-          "value": 23,
-          "description": "Uberturbine 20in wheels for Hydroxide",
-          "decoded": true
-        },
-        {
-          "codeKey": "PINWHEEL_REFRESH_18_CAP_KIT",
-          "value": 24,
-          "description": "Pinwheel Refresh with cap kit/no aero cover 18in wheels for Hydroxide",
-          "decoded": true
-        },
-        {
-          "codeKey": "ZEROG_19_GUNPOWDER",
-          "value": 27,
-          "description": "Zero-G 19in Gunpowder for Model 3",
+          "codeKey": "APOLLO_19_METALLIC_SHADOW",
+          "value": 37,
+          "description": "Apollo 19 inch wheels in metallic shadow color",
           "decoded": true
         }
       ],
       "allEnums": [
         {
-          "codeKey": "PINWHEEL_18",
-          "description": "Pinwheel 18 inch wheels",
-          "value": 0
+          "codeKey": "INDUCTION_20_BLACK",
+          "description": "Induction 20in Armor Black",
+          "value": 15
         },
         {
-          "codeKey": "STILETTO_19",
-          "description": "Stiletto 19 inch wheels, square config",
-          "value": 1
+          "codeKey": "UBERTURBINE_21_BLACK",
+          "description": "Uber Turbine 21in Armor Black",
+          "value": 16
         },
         {
-          "codeKey": "STILETTO_20",
-          "description": "Stiletto 20 inch wheels, square config",
-          "value": 2
+          "codeKey": "APOLLO_19_SILVER",
+          "description": "Apollo 19in Sonic Silver, AKA MY Gemini wheels",
+          "value": 17
         },
         {
-          "codeKey": "STILETTO_20_DARK_STAGGERED",
-          "description": "Stiletto 20 inch dark/Gunpowder wheels, staggered config",
-          "value": 3
+          "codeKey": "APOLLO_19_SILVER_CAP_KIT",
+          "description": "Apollo 19 inch wheels with wheel cap kit/aero cover removed. AKA MY Gemini wheels",
+          "value": 20
         },
         {
-          "codeKey": "GEMINI_19_SQUARE",
-          "description": "Gemini 19 inch wheels, square config",
-          "value": 4
-        },
-        {
-          "codeKey": "GEMINI_19_STAGGERED",
-          "description": "Gemini 19 inch wheels, staggered config",
-          "value": 5
-        },
-        {
-          "codeKey": "STILETTO_20_DARK_SQUARE",
-          "description": "Stiletto Dark/Gunpowder 20 inch square fitment",
-          "value": 14
-        },
-        {
-          "codeKey": "PINWHEEL_18_CAP_KIT",
-          "description": "Pinwheel 18 inch wheels with wheel cap kit/aero cover removed",
-          "value": 18
-        },
-        {
-          "codeKey": "ZEROG_20_GUNPOWDER",
-          "description": "Zero-G 20 inch Gunpowder wheels",
-          "value": 19
-        },
-        {
-          "codeKey": "STILETTO_REFRESH_19",
-          "description": "Stiletto Refresh 19in wheels for Hydroxide",
-          "value": 21
-        },
-        {
-          "codeKey": "PINWHEEL_REFRESH_18",
-          "description": "Pinwheel Refresh 18in wheels for Hydroxide",
-          "value": 22
-        },
-        {
-          "codeKey": "UBERTURBINE_20_GUNPOWDER",
-          "description": "Uberturbine 20in wheels for Hydroxide",
-          "value": 23
-        },
-        {
-          "codeKey": "PINWHEEL_REFRESH_18_CAP_KIT",
-          "description": "Pinwheel Refresh with cap kit/no aero cover 18in wheels for Hydroxide",
-          "value": 24
-        },
-        {
-          "codeKey": "ZEROG_19_GUNPOWDER",
-          "description": "Zero-G 19in Gunpowder for Model 3",
-          "value": 27
+          "codeKey": "APOLLO_19_METALLIC_SHADOW",
+          "description": "Apollo 19 inch wheels in metallic shadow color",
+          "value": 37
         }
       ]
     },
@@ -1860,7 +1880,7 @@
           "decoded": true
         },
         {
-          "hash": "36327cf4e74d7255f65d621389c63d13b3a2ab687e3e6203700918ebf3b8945a",
+          "hash": "fb59dfeca6ee980fa2685cef3c52198ba619f4e7334dce8a8e2aa9bf80ac632d",
           "decoded": false
         },
         {
@@ -1870,7 +1890,7 @@
           "decoded": true
         },
         {
-          "hash": "9213aa5a93fbfe7f804472d317f794b06ff02e03afc221713f885dd79cba535d",
+          "hash": "a61c6bc3dcbf1b94101d0bf936564ea68ad69f6198c64c272af89b8f56882aae",
           "decoded": false
         }
       ],
@@ -3021,12 +3041,6 @@
       "odinReadWriteAccess": "RepairAndMaintenance",
       "values": [
         {
-          "codeKey": "CONTI_2",
-          "value": 0,
-          "description": "Discrete TPMS ECU from Continental is installed",
-          "decoded": true
-        },
-        {
           "codeKey": "TESLA_BLE",
           "value": 1,
           "description": "Tesla BLE transponders provide TPMS functionality",
@@ -3034,11 +3048,6 @@
         }
       ],
       "allEnums": [
-        {
-          "codeKey": "CONTI_2",
-          "description": "Discrete TPMS ECU from Continental is installed",
-          "value": 0
-        },
         {
           "codeKey": "TESLA_BLE",
           "description": "Tesla BLE transponders provide TPMS functionality",
@@ -3314,7 +3323,7 @@
           "decoded": true
         },
         {
-          "hash": "68e93c4588626270825d6808e53595b1e03ecdabda6b751dee906c8c342bafda",
+          "hash": "1dc0d80174d2fa3dca5a85b406120959f758885ad4239d964e1fd417daf0ac1e",
           "decoded": false
         }
       ],
@@ -3485,7 +3494,7 @@
           "decoded": true
         },
         {
-          "hash": "37fb6b9fd770bf7b1af27628457d9f0dee772581199e1f64f0efab91bd84065a",
+          "hash": "693f943691866c5af384a6df8b7006dff173994d091494fa429fa1779af236de",
           "decoded": false
         }
       ],
@@ -3540,12 +3549,6 @@
           "value": 1,
           "description": "Powered liftgate installed",
           "decoded": true
-        },
-        {
-          "codeKey": "HUADE_REV1",
-          "value": 2,
-          "description": "Discrete Huade power liftgate ECU retrofitted",
-          "decoded": true
         }
       ],
       "allEnums": [
@@ -3558,11 +3561,6 @@
           "codeKey": "TESLA_REV1",
           "description": "Powered liftgate installed",
           "value": 1
-        },
-        {
-          "codeKey": "HUADE_REV1",
-          "description": "Discrete Huade power liftgate ECU retrofitted",
-          "value": 2
         }
       ]
     },
@@ -3776,6 +3774,37 @@
         }
       ]
     },
+    "intakeAirFilterType": {
+      "accessId": 111,
+      "description": "Type of air filter installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "STANDARD",
+          "value": 0,
+          "description": "Standard fresh/recirc cabin air filter",
+          "decoded": true
+        },
+        {
+          "codeKey": "HEPA",
+          "value": 1,
+          "description": "HEPA fresh air intake filter",
+          "decoded": true
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "STANDARD",
+          "description": "Standard fresh/recirc cabin air filter",
+          "value": 0
+        },
+        {
+          "codeKey": "HEPA",
+          "description": "HEPA fresh air intake filter",
+          "value": 1
+        }
+      ]
+    },
     "ethernetTunerType": {
       "accessId": 117,
       "description": "Type of ethernet tuner installed",
@@ -3868,59 +3897,6 @@
           "codeKey": "TYPE2",
           "description": "v2.0: supermanifold with improved pressure drop",
           "value": 2
-        }
-      ]
-    },
-    "ptcControlMode": {
-      "accessId": 130,
-      "description": "Control mode for PTC heater to address temperature differences between front and rear ducts",
-      "odinReadWriteAccess": "RepairAndMaintenance",
-      "values": [
-        {
-          "codeKey": "BASELINE",
-          "value": 0,
-          "description": "Baseline",
-          "decoded": true
-        },
-        {
-          "codeKey": "SEQ_ROD",
-          "value": 1,
-          "description": "Sequential rod",
-          "decoded": true
-        },
-        {
-          "codeKey": "MESH_INSTALLED",
-          "value": 2,
-          "description": "Service mesh retrofit",
-          "decoded": true
-        },
-        {
-          "codeKey": "SEQ_ROD_LIMITED",
-          "value": 3,
-          "description": "Sequential rod limited mode",
-          "decoded": true
-        }
-      ],
-      "allEnums": [
-        {
-          "codeKey": "BASELINE",
-          "description": "Baseline",
-          "value": 0
-        },
-        {
-          "codeKey": "SEQ_ROD",
-          "description": "Sequential rod",
-          "value": 1
-        },
-        {
-          "codeKey": "MESH_INSTALLED",
-          "description": "Service mesh retrofit",
-          "value": 2
-        },
-        {
-          "codeKey": "SEQ_ROD_LIMITED",
-          "description": "Sequential rod limited mode",
-          "value": 3
         }
       ]
     },
@@ -4169,7 +4145,11 @@
       "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
       "values": [
         {
-          "hash": "bcff7539ccbb2311d41f0372d2ae259dd8f92e973886dddd895352fda2d973f7",
+          "hash": "d6aecc7daf88c76d7dd3466e0ba7a0824249074abfc3476911f638c6e5dd0182",
+          "decoded": false
+        },
+        {
+          "hash": "ce497a2fa14427e291d12ac06d60984c8d257cf2302503f386c6cfd4fa3790f6",
           "decoded": false
         }
       ],
@@ -4226,17 +4206,49 @@
         }
       ]
     },
+    "occupancyClassificationFeatureType": {
+      "accessId": null,
+      "description": "Type of sensor used for occupancy classification features",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "6a9b6293e2f9b4ceeff2d085098934f07e25b98758d6ddc71040c559feb9e59b",
+          "decoded": false
+        },
+        {
+          "hash": "a94d9b3d81d110213228726eb4270474d98cd9ffbb8b71f1cd494a76fd682534",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "occupancyDetectionSourceRequest": {
+      "accessId": null,
+      "description": "Type of sensor requested for use in occupancy detection features. Downstream components will apply additional conditions to qualify the data source",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "a15e5126f65e578d128b3dc6f4f7f7777b97a2552881b9a799a32febe0f2d1f8",
+          "decoded": false
+        },
+        {
+          "hash": "8ca6cb75798e207a2e1cad58bb954940dc4797263ddb50ebd203e0325812e8c6",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
     "rduCableType": {
       "accessId": null,
       "description": "Type of rear drive unit cable installed",
       "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
       "values": [
         {
-          "hash": "9a5c8a6e767f3751c88d849a49c09190207445754409a5f01243966b06975606",
+          "hash": "469569ce623836807ce909f1e7b9618c506be9485073c0fa0be4744746665004",
           "decoded": false
         },
         {
-          "hash": "0c0e7fca5f37989a8bc5043094d842a61f422fbb4b4824d92147fd72741cd86f",
+          "hash": "e757c5b0a00ff53aa16eea6771660fff547e52466d42b18916d97c3d3a64c4a6",
           "decoded": false
         }
       ],

@@ -38,7 +38,7 @@ import sys
 from pathlib import Path
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC as PBKDF2
 from cryptography.hazmat.backends import default_backend
 
 # Odin's hardcoded decryption password (from decompiled binary_metadata_utils.py)
@@ -80,6 +80,13 @@ def decrypt_odj(encrypted_data, password=ODIN_PASSWORD):
         Decrypted dict (parsed JSON)
     """
     try:
+        # Handle .odj.bin format (16-byte header + Fernet data)
+        if encrypted_data[:2] != b'gA':  # Not Fernet signature
+            # Look for Fernet signature
+            fernet_start = encrypted_data.find(b'gAAAAA')
+            if fernet_start > 0:
+                encrypted_data = encrypted_data[fernet_start:]
+        
         # Derive key
         key = derive_key(password)
         
@@ -171,9 +178,9 @@ def decrypt_directory(input_dir, output_dir=None, recursive=False, password=ODIN
     
     # Find ODJ files
     if recursive:
-        odj_files = list(input_path.rglob("*.odj"))
+        odj_files = list(input_path.rglob("*.odj")) + list(input_path.rglob("*.odj.bin"))
     else:
-        odj_files = list(input_path.glob("*.odj"))
+        odj_files = list(input_path.glob("*.odj")) + list(input_path.glob("*.odj.bin"))
     
     if not odj_files:
         print(f"No .odj files found in {input_path}")

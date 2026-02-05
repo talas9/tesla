@@ -33,6 +33,19 @@ import sys
 # Embedded minimal reference - full reference auto-loaded if available
 REFERENCE_FILE = "/root/.openclaw/media/inbound/file_25---7619e162-1af2-4fc7-b3a7-4892f005ef96.json"
 
+# Additional known enum values from brute-force (not in old reference)
+BRUTEFORCE_ENUMS = {
+    "exteriorColor": [
+        {"codeKey": "MIDNIGHT_CHERRY_RED", "value": None, "description": "Midnight Cherry Red"},
+        {"codeKey": "QUICKSILVER", "value": None, "description": "Quicksilver"},
+        {"codeKey": "ABYSS_BLUE", "value": None, "description": "Abyss Blue (Deep Blue Metallic)"},
+    ],
+    "chassisType": [
+        {"codeKey": "MODEL_Y_CHASSIS", "value": 3, "description": "Model Y Chassis"},
+    ],
+}
+
+
 def generate_sha256(data):
     """Generate SHA256 hash of data"""
     bytes_data = data.encode() if isinstance(data, str) else data
@@ -120,6 +133,11 @@ def decode_full_config(config_path, reference_db=None):
         "configs": {}
     }
     
+    # Load bruteforce enums
+    bruteforce_db = {}
+    if 'BRUTEFORCE_ENUMS' in globals():
+        bruteforce_db = BRUTEFORCE_ENUMS
+    
     # Build reverse lookup: hash -> codeKey
     key_lookup = {}
     value_lookup = {}
@@ -139,6 +157,18 @@ def decode_full_config(config_path, reference_db=None):
                     "config_key": pub_key,
                     "enum": enum
                 }
+    
+    # Add bruteforce enums
+    for bf_key, bf_enums in bruteforce_db.items():
+        for enum in bf_enums:
+            code_key = enum.get("codeKey")
+            if code_key:
+                val_hash = generate_valuehash(bf_key, code_key, salt)
+                if val_hash not in value_lookup:
+                    value_lookup[val_hash] = {
+                        "config_key": bf_key,
+                        "enum": enum
+                    }
     
     # Second pass: use reference database for configs not in public section
     for ref_key, ref_config in reference_db.items():
@@ -373,3 +403,15 @@ Output:
 
 if __name__ == "__main__":
     main()
+
+# Additional known enum values from brute-force (not in reference)
+BRUTEFORCE_ENUMS = {
+    "exteriorColor": [
+        {"codeKey": "MIDNIGHT_CHERRY_RED", "value": None, "description": "Midnight Cherry Red"},
+        {"codeKey": "QUICKSILVER", "value": None, "description": "Quicksilver"},
+        {"codeKey": "ABYSS_BLUE", "value": None, "description": "Abyss Blue (Deep Blue Metallic)"},
+    ],
+    "chassisType": [
+        {"codeKey": "MODEL_Y_CHASSIS", "value": 3, "description": "Model Y Chassis"},
+    ],
+}
