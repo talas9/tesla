@@ -1,0 +1,8 @@
+# Tesla Odin Dependencies (Python 3.6+)
+attrdict>=2.0.1
+PyYAML>=5.4
+aiohttp>=3.7.4
+aiohttp-cors>=0.7.0
+cryptography>=3.4.8
+python-can>=3.3.4
+python-isotp>=1.7
