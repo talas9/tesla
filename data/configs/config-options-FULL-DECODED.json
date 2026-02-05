@@ -1,0 +1,2999 @@
+{
+  "metadata": {
+    "source": "/root/downloads/model3y-extracted/opt/odin/data/ModelY/config-options.json",
+    "salt": "2xz83kgreak7h956dgb3mdmd260c6cun",
+    "total_hashed_keys": 160,
+    "total_public_keys": 64,
+    "decoded_keys": 64,
+    "unknown_keys": 96
+  },
+  "configs": {
+    "exteriorColor": {
+      "accessId": null,
+      "description": "Exterior vehicle color",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "272341aebbbb90ae69bdbcc5fdd81da2750fb2a7115548489d30e5eeb051fea5",
+          "decoded": false
+        },
+        {
+          "hash": "ac8854d9852ccd2b19b66776c9d7501d21c6b4d83afd24db2ccd7f89029a4b0b",
+          "decoded": false
+        },
+        {
+          "hash": "4aff5796279cc7a22e24d288d6c3bc9d1930c1b9ac1a78693de77350e84cdaaf",
+          "decoded": false
+        },
+        {
+          "hash": "29e49bf5b681a56f02a1544efba2ce1a4674453bd8e9517ac45791ab2eb3c10c",
+          "decoded": false
+        },
+        {
+          "hash": "5ce9d16050439b23965a39bebfa9bbd430b59da4d2b22a303c4720bee6a62bf7",
+          "decoded": false
+        },
+        {
+          "hash": "71de60b14d86eba79417ed4ee9c6d0bc8f64959f9c5ff7442c99d6521562d5a7",
+          "decoded": false
+        },
+        {
+          "hash": "0a9c53144f3def58737ed43f0cc68cc3980c058a4fb25e7d50f366e5b8b2499f",
+          "decoded": false
+        },
+        {
+          "hash": "51ce6534815e3f16179349a9b671b26ea68b26a2d984c9b447a65523b655fa5b",
+          "decoded": false
+        },
+        {
+          "hash": "7415171b4901a32720cbc32f91b9900557413678265475241d4a146fc4ca9476",
+          "decoded": false
+        },
+        {
+          "hash": "84dae6a39605fa5ecdaeb08b4c6cb8a33104d5b929cef49a5b80b2f8a50c1d2e",
+          "decoded": false
+        },
+        {
+          "hash": "4611ffecb9b5e2d990a2905adc1fa4e3b095302ef5209cc4ea998f75c0fd2ae0",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "drivetrainType": {
+      "accessId": null,
+      "description": "Number of motors",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "a030bddc2222f9fe71bbfd16d7ca0107b88832f664c4391acbf215bea67cf6b3",
+          "decoded": false
+        },
+        {
+          "hash": "712c664552b7f3f7c8fd69dcafbfce94766e6d6976a61ed6144face8fbee1f72",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "airSuspension": {
+      "accessId": null,
+      "description": "Type of suspension installed",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "96b457175905f75bbe2ca3a6926ad9339a272078af2e07c985b9aa89a435e532",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "epasType": {
+      "accessId": null,
+      "description": "Type of steering actuator hardware installed",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "76798e7db683e4549f7f8a2ab25a2736cb1f49e76edf77cd49c7ed25b6e932b5",
+          "decoded": false
+        },
+        {
+          "hash": "af2930ee27349b144a3a4c1243e84f892943aa5ebdd692b5b9d842f118492876",
+          "decoded": false
+        },
+        {
+          "hash": "6f49b7d02059ffac172c17279794377938f8380ffeba9ceba222821c3f0d080a",
+          "decoded": false
+        },
+        {
+          "hash": "dbf04781ae35955b45ba77ff532db29510d4472bb3afbc69dbd3645793ff3847",
+          "decoded": false
+        },
+        {
+          "hash": "4ff6eb519ad77e01093b8d07b4ffcce12b11dbf79a9a912712cbe53b96713a76",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "rearSeatHeaters": {
+      "accessId": null,
+      "description": "Rear seat heaters are enabled for customer use",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "afdbae5c527eedec50a8968e9fbab4955ebd7c3df141879331bb01a29e90d221",
+          "decoded": false
+        },
+        {
+          "hash": "1fe0ce8f79febb0939ccc6533a7013817cea31875280790cfd01a0a302d237f7",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "packEnergy": {
+      "accessId": 14,
+      "description": "Bucketed approximate energy capacity, mass and current output capability of battery pack. Some attributes may be overridden by packPerformanceDeviation. Used as input to determine user-facing badging via schema chosen by badgingVersion",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "SR",
+          "value": 0,
+          "description": "'Standard Range'"
+        },
+        {
+          "codeKey": "LR",
+          "value": 1,
+          "description": "'Long Range'"
+        },
+        {
+          "codeKey": "MR",
+          "value": 2,
+          "description": "'Mid Range'"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "SR",
+          "description": "'Standard Range'",
+          "value": 0
+        },
+        {
+          "codeKey": "LR",
+          "description": "'Long Range'",
+          "value": 1
+        },
+        {
+          "codeKey": "MR",
+          "description": "'Mid Range'",
+          "value": 2
+        }
+      ]
+    },
+    "restraintsHardwareType": {
+      "accessId": 16,
+      "description": "Used to select correct RCM calibration for vehicle",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "NA_M3",
+          "value": 21,
+          "description": "Model 3 North American calibration"
+        },
+        {
+          "codeKey": "EUROW_ECALL_M3",
+          "value": 22,
+          "description": "Model 3 EU/Rest of World ECALL calibration"
+        },
+        {
+          "codeKey": "EUROW_NO_ECALL_M3",
+          "value": 23,
+          "description": "Model 3 EU/Rest of World non-ECall calibration"
+        },
+        {
+          "codeKey": "NA_MY",
+          "value": 32,
+          "description": "Model Y North American calibration"
+        },
+        {
+          "codeKey": "EUROW_ECALL_MY",
+          "value": 33,
+          "description": "Model Y EU/Rest of World ECALL calibration"
+        },
+        {
+          "codeKey": "EUROW_NO_ECALL_MY",
+          "value": 34,
+          "description": "Model Y EU/Rest of World Non-ECALL calibration"
+        },
+        {
+          "codeKey": "NA_SP_MY",
+          "value": 35,
+          "description": "North American structural pack restraints calibration and configuration"
+        },
+        {
+          "codeKey": "EUROW_SP_ECALL_MY",
+          "value": 36,
+          "description": "European structural pack restraints calibration and configuration"
+        },
+        {
+          "codeKey": "EUROW_NO_ECALL_1_STG_DAB_MY",
+          "value": 37,
+          "description": "Rest of World with driver airbag with only a single stage inflator restraints configuration"
+        },
+        {
+          "codeKey": "EUROW_ECALL_FSAB_1_STG_DAB_MY",
+          "value": 38,
+          "description": "Model Y EU/Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration"
+        },
+        {
+          "codeKey": "EUROW_ECALL_1_STG_DAB_MY",
+          "value": 39,
+          "description": "Model Y EU/Rest of World ECALL calibration with only a single stage inflator restraints configuration"
+        },
+        {
+          "codeKey": "NA_M3_OH",
+          "value": 121,
+          "description": "Model 3 Hydroxide North American calibration"
+        },
+        {
+          "codeKey": "EUROW_ECALL_M3_OH",
+          "value": 122,
+          "description": "Model 3 Hydroxide EUROW with ECALL calibration"
+        },
+        {
+          "codeKey": "ROW_NO_ECALL_M3_OH",
+          "value": 123,
+          "description": "Model 3 Hydroxide ROW no ECALL calibration"
+        },
+        {
+          "codeKey": "ROW_NO_ECALL_M3_OH_PED_PRO",
+          "value": 124,
+          "description": "Model 3 Hydroxide ROW no ECALL calibration with PedPro support"
+        },
+        {
+          "codeKey": "NA_FSAB_MY",
+          "value": 131,
+          "description": "Model Y North American FSAB calibration"
+        },
+        {
+          "codeKey": "NA_SP_FSAB_MY",
+          "value": 132,
+          "description": "North American structural pack restraints calibration and configuration"
+        },
+        {
+          "codeKey": "EUROW_NO_ECALL_FSAB_1_STAG_DAB_MY",
+          "value": 133,
+          "description": "Model Y Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration"
+        },
+        {
+          "codeKey": "EUROW_SP_NO_ECALL_FSAB_1_STAG_DAB_MY",
+          "value": 134,
+          "description": "Rest of World structural pack ECALL calibration with farside airbag and only a single stage inflator restraints configuration"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NA_M3",
+          "description": "Model 3 North American calibration",
+          "value": 21
+        },
+        {
+          "codeKey": "EUROW_ECALL_M3",
+          "description": "Model 3 EU/Rest of World ECALL calibration",
+          "value": 22
+        },
+        {
+          "codeKey": "EUROW_NO_ECALL_M3",
+          "description": "Model 3 EU/Rest of World non-ECall calibration",
+          "value": 23
+        },
+        {
+          "codeKey": "NA_MY",
+          "description": "Model Y North American calibration",
+          "value": 32
+        },
+        {
+          "codeKey": "EUROW_ECALL_MY",
+          "description": "Model Y EU/Rest of World ECALL calibration",
+          "value": 33
+        },
+        {
+          "codeKey": "EUROW_NO_ECALL_MY",
+          "description": "Model Y EU/Rest of World Non-ECALL calibration",
+          "value": 34
+        },
+        {
+          "codeKey": "NA_SP_MY",
+          "description": "North American structural pack restraints calibration and configuration",
+          "value": 35
+        },
+        {
+          "codeKey": "EUROW_SP_ECALL_MY",
+          "description": "European structural pack restraints calibration and configuration",
+          "value": 36
+        },
+        {
+          "codeKey": "EUROW_NO_ECALL_1_STG_DAB_MY",
+          "description": "Rest of World with driver airbag with only a single stage inflator restraints configuration",
+          "value": 37
+        },
+        {
+          "codeKey": "EUROW_ECALL_FSAB_1_STG_DAB_MY",
+          "description": "Model Y EU/Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration",
+          "value": 38
+        },
+        {
+          "codeKey": "EUROW_ECALL_1_STG_DAB_MY",
+          "description": "Model Y EU/Rest of World ECALL calibration with only a single stage inflator restraints configuration",
+          "value": 39
+        },
+        {
+          "codeKey": "NA_M3_OH",
+          "description": "Model 3 Hydroxide North American calibration",
+          "value": 121
+        },
+        {
+          "codeKey": "EUROW_ECALL_M3_OH",
+          "description": "Model 3 Hydroxide EUROW with ECALL calibration",
+          "value": 122
+        },
+        {
+          "codeKey": "ROW_NO_ECALL_M3_OH",
+          "description": "Model 3 Hydroxide ROW no ECALL calibration",
+          "value": 123
+        },
+        {
+          "codeKey": "ROW_NO_ECALL_M3_OH_PED_PRO",
+          "description": "Model 3 Hydroxide ROW no ECALL calibration with PedPro support",
+          "value": 124
+        },
+        {
+          "codeKey": "NA_FSAB_MY",
+          "description": "Model Y North American FSAB calibration",
+          "value": 131
+        },
+        {
+          "codeKey": "NA_SP_FSAB_MY",
+          "description": "North American structural pack restraints calibration and configuration",
+          "value": 132
+        },
+        {
+          "codeKey": "EUROW_NO_ECALL_FSAB_1_STAG_DAB_MY",
+          "description": "Model Y Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration",
+          "value": 133
+        },
+        {
+          "codeKey": "EUROW_SP_NO_ECALL_FSAB_1_STAG_DAB_MY",
+          "description": "Rest of World structural pack ECALL calibration with farside airbag and only a single stage inflator restraints configuration",
+          "value": 134
+        }
+      ]
+    },
+    "brakeHWType": {
+      "accessId": 17,
+      "description": "Brake caliper hardware type",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "BREMBO_P42_MANDO_43MOC",
+          "value": 0,
+          "description": "Base package for M3"
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_BREMBO_44MOC",
+          "value": 1,
+          "description": "Performance package M3"
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_MANDO_43MOC",
+          "value": 2,
+          "description": "Base package Model Y"
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_BREMBO_LARGE_44MOC",
+          "value": 3,
+          "description": "Performance package Model Y"
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_V2_BREMBO_44MOC",
+          "value": 6,
+          "description": "Performance brake package with new EPB motor for performance 3"
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_V2_BREMBO_LARGE_44MOC",
+          "value": 7,
+          "description": "Performance brake package with new EPB motor for performance Y"
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_V2_MANDO_43MOC",
+          "value": 8,
+          "description": "Base package for MY new EPB motor for quieter operation"
+        },
+        {
+          "codeKey": "BREMBO_P42_V2_MANDO_43MOC",
+          "value": 9,
+          "description": "Base package for M3 new EPB motor for quieter operation"
+        },
+        {
+          "codeKey": "BREMBO_P42_ZF_43MOC",
+          "value": 13,
+          "description": "RC1 Poppyseed base variants with ZF rear caliper"
+        },
+        {
+          "codeKey": "BREMBO_P42LD_ZF_43MOC",
+          "value": 15,
+          "description": "Low drag(LD) caliper for Poppyseed base variants with ZF rear caliper"
+        },
+        {
+          "codeKey": "BREMBO_P42LD_V2_MANDO_43MOC",
+          "value": 16,
+          "description": "Low drag(LD) caliper for Poppyseed base variants with Mando rear caliper"
+        },
+        {
+          "codeKey": "HITACHI_P42_V2_MANDO_43MOC",
+          "value": 17,
+          "description": "Base package for MY with Hitachi front caliper"
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_V2_BREMBO_44MOC_GA",
+          "value": 18,
+          "description": "Performance brake package for Poppyseed Performance with GA5514(Front) and GA6508(Rear) brake pads"
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_V2_MANDO_43MOC_LOW_DRAG",
+          "value": 20,
+          "description": "Brembo front, Mando rear brake package for Bayberry. Very low drag, high fluid consumption"
+        },
+        {
+          "codeKey": "HITACHI_P42_V2_MANDO_43MOC_LOW_DRAG",
+          "value": 21,
+          "description": "Hitachi front, Mando rear brake package for Bayberry. Very low drag, high fluid consumption"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "BREMBO_P42_MANDO_43MOC",
+          "description": "Base package for M3",
+          "value": 0
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_BREMBO_44MOC",
+          "description": "Performance package M3",
+          "value": 1
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_MANDO_43MOC",
+          "description": "Base package Model Y",
+          "value": 2
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_BREMBO_LARGE_44MOC",
+          "description": "Performance package Model Y",
+          "value": 3
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_V2_BREMBO_44MOC",
+          "description": "Performance brake package with new EPB motor for performance 3",
+          "value": 6
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_V2_BREMBO_LARGE_44MOC",
+          "description": "Performance brake package with new EPB motor for performance Y",
+          "value": 7
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_V2_MANDO_43MOC",
+          "description": "Base package for MY new EPB motor for quieter operation",
+          "value": 8
+        },
+        {
+          "codeKey": "BREMBO_P42_V2_MANDO_43MOC",
+          "description": "Base package for M3 new EPB motor for quieter operation",
+          "value": 9
+        },
+        {
+          "codeKey": "BREMBO_P42_ZF_43MOC",
+          "description": "RC1 Poppyseed base variants with ZF rear caliper",
+          "value": 13
+        },
+        {
+          "codeKey": "BREMBO_P42LD_ZF_43MOC",
+          "description": "Low drag(LD) caliper for Poppyseed base variants with ZF rear caliper",
+          "value": 15
+        },
+        {
+          "codeKey": "BREMBO_P42LD_V2_MANDO_43MOC",
+          "description": "Low drag(LD) caliper for Poppyseed base variants with Mando rear caliper",
+          "value": 16
+        },
+        {
+          "codeKey": "HITACHI_P42_V2_MANDO_43MOC",
+          "description": "Base package for MY with Hitachi front caliper",
+          "value": 17
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_V2_BREMBO_44MOC_GA",
+          "description": "Performance brake package for Poppyseed Performance with GA5514(Front) and GA6508(Rear) brake pads",
+          "value": 18
+        },
+        {
+          "codeKey": "BREMBO_LARGE_P42_V2_MANDO_43MOC_LOW_DRAG",
+          "description": "Brembo front, Mando rear brake package for Bayberry. Very low drag, high fluid consumption",
+          "value": 20
+        },
+        {
+          "codeKey": "HITACHI_P42_V2_MANDO_43MOC_LOW_DRAG",
+          "description": "Hitachi front, Mando rear brake package for Bayberry. Very low drag, high fluid consumption",
+          "value": 21
+        }
+      ]
+    },
+    "homelinkType": {
+      "accessId": 18,
+      "description": "Type of homelink module installed",
+      "odinReadWriteAccess": "Customer",
+      "values": [
+        {
+          "codeKey": "NONE",
+          "value": 0,
+          "description": ""
+        },
+        {
+          "codeKey": "HOMELINK_V_OPT_2",
+          "value": 1,
+          "description": ""
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NONE",
+          "description": "",
+          "value": 0
+        },
+        {
+          "codeKey": "HOMELINK_V_OPT_2",
+          "description": "",
+          "value": 1
+        }
+      ]
+    },
+    "interiorLighting": {
+      "accessId": 26,
+      "description": "Type of interior lighting package installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "BASE",
+          "value": 0,
+          "description": "Base lighting package"
+        },
+        {
+          "codeKey": "PREMIUM",
+          "value": 1,
+          "description": "Premium lighting package"
+        },
+        {
+          "codeKey": "PREMIUM_NO_POCKET_LIGHT",
+          "value": 2,
+          "description": "Premium lighting package with door pocket lights depopulated"
+        },
+        {
+          "codeKey": "PREMIUM_WITH_RGB",
+          "value": 3,
+          "description": "Premium lighting package with RGB interior lighting elements"
+        },
+        {
+          "codeKey": "PREMIUM_WITH_RGB_IP_ONLY",
+          "value": 4,
+          "description": "Premium lighting package with RGB interior lighting elements in instrument panel only"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "BASE",
+          "description": "Base lighting package",
+          "value": 0
+        },
+        {
+          "codeKey": "PREMIUM",
+          "description": "Premium lighting package",
+          "value": 1
+        },
+        {
+          "codeKey": "PREMIUM_NO_POCKET_LIGHT",
+          "description": "Premium lighting package with door pocket lights depopulated",
+          "value": 2
+        },
+        {
+          "codeKey": "PREMIUM_WITH_RGB",
+          "description": "Premium lighting package with RGB interior lighting elements",
+          "value": 3
+        },
+        {
+          "codeKey": "PREMIUM_WITH_RGB_IP_ONLY",
+          "description": "Premium lighting package with RGB interior lighting elements in instrument panel only",
+          "value": 4
+        }
+      ]
+    },
+    "frontFogLamps": {
+      "accessId": null,
+      "description": "Whether front fog lamps are installed",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "2cb307aa9df507e6742d62b7ea2ecbd89b08195c3682c11f4cb15bba43942cb0",
+          "decoded": false
+        },
+        {
+          "hash": "5538e75069bd22de7447b3c54443f6b32fada1e820bd9c685176b5971d26ed89",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "headlamps": {
+      "accessId": 28,
+      "description": "Type of headlamps installed. Premium headlamps contain additional LEDs",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "PREMIUM",
+          "value": 1,
+          "description": "Premiumn Regional Headlamps"
+        },
+        {
+          "codeKey": "GLOBAL",
+          "value": 2,
+          "description": "Global headlamps"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "PREMIUM",
+          "description": "Premiumn Regional Headlamps",
+          "value": 1
+        },
+        {
+          "codeKey": "GLOBAL",
+          "description": "Global headlamps",
+          "value": 2
+        }
+      ]
+    },
+    "audioType": {
+      "accessId": null,
+      "description": "Type of audio package installed",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "9881c07fa3de54a184458b0a0c3b82166ab6f477168ccf4d02dd3956d394baaf",
+          "decoded": false
+        },
+        {
+          "hash": "5d636bdc92c5bafd59f3328b9fb2ec2e065814ff4401d2c30143f742581a243f",
+          "decoded": false
+        },
+        {
+          "hash": "60f080894e56c7e818bc497fcf19b9c251fc484ec13a9423546c1e629e1339b0",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "lumbarECUType": {
+      "accessId": 32,
+      "description": "Type of lumbar ECU installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "NONE",
+          "value": 0,
+          "description": "No lumbar module ECUs present"
+        },
+        {
+          "codeKey": "ALFMEIER",
+          "value": 1,
+          "description": "Alfmeier (or Gentherm) lumbar ECUs present in both front seats"
+        },
+        {
+          "codeKey": "ALFMEIER_DRIVER_ONLY_LHD",
+          "value": 2,
+          "description": "Alfmeier (or Gentherm) lumbar ECU present in driver seat only, LHD"
+        },
+        {
+          "codeKey": "ALFMEIER_DRIVER_ONLY_RHD",
+          "value": 3,
+          "description": "Alfmeier (or Gentherm) lumbar ECU present in driver seat only, RHD"
+        },
+        {
+          "codeKey": "AEW",
+          "value": 4,
+          "description": "AEW lumbar ECUs present in both front seats"
+        },
+        {
+          "codeKey": "AEW_DRIVER_ONLY_LHD",
+          "value": 5,
+          "description": "AEW lumbar ECU present in driver seat only, LHD"
+        },
+        {
+          "codeKey": "AEW_DRIVER_ONLY_RHD",
+          "value": 6,
+          "description": "AEW lumbar ECU present in driver seat only, RHD"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NONE",
+          "description": "No lumbar module ECUs present",
+          "value": 0
+        },
+        {
+          "codeKey": "ALFMEIER",
+          "description": "Alfmeier (or Gentherm) lumbar ECUs present in both front seats",
+          "value": 1
+        },
+        {
+          "codeKey": "ALFMEIER_DRIVER_ONLY_LHD",
+          "description": "Alfmeier (or Gentherm) lumbar ECU present in driver seat only, LHD",
+          "value": 2
+        },
+        {
+          "codeKey": "ALFMEIER_DRIVER_ONLY_RHD",
+          "description": "Alfmeier (or Gentherm) lumbar ECU present in driver seat only, RHD",
+          "value": 3
+        },
+        {
+          "codeKey": "AEW",
+          "description": "AEW lumbar ECUs present in both front seats",
+          "value": 4
+        },
+        {
+          "codeKey": "AEW_DRIVER_ONLY_LHD",
+          "description": "AEW lumbar ECU present in driver seat only, LHD",
+          "value": 5
+        },
+        {
+          "codeKey": "AEW_DRIVER_ONLY_RHD",
+          "description": "AEW lumbar ECU present in driver seat only, RHD",
+          "value": 6
+        }
+      ]
+    },
+    "numberHVILNodes": {
+      "accessId": null,
+      "description": "Number of HVIL nodes",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "6724c46ccedae4657cbc2a4fb4b6d7a716e74ee69cad0b02885f113029962f8a",
+          "decoded": false
+        },
+        {
+          "hash": "6592866ed69962e9a6449f6326e19355bd26789ad2a732884aed7eaa5f9be9a9",
+          "decoded": false
+        },
+        {
+          "hash": "bcb3e66c33cbcf9f9a9f3b1182c0f53dba3024bcf7ff203e6c8ab7447fd43fe0",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "frontSeatType": {
+      "accessId": 36,
+      "description": "Front seat trim level and motor types",
+      "odinReadWriteAccess": "Customer",
+      "values": [
+        {
+          "codeKey": "BASE_TESLA",
+          "value": 0,
+          "description": "Manual base seats"
+        },
+        {
+          "codeKey": "PREMIUM_TESLA",
+          "value": 1,
+          "description": "Left and Right Motorized premium seat from Tesla"
+        },
+        {
+          "codeKey": "PREMIUM_L_YANFENG_R_TESLA",
+          "value": 2,
+          "description": "Left seat Yanfeng, right motorized premium seat"
+        },
+        {
+          "codeKey": "PREMIUM_L_TESLA_R_YANFENG",
+          "value": 3,
+          "description": "Left seat Tesla, right seat Yanfeng motorized premium seat"
+        },
+        {
+          "codeKey": "PREMIUM_YANFENG",
+          "value": 4,
+          "description": "Left and right motorized premium seat from Yanfeng"
+        },
+        {
+          "codeKey": "PREMIUM_BROSE",
+          "value": 5,
+          "description": "Left and right motorized premium seat with Brose motors"
+        },
+        {
+          "codeKey": "PREMIUM_L_TESLA_R_TESLA_MINITILT",
+          "value": 6,
+          "description": "Right seat has mini-tilt motor, all other left and right seat motors are Tesla"
+        },
+        {
+          "codeKey": "PREMIUM_L_TESLA_MINITILT_R_TESLA",
+          "value": 7,
+          "description": "Left seat has mini-tilt motor, all other left and right seat motors are Tesla"
+        },
+        {
+          "codeKey": "PREMIUM_L_TESLA_MINITILT_R_TESLA_MINITILT",
+          "value": 8,
+          "description": "Left and right seat have mini-tilt motor, all other left and right seat motors are Tesla"
+        },
+        {
+          "codeKey": "PREMIUM_L_TESLA_MINITILT_R_YANFENG_MINITILT",
+          "value": 9,
+          "description": "Left has Tesla motors plus mini-tilt, right has Yanfeng motors plus mini-tilt"
+        },
+        {
+          "codeKey": "PREMIUM_L_YANFENG_R_YANFENG_MINITILT",
+          "value": 10,
+          "description": "Right seat has mini-tilt motor, all other left and right seat motors are Yanfeng"
+        },
+        {
+          "codeKey": "PREMIUM_L_YANFENG_MINITILT_R_YANFENG",
+          "value": 11,
+          "description": "Left seat has mini-tilt motor, all other left and right seat motors are Yanfeng"
+        },
+        {
+          "codeKey": "PREMIUM_L_YANFENG_MINITILT_R_YANFENG_MINITILT",
+          "value": 12,
+          "description": "Left and right seat have mini-tilt motor, all other left and right seat motors are Yanfeng"
+        },
+        {
+          "codeKey": "PREMIUM_L_YANFENG_MINITILT_R_TESLA_MINITILT",
+          "value": 13,
+          "description": "Left has Yangfeng motors plus mini-tilt, right has Tesla motors plus mini-tilt"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "BASE_TESLA",
+          "description": "Manual base seats",
+          "value": 0
+        },
+        {
+          "codeKey": "PREMIUM_TESLA",
+          "description": "Left and Right Motorized premium seat from Tesla",
+          "value": 1
+        },
+        {
+          "codeKey": "PREMIUM_L_YANFENG_R_TESLA",
+          "description": "Left seat Yanfeng, right motorized premium seat",
+          "value": 2
+        },
+        {
+          "codeKey": "PREMIUM_L_TESLA_R_YANFENG",
+          "description": "Left seat Tesla, right seat Yanfeng motorized premium seat",
+          "value": 3
+        },
+        {
+          "codeKey": "PREMIUM_YANFENG",
+          "description": "Left and right motorized premium seat from Yanfeng",
+          "value": 4
+        },
+        {
+          "codeKey": "PREMIUM_BROSE",
+          "description": "Left and right motorized premium seat with Brose motors",
+          "value": 5
+        },
+        {
+          "codeKey": "PREMIUM_L_TESLA_R_TESLA_MINITILT",
+          "description": "Right seat has mini-tilt motor, all other left and right seat motors are Tesla",
+          "value": 6
+        },
+        {
+          "codeKey": "PREMIUM_L_TESLA_MINITILT_R_TESLA",
+          "description": "Left seat has mini-tilt motor, all other left and right seat motors are Tesla",
+          "value": 7
+        },
+        {
+          "codeKey": "PREMIUM_L_TESLA_MINITILT_R_TESLA_MINITILT",
+          "description": "Left and right seat have mini-tilt motor, all other left and right seat motors are Tesla",
+          "value": 8
+        },
+        {
+          "codeKey": "PREMIUM_L_TESLA_MINITILT_R_YANFENG_MINITILT",
+          "description": "Left has Tesla motors plus mini-tilt, right has Yanfeng motors plus mini-tilt",
+          "value": 9
+        },
+        {
+          "codeKey": "PREMIUM_L_YANFENG_R_YANFENG_MINITILT",
+          "description": "Right seat has mini-tilt motor, all other left and right seat motors are Yanfeng",
+          "value": 10
+        },
+        {
+          "codeKey": "PREMIUM_L_YANFENG_MINITILT_R_YANFENG",
+          "description": "Left seat has mini-tilt motor, all other left and right seat motors are Yanfeng",
+          "value": 11
+        },
+        {
+          "codeKey": "PREMIUM_L_YANFENG_MINITILT_R_YANFENG_MINITILT",
+          "description": "Left and right seat have mini-tilt motor, all other left and right seat motors are Yanfeng",
+          "value": 12
+        },
+        {
+          "codeKey": "PREMIUM_L_YANFENG_MINITILT_R_TESLA_MINITILT",
+          "description": "Left has Yangfeng motors plus mini-tilt, right has Tesla motors plus mini-tilt",
+          "value": 13
+        }
+      ]
+    },
+    "wheelType": {
+      "accessId": 41,
+      "description": "Type of wheels installed",
+      "odinReadWriteAccess": "Customer",
+      "values": [
+        {
+          "codeKey": "INDUCTION_20_BLACK",
+          "value": 15,
+          "description": "Induction 20in Armor Black"
+        },
+        {
+          "codeKey": "UBERTURBINE_21_BLACK",
+          "value": 16,
+          "description": "Uber Turbine 21in Armor Black"
+        },
+        {
+          "codeKey": "APOLLO_19_SILVER",
+          "value": 17,
+          "description": "Apollo 19in Sonic Silver, AKA MY Gemini wheels"
+        },
+        {
+          "codeKey": "APOLLO_19_SILVER_CAP_KIT",
+          "value": 20,
+          "description": "Apollo 19 inch wheels with wheel cap kit/aero cover removed. AKA MY Gemini wheels"
+        },
+        {
+          "codeKey": "APOLLO_19_METALLIC_SHADOW",
+          "value": 37,
+          "description": "Apollo 19 inch wheels in metallic shadow color"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "INDUCTION_20_BLACK",
+          "description": "Induction 20in Armor Black",
+          "value": 15
+        },
+        {
+          "codeKey": "UBERTURBINE_21_BLACK",
+          "description": "Uber Turbine 21in Armor Black",
+          "value": 16
+        },
+        {
+          "codeKey": "APOLLO_19_SILVER",
+          "description": "Apollo 19in Sonic Silver, AKA MY Gemini wheels",
+          "value": 17
+        },
+        {
+          "codeKey": "APOLLO_19_SILVER_CAP_KIT",
+          "description": "Apollo 19 inch wheels with wheel cap kit/aero cover removed. AKA MY Gemini wheels",
+          "value": 20
+        },
+        {
+          "codeKey": "APOLLO_19_METALLIC_SHADOW",
+          "description": "Apollo 19 inch wheels in metallic shadow color",
+          "value": 37
+        }
+      ]
+    },
+    "auxParkLamps": {
+      "accessId": 43,
+      "description": "Region-correlated combination of fascia lighting element options",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "NA_BASE",
+          "value": 0,
+          "description": "Side markers only"
+        },
+        {
+          "codeKey": "NA_PREMIUM",
+          "value": 1,
+          "description": "Side markers, light pipe as auxiliary park lamps"
+        },
+        {
+          "codeKey": "EU",
+          "value": 2,
+          "description": "Light pipe as fog light guide, no side markers"
+        },
+        {
+          "codeKey": "NONE",
+          "value": 3,
+          "description": "Plastic inserts instead of lights"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NA_BASE",
+          "description": "Side markers only",
+          "value": 0
+        },
+        {
+          "codeKey": "NA_PREMIUM",
+          "description": "Side markers, light pipe as auxiliary park lamps",
+          "value": 1
+        },
+        {
+          "codeKey": "EU",
+          "description": "Light pipe as fog light guide, no side markers",
+          "value": 2
+        },
+        {
+          "codeKey": "NONE",
+          "description": "Plastic inserts instead of lights",
+          "value": 3
+        }
+      ]
+    },
+    "pedestrianWarningSound": {
+      "accessId": 44,
+      "description": "Pedestrian warning sound configuration",
+      "odinReadWriteAccess": "ResearchAndDevelopment",
+      "values": [
+        {
+          "codeKey": "NONE",
+          "value": 0,
+          "description": "No pedestrian warning sound available"
+        },
+        {
+          "codeKey": "SPEAKER",
+          "value": 1,
+          "description": "Pedestrian warning sound emitted from discrete speaker"
+        },
+        {
+          "codeKey": "EXT_SPEAKER_V2",
+          "value": 2,
+          "description": "Pedestrian warning sound emitted from 2nd generation exterior speaker"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NONE",
+          "description": "No pedestrian warning sound available",
+          "value": 0
+        },
+        {
+          "codeKey": "SPEAKER",
+          "description": "Pedestrian warning sound emitted from discrete speaker",
+          "value": 1
+        },
+        {
+          "codeKey": "EXT_SPEAKER_V2",
+          "description": "Pedestrian warning sound emitted from 2nd generation exterior speaker",
+          "value": 2
+        }
+      ]
+    },
+    "hvacPanelVaneType": {
+      "accessId": 46,
+      "description": "HVAC airwave vane assembly type",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "PARALLEL_V1",
+          "value": 0,
+          "description": "Parallel vanes, default at start of M3 production"
+        },
+        {
+          "codeKey": "CONVERGENT_V1",
+          "value": 1,
+          "description": "Convergent vanes for improved airflow distribution"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "PARALLEL_V1",
+          "description": "Parallel vanes, default at start of M3 production",
+          "value": 0
+        },
+        {
+          "codeKey": "CONVERGENT_V1",
+          "description": "Convergent vanes for improved airflow distribution",
+          "value": 1
+        }
+      ]
+    },
+    "activeHighBeam": {
+      "accessId": null,
+      "description": "Active high beams are installed or not",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "4664870318d754ace06ab98b539dac0df1e6f6ebfab816d86c175d5c26b7dd94",
+          "decoded": false
+        },
+        {
+          "hash": "4f20ba9eafc4de387aff80e9dabed843da9210e78b5cb54476414c6a5fcd950a",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "airbagCutoffSwitch": {
+      "accessId": null,
+      "description": "The airbag cutoff switch is enabled or disabled",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "a2f4a7841738a760ae34323a5391609b2e4b7907c964e35c0f9b90899b7ecade",
+          "decoded": false
+        },
+        {
+          "hash": "4839490aae0aeb0cd1597b8253642ef5da5a4dd42248477cec1dc5a167ff4665",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "intrusionSensorType": {
+      "accessId": null,
+      "description": "Type of intrusion sensor installed",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "576ad32f85326132766311fc6e5b968641e6e1c359043064ac69cd4d950d0aaf",
+          "decoded": false
+        },
+        {
+          "hash": "e60f72357402d9c755cfe8b3ff1f56a1a964af0017b4098dc5cf39a57cbf9a94",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "spoilerType": {
+      "accessId": 55,
+      "description": "Type of spoiler installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "NOT_INSTALLED",
+          "value": 0,
+          "description": "Rear spoiler is not installed"
+        },
+        {
+          "codeKey": "PASSIVE",
+          "value": 1,
+          "description": "Passive spoiler is installed"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NOT_INSTALLED",
+          "description": "Rear spoiler is not installed",
+          "value": 0
+        },
+        {
+          "codeKey": "PASSIVE",
+          "description": "Passive spoiler is installed",
+          "value": 1
+        }
+      ]
+    },
+    "rearFogLamps": {
+      "accessId": 58,
+      "description": "Rear fog lamp presence",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "NOT_INSTALLED",
+          "value": 0,
+          "description": ""
+        },
+        {
+          "codeKey": "INSTALLED",
+          "value": 1,
+          "description": ""
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NOT_INSTALLED",
+          "description": "",
+          "value": 0
+        },
+        {
+          "codeKey": "INSTALLED",
+          "description": "",
+          "value": 1
+        }
+      ]
+    },
+    "dasHw": {
+      "accessId": 59,
+      "description": "Driver Assist hardware",
+      "odinReadWriteAccess": "ResearchAndDevelopment",
+      "values": [
+        {
+          "codeKey": "PARKER_PASCAL_2_5",
+          "value": 3,
+          "description": "HW2.5"
+        },
+        {
+          "codeKey": "TESLA_AP3",
+          "value": 4,
+          "description": "HW3"
+        },
+        {
+          "codeKey": "TESLA_AP4",
+          "value": 5,
+          "description": "HW4"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "PARKER_PASCAL_2_5",
+          "description": "HW2.5",
+          "value": 3
+        },
+        {
+          "codeKey": "TESLA_AP3",
+          "description": "HW3",
+          "value": 4
+        },
+        {
+          "codeKey": "TESLA_AP4",
+          "description": "HW4",
+          "value": 5
+        }
+      ]
+    },
+    "tireType": {
+      "accessId": 62,
+      "description": "Brand and Size of tires installed. UNKNOWN used for vehicles built before this config",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "UNKNOWN",
+          "value": 0,
+          "description": ""
+        },
+        {
+          "codeKey": "MICHELIN_ALL_SEASON_18",
+          "value": 1,
+          "description": ""
+        },
+        {
+          "codeKey": "MICHELIN_SUMMER_18",
+          "value": 2,
+          "description": ""
+        },
+        {
+          "codeKey": "HANKOOK_SUMMER_19",
+          "value": 3,
+          "description": ""
+        },
+        {
+          "codeKey": "CONTI_ALL_SEASON_19",
+          "value": 4,
+          "description": ""
+        },
+        {
+          "codeKey": "MICHELIN_SUMMER_20",
+          "value": 5,
+          "description": ""
+        },
+        {
+          "codeKey": "PIRELLI_ALL_SEASON_20",
+          "value": 6,
+          "description": ""
+        },
+        {
+          "codeKey": "GOODYEAR_ALL_TERRAIN_20",
+          "value": 7,
+          "description": ""
+        },
+        {
+          "codeKey": "BRIDGESTONE_SUMMER_18",
+          "value": 16,
+          "description": ""
+        },
+        {
+          "codeKey": "GOODYEAR_ALL_SEASON_20",
+          "value": 17,
+          "description": ""
+        },
+        {
+          "codeKey": "PIRELLI_SUMMER_21",
+          "value": 18,
+          "description": ""
+        },
+        {
+          "codeKey": "MICHELIN_ALL_SEASON_21",
+          "value": 19,
+          "description": ""
+        },
+        {
+          "codeKey": "PIRELLI_SUMMER_19",
+          "value": 20,
+          "description": ""
+        },
+        {
+          "codeKey": "PIRELLI_SUMMER_20",
+          "value": 21,
+          "description": ""
+        },
+        {
+          "codeKey": "MICHELIN_SUMMER_21",
+          "value": 22,
+          "description": ""
+        },
+        {
+          "codeKey": "CONTI_ALL_SEASON_20",
+          "value": 23,
+          "description": ""
+        },
+        {
+          "codeKey": "CONTI_SUMMER_22",
+          "value": 24,
+          "description": ""
+        },
+        {
+          "codeKey": "PIRELLI_ALL_SEASON_22",
+          "value": 25,
+          "description": ""
+        },
+        {
+          "codeKey": "HANKOOK_ALL_SEASON_18",
+          "value": 26,
+          "description": ""
+        },
+        {
+          "codeKey": "GOODYEAR_ALL_SEASON_21",
+          "value": 27,
+          "description": ""
+        },
+        {
+          "codeKey": "PIRELLI_ALL_SEASON_19",
+          "value": 28,
+          "description": ""
+        },
+        {
+          "codeKey": "HANKOOK_ALL_SEASON_21",
+          "value": 29,
+          "description": ""
+        },
+        {
+          "codeKey": "KUMHO_ALL_SEASON_19",
+          "value": 30,
+          "description": ""
+        },
+        {
+          "codeKey": "GOODYEAR_SUMMER_19",
+          "value": 31,
+          "description": ""
+        },
+        {
+          "codeKey": "HANKOOK_ALL_SEASON_20",
+          "value": 32,
+          "description": ""
+        },
+        {
+          "codeKey": "BRIDGESTONE_ALL_SEASON_20",
+          "value": 33,
+          "description": ""
+        },
+        {
+          "codeKey": "CONTI_SUMMER_19",
+          "value": 34,
+          "description": ""
+        },
+        {
+          "codeKey": "GOODYEAR_ALL_SEASON_18",
+          "value": 35,
+          "description": ""
+        },
+        {
+          "codeKey": "KUMHO_ALL_SEASON_18",
+          "value": 36,
+          "description": ""
+        },
+        {
+          "codeKey": "GITI_SUMMER_18",
+          "value": 37,
+          "description": ""
+        },
+        {
+          "codeKey": "HANKOOK_SUMMER_18",
+          "value": 38,
+          "description": ""
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "UNKNOWN",
+          "description": "",
+          "value": 0
+        },
+        {
+          "codeKey": "MICHELIN_ALL_SEASON_18",
+          "description": "",
+          "value": 1
+        },
+        {
+          "codeKey": "MICHELIN_SUMMER_18",
+          "description": "",
+          "value": 2
+        },
+        {
+          "codeKey": "HANKOOK_SUMMER_19",
+          "description": "",
+          "value": 3
+        },
+        {
+          "codeKey": "CONTI_ALL_SEASON_19",
+          "description": "",
+          "value": 4
+        },
+        {
+          "codeKey": "MICHELIN_SUMMER_20",
+          "description": "",
+          "value": 5
+        },
+        {
+          "codeKey": "PIRELLI_ALL_SEASON_20",
+          "description": "",
+          "value": 6
+        },
+        {
+          "codeKey": "GOODYEAR_ALL_TERRAIN_20",
+          "description": "",
+          "value": 7
+        },
+        {
+          "codeKey": "BRIDGESTONE_SUMMER_18",
+          "description": "",
+          "value": 16
+        },
+        {
+          "codeKey": "GOODYEAR_ALL_SEASON_20",
+          "description": "",
+          "value": 17
+        },
+        {
+          "codeKey": "PIRELLI_SUMMER_21",
+          "description": "",
+          "value": 18
+        },
+        {
+          "codeKey": "MICHELIN_ALL_SEASON_21",
+          "description": "",
+          "value": 19
+        },
+        {
+          "codeKey": "PIRELLI_SUMMER_19",
+          "description": "",
+          "value": 20
+        },
+        {
+          "codeKey": "PIRELLI_SUMMER_20",
+          "description": "",
+          "value": 21
+        },
+        {
+          "codeKey": "MICHELIN_SUMMER_21",
+          "description": "",
+          "value": 22
+        },
+        {
+          "codeKey": "CONTI_ALL_SEASON_20",
+          "description": "",
+          "value": 23
+        },
+        {
+          "codeKey": "CONTI_SUMMER_22",
+          "description": "",
+          "value": 24
+        },
+        {
+          "codeKey": "PIRELLI_ALL_SEASON_22",
+          "description": "",
+          "value": 25
+        },
+        {
+          "codeKey": "HANKOOK_ALL_SEASON_18",
+          "description": "",
+          "value": 26
+        },
+        {
+          "codeKey": "GOODYEAR_ALL_SEASON_21",
+          "description": "",
+          "value": 27
+        },
+        {
+          "codeKey": "PIRELLI_ALL_SEASON_19",
+          "description": "",
+          "value": 28
+        },
+        {
+          "codeKey": "HANKOOK_ALL_SEASON_21",
+          "description": "",
+          "value": 29
+        },
+        {
+          "codeKey": "KUMHO_ALL_SEASON_19",
+          "description": "",
+          "value": 30
+        },
+        {
+          "codeKey": "GOODYEAR_SUMMER_19",
+          "description": "",
+          "value": 31
+        },
+        {
+          "codeKey": "HANKOOK_ALL_SEASON_20",
+          "description": "",
+          "value": 32
+        },
+        {
+          "codeKey": "BRIDGESTONE_ALL_SEASON_20",
+          "description": "",
+          "value": 33
+        },
+        {
+          "codeKey": "CONTI_SUMMER_19",
+          "description": "",
+          "value": 34
+        },
+        {
+          "codeKey": "GOODYEAR_ALL_SEASON_18",
+          "description": "",
+          "value": 35
+        },
+        {
+          "codeKey": "KUMHO_ALL_SEASON_18",
+          "description": "",
+          "value": 36
+        },
+        {
+          "codeKey": "GITI_SUMMER_18",
+          "description": "",
+          "value": 37
+        },
+        {
+          "codeKey": "HANKOOK_SUMMER_18",
+          "description": "",
+          "value": 38
+        }
+      ]
+    },
+    "eCallEnabled": {
+      "accessId": 65,
+      "description": "ECall features are enabled or disabled for the vehicle",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "DISABLED",
+          "value": 0,
+          "description": "E-Call not enabled"
+        },
+        {
+          "codeKey": "ENABLED_OHC_SOS",
+          "value": 1,
+          "description": "E-Call enabled with a physical button for SOS"
+        },
+        {
+          "codeKey": "ENABLED_UI_SOS",
+          "value": 2,
+          "description": "E-Call enabled with a UI button for SOS"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "DISABLED",
+          "description": "E-Call not enabled",
+          "value": 0
+        },
+        {
+          "codeKey": "ENABLED_OHC_SOS",
+          "description": "E-Call enabled with a physical button for SOS",
+          "value": 1
+        },
+        {
+          "codeKey": "ENABLED_UI_SOS",
+          "description": "E-Call enabled with a UI button for SOS",
+          "value": 2
+        }
+      ]
+    },
+    "mapRegion": {
+      "accessId": 66,
+      "description": "Region specifier for navigation maps",
+      "odinReadWriteAccess": "Customer",
+      "values": [
+        {
+          "codeKey": "US",
+          "value": 0,
+          "description": "United States"
+        },
+        {
+          "codeKey": "EU",
+          "value": 1,
+          "description": "European Union"
+        },
+        {
+          "codeKey": "NONE",
+          "value": 2,
+          "description": "None"
+        },
+        {
+          "codeKey": "CN",
+          "value": 3,
+          "description": "China"
+        },
+        {
+          "codeKey": "AU",
+          "value": 4,
+          "description": "Australia & New Zealand"
+        },
+        {
+          "codeKey": "JP",
+          "value": 5,
+          "description": "Japan"
+        },
+        {
+          "codeKey": "TW",
+          "value": 6,
+          "description": "Taiwan"
+        },
+        {
+          "codeKey": "KR",
+          "value": 7,
+          "description": "South Korea"
+        },
+        {
+          "codeKey": "ME",
+          "value": 8,
+          "description": "Middle East"
+        },
+        {
+          "codeKey": "HK",
+          "value": 9,
+          "description": "Hong Kong"
+        },
+        {
+          "codeKey": "MO",
+          "value": 10,
+          "description": "Macau"
+        },
+        {
+          "codeKey": "SE",
+          "value": 11,
+          "description": "Southeast Asia"
+        },
+        {
+          "codeKey": "IN",
+          "value": 12,
+          "description": "India"
+        },
+        {
+          "codeKey": "LA",
+          "value": 13,
+          "description": "Latin America"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "US",
+          "description": "United States",
+          "value": 0
+        },
+        {
+          "codeKey": "EU",
+          "description": "European Union",
+          "value": 1
+        },
+        {
+          "codeKey": "NONE",
+          "description": "None",
+          "value": 2
+        },
+        {
+          "codeKey": "CN",
+          "description": "China",
+          "value": 3
+        },
+        {
+          "codeKey": "AU",
+          "description": "Australia & New Zealand",
+          "value": 4
+        },
+        {
+          "codeKey": "JP",
+          "description": "Japan",
+          "value": 5
+        },
+        {
+          "codeKey": "TW",
+          "description": "Taiwan",
+          "value": 6
+        },
+        {
+          "codeKey": "KR",
+          "description": "South Korea",
+          "value": 7
+        },
+        {
+          "codeKey": "ME",
+          "description": "Middle East",
+          "value": 8
+        },
+        {
+          "codeKey": "HK",
+          "description": "Hong Kong",
+          "value": 9
+        },
+        {
+          "codeKey": "MO",
+          "description": "Macau",
+          "value": 10
+        },
+        {
+          "codeKey": "SE",
+          "description": "Southeast Asia",
+          "value": 11
+        },
+        {
+          "codeKey": "IN",
+          "description": "India",
+          "value": 12
+        },
+        {
+          "codeKey": "LA",
+          "description": "Latin America",
+          "value": 13
+        }
+      ]
+    },
+    "rearLightType": {
+      "accessId": 67,
+      "description": "Rear light fixture type",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "NA",
+          "value": 0,
+          "description": "Tail light and one light for brake and turn signals"
+        },
+        {
+          "codeKey": "EU_CN",
+          "value": 1,
+          "description": "Tail light, brake light, and turn signal light"
+        },
+        {
+          "codeKey": "GLOBAL",
+          "value": 2,
+          "description": "Rear Global Lamp"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NA",
+          "description": "Tail light and one light for brake and turn signals",
+          "value": 0
+        },
+        {
+          "codeKey": "EU_CN",
+          "description": "Tail light, brake light, and turn signal light",
+          "value": 1
+        },
+        {
+          "codeKey": "GLOBAL",
+          "description": "Rear Global Lamp",
+          "value": 2
+        }
+      ]
+    },
+    "plcSupportType": {
+      "accessId": 70,
+      "description": "Type of support for PLC charging standards",
+      "odinReadWriteAccess": "Customer",
+      "values": [
+        {
+          "codeKey": "NONE",
+          "value": 0,
+          "description": "No support for PLC"
+        },
+        {
+          "codeKey": "ONBOARD_ADAPTER",
+          "value": 1,
+          "description": "Discrete PLCRLY ECU installed"
+        },
+        {
+          "codeKey": "NATIVE_CHARGE_PORT",
+          "value": 2,
+          "description": "Charge Port has built-in support"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NONE",
+          "description": "No support for PLC",
+          "value": 0
+        },
+        {
+          "codeKey": "ONBOARD_ADAPTER",
+          "description": "Discrete PLCRLY ECU installed",
+          "value": 1
+        },
+        {
+          "codeKey": "NATIVE_CHARGE_PORT",
+          "description": "Charge Port has built-in support",
+          "value": 2
+        }
+      ]
+    },
+    "towPackage": {
+      "accessId": 72,
+      "description": "Tow package hardware is installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "NONE",
+          "value": 0,
+          "description": "No tow capabilities"
+        },
+        {
+          "codeKey": "TESLA_REV1",
+          "value": 1,
+          "description": "Discrete Trailer Controller ECU installed"
+        },
+        {
+          "codeKey": "TESLA_REV2",
+          "value": 2,
+          "description": "Trailer Controller with higher bus voltage support for Li-Ion vehicles installed"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NONE",
+          "description": "No tow capabilities",
+          "value": 0
+        },
+        {
+          "codeKey": "TESLA_REV1",
+          "description": "Discrete Trailer Controller ECU installed",
+          "value": 1
+        },
+        {
+          "codeKey": "TESLA_REV2",
+          "description": "Trailer Controller with higher bus voltage support for Li-Ion vehicles installed",
+          "value": 2
+        }
+      ]
+    },
+    "refrigerantType": {
+      "accessId": 73,
+      "description": "Type of refrigerant",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "Default",
+          "value": 0,
+          "description": ""
+        },
+        {
+          "codeKey": "R134A",
+          "value": 1,
+          "description": ""
+        },
+        {
+          "codeKey": "R1234YF",
+          "value": 2,
+          "description": ""
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "Default",
+          "description": "",
+          "value": 0
+        },
+        {
+          "codeKey": "R134A",
+          "description": "",
+          "value": 1
+        },
+        {
+          "codeKey": "R1234YF",
+          "description": "",
+          "value": 2
+        }
+      ]
+    },
+    "passengerOccupancySensorType": {
+      "accessId": 74,
+      "description": "Type of occupancy sensor installed in the passenger seat",
+      "odinReadWriteAccess": "ResearchAndDevelopment",
+      "values": [
+        {
+          "codeKey": "OCS",
+          "value": 0,
+          "description": "Discrete occupancy sensor ECU (OCS1P) installed"
+        },
+        {
+          "codeKey": "RESISTIVE_PAD",
+          "value": 1,
+          "description": "Passive resistive pad installed, no discrete OCS ECU"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "OCS",
+          "description": "Discrete occupancy sensor ECU (OCS1P) installed",
+          "value": 0
+        },
+        {
+          "codeKey": "RESISTIVE_PAD",
+          "description": "Passive resistive pad installed, no discrete OCS ECU",
+          "value": 1
+        }
+      ]
+    },
+    "tpmsType": {
+      "accessId": 76,
+      "description": "Type of Tire Pressure Monitoring System (TPMS)",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "TESLA_BLE",
+          "value": 1,
+          "description": "Tesla BLE transponders provide TPMS functionality"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "TESLA_BLE",
+          "description": "Tesla BLE transponders provide TPMS functionality",
+          "value": 1
+        }
+      ]
+    },
+    "frontSeatReclinerHardware": {
+      "accessId": 77,
+      "description": "Type of recliner hardware in Model 3 seats",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "STANDARD_RANGE",
+          "value": 0,
+          "description": "SOP Model 3 front seats"
+        },
+        {
+          "codeKey": "RIGHT_SEAT_REDUCED_RANGE",
+          "value": 1,
+          "description": "Right side front seat with reduced range bracket"
+        },
+        {
+          "codeKey": "LEFT_SEAT_REDUCED_RANGE",
+          "value": 2,
+          "description": "Left side front seat with reduced range bracket"
+        },
+        {
+          "codeKey": "LEFT_RIGHT_SEAT_REDUCED_RANGE",
+          "value": 3,
+          "description": "Both front seats with reduced range bracket"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "STANDARD_RANGE",
+          "description": "SOP Model 3 front seats",
+          "value": 0
+        },
+        {
+          "codeKey": "RIGHT_SEAT_REDUCED_RANGE",
+          "description": "Right side front seat with reduced range bracket",
+          "value": 1
+        },
+        {
+          "codeKey": "LEFT_SEAT_REDUCED_RANGE",
+          "description": "Left side front seat with reduced range bracket",
+          "value": 2
+        },
+        {
+          "codeKey": "LEFT_RIGHT_SEAT_REDUCED_RANGE",
+          "description": "Both front seats with reduced range bracket",
+          "value": 3
+        }
+      ]
+    },
+    "compressorType": {
+      "accessId": 84,
+      "description": "Type of refrigerant compressor",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "HANON_33CC",
+          "value": 0,
+          "description": "Correlates with CMP uds node"
+        },
+        {
+          "codeKey": "DENSO_41CC_8K",
+          "value": 1,
+          "description": "Used in heat pump thermal system, correlated with CMPD UDS node. Limited speed for motor bearing issue"
+        },
+        {
+          "codeKey": "DENSO_41CC_11K",
+          "value": 2,
+          "description": "Used in heat pump thermal system, correlated with CMPD UDS node. No speed limit"
+        },
+        {
+          "codeKey": "SANDEN",
+          "value": 3,
+          "description": "Used in heat pump thermal system, correlated with CMPS UDS node"
+        },
+        {
+          "codeKey": "DENSO_11K_COP1_ENABLED",
+          "value": 4,
+          "description": "Used in heat pump thermal system, correlated with CMPD UDS node, improved COP1 performance"
+        },
+        {
+          "codeKey": "SANDEN_V2",
+          "value": 5,
+          "description": "-E Sanden compressor and forward with un-restricted operation range"
+        },
+        {
+          "codeKey": "SANDEN_V1_1",
+          "value": 6,
+          "description": "Sanden compressor with extended operation range"
+        },
+        {
+          "codeKey": "SANDEN_V3",
+          "value": 7,
+          "description": "Create Sanden -I GTW config"
+        },
+        {
+          "codeKey": "SANDEN_V4",
+          "value": 8,
+          "description": "Create Sanden -J GTW config"
+        },
+        {
+          "codeKey": "SANDEN_V4_1",
+          "value": 10,
+          "description": "Create Sanden -J GTW config with Lower Min Speed"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "HANON_33CC",
+          "description": "Correlates with CMP uds node",
+          "value": 0
+        },
+        {
+          "codeKey": "DENSO_41CC_8K",
+          "description": "Used in heat pump thermal system, correlated with CMPD UDS node. Limited speed for motor bearing issue",
+          "value": 1
+        },
+        {
+          "codeKey": "DENSO_41CC_11K",
+          "description": "Used in heat pump thermal system, correlated with CMPD UDS node. No speed limit",
+          "value": 2
+        },
+        {
+          "codeKey": "SANDEN",
+          "description": "Used in heat pump thermal system, correlated with CMPS UDS node",
+          "value": 3
+        },
+        {
+          "codeKey": "DENSO_11K_COP1_ENABLED",
+          "description": "Used in heat pump thermal system, correlated with CMPD UDS node, improved COP1 performance",
+          "value": 4
+        },
+        {
+          "codeKey": "SANDEN_V2",
+          "description": "-E Sanden compressor and forward with un-restricted operation range",
+          "value": 5
+        },
+        {
+          "codeKey": "SANDEN_V1_1",
+          "description": "Sanden compressor with extended operation range",
+          "value": 6
+        },
+        {
+          "codeKey": "SANDEN_V3",
+          "description": "Create Sanden -I GTW config",
+          "value": 7
+        },
+        {
+          "codeKey": "SANDEN_V4",
+          "description": "Create Sanden -J GTW config",
+          "value": 8
+        },
+        {
+          "codeKey": "SANDEN_V4_1",
+          "description": "Create Sanden -J GTW config with Lower Min Speed",
+          "value": 10
+        }
+      ]
+    },
+    "cabinPTCHeaterType": {
+      "accessId": null,
+      "description": "Type of Positive Temperature Coefficient (PTC) heater installed",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "a18b6f41172c13b5886795f65920a506cfc7ff89c2f720e1b2b2e5b745d04dcf",
+          "decoded": false
+        },
+        {
+          "hash": "48eae9de3831d5ce1b13fa4e87412e7c64f75016e8ab38e89049618bf4f54beb",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "coolantPumpType": {
+      "accessId": 86,
+      "description": "Number of coolant loop pumps installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "DUAL",
+          "value": 0,
+          "description": "Two coolant pumps installed"
+        },
+        {
+          "codeKey": "SINGLE_PUMP_BATT",
+          "value": 1,
+          "description": "Only battery loop pump installed"
+        },
+        {
+          "codeKey": "DUAL_SAN_P4",
+          "value": 2,
+          "description": "Two Sanhua P4 pumps installed"
+        },
+        {
+          "codeKey": "DUAL_SAN_P4_LUB",
+          "value": 4,
+          "description": "Two Sanhua P4 pumps with silver plated terminals"
+        },
+        {
+          "codeKey": "DUAL_MIX",
+          "value": 5,
+          "description": "Two coolant pumps installed, mixed pole pair batches"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "DUAL",
+          "description": "Two coolant pumps installed",
+          "value": 0
+        },
+        {
+          "codeKey": "SINGLE_PUMP_BATT",
+          "description": "Only battery loop pump installed",
+          "value": 1
+        },
+        {
+          "codeKey": "DUAL_SAN_P4",
+          "description": "Two Sanhua P4 pumps installed",
+          "value": 2
+        },
+        {
+          "codeKey": "DUAL_SAN_P4_LUB",
+          "description": "Two Sanhua P4 pumps with silver plated terminals",
+          "value": 4
+        },
+        {
+          "codeKey": "DUAL_MIX",
+          "description": "Two coolant pumps installed, mixed pole pair batches",
+          "value": 5
+        }
+      ]
+    },
+    "passengerAirbagType": {
+      "accessId": 91,
+      "description": "Type of passenger airbag installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "FULL_SUPPRESSION",
+          "value": 0,
+          "description": "Full suppression passenger airbag is installed"
+        },
+        {
+          "codeKey": "SAFETY_VENT",
+          "value": 1,
+          "description": "Low risk airbag for use with passenger seats without occupant weight measurement"
+        },
+        {
+          "codeKey": "EUROW",
+          "value": 2,
+          "description": "EU and ROW airbag type"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "FULL_SUPPRESSION",
+          "description": "Full suppression passenger airbag is installed",
+          "value": 0
+        },
+        {
+          "codeKey": "SAFETY_VENT",
+          "description": "Low risk airbag for use with passenger seats without occupant weight measurement",
+          "value": 1
+        },
+        {
+          "codeKey": "EUROW",
+          "description": "EU and ROW airbag type",
+          "value": 2
+        }
+      ]
+    },
+    "headlightLevelerType": {
+      "accessId": 92,
+      "description": "Type of headlight leveling system installed",
+      "odinReadWriteAccess": "ResearchAndDevelopment",
+      "values": [
+        {
+          "codeKey": "NONE",
+          "value": 0,
+          "description": "No headlight leveling functionality is available"
+        },
+        {
+          "codeKey": "GEN1",
+          "value": 1,
+          "description": "Automatic headlamp leveling on coil vehicles using additional ride-height sensors"
+        },
+        {
+          "codeKey": "VIRTUAL_PITCH_SENSOR",
+          "value": 2,
+          "description": "Virtual pitch sensor using longitudinal acceleration and GPS elevation"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NONE",
+          "description": "No headlight leveling functionality is available",
+          "value": 0
+        },
+        {
+          "codeKey": "GEN1",
+          "description": "Automatic headlamp leveling on coil vehicles using additional ride-height sensors",
+          "value": 1
+        },
+        {
+          "codeKey": "VIRTUAL_PITCH_SENSOR",
+          "description": "Virtual pitch sensor using longitudinal acceleration and GPS elevation",
+          "value": 2
+        }
+      ]
+    },
+    "twelveVBatteryType": {
+      "accessId": 96,
+      "description": "Type of 12v battery installed",
+      "odinReadWriteAccess": "Customer",
+      "values": [
+        {
+          "codeKey": "ATLASBX_B24_FLOODED",
+          "value": 0,
+          "description": "Atlas BX flooded lead-acid battery"
+        },
+        {
+          "codeKey": "CLARIOS_B24_FLOODED",
+          "value": 1,
+          "description": "Clarios flooded lead-acid battery"
+        },
+        {
+          "codeKey": "CATL_LI_ION",
+          "value": 2,
+          "description": "CATL lithium-ion battery"
+        },
+        {
+          "codeKey": "TESLA_16V_LI_ION",
+          "value": 3,
+          "description": "Tesla 16V lithium-ion battery"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "ATLASBX_B24_FLOODED",
+          "description": "Atlas BX flooded lead-acid battery",
+          "value": 0
+        },
+        {
+          "codeKey": "CLARIOS_B24_FLOODED",
+          "description": "Clarios flooded lead-acid battery",
+          "value": 1
+        },
+        {
+          "codeKey": "CATL_LI_ION",
+          "description": "CATL lithium-ion battery",
+          "value": 2
+        },
+        {
+          "codeKey": "TESLA_16V_LI_ION",
+          "description": "Tesla 16V lithium-ion battery",
+          "value": 3
+        }
+      ]
+    },
+    "powerLiftgateType": {
+      "accessId": 99,
+      "description": "Type of power liftgate hardware installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "NOT_INSTALLED",
+          "value": 0,
+          "description": "Manual liftgate installed"
+        },
+        {
+          "codeKey": "TESLA_REV1",
+          "value": 1,
+          "description": "Powered liftgate installed"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NOT_INSTALLED",
+          "description": "Manual liftgate installed",
+          "value": 0
+        },
+        {
+          "codeKey": "TESLA_REV1",
+          "description": "Powered liftgate installed",
+          "value": 1
+        }
+      ]
+    },
+    "packPerformanceDeviation": {
+      "accessId": 101,
+      "description": "Deviation from standard pack mass associated with the vehicle's packEnergy configuration",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "NO_DEVIATION",
+          "value": 0,
+          "description": "No deviation"
+        },
+        {
+          "codeKey": "PACK_MASS_DEVIATION_1",
+          "value": 1,
+          "description": "CATL E1 pack mass increase"
+        },
+        {
+          "codeKey": "PACK_POWER_DEVIATION_1",
+          "value": 2,
+          "description": "Used to uncork PM228 DU with M50F packs"
+        },
+        {
+          "codeKey": "PACK_STRUCTURAL_DEVIATION_1",
+          "value": 3,
+          "description": "Used to identify SR Structural Packs; higher mass than non-structural packs with the same energy capacity"
+        },
+        {
+          "codeKey": "PACK_MASS_DEVIATION_2",
+          "value": 4,
+          "description": "E3 depop pack; standard range, and weight between E1 packs and CATL packs"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NO_DEVIATION",
+          "description": "No deviation",
+          "value": 0
+        },
+        {
+          "codeKey": "PACK_MASS_DEVIATION_1",
+          "description": "CATL E1 pack mass increase",
+          "value": 1
+        },
+        {
+          "codeKey": "PACK_POWER_DEVIATION_1",
+          "description": "Used to uncork PM228 DU with M50F packs",
+          "value": 2
+        },
+        {
+          "codeKey": "PACK_STRUCTURAL_DEVIATION_1",
+          "description": "Used to identify SR Structural Packs; higher mass than non-structural packs with the same energy capacity",
+          "value": 3
+        },
+        {
+          "codeKey": "PACK_MASS_DEVIATION_2",
+          "description": "E3 depop pack; standard range, and weight between E1 packs and CATL packs",
+          "value": 4
+        }
+      ]
+    },
+    "steeringColumnMotorType": {
+      "accessId": 104,
+      "description": "Type of steering column adjustment motor installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "BOSCH",
+          "value": 0,
+          "description": "Bosch steering column is installed"
+        },
+        {
+          "codeKey": "JE",
+          "value": 1,
+          "description": "JE supplied Shanghai localized steering column"
+        },
+        {
+          "codeKey": "BOSCH_COMMON_TO_JE",
+          "value": 2,
+          "description": "Bosch-made motors commonized to the existing JE gear ratio"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "BOSCH",
+          "description": "Bosch steering column is installed",
+          "value": 0
+        },
+        {
+          "codeKey": "JE",
+          "description": "JE supplied Shanghai localized steering column",
+          "value": 1
+        },
+        {
+          "codeKey": "BOSCH_COMMON_TO_JE",
+          "description": "Bosch-made motors commonized to the existing JE gear ratio",
+          "value": 2
+        }
+      ]
+    },
+    "wirelessPhoneChargerType": {
+      "accessId": null,
+      "description": "Type of inductive phone charger installed",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "19fa35f6d3ec845d3ea53099afb4844d349da4a0a8b55d307271f06e48084b3a",
+          "decoded": false
+        },
+        {
+          "hash": "554ab9a3cb0f090321f3db863f71832812790eac531b1a0484b958ae6d6ef8cc",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "interiorTrimType": {
+      "accessId": 106,
+      "description": "Interior trim type for UI vehicle assets",
+      "odinReadWriteAccess": "Customer",
+      "values": [
+        {
+          "codeKey": "BLACK",
+          "value": 0,
+          "description": "Black interior color with original center console"
+        },
+        {
+          "codeKey": "WHITE",
+          "value": 1,
+          "description": "White interior color with original center console"
+        },
+        {
+          "codeKey": "BLACK_CONSOLE_2",
+          "value": 2,
+          "description": "Black interior color with Console 2.0"
+        },
+        {
+          "codeKey": "WHITE_CONSOLE_2",
+          "value": 3,
+          "description": "White interior color with Console 2.0"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "BLACK",
+          "description": "Black interior color with original center console",
+          "value": 0
+        },
+        {
+          "codeKey": "WHITE",
+          "description": "White interior color with original center console",
+          "value": 1
+        },
+        {
+          "codeKey": "BLACK_CONSOLE_2",
+          "description": "Black interior color with Console 2.0",
+          "value": 2
+        },
+        {
+          "codeKey": "WHITE_CONSOLE_2",
+          "description": "White interior color with Console 2.0",
+          "value": 3
+        }
+      ]
+    },
+    "forwardRadarHw": {
+      "accessId": 110,
+      "description": "Type of forward radar installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "CONTI_ARS410",
+          "value": 0,
+          "description": "Legacy radar hardware"
+        },
+        {
+          "codeKey": "NONE",
+          "value": 2,
+          "description": "No radar installed"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "CONTI_ARS410",
+          "description": "Legacy radar hardware",
+          "value": 0
+        },
+        {
+          "codeKey": "NONE",
+          "description": "No radar installed",
+          "value": 2
+        }
+      ]
+    },
+    "intakeAirFilterType": {
+      "accessId": 111,
+      "description": "Type of air filter installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "STANDARD",
+          "value": 0,
+          "description": "Standard fresh/recirc cabin air filter"
+        },
+        {
+          "codeKey": "HEPA",
+          "value": 1,
+          "description": "HEPA fresh air intake filter"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "STANDARD",
+          "description": "Standard fresh/recirc cabin air filter",
+          "value": 0
+        },
+        {
+          "codeKey": "HEPA",
+          "description": "HEPA fresh air intake filter",
+          "value": 1
+        }
+      ]
+    },
+    "ethernetTunerType": {
+      "accessId": 117,
+      "description": "Type of ethernet tuner installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "HARMAN",
+          "value": 0,
+          "description": "Harman gen2 tuner installed"
+        },
+        {
+          "codeKey": "NONE",
+          "value": 1,
+          "description": "No ethernet tuner installed"
+        },
+        {
+          "codeKey": "HIRSCHMANN",
+          "value": 2,
+          "description": "Hirschmann gen3 tuner installed"
+        },
+        {
+          "codeKey": "HARMAN_GEN3",
+          "value": 3,
+          "description": "Harman gen3 tuner installed"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "HARMAN",
+          "description": "Harman gen2 tuner installed",
+          "value": 0
+        },
+        {
+          "codeKey": "NONE",
+          "description": "No ethernet tuner installed",
+          "value": 1
+        },
+        {
+          "codeKey": "HIRSCHMANN",
+          "description": "Hirschmann gen3 tuner installed",
+          "value": 2
+        },
+        {
+          "codeKey": "HARMAN_GEN3",
+          "description": "Harman gen3 tuner installed",
+          "value": 3
+        }
+      ]
+    },
+    "superManifoldType": {
+      "accessId": 118,
+      "description": "Type of HVAC super manifold installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "TYPE0",
+          "value": 0,
+          "description": "v1.0: legacy supermanifold"
+        },
+        {
+          "codeKey": "TYPE1",
+          "value": 1,
+          "description": "v1.1: supermanifold with updated low side ac lines"
+        },
+        {
+          "codeKey": "TYPE2",
+          "value": 2,
+          "description": "v2.0: supermanifold with improved pressure drop"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "TYPE0",
+          "description": "v1.0: legacy supermanifold",
+          "value": 0
+        },
+        {
+          "codeKey": "TYPE1",
+          "description": "v1.1: supermanifold with updated low side ac lines",
+          "value": 1
+        },
+        {
+          "codeKey": "TYPE2",
+          "description": "v2.0: supermanifold with improved pressure drop",
+          "value": 2
+        }
+      ]
+    },
+    "frontUsbHubType": {
+      "accessId": 133,
+      "description": "Type of front console USB hub installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "USB_2",
+          "value": 0,
+          "description": "USB2 hub"
+        },
+        {
+          "codeKey": "USB_NO_DATA",
+          "value": 4,
+          "description": "USB power only hub with no data"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "USB_2",
+          "description": "USB2 hub",
+          "value": 0
+        },
+        {
+          "codeKey": "USB_NO_DATA",
+          "description": "USB power only hub with no data",
+          "value": 4
+        }
+      ]
+    },
+    "interiorCamFanType": {
+      "accessId": 136,
+      "description": "Type of fan used near interior camera",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "NONE",
+          "value": 0,
+          "description": "No fan available"
+        },
+        {
+          "codeKey": "DELTA_FDB",
+          "value": 2,
+          "description": "Delta fan with Fluid Dynamic bearing"
+        },
+        {
+          "codeKey": "NIDEC",
+          "value": 3,
+          "description": "Nidec fan with sleeve bearing"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NONE",
+          "description": "No fan available",
+          "value": 0
+        },
+        {
+          "codeKey": "DELTA_FDB",
+          "description": "Delta fan with Fluid Dynamic bearing",
+          "value": 2
+        },
+        {
+          "codeKey": "NIDEC",
+          "description": "Nidec fan with sleeve bearing",
+          "value": 3
+        }
+      ]
+    },
+    "hornType": {
+      "accessId": 140,
+      "description": "Horn type configuration",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "TRUMPET",
+          "value": 0,
+          "description": "Traditional trumpet horn type installed"
+        },
+        {
+          "codeKey": "EXT_SPEAKER_V2",
+          "value": 1,
+          "description": "Horn sound emitted from 2nd generation exterior speaker"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "TRUMPET",
+          "description": "Traditional trumpet horn type installed",
+          "value": 0
+        },
+        {
+          "codeKey": "EXT_SPEAKER_V2",
+          "description": "Horn sound emitted from 2nd generation exterior speaker",
+          "value": 1
+        }
+      ]
+    },
+    "refrigACLineType": {
+      "accessId": 145,
+      "description": "Refrigerant AC line type configuration",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "UNLIMITED",
+          "value": 0,
+          "description": "Refrigerant line without resonance"
+        },
+        {
+          "codeKey": "SAAA_LIMITED",
+          "value": 1,
+          "description": "SAAA refrigerant line"
+        },
+        {
+          "codeKey": "CONTI_LIMITED",
+          "value": 2,
+          "description": "Conti refrigerant line"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "UNLIMITED",
+          "description": "Refrigerant line without resonance",
+          "value": 0
+        },
+        {
+          "codeKey": "SAAA_LIMITED",
+          "description": "SAAA refrigerant line",
+          "value": 1
+        },
+        {
+          "codeKey": "CONTI_LIMITED",
+          "description": "Conti refrigerant line",
+          "value": 2
+        }
+      ]
+    },
+    "caliperColorType": {
+      "accessId": 150,
+      "description": "Specifies the paint color of caliper",
+      "odinReadWriteAccess": "Customer",
+      "values": [
+        {
+          "codeKey": "UNKNOWN",
+          "value": 0,
+          "description": "Indicates the paint color of caliper."
+        },
+        {
+          "codeKey": "GREY",
+          "value": 1,
+          "description": "Indicates the paint color of caliper"
+        },
+        {
+          "codeKey": "RED",
+          "value": 2,
+          "description": "Indicates the paint color of caliper"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "UNKNOWN",
+          "description": "Indicates the paint color of caliper.",
+          "value": 0
+        },
+        {
+          "codeKey": "GREY",
+          "description": "Indicates the paint color of caliper",
+          "value": 1
+        },
+        {
+          "codeKey": "RED",
+          "description": "Indicates the paint color of caliper",
+          "value": 2
+        }
+      ]
+    },
+    "wiperMotorType": {
+      "accessId": 157,
+      "description": "Type of windshield wiper motor installed in vehicle",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "NOT_UPDATEABLE",
+          "value": 0,
+          "description": "Bosch motor, or SHB motor without bootloader"
+        },
+        {
+          "codeKey": "SHB",
+          "value": 1,
+          "description": "SHB wiper motor with bootloader"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NOT_UPDATEABLE",
+          "description": "Bosch motor, or SHB motor without bootloader",
+          "value": 0
+        },
+        {
+          "codeKey": "SHB",
+          "description": "SHB wiper motor with bootloader",
+          "value": 1
+        }
+      ]
+    },
+    "steeringWheelControllerType": {
+      "accessId": 158,
+      "description": "Type of electronic control units for steering wheel controls input",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "SINGLE",
+          "value": 0,
+          "description": "Single steering wheel controls ECU, which includes SOP Semi SWS"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "SINGLE",
+          "description": "Single steering wheel controls ECU, which includes SOP Semi SWS",
+          "value": 0
+        }
+      ]
+    },
+    "rgbInteriorLightingEnabled": {
+      "accessId": null,
+      "description": "Controls whether RGB lighting functionality is available for use",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "d6aecc7daf88c76d7dd3466e0ba7a0824249074abfc3476911f638c6e5dd0182",
+          "decoded": false
+        },
+        {
+          "hash": "ce497a2fa14427e291d12ac06d60984c8d257cf2302503f386c6cfd4fa3790f6",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "visorLightType": {
+      "accessId": 175,
+      "description": "Type of sun visor vanity mirror light installed",
+      "odinReadWriteAccess": "RepairAndMaintenance",
+      "values": [
+        {
+          "codeKey": "NON_DIMMABLE",
+          "value": 0,
+          "description": "Sun visor mirror light is non-dimmable"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NON_DIMMABLE",
+          "description": "Sun visor mirror light is non-dimmable",
+          "value": 0
+        }
+      ]
+    },
+    "alcoholInterlockType": {
+      "accessId": 192,
+      "description": "Specifies whether the vehicle has an alcohol interlock module installed",
+      "odinReadWriteAccess": "SecureOperation",
+      "values": [
+        {
+          "codeKey": "NONE",
+          "value": 0,
+          "description": "No alcohol interlock module is installed"
+        },
+        {
+          "codeKey": "TYPE_1",
+          "value": 1,
+          "description": "Alcohol interlock module adhering to first-generation interface is installed"
+        }
+      ],
+      "allEnums": [
+        {
+          "codeKey": "NONE",
+          "description": "No alcohol interlock module is installed",
+          "value": 0
+        },
+        {
+          "codeKey": "TYPE_1",
+          "description": "Alcohol interlock module adhering to first-generation interface is installed",
+          "value": 1
+        }
+      ]
+    },
+    "occupancyClassificationFeatureType": {
+      "accessId": null,
+      "description": "Type of sensor used for occupancy classification features",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "6a9b6293e2f9b4ceeff2d085098934f07e25b98758d6ddc71040c559feb9e59b",
+          "decoded": false
+        },
+        {
+          "hash": "a94d9b3d81d110213228726eb4270474d98cd9ffbb8b71f1cd494a76fd682534",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "occupancyDetectionSourceRequest": {
+      "accessId": null,
+      "description": "Type of sensor requested for use in occupancy detection features. Downstream components will apply additional conditions to qualify the data source",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "a15e5126f65e578d128b3dc6f4f7f7777b97a2552881b9a799a32febe0f2d1f8",
+          "decoded": false
+        },
+        {
+          "hash": "8ca6cb75798e207a2e1cad58bb954940dc4797263ddb50ebd203e0325812e8c6",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    },
+    "rduCableType": {
+      "accessId": null,
+      "description": "Type of rear drive unit cable installed",
+      "odinReadWriteAccess": "RepairAndMaintenanceReadOnly",
+      "values": [
+        {
+          "hash": "469569ce623836807ce909f1e7b9618c506be9485073c0fa0be4744746665004",
+          "decoded": false
+        },
+        {
+          "hash": "e757c5b0a00ff53aa16eea6771660fff547e52466d42b18916d97c3d3a64c4a6",
+          "decoded": false
+        }
+      ],
+      "allEnums": []
+    }
+  }
+}

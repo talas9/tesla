@@ -53,7 +53,89 @@ python3 scripts/gateway_database_query.py --list
 
 ---
 
-### 3. Odin Config Mapper
+### 3. Gateway Config Decoder
+
+**File:** `scripts/decode_gateway_config.py` (9.1KB)  
+**Purpose:** Decode SHA256-hashed Odin config-options.json files
+
+**Usage:**
+```bash
+# Decode Model 3 config
+python3 scripts/decode_gateway_config.py /opt/odin/data/Model3/config-options.json
+
+# Specify output directory
+python3 scripts/decode_gateway_config.py config.json --output ./decoded/
+```
+
+**Features:**
+- Decodes SHA256-hashed keys and values
+- Extracts all enum definitions (64+ configs)
+- Generates human-readable text output
+- Generates machine-readable JSON output
+- Maps Access IDs to config names
+
+**Output Files:**
+- `config-options-FULL-DECODED.json` - Machine-readable
+- `config-options-FULL-DECODED.txt` - Human-readable
+
+**Decoded Configs Include:**
+- `packEnergy` (ID 14) - Battery capacity (SR/LR/MR)
+- `factoryMode` (ID 15) - Factory mode enable/disable
+- `dasHw` (ID 59) - FSD hardware (HW2.5/3/4)
+- `brakeHWType` (ID 17) - 15 brake variants
+- `mapRegion` (ID 67) - 14 navigation regions
+- And 60+ more hardware/feature configs
+
+**Download:** [decode_gateway_config.py](https://github.com/talas9/tesla/raw/master/scripts/decode_gateway_config.py)
+
+---
+
+### 4. ODJ File Decryptor
+
+**File:** `scripts/decrypt_odj.py` (9.6KB)  
+**Purpose:** Decrypt Fernet-encrypted Odin Diagnostic Job (ODJ) files
+
+**Usage:**
+```bash
+# Decrypt single ODJ file
+python3 scripts/decrypt_odj.py /opt/odin/data/Model3/odj/RCM_VIN_LEARN.odj
+
+# Decrypt all ODJ files in directory
+python3 scripts/decrypt_odj.py /opt/odin/data/Model3/odj/ --recursive
+
+# Analyze decrypted content
+python3 scripts/decrypt_odj.py file.odj --analyze
+```
+
+**Features:**
+- Decrypts Fernet (AES-128-CBC + HMAC) encrypted ODJ files
+- Uses hardcoded Odin password from firmware
+- PBKDF2-HMAC-SHA256 key derivation (123456 iterations)
+- Extracts diagnostic routines (VIN write, security access, etc.)
+- Analyzes routine IDs, DIDs, and security levels
+- Batch processing with recursive directory support
+
+**Encryption Details:**
+- **Algorithm:** Fernet (symmetric encryption)
+- **Password:** `cmftubxi7wlvmh1wmbzz00vf1ziqezf6`
+- **Iterations:** 123456
+- **Source:** Decompiled from `binary_metadata_utils.py`
+
+**Example Output:**
+```
+ODJ ANALYSIS: RCM_VIN_LEARN.odj
+Routines: 2
+  - LEARN_VIN (ID: 0x0404, Security: 0)
+  - VIN_RESET (ID: 0xF102, Security: 3)
+Data Identifiers: 15
+  - 0xF190: VIN
+```
+
+**Download:** [decrypt_odj.py](https://github.com/talas9/tesla/raw/master/scripts/decrypt_odj.py)
+
+---
+
+### 5. Odin Config Mapper
 
 **File:** `scripts/match_odin_to_configs.py`  
 **Purpose:** Map Odin `access_id` to Gateway config IDs
