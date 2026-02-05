@@ -2,10 +2,11 @@
 TESLA GATEWAY CONFIGURATION OPTIONS - FULLY DECODED
 ================================================================================
 
-Source: /root/downloads/model3y-extracted/opt/odin/data/ModelY/config-options.json
-Salt: 2xz83kgreak7h956dgb3mdmd260c6cun
-Decoded: 64 keys
-Unknown: 96 keys
+Source: /root/downloads/model3y-extracted/opt/odin/data/Model3/config-options.json
+Salt: gj55iz2tgghun9nyw2sa8s5oxsykmfwo
+Decoded: 82 keys
+Unknown: 74 keys
+Reference DB: 166 configs
 
 ================================================================================
 
@@ -16,11 +17,9 @@ CONFIG: activeHighBeam
 Description: Active high beams are installed or not
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (2):
-  - [UNKNOWN HASH: 4664870318d754ac...]
-  - [UNKNOWN HASH: 4f20ba9eafc4de38...]
-
-All Possible Values (0):
+Current Values (2 decoded, 0 unknown):
+  ✓ NOT_ACTIVE                     = 0    
+  ✓ ACTIVE                         = 1    
 
 ================================================================================
 CONFIG: airSuspension
@@ -28,10 +27,8 @@ CONFIG: airSuspension
 Description: Type of suspension installed
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (1):
-  - [UNKNOWN HASH: 96b457175905f75b...]
-
-All Possible Values (0):
+Current Values (1 decoded, 0 unknown):
+  ✓ NONE                           = 0      // Coil Suspension
 
 ================================================================================
 CONFIG: airbagCutoffSwitch
@@ -39,11 +36,9 @@ CONFIG: airbagCutoffSwitch
 Description: The airbag cutoff switch is enabled or disabled
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (2):
-  - [UNKNOWN HASH: a2f4a7841738a760...]
-  - [UNKNOWN HASH: 4839490aae0aeb0c...]
-
-All Possible Values (0):
+Current Values (2 decoded, 0 unknown):
+  ✓ CUTOFF_SWITCH_DISABLED         = 0    
+  ✓ CUTOFF_SWITCH_ENABLED          = 1    
 
 ================================================================================
 CONFIG: alcoholInterlockType
@@ -52,9 +47,9 @@ Access ID: 192
 Description: Specifies whether the vehicle has an alcohol interlock module installed
 Access Level: SecureOperation
 
-Current Values (2):
-  - NONE: 0 // No alcohol interlock module is installed
-  - TYPE_1: 1 // Alcohol interlock module adhering to first-generation interface is installed
+Current Values (2 decoded, 0 unknown):
+  ✓ NONE                           = 0      // No alcohol interlock module is installed
+  ✓ TYPE_1                         = 1      // Alcohol interlock module adhering to first-generation interface is installed
 
 All Possible Values (2):
   NONE                           = 0      // No alcohol interlock module is installed
@@ -66,12 +61,61 @@ CONFIG: audioType
 Description: Type of audio package installed
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (3):
-  - [UNKNOWN HASH: 9881c07fa3de54a1...]
-  - [UNKNOWN HASH: 5d636bdc92c5bafd...]
-  - [UNKNOWN HASH: 60f080894e56c7e8...]
+Current Values (3 decoded, 0 unknown):
+  ✓ BASE                           = 0      // 8 speakers, no external amp
+  ✓ PREMIUM                        = 1      // 15 speakers, external amp
+  ✓ BASE_WITH_PREMIUM200           = 2      // Subset of premium audio speakers, no external amp
 
-All Possible Values (0):
+================================================================================
+CONFIG: autopilot
+================================================================================
+Access ID: autopilot
+Description: Autopilot
+Access Level: 
+
+Current Values (4 decoded, 1 unknown):
+  ✓ NONE                           = 0      // None
+  ✓ HIGHWAY                        = 1      // Highway
+  ✓ ENHANCED                       = 2      // Enhanced
+  ✓ SELF_DRIVING                   = 3      // Self Driving
+  ✗ [UNKNOWN: e496576ceb502348...]
+
+All Possible Values (4):
+  NONE                           = 0      // None
+  HIGHWAY                        = 1      // Highway
+  ENHANCED                       = 2      // Enhanced
+  SELF_DRIVING                   = 3      // Self Driving
+
+================================================================================
+CONFIG: autopilotCameraType
+================================================================================
+Access ID: autopilotCameraType
+Description: Type of autopilot camera installed
+Access Level: 
+
+Current Values (1 decoded, 1 unknown):
+  ✓ RCCB_CAMERAS                   = 2      // RCCB Cameras
+  ✗ [UNKNOWN: 68e93c4588626270...]
+
+All Possible Values (3):
+  UNKNOWN                        = 0    
+  RCCC_CAMERAS                   = 1      // RCCC Cameras for vehicles built with DAS HW2.0
+  RCCB_CAMERAS                   = 2      // RCCB Cameras
+
+================================================================================
+CONFIG: autopilotTrialExpireTime
+================================================================================
+Access ID: 54
+Description: UTC time when autopilot trial will expire
+Access Level: 
+
+Current Values (2 decoded, 0 unknown):
+  ✓ INACTIVE                       = 0      // trial hasn\'t started yet
+  ✓ EXPIRED                        = 4294967295  // previous trial has expired
+
+All Possible Values (2):
+  INACTIVE                       = 0      // trial hasn\'t started yet
+  EXPIRED                        = 4294967295  // previous trial has expired
 
 ================================================================================
 CONFIG: auxParkLamps
@@ -80,11 +124,11 @@ Access ID: 43
 Description: Region-correlated combination of fascia lighting element options
 Access Level: RepairAndMaintenance
 
-Current Values (4):
-  - NA_BASE: 0 // Side markers only
-  - NA_PREMIUM: 1 // Side markers, light pipe as auxiliary park lamps
-  - EU: 2 // Light pipe as fog light guide, no side markers
-  - NONE: 3 // Plastic inserts instead of lights
+Current Values (4 decoded, 0 unknown):
+  ✓ NA_BASE                        = 0      // Side markers only
+  ✓ NA_PREMIUM                     = 1      // Side markers, light pipe as auxiliary park lamps
+  ✓ EU                             = 2      // Light pipe as fog light guide, no side markers
+  ✓ NONE                           = 3      // Plastic inserts instead of lights
 
 All Possible Values (4):
   NA_BASE                        = 0      // Side markers only
@@ -93,28 +137,43 @@ All Possible Values (4):
   NONE                           = 3      // Plastic inserts instead of lights
 
 ================================================================================
+CONFIG: bmpWatchdogDisabled
+================================================================================
+Access ID: 61
+Description: Gateway controlled BMP Watchdog. This has no effect in factory mode as the BMP watchdog is always disabled in factory mode.
+Access Level: 
+
+Current Values (2 decoded, 0 unknown):
+  ✓ ENABLED                        = 0      // BMP Watchdog is enabled
+  ✓ DISABLED                       = 1      // BMP Watchdog is disabled
+
+All Possible Values (2):
+  ENABLED                        = 0      // BMP Watchdog is enabled
+  DISABLED                       = 1      // BMP Watchdog is disabled
+
+================================================================================
 CONFIG: brakeHWType
 ================================================================================
 Access ID: 17
 Description: Brake caliper hardware type
 Access Level: RepairAndMaintenance
 
-Current Values (15):
-  - BREMBO_P42_MANDO_43MOC: 0 // Base package for M3
-  - BREMBO_LARGE_P42_BREMBO_44MOC: 1 // Performance package M3
-  - BREMBO_LARGE_P42_MANDO_43MOC: 2 // Base package Model Y
-  - BREMBO_LARGE_P42_BREMBO_LARGE_44MOC: 3 // Performance package Model Y
-  - BREMBO_LARGE_P42_V2_BREMBO_44MOC: 6 // Performance brake package with new EPB motor for performance 3
-  - BREMBO_LARGE_P42_V2_BREMBO_LARGE_44MOC: 7 // Performance brake package with new EPB motor for performance Y
-  - BREMBO_LARGE_P42_V2_MANDO_43MOC: 8 // Base package for MY new EPB motor for quieter operation
-  - BREMBO_P42_V2_MANDO_43MOC: 9 // Base package for M3 new EPB motor for quieter operation
-  - BREMBO_P42_ZF_43MOC: 13 // RC1 Poppyseed base variants with ZF rear caliper
-  - BREMBO_P42LD_ZF_43MOC: 15 // Low drag(LD) caliper for Poppyseed base variants with ZF rear caliper
-  - BREMBO_P42LD_V2_MANDO_43MOC: 16 // Low drag(LD) caliper for Poppyseed base variants with Mando rear caliper
-  - HITACHI_P42_V2_MANDO_43MOC: 17 // Base package for MY with Hitachi front caliper
-  - BREMBO_LARGE_P42_V2_BREMBO_44MOC_GA: 18 // Performance brake package for Poppyseed Performance with GA5514(Front) and GA6508(Rear) brake pads
-  - BREMBO_LARGE_P42_V2_MANDO_43MOC_LOW_DRAG: 20 // Brembo front, Mando rear brake package for Bayberry. Very low drag, high fluid consumption
-  - HITACHI_P42_V2_MANDO_43MOC_LOW_DRAG: 21 // Hitachi front, Mando rear brake package for Bayberry. Very low drag, high fluid consumption
+Current Values (15 decoded, 0 unknown):
+  ✓ BREMBO_P42_MANDO_43MOC         = 0      // Base package for M3
+  ✓ BREMBO_LARGE_P42_BREMBO_44MOC  = 1      // Performance package M3
+  ✓ BREMBO_LARGE_P42_MANDO_43MOC   = 2      // Base package Model Y
+  ✓ BREMBO_LARGE_P42_BREMBO_LARGE_44MOC = 3      // Performance package Model Y
+  ✓ BREMBO_LARGE_P42_V2_BREMBO_44MOC = 6      // Performance brake package with new EPB motor for performance 3
+  ✓ BREMBO_LARGE_P42_V2_BREMBO_LARGE_44MOC = 7      // Performance brake package with new EPB motor for performance Y
+  ✓ BREMBO_LARGE_P42_V2_MANDO_43MOC = 8      // Base package for MY new EPB motor for quieter operation
+  ✓ BREMBO_P42_V2_MANDO_43MOC      = 9      // Base package for M3 new EPB motor for quieter operation
+  ✓ BREMBO_P42_ZF_43MOC            = 13     // RC1 Poppyseed base variants with ZF rear caliper
+  ✓ BREMBO_P42LD_ZF_43MOC          = 15     // Low drag(LD) caliper for Poppyseed base variants with ZF rear caliper
+  ✓ BREMBO_P42LD_V2_MANDO_43MOC    = 16     // Low drag(LD) caliper for Poppyseed base variants with Mando rear caliper
+  ✓ HITACHI_P42_V2_MANDO_43MOC     = 17     // Base package for MY with Hitachi front caliper
+  ✓ BREMBO_LARGE_P42_V2_BREMBO_44MOC_GA = 18     // Performance brake package for Poppyseed Performance with GA5514(Front) and GA6508(Rear) brake pads
+  ✓ BREMBO_LARGE_P42_V2_MANDO_43MOC_LOW_DRAG = 20     // Brembo front, Mando rear brake package for Bayberry. Very low drag, high fluid consumption
+  ✓ HITACHI_P42_V2_MANDO_43MOC_LOW_DRAG = 21     // Hitachi front, Mando rear brake package for Bayberry. Very low drag, high fluid consumption
 
 All Possible Values (15):
   BREMBO_P42_MANDO_43MOC         = 0      // Base package for M3
@@ -139,11 +198,9 @@ CONFIG: cabinPTCHeaterType
 Description: Type of Positive Temperature Coefficient (PTC) heater installed
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (2):
-  - [UNKNOWN HASH: a18b6f41172c13b5...]
-  - [UNKNOWN HASH: 48eae9de3831d5ce...]
-
-All Possible Values (0):
+Current Values (2 decoded, 0 unknown):
+  ✓ BORGWARNER                     = 0    
+  ✓ NONE                           = 1    
 
 ================================================================================
 CONFIG: caliperColorType
@@ -152,15 +209,31 @@ Access ID: 150
 Description: Specifies the paint color of caliper
 Access Level: Customer
 
-Current Values (3):
-  - UNKNOWN: 0 // Indicates the paint color of caliper.
-  - GREY: 1 // Indicates the paint color of caliper
-  - RED: 2 // Indicates the paint color of caliper
+Current Values (3 decoded, 0 unknown):
+  ✓ UNKNOWN                        = 0      // Indicates the paint color of caliper.
+  ✓ GREY                           = 1      // Indicates the paint color of caliper
+  ✓ RED                            = 2      // Indicates the paint color of caliper
 
 All Possible Values (3):
   UNKNOWN                        = 0      // Indicates the paint color of caliper.
   GREY                           = 1      // Indicates the paint color of caliper
   RED                            = 2      // Indicates the paint color of caliper
+
+================================================================================
+CONFIG: chassisType
+================================================================================
+Access ID: chassisType
+Description: Surrogate key that captures physical aspects such as suspension geometry, track width, wheel base, baseline tire size, and trailer capable
+Access Level: 
+
+Current Values (1 decoded, 1 unknown):
+  ✓ MODEL_3_CHASSIS                = 2      // Model3 Chassis
+  ✗ [UNKNOWN: 44c63f8f0a052a6d...]
+
+All Possible Values (3):
+  MODEL_S_CHASSIS                = 0      // ModelS Chassis
+  MODEL_X_CHASSIS                = 1      // ModelX Chassis
+  MODEL_3_CHASSIS                = 2      // Model3 Chassis
 
 ================================================================================
 CONFIG: compressorType
@@ -169,17 +242,17 @@ Access ID: 84
 Description: Type of refrigerant compressor
 Access Level: RepairAndMaintenance
 
-Current Values (10):
-  - HANON_33CC: 0 // Correlates with CMP uds node
-  - DENSO_41CC_8K: 1 // Used in heat pump thermal system, correlated with CMPD UDS node. Limited speed for motor bearing issue
-  - DENSO_41CC_11K: 2 // Used in heat pump thermal system, correlated with CMPD UDS node. No speed limit
-  - SANDEN: 3 // Used in heat pump thermal system, correlated with CMPS UDS node
-  - DENSO_11K_COP1_ENABLED: 4 // Used in heat pump thermal system, correlated with CMPD UDS node, improved COP1 performance
-  - SANDEN_V2: 5 // -E Sanden compressor and forward with un-restricted operation range
-  - SANDEN_V1_1: 6 // Sanden compressor with extended operation range
-  - SANDEN_V3: 7 // Create Sanden -I GTW config
-  - SANDEN_V4: 8 // Create Sanden -J GTW config
-  - SANDEN_V4_1: 10 // Create Sanden -J GTW config with Lower Min Speed
+Current Values (10 decoded, 0 unknown):
+  ✓ HANON_33CC                     = 0      // Correlates with CMP uds node
+  ✓ DENSO_41CC_8K                  = 1      // Used in heat pump thermal system, correlated with CMPD UDS node. Limited speed for motor bearing issue
+  ✓ DENSO_41CC_11K                 = 2      // Used in heat pump thermal system, correlated with CMPD UDS node. No speed limit
+  ✓ SANDEN                         = 3      // Used in heat pump thermal system, correlated with CMPS UDS node
+  ✓ DENSO_11K_COP1_ENABLED         = 4      // Used in heat pump thermal system, correlated with CMPD UDS node, improved COP1 performance
+  ✓ SANDEN_V2                      = 5      // -E Sanden compressor and forward with un-restricted operation range
+  ✓ SANDEN_V1_1                    = 6      // Sanden compressor with extended operation range
+  ✓ SANDEN_V3                      = 7      // Create Sanden -I GTW config
+  ✓ SANDEN_V4                      = 8      // Create Sanden -J GTW config
+  ✓ SANDEN_V4_1                    = 10     // Create Sanden -J GTW config with Lower Min Speed
 
 All Possible Values (10):
   HANON_33CC                     = 0      // Correlates with CMP uds node
@@ -194,18 +267,33 @@ All Possible Values (10):
   SANDEN_V4_1                    = 10     // Create Sanden -J GTW config with Lower Min Speed
 
 ================================================================================
+CONFIG: connectivityPackage
+================================================================================
+Access ID: 75
+Description: Purchasable connectivity package
+Access Level: 
+
+Current Values (2 decoded, 0 unknown):
+  ✓ BASE                           = 0    
+  ✓ PREMIUM                        = 1    
+
+All Possible Values (2):
+  BASE                           = 0    
+  PREMIUM                        = 1    
+
+================================================================================
 CONFIG: coolantPumpType
 ================================================================================
 Access ID: 86
 Description: Number of coolant loop pumps installed
 Access Level: RepairAndMaintenance
 
-Current Values (5):
-  - DUAL: 0 // Two coolant pumps installed
-  - SINGLE_PUMP_BATT: 1 // Only battery loop pump installed
-  - DUAL_SAN_P4: 2 // Two Sanhua P4 pumps installed
-  - DUAL_SAN_P4_LUB: 4 // Two Sanhua P4 pumps with silver plated terminals
-  - DUAL_MIX: 5 // Two coolant pumps installed, mixed pole pair batches
+Current Values (5 decoded, 0 unknown):
+  ✓ DUAL                           = 0      // Two coolant pumps installed
+  ✓ SINGLE_PUMP_BATT               = 1      // Only battery loop pump installed
+  ✓ DUAL_SAN_P4                    = 2      // Two Sanhua P4 pumps installed
+  ✓ DUAL_SAN_P4_LUB                = 4      // Two Sanhua P4 pumps with silver plated terminals
+  ✓ DUAL_MIX                       = 5      // Two coolant pumps installed, mixed pole pair batches
 
 All Possible Values (5):
   DUAL                           = 0      // Two coolant pumps installed
@@ -215,16 +303,84 @@ All Possible Values (5):
   DUAL_MIX                       = 5      // Two coolant pumps installed, mixed pole pair batches
 
 ================================================================================
+CONFIG: country
+================================================================================
+Access ID: country
+Description: 
+Access Level: 
+
+Current Values (0 decoded, 0 unknown):
+
+All Possible Values (57):
+  United States                  = "US" 
+  Canada                         = "CA" 
+  Germany                        = "DE" 
+  France                         = "FR" 
+  Italy                          = "IT" 
+  Netherlands                    = "NL" 
+  Austria                        = "AT" 
+  Belgium                        = "BE" 
+  Denmark                        = "DK" 
+  Norway                         = "NO" 
+  Switzerland                    = "CH" 
+  Sweden                         = "SE" 
+  Ukraine                        = "UK" 
+  Japan                          = "JP" 
+  China                          = "CN" 
+  Hong Kong                      = "HK" 
+  Australia                      = "AU" 
+  Taiwan                         = "TW" 
+  Macao                          = "MO" 
+  United Kingdom                 = "GB" 
+  Russia                         = "RU" 
+  Iceland                        = "IS" 
+  Ireland                        = "IE" 
+  Israel                         = "IL" 
+  New Zealand                    = "NZ" 
+  Brazil                         = "BR" 
+  Mexico                         = "MX" 
+  Spain                          = "ES" 
+  United Arab Emirates           = "AE" 
+  Saudi Arabia                   = "SA" 
+  Qatar                          = "QA" 
+  Singapore                      = "SG" 
+  Finland                        = "FI" 
+  Bulgaria                       = "BG" 
+  Estonia                        = "EE" 
+  Hungary                        = "HU" 
+  Luxembourg                     = "LU" 
+  Monaco                         = "MC" 
+  Portugal                       = "PT" 
+  Romania                        = "RO" 
+  Slovenia                       = "SI" 
+  Slovakia                       = "SK" 
+  Turkey                         = "TR" 
+  Andorra                        = "AD" 
+  Cyprus                         = "CY" 
+  Czech Republic                 = "CZ" 
+  Gibraltar                      = "GI" 
+  Greece                         = "GR" 
+  Croatia                        = "HR" 
+  Liechtenstein                  = "LI" 
+  Lithuania                      = "LT" 
+  Latvia                         = "LV" 
+  Malta                          = "MT" 
+  Poland                         = "PL" 
+  San Marino                     = "SM" 
+  Azerbaijan                     = "AZ" 
+  Jordan                         = "JO" 
+
+================================================================================
 CONFIG: dasHw
 ================================================================================
 Access ID: 59
 Description: Driver Assist hardware
 Access Level: ResearchAndDevelopment
 
-Current Values (3):
-  - PARKER_PASCAL_2_5: 3 // HW2.5
-  - TESLA_AP3: 4 // HW3
-  - TESLA_AP4: 5 // HW4
+Current Values (3 decoded, 0 unknown):
+  ✓ PARKER_PASCAL_2_5              = 3      // HW2.5
+  ✓ TESLA_AP3                      = 4      // HW3
+  ✓ TESLA_AP4                      = 5      // HW4
 
 All Possible Values (3):
   PARKER_PASCAL_2_5              = 3      // HW2.5
@@ -232,16 +388,44 @@ All Possible Values (3):
   TESLA_AP4                      = 5      // HW4
 
 ================================================================================
+CONFIG: devSecurityLevel
+================================================================================
+Access ID: 15
+Description: Gateway debug security level for DEV-configured cars
+Access Level: 
+
+Current Values (2 decoded, 0 unknown):
+  ✓ LC_FACTORY                     = 3      // Factory security level; must match MPC5748G HW value CUST_DEL
+  ✓ LC_GATED                       = 2      // Post-gate security level; must match MPC5748G HW value OEM_PROD
+
+All Possible Values (2):
+  LC_FACTORY                     = 3      // Factory security level; must match MPC5748G HW value CUST_DEL
+  LC_GATED                       = 2      // Post-gate security level; must match MPC5748G HW value OEM_PROD
+
+================================================================================
 CONFIG: drivetrainType
 ================================================================================
 Description: Number of motors
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (2):
-  - [UNKNOWN HASH: a030bddc2222f9fe...]
-  - [UNKNOWN HASH: 712c664552b7f3f7...]
+Current Values (2 decoded, 0 unknown):
+  ✓ RWD                            = 0      // rear wheel drive
+  ✓ AWD                            = 1      // all wheel drive, two motors
 
-All Possible Values (0):
+================================================================================
+CONFIG: eBuckConfig
+================================================================================
+Access ID: 49
+Description: Configuration to identify development bucks from vehicles
+Access Level: 
+
+Current Values (2 decoded, 0 unknown):
+  ✓ NONE                           = 0      // Not a development buck
+  ✓ DEV_BUCK                       = 1      // Development buck
+
+All Possible Values (2):
+  NONE                           = 0      // Not a development buck
+  DEV_BUCK                       = 1      // Development buck
 
 ================================================================================
 CONFIG: eCallEnabled
@@ -250,10 +434,10 @@ Access ID: 65
 Description: ECall features are enabled or disabled for the vehicle
 Access Level: RepairAndMaintenance
 
-Current Values (3):
-  - DISABLED: 0 // E-Call not enabled
-  - ENABLED_OHC_SOS: 1 // E-Call enabled with a physical button for SOS
-  - ENABLED_UI_SOS: 2 // E-Call enabled with a UI button for SOS
+Current Values (3 decoded, 0 unknown):
+  ✓ DISABLED                       = 0      // E-Call not enabled
+  ✓ ENABLED_OHC_SOS                = 1      // E-Call enabled with a physical button for SOS
+  ✓ ENABLED_UI_SOS                 = 2      // E-Call enabled with a UI button for SOS
 
 All Possible Values (3):
   DISABLED                       = 0      // E-Call not enabled
@@ -261,19 +445,27 @@ All Possible Values (3):
   ENABLED_UI_SOS                 = 2      // E-Call enabled with a UI button for SOS
 
 ================================================================================
+CONFIG: ecuMapVersion
+================================================================================
+Access ID: 33
+Description: Translate car config to ECUs list
+Access Level: 
+
+Current Values (1 decoded, 0 unknown):
+  ✓ BASE_VERSION                   = 0    
+
+All Possible Values (1):
+  BASE_VERSION                   = 0    
+
+================================================================================
 CONFIG: epasType
 ================================================================================
 Description: Type of steering actuator hardware installed
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (5):
-  - [UNKNOWN HASH: 76798e7db683e454...]
-  - [UNKNOWN HASH: af2930ee27349b14...]
-  - [UNKNOWN HASH: 6f49b7d02059ffac...]
-  - [UNKNOWN HASH: dbf04781ae35955b...]
-  - [UNKNOWN HASH: 4ff6eb519ad77e01...]
-
-All Possible Values (0):
+Current Values (1 decoded, 1 unknown):
+  ✓ MANDO_VGR69_GEN3               = 0    
+  ✗ [UNKNOWN: 0b07c901a09c7a02...]
 
 ================================================================================
 CONFIG: ethernetTunerType
@@ -282,11 +474,11 @@ Access ID: 117
 Description: Type of ethernet tuner installed
 Access Level: RepairAndMaintenance
 
-Current Values (4):
-  - HARMAN: 0 // Harman gen2 tuner installed
-  - NONE: 1 // No ethernet tuner installed
-  - HIRSCHMANN: 2 // Hirschmann gen3 tuner installed
-  - HARMAN_GEN3: 3 // Harman gen3 tuner installed
+Current Values (4 decoded, 0 unknown):
+  ✓ HARMAN                         = 0      // Harman gen2 tuner installed
+  ✓ NONE                           = 1      // No ethernet tuner installed
+  ✓ HIRSCHMANN                     = 2      // Hirschmann gen3 tuner installed
+  ✓ HARMAN_GEN3                    = 3      // Harman gen3 tuner installed
 
 All Possible Values (4):
   HARMAN                         = 0      // Harman gen2 tuner installed
@@ -300,20 +492,16 @@ CONFIG: exteriorColor
 Description: Exterior vehicle color
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (11):
-  - [UNKNOWN HASH: 272341aebbbb90ae...]
-  - [UNKNOWN HASH: ac8854d9852ccd2b...]
-  - [UNKNOWN HASH: 4aff5796279cc7a2...]
-  - [UNKNOWN HASH: 29e49bf5b681a56f...]
-  - [UNKNOWN HASH: 5ce9d16050439b23...]
-  - [UNKNOWN HASH: 71de60b14d86eba7...]
-  - [UNKNOWN HASH: 0a9c53144f3def58...]
-  - [UNKNOWN HASH: 51ce6534815e3f16...]
-  - [UNKNOWN HASH: 7415171b4901a327...]
-  - [UNKNOWN HASH: 84dae6a39605fa5e...]
-  - [UNKNOWN HASH: 4611ffecb9b5e2d9...]
-
-All Possible Values (0):
+Current Values (6 decoded, 3 unknown):
+  ✓ RED_MULTICOAT                  = 0    
+  ✓ SOLID_BLACK                    = 1    
+  ✓ SILVER_METALLIC                = 2    
+  ✓ MIDNIGHT_SILVER                = 3    
+  ✓ DEEP_BLUE                      = 5    
+  ✓ PEARL_WHITE                    = 6    
+  ✗ [UNKNOWN: ef9dbaea1b599f3c...]
+  ✗ [UNKNOWN: e01f171b1747e90f...]
+  ✗ [UNKNOWN: ebf51dc5138cd322...]
 
 ================================================================================
 CONFIG: forwardRadarHw
@@ -322,9 +510,9 @@ Access ID: 110
 Description: Type of forward radar installed
 Access Level: RepairAndMaintenance
 
-Current Values (2):
-  - CONTI_ARS410: 0 // Legacy radar hardware
-  - NONE: 2 // No radar installed
+Current Values (2 decoded, 0 unknown):
+  ✓ CONTI_ARS410                   = 0      // Legacy radar hardware
+  ✓ NONE                           = 2      // No radar installed
 
 All Possible Values (2):
   CONTI_ARS410                   = 0      // Legacy radar hardware
@@ -336,11 +524,24 @@ CONFIG: frontFogLamps
 Description: Whether front fog lamps are installed
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (2):
-  - [UNKNOWN HASH: 2cb307aa9df507e6...]
-  - [UNKNOWN HASH: 5538e75069bd22de...]
+Current Values (2 decoded, 0 unknown):
+  ✓ NOT_INSTALLED                  = 0    
+  ✓ INSTALLED                      = 1    
 
-All Possible Values (0):
+================================================================================
+CONFIG: frontSeatHeaters
+================================================================================
+Access ID: 12
+Description: Front seat heaters are installed
+Access Level: 
+
+Current Values (2 decoded, 0 unknown):
+  ✓ NONE                           = 0      // None
+  ✓ KONGSBERG_LOW_POWER            = 1      // Kongsberg low power heaters
+
+All Possible Values (2):
+  NONE                           = 0      // None
+  KONGSBERG_LOW_POWER            = 1      // Kongsberg low power heaters
 
 ================================================================================
 CONFIG: frontSeatReclinerHardware
@@ -349,11 +550,11 @@ Access ID: 77
 Description: Type of recliner hardware in Model 3 seats
 Access Level: RepairAndMaintenance
 
-Current Values (4):
-  - STANDARD_RANGE: 0 // SOP Model 3 front seats
-  - RIGHT_SEAT_REDUCED_RANGE: 1 // Right side front seat with reduced range bracket
-  - LEFT_SEAT_REDUCED_RANGE: 2 // Left side front seat with reduced range bracket
-  - LEFT_RIGHT_SEAT_REDUCED_RANGE: 3 // Both front seats with reduced range bracket
+Current Values (4 decoded, 0 unknown):
+  ✓ STANDARD_RANGE                 = 0      // SOP Model 3 front seats
+  ✓ RIGHT_SEAT_REDUCED_RANGE       = 1      // Right side front seat with reduced range bracket
+  ✓ LEFT_SEAT_REDUCED_RANGE        = 2      // Left side front seat with reduced range bracket
+  ✓ LEFT_RIGHT_SEAT_REDUCED_RANGE  = 3      // Both front seats with reduced range bracket
 
 All Possible Values (4):
   STANDARD_RANGE                 = 0      // SOP Model 3 front seats
@@ -368,21 +569,21 @@ Access ID: 36
 Description: Front seat trim level and motor types
 Access Level: Customer
 
-Current Values (14):
-  - BASE_TESLA: 0 // Manual base seats
-  - PREMIUM_TESLA: 1 // Left and Right Motorized premium seat from Tesla
-  - PREMIUM_L_YANFENG_R_TESLA: 2 // Left seat Yanfeng, right motorized premium seat
-  - PREMIUM_L_TESLA_R_YANFENG: 3 // Left seat Tesla, right seat Yanfeng motorized premium seat
-  - PREMIUM_YANFENG: 4 // Left and right motorized premium seat from Yanfeng
-  - PREMIUM_BROSE: 5 // Left and right motorized premium seat with Brose motors
-  - PREMIUM_L_TESLA_R_TESLA_MINITILT: 6 // Right seat has mini-tilt motor, all other left and right seat motors are Tesla
-  - PREMIUM_L_TESLA_MINITILT_R_TESLA: 7 // Left seat has mini-tilt motor, all other left and right seat motors are Tesla
-  - PREMIUM_L_TESLA_MINITILT_R_TESLA_MINITILT: 8 // Left and right seat have mini-tilt motor, all other left and right seat motors are Tesla
-  - PREMIUM_L_TESLA_MINITILT_R_YANFENG_MINITILT: 9 // Left has Tesla motors plus mini-tilt, right has Yanfeng motors plus mini-tilt
-  - PREMIUM_L_YANFENG_R_YANFENG_MINITILT: 10 // Right seat has mini-tilt motor, all other left and right seat motors are Yanfeng
-  - PREMIUM_L_YANFENG_MINITILT_R_YANFENG: 11 // Left seat has mini-tilt motor, all other left and right seat motors are Yanfeng
-  - PREMIUM_L_YANFENG_MINITILT_R_YANFENG_MINITILT: 12 // Left and right seat have mini-tilt motor, all other left and right seat motors are Yanfeng
-  - PREMIUM_L_YANFENG_MINITILT_R_TESLA_MINITILT: 13 // Left has Yangfeng motors plus mini-tilt, right has Tesla motors plus mini-tilt
+Current Values (14 decoded, 0 unknown):
+  ✓ BASE_TESLA                     = 0      // Manual base seats
+  ✓ PREMIUM_TESLA                  = 1      // Left and Right Motorized premium seat from Tesla
+  ✓ PREMIUM_L_YANFENG_R_TESLA      = 2      // Left seat Yanfeng, right motorized premium seat
+  ✓ PREMIUM_L_TESLA_R_YANFENG      = 3      // Left seat Tesla, right seat Yanfeng motorized premium seat
+  ✓ PREMIUM_YANFENG                = 4      // Left and right motorized premium seat from Yanfeng
+  ✓ PREMIUM_BROSE                  = 5      // Left and right motorized premium seat with Brose motors
+  ✓ PREMIUM_L_TESLA_R_TESLA_MINITILT = 6      // Right seat has mini-tilt motor, all other left and right seat motors are Tesla
+  ✓ PREMIUM_L_TESLA_MINITILT_R_TESLA = 7      // Left seat has mini-tilt motor, all other left and right seat motors are Tesla
+  ✓ PREMIUM_L_TESLA_MINITILT_R_TESLA_MINITILT = 8      // Left and right seat have mini-tilt motor, all other left and right seat motors are Tesla
+  ✓ PREMIUM_L_TESLA_MINITILT_R_YANFENG_MINITILT = 9      // Left has Tesla motors plus mini-tilt, right has Yanfeng motors plus mini-tilt
+  ✓ PREMIUM_L_YANFENG_R_YANFENG_MINITILT = 10     // Right seat has mini-tilt motor, all other left and right seat motors are Yanfeng
+  ✓ PREMIUM_L_YANFENG_MINITILT_R_YANFENG = 11     // Left seat has mini-tilt motor, all other left and right seat motors are Yanfeng
+  ✓ PREMIUM_L_YANFENG_MINITILT_R_YANFENG_MINITILT = 12     // Left and right seat have mini-tilt motor, all other left and right seat motors are Yanfeng
+  ✓ PREMIUM_L_YANFENG_MINITILT_R_TESLA_MINITILT = 13     // Left has Yangfeng motors plus mini-tilt, right has Tesla motors plus mini-tilt
 
 All Possible Values (14):
   BASE_TESLA                     = 0      // Manual base seats
@@ -407,9 +608,9 @@ Access ID: 133
 Description: Type of front console USB hub installed
 Access Level: RepairAndMaintenance
 
-Current Values (2):
-  - USB_2: 0 // USB2 hub
-  - USB_NO_DATA: 4 // USB power only hub with no data
+Current Values (2 decoded, 0 unknown):
+  ✓ USB_2                          = 0      // USB2 hub
+  ✓ USB_NO_DATA                    = 4      // USB power only hub with no data
 
 All Possible Values (2):
   USB_2                          = 0      // USB2 hub
@@ -422,9 +623,9 @@ Access ID: 28
 Description: Type of headlamps installed. Premium headlamps contain additional LEDs
 Access Level: RepairAndMaintenance
 
-Current Values (2):
-  - PREMIUM: 1 // Premiumn Regional Headlamps
-  - GLOBAL: 2 // Global headlamps
+Current Values (2 decoded, 0 unknown):
+  ✓ PREMIUM                        = 1      // Premiumn Regional Headlamps
+  ✓ GLOBAL                         = 2      // Global headlamps
 
 All Possible Values (2):
   PREMIUM                        = 1      // Premiumn Regional Headlamps
@@ -437,10 +638,10 @@ Access ID: 92
 Description: Type of headlight leveling system installed
 Access Level: ResearchAndDevelopment
 
-Current Values (3):
-  - NONE: 0 // No headlight leveling functionality is available
-  - GEN1: 1 // Automatic headlamp leveling on coil vehicles using additional ride-height sensors
-  - VIRTUAL_PITCH_SENSOR: 2 // Virtual pitch sensor using longitudinal acceleration and GPS elevation
+Current Values (3 decoded, 0 unknown):
+  ✓ NONE                           = 0      // No headlight leveling functionality is available
+  ✓ GEN1                           = 1      // Automatic headlamp leveling on coil vehicles using additional ride-height sensors
+  ✓ VIRTUAL_PITCH_SENSOR           = 2      // Virtual pitch sensor using longitudinal acceleration and GPS elevation
 
 All Possible Values (3):
   NONE                           = 0      // No headlight leveling functionality is available
@@ -454,9 +655,9 @@ Access ID: 18
 Description: Type of homelink module installed
 Access Level: Customer
 
-Current Values (2):
-  - NONE: 0
-  - HOMELINK_V_OPT_2: 1
+Current Values (2 decoded, 0 unknown):
+  ✓ NONE                           = 0    
+  ✓ HOMELINK_V_OPT_2               = 1    
 
 All Possible Values (2):
   NONE                           = 0    
@@ -469,9 +670,9 @@ Access ID: 140
 Description: Horn type configuration
 Access Level: RepairAndMaintenance
 
-Current Values (2):
-  - TRUMPET: 0 // Traditional trumpet horn type installed
-  - EXT_SPEAKER_V2: 1 // Horn sound emitted from 2nd generation exterior speaker
+Current Values (2 decoded, 0 unknown):
+  ✓ TRUMPET                        = 0      // Traditional trumpet horn type installed
+  ✓ EXT_SPEAKER_V2                 = 1      // Horn sound emitted from 2nd generation exterior speaker
 
 All Possible Values (2):
   TRUMPET                        = 0      // Traditional trumpet horn type installed
@@ -484,28 +685,13 @@ Access ID: 46
 Description: HVAC airwave vane assembly type
 Access Level: RepairAndMaintenance
 
-Current Values (2):
-  - PARALLEL_V1: 0 // Parallel vanes, default at start of M3 production
-  - CONVERGENT_V1: 1 // Convergent vanes for improved airflow distribution
+Current Values (2 decoded, 0 unknown):
+  ✓ PARALLEL_V1                    = 0      // Parallel vanes, default at start of M3 production
+  ✓ CONVERGENT_V1                  = 1      // Convergent vanes for improved airflow distribution
 
 All Possible Values (2):
   PARALLEL_V1                    = 0      // Parallel vanes, default at start of M3 production
   CONVERGENT_V1                  = 1      // Convergent vanes for improved airflow distribution
-
-================================================================================
-CONFIG: intakeAirFilterType
-================================================================================
-Access ID: 111
-Description: Type of air filter installed
-Access Level: RepairAndMaintenance
-
-Current Values (2):
-  - STANDARD: 0 // Standard fresh/recirc cabin air filter
-  - HEPA: 1 // HEPA fresh air intake filter
-
-All Possible Values (2):
-  STANDARD                       = 0      // Standard fresh/recirc cabin air filter
-  HEPA                           = 1      // HEPA fresh air intake filter
 
 ================================================================================
 CONFIG: interiorCamFanType
@@ -514,10 +700,10 @@ Access ID: 136
 Description: Type of fan used near interior camera
 Access Level: RepairAndMaintenance
 
-Current Values (3):
-  - NONE: 0 // No fan available
-  - DELTA_FDB: 2 // Delta fan with Fluid Dynamic bearing
-  - NIDEC: 3 // Nidec fan with sleeve bearing
+Current Values (3 decoded, 0 unknown):
+  ✓ NONE                           = 0      // No fan available
+  ✓ DELTA_FDB                      = 2      // Delta fan with Fluid Dynamic bearing
+  ✓ NIDEC                          = 3      // Nidec fan with sleeve bearing
 
 All Possible Values (3):
   NONE                           = 0      // No fan available
@@ -531,12 +717,12 @@ Access ID: 26
 Description: Type of interior lighting package installed
 Access Level: RepairAndMaintenance
 
-Current Values (5):
-  - BASE: 0 // Base lighting package
-  - PREMIUM: 1 // Premium lighting package
-  - PREMIUM_NO_POCKET_LIGHT: 2 // Premium lighting package with door pocket lights depopulated
-  - PREMIUM_WITH_RGB: 3 // Premium lighting package with RGB interior lighting elements
-  - PREMIUM_WITH_RGB_IP_ONLY: 4 // Premium lighting package with RGB interior lighting elements in instrument panel only
+Current Values (5 decoded, 0 unknown):
+  ✓ BASE                           = 0      // Base lighting package
+  ✓ PREMIUM                        = 1      // Premium lighting package
+  ✓ PREMIUM_NO_POCKET_LIGHT        = 2      // Premium lighting package with door pocket lights depopulated
+  ✓ PREMIUM_WITH_RGB               = 3      // Premium lighting package with RGB interior lighting elements
+  ✓ PREMIUM_WITH_RGB_IP_ONLY       = 4      // Premium lighting package with RGB interior lighting elements in instrument panel only
 
 All Possible Values (5):
   BASE                           = 0      // Base lighting package
@@ -552,11 +738,11 @@ Access ID: 106
 Description: Interior trim type for UI vehicle assets
 Access Level: Customer
 
-Current Values (4):
-  - BLACK: 0 // Black interior color with original center console
-  - WHITE: 1 // White interior color with original center console
-  - BLACK_CONSOLE_2: 2 // Black interior color with Console 2.0
-  - WHITE_CONSOLE_2: 3 // White interior color with Console 2.0
+Current Values (4 decoded, 0 unknown):
+  ✓ BLACK                          = 0      // Black interior color with original center console
+  ✓ WHITE                          = 1      // White interior color with original center console
+  ✓ BLACK_CONSOLE_2                = 2      // Black interior color with Console 2.0
+  ✓ WHITE_CONSOLE_2                = 3      // White interior color with Console 2.0
 
 All Possible Values (4):
   BLACK                          = 0      // Black interior color with original center console
@@ -570,11 +756,9 @@ CONFIG: intrusionSensorType
 Description: Type of intrusion sensor installed
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (2):
-  - [UNKNOWN HASH: 576ad32f85326132...]
-  - [UNKNOWN HASH: e60f72357402d9c7...]
-
-All Possible Values (0):
+Current Values (2 decoded, 0 unknown):
+  ✓ NOT_INSTALLED                  = 0    
+  ✓ VODAFONE                       = 1    
 
 ================================================================================
 CONFIG: lumbarECUType
@@ -583,14 +767,14 @@ Access ID: 32
 Description: Type of lumbar ECU installed
 Access Level: RepairAndMaintenance
 
-Current Values (7):
-  - NONE: 0 // No lumbar module ECUs present
-  - ALFMEIER: 1 // Alfmeier (or Gentherm) lumbar ECUs present in both front seats
-  - ALFMEIER_DRIVER_ONLY_LHD: 2 // Alfmeier (or Gentherm) lumbar ECU present in driver seat only, LHD
-  - ALFMEIER_DRIVER_ONLY_RHD: 3 // Alfmeier (or Gentherm) lumbar ECU present in driver seat only, RHD
-  - AEW: 4 // AEW lumbar ECUs present in both front seats
-  - AEW_DRIVER_ONLY_LHD: 5 // AEW lumbar ECU present in driver seat only, LHD
-  - AEW_DRIVER_ONLY_RHD: 6 // AEW lumbar ECU present in driver seat only, RHD
+Current Values (7 decoded, 0 unknown):
+  ✓ NONE                           = 0      // No lumbar module ECUs present
+  ✓ ALFMEIER                       = 1      // Alfmeier (or Gentherm) lumbar ECUs present in both front seats
+  ✓ ALFMEIER_DRIVER_ONLY_LHD       = 2      // Alfmeier (or Gentherm) lumbar ECU present in driver seat only, LHD
+  ✓ ALFMEIER_DRIVER_ONLY_RHD       = 3      // Alfmeier (or Gentherm) lumbar ECU present in driver seat only, RHD
+  ✓ AEW                            = 4      // AEW lumbar ECUs present in both front seats
+  ✓ AEW_DRIVER_ONLY_LHD            = 5      // AEW lumbar ECU present in driver seat only, LHD
+  ✓ AEW_DRIVER_ONLY_RHD            = 6      // AEW lumbar ECU present in driver seat only, RHD
 
 All Possible Values (7):
   NONE                           = 0      // No lumbar module ECUs present
@@ -608,21 +792,21 @@ Access ID: 66
 Description: Region specifier for navigation maps
 Access Level: Customer
 
-Current Values (14):
-  - US: 0 // United States
-  - EU: 1 // European Union
-  - NONE: 2 // None
-  - CN: 3 // China
-  - AU: 4 // Australia & New Zealand
-  - JP: 5 // Japan
-  - TW: 6 // Taiwan
-  - KR: 7 // South Korea
-  - ME: 8 // Middle East
-  - HK: 9 // Hong Kong
-  - MO: 10 // Macau
-  - SE: 11 // Southeast Asia
-  - IN: 12 // India
-  - LA: 13 // Latin America
+Current Values (14 decoded, 0 unknown):
+  ✓ US                             = 0      // United States
+  ✓ EU                             = 1      // European Union
+  ✓ NONE                           = 2      // None
+  ✓ CN                             = 3      // China
+  ✓ AU                             = 4      // Australia & New Zealand
+  ✓ JP                             = 5      // Japan
+  ✓ TW                             = 6      // Taiwan
+  ✓ KR                             = 7      // South Korea
+  ✓ ME                             = 8      // Middle East
+  ✓ HK                             = 9      // Hong Kong
+  ✓ MO                             = 10     // Macau
+  ✓ SE                             = 11     // Southeast Asia
+  ✓ IN                             = 12     // India
+  ✓ LA                             = 13     // Latin America
 
 All Possible Values (14):
   US                             = 0      // United States
@@ -641,41 +825,30 @@ All Possible Values (14):
   LA                             = 13     // Latin America
 
 ================================================================================
+CONFIG: memoryMirrors
+================================================================================
+Access ID: 24
+Description: Memory mirrors (position recall) are installed
+Access Level: 
+
+Current Values (2 decoded, 0 unknown):
+  ✓ NOT_INSTALLED                  = 0    
+  ✓ SMR                            = 1    
+
+All Possible Values (2):
+  NOT_INSTALLED                  = 0    
+  SMR                            = 1    
+
+================================================================================
 CONFIG: numberHVILNodes
 ================================================================================
 Description: Number of HVIL nodes
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (3):
-  - [UNKNOWN HASH: 6724c46ccedae465...]
-  - [UNKNOWN HASH: 6592866ed69962e9...]
-  - [UNKNOWN HASH: bcb3e66c33cbcf9f...]
-
-All Possible Values (0):
-
-================================================================================
-CONFIG: occupancyClassificationFeatureType
-================================================================================
-Description: Type of sensor used for occupancy classification features
-Access Level: RepairAndMaintenanceReadOnly
-
-Current Values (2):
-  - [UNKNOWN HASH: 6a9b6293e2f9b4ce...]
-  - [UNKNOWN HASH: a94d9b3d81d11021...]
-
-All Possible Values (0):
-
-================================================================================
-CONFIG: occupancyDetectionSourceRequest
-================================================================================
-Description: Type of sensor requested for use in occupancy detection features. Downstream components will apply additional conditions to qualify the data source
-Access Level: RepairAndMaintenanceReadOnly
-
-Current Values (2):
-  - [UNKNOWN HASH: a15e5126f65e578d...]
-  - [UNKNOWN HASH: 8ca6cb75798e207a...]
-
-All Possible Values (0):
+Current Values (3 decoded, 0 unknown):
+  ✓ HVIL_NODES_0                   = 0    
+  ✓ HVIL_NODES_2                   = 2    
+  ✓ HVIL_NODES_3                   = 3    
 
 ================================================================================
 CONFIG: packEnergy
@@ -684,10 +857,10 @@ Access ID: 14
 Description: Bucketed approximate energy capacity, mass and current output capability of battery pack. Some attributes may be overridden by packPerformanceDeviation. Used as input to determine user-facing badging via schema chosen by badgingVersion
 Access Level: RepairAndMaintenance
 
-Current Values (3):
-  - SR: 0 // 'Standard Range'
-  - LR: 1 // 'Long Range'
-  - MR: 2 // 'Mid Range'
+Current Values (3 decoded, 0 unknown):
+  ✓ SR                             = 0      // 'Standard Range'
+  ✓ LR                             = 1      // 'Long Range'
+  ✓ MR                             = 2      // 'Mid Range'
 
 All Possible Values (3):
   SR                             = 0      // 'Standard Range'
@@ -701,12 +874,12 @@ Access ID: 101
 Description: Deviation from standard pack mass associated with the vehicle's packEnergy configuration
 Access Level: RepairAndMaintenance
 
-Current Values (5):
-  - NO_DEVIATION: 0 // No deviation
-  - PACK_MASS_DEVIATION_1: 1 // CATL E1 pack mass increase
-  - PACK_POWER_DEVIATION_1: 2 // Used to uncork PM228 DU with M50F packs
-  - PACK_STRUCTURAL_DEVIATION_1: 3 // Used to identify SR Structural Packs; higher mass than non-structural packs with the same energy capacity
-  - PACK_MASS_DEVIATION_2: 4 // E3 depop pack; standard range, and weight between E1 packs and CATL packs
+Current Values (5 decoded, 0 unknown):
+  ✓ NO_DEVIATION                   = 0      // No deviation
+  ✓ PACK_MASS_DEVIATION_1          = 1      // CATL E1 pack mass increase
+  ✓ PACK_POWER_DEVIATION_1         = 2      // Used to uncork PM228 DU with M50F packs
+  ✓ PACK_STRUCTURAL_DEVIATION_1    = 3      // Used to identify SR Structural Packs; higher mass than non-structural packs with the same energy capacity
+  ✓ PACK_MASS_DEVIATION_2          = 4      // E3 depop pack; standard range, and weight between E1 packs and CATL packs
 
 All Possible Values (5):
   NO_DEVIATION                   = 0      // No deviation
@@ -722,10 +895,10 @@ Access ID: 91
 Description: Type of passenger airbag installed
 Access Level: RepairAndMaintenance
 
-Current Values (3):
-  - FULL_SUPPRESSION: 0 // Full suppression passenger airbag is installed
-  - SAFETY_VENT: 1 // Low risk airbag for use with passenger seats without occupant weight measurement
-  - EUROW: 2 // EU and ROW airbag type
+Current Values (3 decoded, 0 unknown):
+  ✓ FULL_SUPPRESSION               = 0      // Full suppression passenger airbag is installed
+  ✓ SAFETY_VENT                    = 1      // Low risk airbag for use with passenger seats without occupant weight measurement
+  ✓ EUROW                          = 2      // EU and ROW airbag type
 
 All Possible Values (3):
   FULL_SUPPRESSION               = 0      // Full suppression passenger airbag is installed
@@ -739,9 +912,9 @@ Access ID: 74
 Description: Type of occupancy sensor installed in the passenger seat
 Access Level: ResearchAndDevelopment
 
-Current Values (2):
-  - OCS: 0 // Discrete occupancy sensor ECU (OCS1P) installed
-  - RESISTIVE_PAD: 1 // Passive resistive pad installed, no discrete OCS ECU
+Current Values (2 decoded, 0 unknown):
+  ✓ OCS                            = 0      // Discrete occupancy sensor ECU (OCS1P) installed
+  ✓ RESISTIVE_PAD                  = 1      // Passive resistive pad installed, no discrete OCS ECU
 
 All Possible Values (2):
   OCS                            = 0      // Discrete occupancy sensor ECU (OCS1P) installed
@@ -754,15 +927,34 @@ Access ID: 44
 Description: Pedestrian warning sound configuration
 Access Level: ResearchAndDevelopment
 
-Current Values (3):
-  - NONE: 0 // No pedestrian warning sound available
-  - SPEAKER: 1 // Pedestrian warning sound emitted from discrete speaker
-  - EXT_SPEAKER_V2: 2 // Pedestrian warning sound emitted from 2nd generation exterior speaker
+Current Values (3 decoded, 0 unknown):
+  ✓ NONE                           = 0      // No pedestrian warning sound available
+  ✓ SPEAKER                        = 1      // Pedestrian warning sound emitted from discrete speaker
+  ✓ EXT_SPEAKER_V2                 = 2      // Pedestrian warning sound emitted from 2nd generation exterior speaker
 
 All Possible Values (3):
   NONE                           = 0      // No pedestrian warning sound available
   SPEAKER                        = 1      // Pedestrian warning sound emitted from discrete speaker
   EXT_SPEAKER_V2                 = 2      // Pedestrian warning sound emitted from 2nd generation exterior speaker
+
+================================================================================
+CONFIG: performancePackage
+================================================================================
+Access ID: 48
+Description: Type of vehicle performance package purchased
+Access Level: 
+
+Current Values (3 decoded, 2 unknown):
+  ✓ BASE                           = 0      // Base performance package for given hardware
+  ✓ PERFORMANCE                    = 1      // Supports Performance package for AWD Long Range Model 3
+  ✗ [UNKNOWN: 36327cf4e74d7255...]
+  ✓ BASE_PLUS                      = 3      // Supports Standard Plus package for RWD Standard Plus Model 3
+  ✗ [UNKNOWN: 9213aa5a93fbfe7f...]
+
+All Possible Values (3):
+  BASE                           = 0      // Base performance package for given hardware
+  PERFORMANCE                    = 1      // Supports Performance package for AWD Long Range Model 3
+  BASE_PLUS                      = 3      // Supports Standard Plus package for RWD Standard Plus Model 3
 
 ================================================================================
 CONFIG: plcSupportType
@@ -771,10 +963,10 @@ Access ID: 70
 Description: Type of support for PLC charging standards
 Access Level: Customer
 
-Current Values (3):
-  - NONE: 0 // No support for PLC
-  - ONBOARD_ADAPTER: 1 // Discrete PLCRLY ECU installed
-  - NATIVE_CHARGE_PORT: 2 // Charge Port has built-in support
+Current Values (3 decoded, 0 unknown):
+  ✓ NONE                           = 0      // No support for PLC
+  ✓ ONBOARD_ADAPTER                = 1      // Discrete PLCRLY ECU installed
+  ✓ NATIVE_CHARGE_PORT             = 2      // Charge Port has built-in support
 
 All Possible Values (3):
   NONE                           = 0      // No support for PLC
@@ -788,13 +980,66 @@ Access ID: 99
 Description: Type of power liftgate hardware installed
 Access Level: RepairAndMaintenance
 
-Current Values (2):
-  - NOT_INSTALLED: 0 // Manual liftgate installed
-  - TESLA_REV1: 1 // Powered liftgate installed
+Current Values (3 decoded, 0 unknown):
+  ✓ NOT_INSTALLED                  = 0      // Manual liftgate installed
+  ✓ TESLA_REV1                     = 1      // Powered liftgate installed
+  ✓ HUADE_REV1                     = 2      // Discrete Huade power liftgate ECU retrofitted
 
-All Possible Values (2):
+All Possible Values (3):
   NOT_INSTALLED                  = 0      // Manual liftgate installed
   TESLA_REV1                     = 1      // Powered liftgate installed
+  HUADE_REV1                     = 2      // Discrete Huade power liftgate ECU retrofitted
+
+================================================================================
+CONFIG: powerSteeringColumn
+================================================================================
+Access ID: 25
+Description: Powered steering column is installed
+Access Level: 
+
+Current Values (2 decoded, 0 unknown):
+  ✓ NOT_INSTALLED                  = 0    
+  ✓ TK                             = 1    
+
+All Possible Values (2):
+  NOT_INSTALLED                  = 0    
+  TK                             = 1    
+
+================================================================================
+CONFIG: ptcControlMode
+================================================================================
+Access ID: 130
+Description: Control mode for PTC heater to address temperature differences between front and rear ducts
+Access Level: RepairAndMaintenance
+
+Current Values (4 decoded, 0 unknown):
+  ✓ BASELINE                       = 0      // Baseline
+  ✓ SEQ_ROD                        = 1      // Sequential rod
+  ✓ MESH_INSTALLED                 = 2      // Service mesh retrofit
+  ✓ SEQ_ROD_LIMITED                = 3      // Sequential rod limited mode
+
+All Possible Values (4):
+  BASELINE                       = 0      // Baseline
+  SEQ_ROD                        = 1      // Sequential rod
+  MESH_INSTALLED                 = 2      // Service mesh retrofit
+  SEQ_ROD_LIMITED                = 3      // Sequential rod limited mode
+
+================================================================================
+CONFIG: radarHeaterType
+================================================================================
+Access ID: 97
+Description: Type of forward radar heater installed
+Access Level: 
+
+Current Values (1 decoded, 1 unknown):
+  ✓ NONE                           = 0      // No radar heater installed
+  ✗ [UNKNOWN: 37fb6b9fd770bf7b...]
+
+All Possible Values (4):
+  NONE                           = 0      // No radar heater installed
+  BECKER_THIN_3M                 = 1      // Becker radar heater installed
+  MODELS_BACKER_THIN_3M          = 3    
+  MODELX_BACKER_THIN_3M          = 4    
 
 ================================================================================
 CONFIG: rduCableType
@@ -802,11 +1047,9 @@ CONFIG: rduCableType
 Description: Type of rear drive unit cable installed
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (2):
-  - [UNKNOWN HASH: 469569ce62383680...]
-  - [UNKNOWN HASH: e757c5b0a00ff53a...]
-
-All Possible Values (0):
+Current Values (0 decoded, 2 unknown):
+  ✗ [UNKNOWN: 9a5c8a6e767f3751...]
+  ✗ [UNKNOWN: 0c0e7fca5f37989a...]
 
 ================================================================================
 CONFIG: rearFogLamps
@@ -815,9 +1058,9 @@ Access ID: 58
 Description: Rear fog lamp presence
 Access Level: RepairAndMaintenance
 
-Current Values (2):
-  - NOT_INSTALLED: 0
-  - INSTALLED: 1
+Current Values (2 decoded, 0 unknown):
+  ✓ NOT_INSTALLED                  = 0    
+  ✓ INSTALLED                      = 1    
 
 All Possible Values (2):
   NOT_INSTALLED                  = 0    
@@ -830,10 +1073,10 @@ Access ID: 67
 Description: Rear light fixture type
 Access Level: RepairAndMaintenance
 
-Current Values (3):
-  - NA: 0 // Tail light and one light for brake and turn signals
-  - EU_CN: 1 // Tail light, brake light, and turn signal light
-  - GLOBAL: 2 // Rear Global Lamp
+Current Values (3 decoded, 0 unknown):
+  ✓ NA                             = 0      // Tail light and one light for brake and turn signals
+  ✓ EU_CN                          = 1      // Tail light, brake light, and turn signal light
+  ✓ GLOBAL                         = 2      // Rear Global Lamp
 
 All Possible Values (3):
   NA                             = 0      // Tail light and one light for brake and turn signals
@@ -846,11 +1089,9 @@ CONFIG: rearSeatHeaters
 Description: Rear seat heaters are enabled for customer use
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (2):
-  - [UNKNOWN HASH: afdbae5c527eedec...]
-  - [UNKNOWN HASH: 1fe0ce8f79febb09...]
-
-All Possible Values (0):
+Current Values (2 decoded, 0 unknown):
+  ✓ NONE                           = 0      // None
+  ✓ KONGSBERG_LOW_POWER            = 1      // Kongsberg low power heaters
 
 ================================================================================
 CONFIG: refrigACLineType
@@ -859,10 +1100,10 @@ Access ID: 145
 Description: Refrigerant AC line type configuration
 Access Level: RepairAndMaintenance
 
-Current Values (3):
-  - UNLIMITED: 0 // Refrigerant line without resonance
-  - SAAA_LIMITED: 1 // SAAA refrigerant line
-  - CONTI_LIMITED: 2 // Conti refrigerant line
+Current Values (3 decoded, 0 unknown):
+  ✓ UNLIMITED                      = 0      // Refrigerant line without resonance
+  ✓ SAAA_LIMITED                   = 1      // SAAA refrigerant line
+  ✓ CONTI_LIMITED                  = 2      // Conti refrigerant line
 
 All Possible Values (3):
   UNLIMITED                      = 0      // Refrigerant line without resonance
@@ -876,10 +1117,10 @@ Access ID: 73
 Description: Type of refrigerant
 Access Level: RepairAndMaintenance
 
-Current Values (3):
-  - Default: 0
-  - R134A: 1
-  - R1234YF: 2
+Current Values (3 decoded, 0 unknown):
+  ✓ Default                        = 0    
+  ✓ R134A                          = 1    
+  ✓ R1234YF                        = 2    
 
 All Possible Values (3):
   Default                        = 0    
@@ -893,47 +1134,29 @@ Access ID: 16
 Description: Used to select correct RCM calibration for vehicle
 Access Level: RepairAndMaintenance
 
-Current Values (19):
-  - NA_M3: 21 // Model 3 North American calibration
-  - EUROW_ECALL_M3: 22 // Model 3 EU/Rest of World ECALL calibration
-  - EUROW_NO_ECALL_M3: 23 // Model 3 EU/Rest of World non-ECall calibration
-  - NA_MY: 32 // Model Y North American calibration
-  - EUROW_ECALL_MY: 33 // Model Y EU/Rest of World ECALL calibration
-  - EUROW_NO_ECALL_MY: 34 // Model Y EU/Rest of World Non-ECALL calibration
-  - NA_SP_MY: 35 // North American structural pack restraints calibration and configuration
-  - EUROW_SP_ECALL_MY: 36 // European structural pack restraints calibration and configuration
-  - EUROW_NO_ECALL_1_STG_DAB_MY: 37 // Rest of World with driver airbag with only a single stage inflator restraints configuration
-  - EUROW_ECALL_FSAB_1_STG_DAB_MY: 38 // Model Y EU/Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration
-  - EUROW_ECALL_1_STG_DAB_MY: 39 // Model Y EU/Rest of World ECALL calibration with only a single stage inflator restraints configuration
-  - NA_M3_OH: 121 // Model 3 Hydroxide North American calibration
-  - EUROW_ECALL_M3_OH: 122 // Model 3 Hydroxide EUROW with ECALL calibration
-  - ROW_NO_ECALL_M3_OH: 123 // Model 3 Hydroxide ROW no ECALL calibration
-  - ROW_NO_ECALL_M3_OH_PED_PRO: 124 // Model 3 Hydroxide ROW no ECALL calibration with PedPro support
-  - NA_FSAB_MY: 131 // Model Y North American FSAB calibration
-  - NA_SP_FSAB_MY: 132 // North American structural pack restraints calibration and configuration
-  - EUROW_NO_ECALL_FSAB_1_STAG_DAB_MY: 133 // Model Y Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration
-  - EUROW_SP_NO_ECALL_FSAB_1_STAG_DAB_MY: 134 // Rest of World structural pack ECALL calibration with farside airbag and only a single stage inflator restraints configuration
+Current Values (10 decoded, 0 unknown):
+  ✓ NA_M3                          = 21     // Model 3 North American calibration
+  ✓ EUROW_ECALL_M3                 = 22     // Model 3 EU/Rest of World ECALL calibration
+  ✓ EUROW_NO_ECALL_M3              = 23     // Model 3 EU/Rest of World non-ECall calibration
+  ✓ NA_MY                          = 32     // Model Y North American calibration
+  ✓ EUROW_ECALL_MY                 = 33     // Model Y EU/Rest of World ECALL calibration
+  ✓ EUROW_NO_ECALL_MY              = 34     // Model Y EU/Rest of World Non-ECALL calibration
+  ✓ NA_M3_OH                       = 121    // Model 3 Hydroxide North American calibration
+  ✓ EUROW_ECALL_M3_OH              = 122    // Model 3 Hydroxide EUROW with ECALL calibration
+  ✓ ROW_NO_ECALL_M3_OH             = 123    // Model 3 Hydroxide ROW no ECALL calibration
+  ✓ ROW_NO_ECALL_M3_OH_PED_PRO     = 124    // Model 3 Hydroxide ROW no ECALL calibration with PedPro support
 
-All Possible Values (19):
+All Possible Values (10):
   NA_M3                          = 21     // Model 3 North American calibration
   EUROW_ECALL_M3                 = 22     // Model 3 EU/Rest of World ECALL calibration
   EUROW_NO_ECALL_M3              = 23     // Model 3 EU/Rest of World non-ECall calibration
   NA_MY                          = 32     // Model Y North American calibration
   EUROW_ECALL_MY                 = 33     // Model Y EU/Rest of World ECALL calibration
   EUROW_NO_ECALL_MY              = 34     // Model Y EU/Rest of World Non-ECALL calibration
-  NA_SP_MY                       = 35     // North American structural pack restraints calibration and configuration
-  EUROW_SP_ECALL_MY              = 36     // European structural pack restraints calibration and configuration
-  EUROW_NO_ECALL_1_STG_DAB_MY    = 37     // Rest of World with driver airbag with only a single stage inflator restraints configuration
-  EUROW_ECALL_FSAB_1_STG_DAB_MY  = 38     // Model Y EU/Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration
-  EUROW_ECALL_1_STG_DAB_MY       = 39     // Model Y EU/Rest of World ECALL calibration with only a single stage inflator restraints configuration
   NA_M3_OH                       = 121    // Model 3 Hydroxide North American calibration
   EUROW_ECALL_M3_OH              = 122    // Model 3 Hydroxide EUROW with ECALL calibration
   ROW_NO_ECALL_M3_OH             = 123    // Model 3 Hydroxide ROW no ECALL calibration
   ROW_NO_ECALL_M3_OH_PED_PRO     = 124    // Model 3 Hydroxide ROW no ECALL calibration with PedPro support
-  NA_FSAB_MY                     = 131    // Model Y North American FSAB calibration
-  NA_SP_FSAB_MY                  = 132    // North American structural pack restraints calibration and configuration
-  EUROW_NO_ECALL_FSAB_1_STAG_DAB_MY = 133    // Model Y Rest of World ECALL calibration with farside airbag and only a single stage inflator restraints configuration
-  EUROW_SP_NO_ECALL_FSAB_1_STAG_DAB_MY = 134    // Rest of World structural pack ECALL calibration with farside airbag and only a single stage inflator restraints configuration
 
 ================================================================================
 CONFIG: rgbInteriorLightingEnabled
@@ -941,11 +1164,53 @@ CONFIG: rgbInteriorLightingEnabled
 Description: Controls whether RGB lighting functionality is available for use
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (2):
-  - [UNKNOWN HASH: d6aecc7daf88c76d...]
-  - [UNKNOWN HASH: ce497a2fa14427e2...]
+Current Values (0 decoded, 1 unknown):
+  ✗ [UNKNOWN: bcff7539ccbb2311...]
 
-All Possible Values (0):
+================================================================================
+CONFIG: rightHandDrive
+================================================================================
+Access ID: 19
+Description: Driver orientation
+Access Level: 
+
+Current Values (2 decoded, 0 unknown):
+  ✓ LEFT                           = 0    
+  ✓ RIGHT                          = 1    
+
+All Possible Values (2):
+  LEFT                           = 0    
+  RIGHT                          = 1    
+
+================================================================================
+CONFIG: roofGlassType
+================================================================================
+Access ID: 63
+Description: Type of roof glass installed
+Access Level: 
+
+Current Values (2 decoded, 0 unknown):
+  ✓ TSA3_PET                       = 0      // TSA3 glass with IR reflective PET layer
+  ✓ TSA5_NOPET                     = 1      // TSA5 glass with no IR relflective PET layer
+
+All Possible Values (2):
+  TSA3_PET                       = 0      // TSA3 glass with IR reflective PET layer
+  TSA5_NOPET                     = 1      // TSA5 glass with no IR relflective PET layer
+
+================================================================================
+CONFIG: roofType
+================================================================================
+Access ID: 20
+Description: Type of roof installed
+Access Level: 
+
+Current Values (1 decoded, 0 unknown):
+  ✓ FIXED_GLASS                    = 1    
+
+All Possible Values (3):
+  METAL                          = 0    
+  FIXED_GLASS                    = 1    
+  PANORAMIC                      = 2    
 
 ================================================================================
 CONFIG: spoilerType
@@ -954,9 +1219,9 @@ Access ID: 55
 Description: Type of spoiler installed
 Access Level: RepairAndMaintenance
 
-Current Values (2):
-  - NOT_INSTALLED: 0 // Rear spoiler is not installed
-  - PASSIVE: 1 // Passive spoiler is installed
+Current Values (2 decoded, 0 unknown):
+  ✓ NOT_INSTALLED                  = 0      // Rear spoiler is not installed
+  ✓ PASSIVE                        = 1      // Passive spoiler is installed
 
 All Possible Values (2):
   NOT_INSTALLED                  = 0      // Rear spoiler is not installed
@@ -969,10 +1234,10 @@ Access ID: 104
 Description: Type of steering column adjustment motor installed
 Access Level: RepairAndMaintenance
 
-Current Values (3):
-  - BOSCH: 0 // Bosch steering column is installed
-  - JE: 1 // JE supplied Shanghai localized steering column
-  - BOSCH_COMMON_TO_JE: 2 // Bosch-made motors commonized to the existing JE gear ratio
+Current Values (3 decoded, 0 unknown):
+  ✓ BOSCH                          = 0      // Bosch steering column is installed
+  ✓ JE                             = 1      // JE supplied Shanghai localized steering column
+  ✓ BOSCH_COMMON_TO_JE             = 2      // Bosch-made motors commonized to the existing JE gear ratio
 
 All Possible Values (3):
   BOSCH                          = 0      // Bosch steering column is installed
@@ -986,8 +1251,8 @@ Access ID: 158
 Description: Type of electronic control units for steering wheel controls input
 Access Level: RepairAndMaintenance
 
-Current Values (1):
-  - SINGLE: 0 // Single steering wheel controls ECU, which includes SOP Semi SWS
+Current Values (1 decoded, 0 unknown):
+  ✓ SINGLE                         = 0      // Single steering wheel controls ECU, which includes SOP Semi SWS
 
 All Possible Values (1):
   SINGLE                         = 0      // Single steering wheel controls ECU, which includes SOP Semi SWS
@@ -999,15 +1264,32 @@ Access ID: 118
 Description: Type of HVAC super manifold installed
 Access Level: RepairAndMaintenance
 
-Current Values (3):
-  - TYPE0: 0 // v1.0: legacy supermanifold
-  - TYPE1: 1 // v1.1: supermanifold with updated low side ac lines
-  - TYPE2: 2 // v2.0: supermanifold with improved pressure drop
+Current Values (3 decoded, 0 unknown):
+  ✓ TYPE0                          = 0      // v1.0: legacy supermanifold
+  ✓ TYPE1                          = 1      // v1.1: supermanifold with updated low side ac lines
+  ✓ TYPE2                          = 2      // v2.0: supermanifold with improved pressure drop
 
 All Possible Values (3):
   TYPE0                          = 0      // v1.0: legacy supermanifold
   TYPE1                          = 1      // v1.1: supermanifold with updated low side ac lines
   TYPE2                          = 2      // v2.0: supermanifold with improved pressure drop
+
+================================================================================
+CONFIG: superchargingAccess
+================================================================================
+Access ID: 30
+Description: Represents customer\'s access to the Tesla supercharging network.
+Access Level: 
+
+Current Values (3 decoded, 0 unknown):
+  ✓ NOT_ALLOWED                    = 0    
+  ✓ ALLOWED                        = 1    
+  ✓ PAY_AS_YOU_GO                  = 2    
+
+All Possible Values (3):
+  NOT_ALLOWED                    = 0    
+  ALLOWED                        = 1    
+  PAY_AS_YOU_GO                  = 2    
 
 ================================================================================
 CONFIG: tireType
@@ -1016,38 +1298,38 @@ Access ID: 62
 Description: Brand and Size of tires installed. UNKNOWN used for vehicles built before this config
 Access Level: RepairAndMaintenance
 
-Current Values (31):
-  - UNKNOWN: 0
-  - MICHELIN_ALL_SEASON_18: 1
-  - MICHELIN_SUMMER_18: 2
-  - HANKOOK_SUMMER_19: 3
-  - CONTI_ALL_SEASON_19: 4
-  - MICHELIN_SUMMER_20: 5
-  - PIRELLI_ALL_SEASON_20: 6
-  - GOODYEAR_ALL_TERRAIN_20: 7
-  - BRIDGESTONE_SUMMER_18: 16
-  - GOODYEAR_ALL_SEASON_20: 17
-  - PIRELLI_SUMMER_21: 18
-  - MICHELIN_ALL_SEASON_21: 19
-  - PIRELLI_SUMMER_19: 20
-  - PIRELLI_SUMMER_20: 21
-  - MICHELIN_SUMMER_21: 22
-  - CONTI_ALL_SEASON_20: 23
-  - CONTI_SUMMER_22: 24
-  - PIRELLI_ALL_SEASON_22: 25
-  - HANKOOK_ALL_SEASON_18: 26
-  - GOODYEAR_ALL_SEASON_21: 27
-  - PIRELLI_ALL_SEASON_19: 28
-  - HANKOOK_ALL_SEASON_21: 29
-  - KUMHO_ALL_SEASON_19: 30
-  - GOODYEAR_SUMMER_19: 31
-  - HANKOOK_ALL_SEASON_20: 32
-  - BRIDGESTONE_ALL_SEASON_20: 33
-  - CONTI_SUMMER_19: 34
-  - GOODYEAR_ALL_SEASON_18: 35
-  - KUMHO_ALL_SEASON_18: 36
-  - GITI_SUMMER_18: 37
-  - HANKOOK_SUMMER_18: 38
+Current Values (31 decoded, 0 unknown):
+  ✓ UNKNOWN                        = 0    
+  ✓ MICHELIN_ALL_SEASON_18         = 1    
+  ✓ MICHELIN_SUMMER_18             = 2    
+  ✓ HANKOOK_SUMMER_19              = 3    
+  ✓ CONTI_ALL_SEASON_19            = 4    
+  ✓ MICHELIN_SUMMER_20             = 5    
+  ✓ PIRELLI_ALL_SEASON_20          = 6    
+  ✓ GOODYEAR_ALL_TERRAIN_20        = 7    
+  ✓ BRIDGESTONE_SUMMER_18          = 16   
+  ✓ GOODYEAR_ALL_SEASON_20         = 17   
+  ✓ PIRELLI_SUMMER_21              = 18   
+  ✓ MICHELIN_ALL_SEASON_21         = 19   
+  ✓ PIRELLI_SUMMER_19              = 20   
+  ✓ PIRELLI_SUMMER_20              = 21   
+  ✓ MICHELIN_SUMMER_21             = 22   
+  ✓ CONTI_ALL_SEASON_20            = 23   
+  ✓ CONTI_SUMMER_22                = 24   
+  ✓ PIRELLI_ALL_SEASON_22          = 25   
+  ✓ HANKOOK_ALL_SEASON_18          = 26   
+  ✓ GOODYEAR_ALL_SEASON_21         = 27   
+  ✓ PIRELLI_ALL_SEASON_19          = 28   
+  ✓ HANKOOK_ALL_SEASON_21          = 29   
+  ✓ KUMHO_ALL_SEASON_19            = 30   
+  ✓ GOODYEAR_SUMMER_19             = 31   
+  ✓ HANKOOK_ALL_SEASON_20          = 32   
+  ✓ BRIDGESTONE_ALL_SEASON_20      = 33   
+  ✓ CONTI_SUMMER_19                = 34   
+  ✓ GOODYEAR_ALL_SEASON_18         = 35   
+  ✓ KUMHO_ALL_SEASON_18            = 36   
+  ✓ GITI_SUMMER_18                 = 37   
+  ✓ HANKOOK_SUMMER_18              = 38   
 
 All Possible Values (31):
   UNKNOWN                        = 0    
@@ -1089,10 +1371,10 @@ Access ID: 72
 Description: Tow package hardware is installed
 Access Level: RepairAndMaintenance
 
-Current Values (3):
-  - NONE: 0 // No tow capabilities
-  - TESLA_REV1: 1 // Discrete Trailer Controller ECU installed
-  - TESLA_REV2: 2 // Trailer Controller with higher bus voltage support for Li-Ion vehicles installed
+Current Values (3 decoded, 0 unknown):
+  ✓ NONE                           = 0      // No tow capabilities
+  ✓ TESLA_REV1                     = 1      // Discrete Trailer Controller ECU installed
+  ✓ TESLA_REV2                     = 2      // Trailer Controller with higher bus voltage support for Li-Ion vehicles installed
 
 All Possible Values (3):
   NONE                           = 0      // No tow capabilities
@@ -1106,10 +1388,12 @@ Access ID: 76
 Description: Type of Tire Pressure Monitoring System (TPMS)
 Access Level: RepairAndMaintenance
 
-Current Values (1):
-  - TESLA_BLE: 1 // Tesla BLE transponders provide TPMS functionality
+Current Values (2 decoded, 0 unknown):
+  ✓ CONTI_2                        = 0      // Discrete TPMS ECU from Continental is installed
+  ✓ TESLA_BLE                      = 1      // Tesla BLE transponders provide TPMS functionality
 
-All Possible Values (1):
+All Possible Values (2):
+  CONTI_2                        = 0      // Discrete TPMS ECU from Continental is installed
   TESLA_BLE                      = 1      // Tesla BLE transponders provide TPMS functionality
 
 ================================================================================
@@ -1119,11 +1403,11 @@ Access ID: 96
 Description: Type of 12v battery installed
 Access Level: Customer
 
-Current Values (4):
-  - ATLASBX_B24_FLOODED: 0 // Atlas BX flooded lead-acid battery
-  - CLARIOS_B24_FLOODED: 1 // Clarios flooded lead-acid battery
-  - CATL_LI_ION: 2 // CATL lithium-ion battery
-  - TESLA_16V_LI_ION: 3 // Tesla 16V lithium-ion battery
+Current Values (4 decoded, 0 unknown):
+  ✓ ATLASBX_B24_FLOODED            = 0      // Atlas BX flooded lead-acid battery
+  ✓ CLARIOS_B24_FLOODED            = 1      // Clarios flooded lead-acid battery
+  ✓ CATL_LI_ION                    = 2      // CATL lithium-ion battery
+  ✓ TESLA_16V_LI_ION               = 3      // Tesla 16V lithium-ion battery
 
 All Possible Values (4):
   ATLASBX_B24_FLOODED            = 0      // Atlas BX flooded lead-acid battery
@@ -1132,14 +1416,29 @@ All Possible Values (4):
   TESLA_16V_LI_ION               = 3      // Tesla 16V lithium-ion battery
 
 ================================================================================
+CONFIG: vdcType
+================================================================================
+Access ID: 21
+Description: Vehicle Dynamic Control type
+Access Level: 
+
+Current Values (2 decoded, 0 unknown):
+  ✓ BOSCH_VDC                      = 0    
+  ✓ TESLA_VDC                      = 1    
+
+All Possible Values (2):
+  BOSCH_VDC                      = 0    
+  TESLA_VDC                      = 1    
+
+================================================================================
 CONFIG: visorLightType
 ================================================================================
 Access ID: 175
 Description: Type of sun visor vanity mirror light installed
 Access Level: RepairAndMaintenance
 
-Current Values (1):
-  - NON_DIMMABLE: 0 // Sun visor mirror light is non-dimmable
+Current Values (1 decoded, 0 unknown):
+  ✓ NON_DIMMABLE                   = 0      // Sun visor mirror light is non-dimmable
 
 All Possible Values (1):
   NON_DIMMABLE                   = 0      // Sun visor mirror light is non-dimmable
@@ -1151,19 +1450,37 @@ Access ID: 41
 Description: Type of wheels installed
 Access Level: Customer
 
-Current Values (5):
-  - INDUCTION_20_BLACK: 15 // Induction 20in Armor Black
-  - UBERTURBINE_21_BLACK: 16 // Uber Turbine 21in Armor Black
-  - APOLLO_19_SILVER: 17 // Apollo 19in Sonic Silver, AKA MY Gemini wheels
-  - APOLLO_19_SILVER_CAP_KIT: 20 // Apollo 19 inch wheels with wheel cap kit/aero cover removed. AKA MY Gemini wheels
-  - APOLLO_19_METALLIC_SHADOW: 37 // Apollo 19 inch wheels in metallic shadow color
+Current Values (14 decoded, 0 unknown):
+  ✓ PINWHEEL_18                    = 0      // Pinwheel 18 inch wheels
+  ✓ STILETTO_19                    = 1      // Stiletto 19 inch wheels, square config
+  ✓ STILETTO_20                    = 2      // Stiletto 20 inch wheels, square config
+  ✓ STILETTO_20_DARK_STAGGERED     = 3      // Stiletto 20 inch dark/Gunpowder wheels, staggered config
+  ✓ GEMINI_19_SQUARE               = 4      // Gemini 19 inch wheels, square config
+  ✓ GEMINI_19_STAGGERED            = 5      // Gemini 19 inch wheels, staggered config
+  ✓ STILETTO_20_DARK_SQUARE        = 14     // Stiletto Dark/Gunpowder 20 inch square fitment
+  ✓ PINWHEEL_18_CAP_KIT            = 18     // Pinwheel 18 inch wheels with wheel cap kit/aero cover removed
+  ✓ ZEROG_20_GUNPOWDER             = 19     // Zero-G 20 inch Gunpowder wheels
+  ✓ STILETTO_REFRESH_19            = 21     // Stiletto Refresh 19in wheels for Hydroxide
+  ✓ PINWHEEL_REFRESH_18            = 22     // Pinwheel Refresh 18in wheels for Hydroxide
+  ✓ UBERTURBINE_20_GUNPOWDER       = 23     // Uberturbine 20in wheels for Hydroxide
+  ✓ PINWHEEL_REFRESH_18_CAP_KIT    = 24     // Pinwheel Refresh with cap kit/no aero cover 18in wheels for Hydroxide
+  ✓ ZEROG_19_GUNPOWDER             = 27     // Zero-G 19in Gunpowder for Model 3
 
-All Possible Values (5):
-  INDUCTION_20_BLACK             = 15     // Induction 20in Armor Black
-  UBERTURBINE_21_BLACK           = 16     // Uber Turbine 21in Armor Black
-  APOLLO_19_SILVER               = 17     // Apollo 19in Sonic Silver, AKA MY Gemini wheels
-  APOLLO_19_SILVER_CAP_KIT       = 20     // Apollo 19 inch wheels with wheel cap kit/aero cover removed. AKA MY Gemini wheels
-  APOLLO_19_METALLIC_SHADOW      = 37     // Apollo 19 inch wheels in metallic shadow color
+All Possible Values (14):
+  PINWHEEL_18                    = 0      // Pinwheel 18 inch wheels
+  STILETTO_19                    = 1      // Stiletto 19 inch wheels, square config
+  STILETTO_20                    = 2      // Stiletto 20 inch wheels, square config
+  STILETTO_20_DARK_STAGGERED     = 3      // Stiletto 20 inch dark/Gunpowder wheels, staggered config
+  GEMINI_19_SQUARE               = 4      // Gemini 19 inch wheels, square config
+  GEMINI_19_STAGGERED            = 5      // Gemini 19 inch wheels, staggered config
+  STILETTO_20_DARK_SQUARE        = 14     // Stiletto Dark/Gunpowder 20 inch square fitment
+  PINWHEEL_18_CAP_KIT            = 18     // Pinwheel 18 inch wheels with wheel cap kit/aero cover removed
+  ZEROG_20_GUNPOWDER             = 19     // Zero-G 20 inch Gunpowder wheels
+  STILETTO_REFRESH_19            = 21     // Stiletto Refresh 19in wheels for Hydroxide
+  PINWHEEL_REFRESH_18            = 22     // Pinwheel Refresh 18in wheels for Hydroxide
+  UBERTURBINE_20_GUNPOWDER       = 23     // Uberturbine 20in wheels for Hydroxide
+  PINWHEEL_REFRESH_18_CAP_KIT    = 24     // Pinwheel Refresh with cap kit/no aero cover 18in wheels for Hydroxide
+  ZEROG_19_GUNPOWDER             = 27     // Zero-G 19in Gunpowder for Model 3
 
 ================================================================================
 CONFIG: wiperMotorType
@@ -1172,9 +1489,9 @@ Access ID: 157
 Description: Type of windshield wiper motor installed in vehicle
 Access Level: RepairAndMaintenance
 
-Current Values (2):
-  - NOT_UPDATEABLE: 0 // Bosch motor, or SHB motor without bootloader
-  - SHB: 1 // SHB wiper motor with bootloader
+Current Values (2 decoded, 0 unknown):
+  ✓ NOT_UPDATEABLE                 = 0      // Bosch motor, or SHB motor without bootloader
+  ✓ SHB                            = 1      // SHB wiper motor with bootloader
 
 All Possible Values (2):
   NOT_UPDATEABLE                 = 0      // Bosch motor, or SHB motor without bootloader
@@ -1186,8 +1503,6 @@ CONFIG: wirelessPhoneChargerType
 Description: Type of inductive phone charger installed
 Access Level: RepairAndMaintenanceReadOnly
 
-Current Values (2):
-  - [UNKNOWN HASH: 19fa35f6d3ec845d...]
-  - [UNKNOWN HASH: 554ab9a3cb0f0903...]
-
-All Possible Values (0):
+Current Values (2 decoded, 0 unknown):
+  ✓ NONE_OR_USB                    = 0      // Charger either not installed or USB type
+  ✓ FRONT_LIN                      = 1      // LIN based inductive charger
