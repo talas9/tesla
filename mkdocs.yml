@@ -1,5 +1,5 @@
-site_name: Tesla
-site_description: Comprehensive security analysis of Tesla Model S/X/3/Y MCU2 and Gateway
+site_name: Tesla Security Research
+site_description: Comprehensive security analysis of Tesla Model S/X/3/Y MCU2, Gateway, and Odin
 site_author: Security Researcher
 site_url: https://talas9.github.io/tesla/
 
@@ -28,13 +28,10 @@ theme:
   features:
     - navigation.instant
     - navigation.tracking
-    - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
     - navigation.top
     - toc.follow
-    - toc.integrate
     - search.suggest
     - search.highlight
     - search.share
@@ -73,49 +70,10 @@ extra:
       link: https://github.com/talas9/tesla
   generator: false
 
+# Single consolidated navigation - all docs accessible from INDEX.md
 nav:
   - Home: README.md
   - 'Complete Index': INDEX.md
-  - 'Core Research':
-    - 'Master Cross-Reference': core/00-master-cross-reference.md
-    - 'Gateway CAN Flood Exploit': core/02-gateway-can-flood-exploit.md
-    - 'Certificate Recovery': core/03-certificate-recovery-orphan-cars.md
-    - 'Network Topology': core/04-network-ports-firewall.md
-    - 'USB Firmware Update': core/06-usb-firmware-update.md
-    - 'USB Map Installation': core/07-usb-map-installation.md
-    - 'Key Programming': core/08-key-programming-vcsec.md
-    - 'OTA Protocol': core/13-ota-handshake-protocol.md
-  - 'Gateway Security':
-    - '🔒 CRITICAL: Secure Configs': gateway/81-gateway-secure-configs-CRITICAL.md
-    - '✅ Complete Flash Dump': gateway/80-ryzen-gateway-flash-COMPLETE.md
-    - '🔓 Odin Database': gateway/82-odin-routines-database-UNHASHED.md
-    - '🎯 Config Metadata Table': gateway/92-config-metadata-table-FOUND.md
-    - 'Odin Config API': gateway/83-odin-config-api-analysis.md
-    - 'gw-diag Commands': gateway/84-gw-diag-command-reference.md
-    - 'Gateway Strings': gateway/88-gateway-strings-analysis.md
-    - 'PowerPC Disassembly': gateway/91-gateway-powerpc-disassembly-summary.md
-    - 'All Functions': gateway/94-gateway-ALL-FUNCTIONS.md
-    - 'CAN Messages Complete': gateway/95-gateway-CAN-MESSAGES-COMPLETE.md
-    - 'All Data Tables': gateway/96-gateway-DATA-TABLES.md
-    - 'Memory Map': gateway/97-gateway-MEMORY-MAP.md
-    - 'SHA-256 Usage': gateway/98-SHA-256-USAGE-ANALYSIS.md
-    - 'Firmware Metadata': gateway/99-gateway-FIRMWARE-METADATA.md
-    - 'SPC Chip Replacement': gateway/55-gateway-spc-chip-replacement.md
-  - 'MCU Research':
-    - 'VCSEC Key Programming': mcu/24-vcsec-key-programming.md
-    - 'Boot Sequence': mcu/25-mcu-boot-sequence.md
-    - 'CAN Flood Timing': mcu/28-can-flood-refined-timing.md
-    - 'AppArmor Sandbox': mcu/31-apparmor-sandbox-security.md
-  - 'APE (Autopilot)':
-    - 'Services Documentation': ape/APE-SERVICES.md
-    - 'Network Configuration': ape/APE-NETWORK-CONFIG.md
-    - 'Firmware Extraction': ape/APE-FIRMWARE-EXTRACTION.md
-  - 'Evidence & Audit':
-    - 'Evidence Audit': evidence/59-EVIDENCE-AUDIT.md
-    - 'Verification Status': VERIFICATION-STATUS.md
-  - 'Tools & Scripts':
-    - 'Gateway Factory Gate': tools/56-gateway-factory-gate-REAL.md
-    - 'Download Scripts': SCRIPTS.md
 
 extra_css:
   - stylesheets/extra.css

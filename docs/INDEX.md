@@ -1,8 +1,8 @@
 # Tesla MCU2 Security Research - Complete Index
 
-**Last Updated:** 2026-02-03  
-**Total Documents:** 111 markdown files  
-**Status:** Research complete, organized structure
+**Last Updated:** 2026-02-07  
+**Total Documents:** 114 markdown files  
+**Status:** Research complete + Odin decompilation
 
 ---
 
@@ -411,3 +411,70 @@ This research is complete but can be extended. Areas for future work:
 ---
 
 *Last updated: 2026-02-03 07:40 UTC*
+
+---
+
+## 🔧 Odin Diagnostic System (NEW)
+
+### Odin Tools & Documentation
+- [ODIN-TOOLS.md](tools/ODIN-TOOLS.md) - Complete tools guide (config decoder, ODJ decryptor)
+- [CONFIG-DECODER-COMPLETE.md](gateway/CONFIG-DECODER-COMPLETE.md) - SHA256 config hashing algorithm
+- [SCRIPTS.md](SCRIPTS.md) - All analysis scripts including Odin tools
+
+### Odin Source Code (Decompiled)
+**Location:** `/odin/old-firmware/src/` - 262 Python files (8.8MB)
+- **Python 3.6** from Feb 2021 firmware
+- **97% success rate** (1312/1348 files decompiled)
+- Complete modules: CAN, UDS, ISO-TP, Gateway, Security Algorithms
+
+**Key Modules:**
+- `core/uds/security_algorithms/tesla.py` - tesla_hash (XOR 0x35)
+- `core/uds/security_algorithms/pektron.py` - pektron_hash (LFSR)
+- `platforms/gen3/gateway.py` - TCP localhost:10001 protocol
+- `platforms/gen3/config_options.py` - SHA256 config decoder
+
+### Odin Data Files (Decrypted)
+**Location:** `/odin/latest/data/`
+
+**Model 3 ODJ Files (34 files):**
+- `RCM2_custom.odj.json` - VIN write routines (LEARN_VIN, VIN_RESET)
+- `DAS.odj.json` - Driver Assist System diagnostics
+- `HVBMS.odj.json` - High Voltage Battery Management
+- `EPB3.odj.json` - Electronic Parking Brake
+- [+30 more ECU diagnostic files]
+
+**Model Y ODJ Files (34 files):**
+- Complete diagnostic routines for Model Y
+- Same structure as Model 3
+
+### Config Databases (Decoded)
+**Location:** `/data/configs/`
+- `config-options-FULL-DECODED.json` - 299/308 values decoded (97%)
+- `config-options-FULL-DECODED.txt` - Human-readable format
+- Model 3 + Model Y configs included
+
+**Decoded Configs Include:**
+- `packEnergy` (ID 14) - Battery capacity (SR/LR/MR)
+- `factoryMode` (ID 15) - Factory mode enable/disable
+- `dasHw` (ID 59) - FSD hardware (HW2.5/3/4)
+- `chassisType` - MODEL_3_CHASSIS, MODEL_Y_CHASSIS
+- `exteriorColor` - Including new colors (MIDNIGHT_CHERRY_RED, QUICKSILVER, ABYSS_BLUE)
+- [+60 more configs]
+
+### Odin Scripts (New)
+**Location:** `/scripts/`
+1. **decode_gateway_config.py** - Decode SHA256-hashed config files
+2. **decrypt_odj.py** - Decrypt Fernet-encrypted ODJ files
+3. **bruteforce_unknown_hashes.py** - Find unknown enum values
+
+**Decryption Details:**
+- **ODJ Encryption:** Fernet (AES-128-CBC + HMAC-SHA256)
+- **Key Derivation:** PBKDF2-HMAC-SHA256 (123456 iterations)
+- **Password:** `cmftubxi7wlvmh1wmbzz00vf1ziqezf6`
+- **Config Hashing:** SHA256(key+salt) and SHA256(value+key+salt)
+
+### Research Documentation
+- `/odin/README.md` - Odin overview and structure
+- `/odin/old-firmware/README.md` - Decompiled source documentation
+- `/ODIN-RESEARCH-COMPLETE.md` - Complete research summary
+
