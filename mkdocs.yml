@@ -1,7 +1,7 @@
 site_name: Tesla Security Research
-site_description: Comprehensive security analysis of Tesla Model S/X/3/Y MCU2, Gateway, and Odin
-site_author: Security Researcher
-site_url: https://talas9.github.io/tesla/
+site_description: Complete reverse engineering of Tesla Gateway ECU and MCU firmware
+site_author: Security Research Team
+site_url: https://talas9.github.io/tesla
 
 repo_name: talas9/tesla
 repo_url: https://github.com/talas9/tesla
@@ -13,67 +13,69 @@ theme:
     - scheme: slate
       primary: red
       accent: red
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-    - scheme: default
-      primary: red
-      accent: red
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-  font:
-    text: Roboto
-    code: Roboto Mono
   features:
     - navigation.instant
     - navigation.tracking
     - navigation.sections
     - navigation.expand
-    - navigation.top
     - toc.follow
     - search.suggest
     - search.highlight
-    - search.share
     - content.code.copy
-    - content.code.annotate
 
 plugins:
-  - search:
-      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])'
+  - search
   - minify:
       minify_html: true
 
 markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.details
   - admonition
+  - codehilite
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
   - tables
-  - attr_list
-  - md_in_html
-  - def_list
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Home: index.md
+  - Quick Start: quickstart.md
+  
+  - Overview:
+    - Introduction: 1-overview/README.md
+    - Key Findings: 1-overview/key-findings.md
+    - Evidence Quality: 1-overview/evidence-quality.md
+  
+  - Gateway ECU:
+    - Overview: 2-gateway/README.md
+    - Architecture: 2-gateway/architecture.md
+    - Config System: 2-gateway/config-system.md
+    - Security Model: 2-gateway/security-model.md
+    - UDP Protocol: 2-gateway/udp-protocol.md
+    - Firmware Analysis: 2-gateway/firmware-analysis.md
+  
+  - Odin Diagnostic Tool:
+    - Overview: 3-odin/README.md
+    - Config Decoder: 3-odin/config-decoder.md
+    - ODJ Encryption: 3-odin/odj-encryption.md
+    - Routines Database: 3-odin/routines-database.md
+  
+  - Firmware:
+    - ICE Platform (Model 3/Y):
+      - USB Updates: 4-firmware/ice/usb-updates.md
+  
+  - Attack Research:
+    - Overview: 5-attacks/README.md
+    - CAN Flood: 5-attacks/can-flood.md
+    - VIN Write: 5-attacks/vin-write.md
+    - Service Mode: 5-attacks/service-mode.md
+    - Certificate Recovery: 5-attacks/certificate-recovery.md
+  
+  - Tools & Scripts:
+    - Overview: 6-tools/README.md
 
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/talas9/tesla
-  generator: false
-
-# Single consolidated navigation - all docs accessible from INDEX.md
-nav:
-  - Home: README.md
-  - 'Complete Index': INDEX.md
-
-extra_css:
-  - stylesheets/extra.css
